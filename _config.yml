@@ -1,2 +1,9 @@
 title: M.T.Hallworth
+lsi:         false
+    highlighter:  rouge
+    permalink:   date
+    name: Michael T. Hallworth
+    description: mhallwor.github.io
+    url: http://mhallwor.github.io
+safe: true
 theme: jekyll-theme-cayman
