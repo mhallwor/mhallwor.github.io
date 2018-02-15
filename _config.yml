@@ -1,8 +1,43 @@
 title: "M.T.Hallworth"
+
+owner: 		
+  name: Michael T. Hallworth
+  avatar: "https://avatars2.githubusercontent.com/u/8331242?s=460&v=4"
+  bio: ""
+  email: "mhallworth@google.com"
+  twitter: "MTHallworth"
+  github: "MTHallworth"
+
 lsi:
     highlighter:  rouge
     permalink:   date
     name: Michael T. Hallworth
     description: mhallwor.github.io
     url: http://mhallwor.github.io
-theme: jekyll-theme-cayman
+	
+timezone:    America/Boston
+
+future:      true
+# turning off pygments for the time being
+#pygments:    true
+#highlighter: pygments
+markdown:    kramdown
+#markdown: redcarpet
+redcarpet:
+  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
+
+kramdown:
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..2
+  enable_coderay: false
+
+  coderay:
+    coderay_line_numbers: 
+    coderay_line_numbers_start: 1
+    coderay_tab_width: 4
+    coderay_bold_every: 10
+	coderay_css: class
+	
+theme: minimal-mistakes-jekyll
