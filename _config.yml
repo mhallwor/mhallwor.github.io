@@ -38,4 +38,5 @@ kramdown:
     coderay_tab_width: 4
     coderay_bold_every: 10
 coderay_css: class
+gem "github-pages", group: :jekyll_plugins			
 theme: minimal-mistakes-jekyll
