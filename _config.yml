@@ -14,7 +14,6 @@ lsi:
     name: Michael T. Hallworth
     description: mhallwor.github.io
     url: http://mhallwor.github.io
-	
 timezone:    America/Boston
 
 future:      true
@@ -38,6 +37,5 @@ kramdown:
     coderay_line_numbers_start: 1
     coderay_tab_width: 4
     coderay_bold_every: 10
-	coderay_css: class
-	
+coderay_css: class
 theme: minimal-mistakes-jekyll
