@@ -13,10 +13,10 @@ title                    : "Michael T. Hallworth"
 title_separator          : "-"
 name                     : "Michael T. Hallworth"
 description              : "personal website"
-url                      : mhallwor.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+url                      : "https://mhallwor.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "MTHallworth" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
-teaser                   : "assets/images/OVENmove.jpg" # path of fallback teaser image, e.g. "/assets/images/500x300.png"
+teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
   breadcrumbs            : # true, false (default)
 words_per_minute         : 200
 comments:
