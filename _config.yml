@@ -15,8 +15,8 @@ name                     : "Michael T. Hallworth"
 description              : "personal website"
 url                      : mhallwor.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
-repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
-teaser                   : /assets/images/OVENmove.jpg # path of fallback teaser image, e.g. "/assets/images/500x300.png"
+repository               : "MTHallworth" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
+teaser                   : "/assets/images/OVENmove.jpg" # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
 comments:
@@ -62,7 +62,7 @@ naver_site_verification  :
 
 # Social Sharing
 twitter:
-  username               :MTHallworth
+  username               :"@MTHallworth"
 facebook:
   username               :
   app_id                 :
@@ -87,8 +87,8 @@ author:
   name             : "Michael T. Hallworth"
   avatar           : "/assets/images/avatar.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "Postdoctoral fellow"
-  location         : ""
-  email            :
+  location         : "Newark, Delaware"
+  email            : "mhallworth@gmail.com"
   uri              :
   home             : # null (default), "absolute or relative url to link to author home"
   bitbucket        :
@@ -97,7 +97,7 @@ author:
   flickr           :
   facebook         :
   foursquare       :
-  github           :
+  github           : "MTHallworth"
   gitlab           :
   google_plus      :
   keybase          :
@@ -108,8 +108,8 @@ author:
   soundcloud       :
   stackoverflow    : # "123456/username" (the last part of your profile url, e.g. https://stackoverflow.com/users/123456/username)
   steam            : # "steamId" (the last part of your profile url, e.g. https://steamcommunity.com/id/steamId/)
-  tumblr           : "https://twitter.com/MTHallworth"
-  twitter          :
+  tumblr           : 
+  twitter          : "https://twitter.com/MTHallworth"
   vine             :
   weibo            :
   xing             :
