@@ -7,6 +7,7 @@ defaults:
     values:
       layout: single
       author_profile: true
+permalink: /makeRaster/
 ---
 working with raster data 
 
