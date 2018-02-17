@@ -4,9 +4,7 @@ title: Rasters
 permalink: _pages/makeRaster/
 ---
 {% include toc %}
-<div style="background-color:lightblue;">
-
-## R Markdown
+# Quick trial
 
 ```{r}
 # Generate random variables #
@@ -18,3 +16,9 @@ coordinates <- sp::SpatialPoints(cbind(x,y))
 plot(coordinates,pch = 19)
 ```
 
+## Does this work
+```{r}
+r <- raster(ncol = 10, nrow = 10)
+r[] <- 1:10
+plot(r)
+```
