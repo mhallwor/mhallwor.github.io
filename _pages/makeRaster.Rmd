@@ -5,13 +5,14 @@ permalink: _pages/makeRaster/
 ---
 {% include toc %}
 <div style="background-color:lightblue;">
+
 ## R Markdown
 
 ```{r}
 # Generate random variables #
 library(raster)
 
-x <- runif(100,-100,-101)
+x <- runif(100,min = -101, max = -100)
 y <- runif(100, 43,44)
 coordinates <- sp::SpatialPoints(cbind(x,y))
 plot(coordinates,pch = 19)
