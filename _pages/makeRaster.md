@@ -1,4 +1,4 @@
-{% include toc.html %}
+true
 
 R Markdown
 ----------

@@ -1,15 +1,14 @@
 ---
 layout: single
 title: Rasters
-
+toc: true
 permalink: _pages/makeRaster/
 output: 
   md_document:
     variant: markdown_github
 ---
-{% include toc.html %}
 
-<div style="background-color:linen;">
+<div style="background-color:blue;">
 
 ## R Markdown
 
