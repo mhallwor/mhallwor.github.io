@@ -1,10 +1,8 @@
 {% include toc %}
-<p>
 R Markdown
 ----------
 
 This tutorial will walk you through how to do some really awesome things in R.
-</p>
 
 ``` r
 summary(cars)
