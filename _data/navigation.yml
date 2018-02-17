@@ -2,7 +2,7 @@
 main:
   - title: "GitHub"
     url: https://github.com/MTHallworth
-  - title: "Spatial Workshop"
+  - title: "Rasters"
     url: /makeRaster/
   # - title: "Sample Posts"
   #   url: /year-archive/
