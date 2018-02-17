@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Rasters
-permalink: /makeRaster/
+permalink: _pages/makeRaster/
 ---
 <div id="objectives" markdown="1">
 
