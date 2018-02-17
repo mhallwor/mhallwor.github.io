@@ -6,7 +6,7 @@
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
-div#objectives{
+#objectives{
 	background-color: #d4eff7;
 	padding:1.3em;
 	font-size:.9em;
