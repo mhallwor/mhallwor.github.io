@@ -1,0 +1,11 @@
+---
+---
+
+@import "{{ site.theme }}";
+div#cat_tag_content, div#objectives {
+	background-color:#E3E8E8;
+	padding:1.3em;
+	font-size:.9em;
+	box-shadow: .2em .2em .1em #ccc;
+	border-radius: 1em;
+}
