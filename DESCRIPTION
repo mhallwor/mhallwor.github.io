@@ -1,4 +1,4 @@
 Package: arbitrary
 Title: Does not matter.
 Version: 0.0.1
-Imports: servr,rmarkdown,knitr,raster,sp,rgdal
+Imports: servr,rmarkdown,knitr,raster,sp
