@@ -1,20 +1,18 @@
 ---
 layout: single
 title: Rasters
-toc: true
-toc_label: "My Table of Contents"
-toc_icon: "cog"
 permalink: _pages/makeRaster/
 output: 
   md_document:
     variant: markdown_github
 ---
-
-<div style="background-color:blue;">
-
+{% include toc %}
+<div style="background-color:lightblue;">
+<p>
 ## R Markdown
 
 This tutorial will walk you through how to do some really awesome things in R.
+</p>
 </div>
 ```{r cars}
 summary(cars)
