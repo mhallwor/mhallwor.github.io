@@ -1,3 +1,5 @@
+{% include toc.html %}
+
 R Markdown
 ----------
 
