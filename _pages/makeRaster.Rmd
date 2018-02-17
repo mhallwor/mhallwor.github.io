@@ -2,26 +2,18 @@
 layout: single
 title: Rasters
 permalink: _pages/makeRaster/
-output: 
-  md_document:
-    variant: markdown_github
 ---
 {% include toc %}
 <div style="background-color:lightblue;">
 ## R Markdown
 
-This tutorial will walk you through how to do some really awesome things in R.
-</div>
-```{r cars}
-summary(cars)
+```{r}
+# Generate random variables #
+library(raster)
+
+x <- runif(100,-100,-101)
+y <- runif(100, 43,44)
+coordinates <- sp::SpatialPoints(cbind(x,y))
+plot(coordinates,pch = 19)
 ```
 
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
