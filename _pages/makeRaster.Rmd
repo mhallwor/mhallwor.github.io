@@ -1,0 +1,20 @@
+---
+defaults:
+  # _pages
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: single
+      author_profile: true
+permalink: /makeRaster/
+---
+{% include _toc.html %}
+
+<div id="objectives" markdown="1">
+# Write some profound code here
+</div>
+
+```{r}
+hist(rnorm(1000,10,1))
+```
