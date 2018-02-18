@@ -23,7 +23,8 @@ This activity will introduce you to working with raster data in R.
 <li>know how to do raster <strong>calculations</strong></li>
 <li>Be able to <strong>project</strong> rasters</li>             
 <li>Be able to <strong>extract values</strong> from rasters</li>             
-<li>Be able reclassify / resampling rasters</li>          
+<li>Be able reclassify / resampling rasters</li> 
+</ul>
 </div>
 
 <br>
