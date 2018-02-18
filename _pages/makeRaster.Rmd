@@ -3,7 +3,7 @@ title: "Introduction to raster data in R"
 layout: single
 permalink: _pages/makeRaster/
 header:
-  caption: 'Photo credit: [**M. T. Hallworth**]'
+  caption: 'Photo credit: **M. T. Hallworth**'
   image: assets/images/Habitat.JPG
 ---
 {% include toc %}
@@ -13,7 +13,7 @@ This activity will introduce you to working with raster data in R.
 **R Skill Level:** Intermediate - this activity assumes you have a working knowledge of `R` 
 
 
-<div style="background-color:rgba(0, 0, 0, 0.0470588); border-radius: 25px; text-align:center; vertical-align: middle; padding:3px 0; width: 400px; margin: auto; box-shadow: 4px 5px gray;markdown="1">
+<div style="background-color:rgba(0, 0, 0, 0.0470588); border-radius: 25px; text-align:center; vertical-align: middle; padding:3px 0; width: 400px; margin: auto; box-shadow: 4px 5px gray;">
 
 <h1>Lesson Objectives / Goals</h1>      
 <b>Upon completion of this activity, you will:</b>
@@ -29,7 +29,7 @@ This activity will introduce you to working with raster data in R.
 <br>
 <br>
 <a name="install.packages"></a>
-<div style="background-color:rgba(0, 1, 1, 0.0470588); border-radius: 25px; text-align:center; vertical-align: middle; padding:2px 0; width: 600px; margin: auto; box-shadow: 4px 5px gray;" markdown="1">
+<div style="background-color:rgba(0, 1, 1, 0.0470588); border-radius: 25px; text-align:center; vertical-align: middle; padding:2px 0; width: 600px; margin: auto; box-shadow: 4px 5px gray;">
 <h3> Required packages</h3> 
 To complete the following activity you will need the following packages installed:
 
