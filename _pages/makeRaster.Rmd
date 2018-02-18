@@ -1,12 +1,42 @@
 ---
+title: "Rasters"
 layout: single
-title: Rasters
 permalink: _pages/makeRaster/
+header:
+  caption: 'Photo credit: [**M. T. Hallworth**]'
+  image: assets/images/Habitat.JPG
 ---
 {% include toc %}
-# Quick trial
 
-```{r,message = FALSE}
+<div style="background-color:rgba(0, 0, 0, 0.0470588); border-radius: 25px; text-align:center; vertical-align: middle; padding:3px 0; width: 400px; margin: auto; box-shadow: 4px 5px gray;">
+#Lesson Objectives / Goals      
+**Upon completion of this activity, you will:**   
+know how to create and write rasters    
+know how to plot rasters & customize legends    
+Be able to project rasters           
+Be able to extract values from rasters           
+Be able reclassify / resampling rasters        
+</div>
+
+
+<div style="background-color:rgba(0, 1, 1, 0.0470588); border-radius: 25px; text-align:center; vertical-align: middle; padding:2px 0; width: 600px; margin: auto; box-shadow: 4px 5px gray;">
+### Required packages    
+To complete the following activity you will need the following packages installed:    
+**raster**       
+**sp**  
+**rgeos**   
+  
+******       
+
+#### Installing the packages     
+`install.packages("raster")`    
+`install.packages("sp")`       
+`install.packages("rgeos")`
+
+</div>
+        
+           
+```{r,message = FALSE,warning = FALSE}
 # Generate random variables #
 library(raster)
 
