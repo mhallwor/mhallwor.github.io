@@ -6,7 +6,7 @@ permalink: _pages/makeRaster/
 {% include toc %}
 # Quick trial
 
-```{r}
+```{r,message = FALSE}
 # Generate random variables #
 library(raster)
 
@@ -14,11 +14,16 @@ x <- runif(100,min = -101, max = -100)
 y <- runif(100, 43,44)
 coordinates <- sp::SpatialPoints(cbind(x,y))
 plot(coordinates,pch = 19)
+
+plot(rgeos::gBuffer(coordinates, byid = TRUE, width = 0.05),add = TRUE)
 ```
 
 ## Does this work
 ```{r}
 r <- raster(ncol = 10, nrow = 10)
 r[] <- 1:10
+```
+
+```{r}
 plot(r)
 ```
