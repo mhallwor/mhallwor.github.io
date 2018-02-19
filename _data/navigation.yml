@@ -2,8 +2,13 @@
 main:
   - title: "GitHub"
     url: https://github.com/MTHallworth
+  - title: "Points"
+    url: /_pages/Points/	
+  - title: "Polygons"
+    url: /_pages/Polygons/	
   - title: "Rasters"
-    url: /_pages/makeRaster/
+    url: /_pages/Rasters/
+  - title: "Examples"
   # - title: "Sample Posts"
   #   url: /year-archive/
   # - title: "Sample Collections"

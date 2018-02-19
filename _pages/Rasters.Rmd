@@ -1,21 +1,23 @@
 ---
 title: "Introduction to raster data in R"
 layout: single
-permalink: _pages/makeRaster/
+permalink: _pages/Rasters/
 header:
   caption: 'Photo credit: **M. T. Hallworth**'
   image: assets/images/Habitat.JPG
 ---
-{% include toc %}
+{% include toc title="In This Activity" icon="file-text"%}
+
+<a name="TOP"></a>
 
 This activity will introduce you to working with raster data in R.
 
 **R Skill Level:** Intermediate - this activity assumes you have a working knowledge of `R` 
 
 
-<div style="background-color:rgba(0, 0, 0, 0.0470588); border-radius: 25px; text-align:center; vertical-align: middle; padding:3px 0; width: 400px; margin: auto; box-shadow: 4px 5px gray;">
+<div style="background-color:rgba(0, 0, 0, 0.0470588); border-radius: 25px; text-align:center; vertical-align: middle; padding:3px 0; width: 600px; margin: auto; box-shadow: 4px 5px gray;">
 
-<h1>Lesson Objectives / Goals</h1>      
+<h1>Objectives & Goals</h1>      
 <b>Upon completion of this activity, you will:</b>
 <ul>
 <li>know how to <strong>create</strong> and write rasters</li>   
@@ -34,13 +36,14 @@ This activity will introduce you to working with raster data in R.
 <h3> Required packages</h3> 
 To complete the following activity you will need the following packages installed:
 
-<strong>raster</strong>       
-<strong>sp</strong>  
-<strong>rgeos</strong>    
+<strong>raster</strong>               
+<strong>sp</strong>     
+<strong>rgeos</strong>        
   
-<h4>Installing the packages</h4>   
-<code>install.packages("raster")</code>    
-<code>install.packages("sp")</code>     
+<h4>Installing the packages</h4>     
+If installing these packages for the first time consider adding <code>dependencies=TRUE</code>   
+<code>install.packages("raster")</code>        
+<code>install.packages("sp")</code>        
 <code>install.packages("rgeos")</code>
 
 </div>
@@ -49,7 +52,7 @@ To complete the following activity you will need the following packages installe
 <hr> 
 
 # What is a raster?    
-A raster is a spatially explicit matrix or `grid` where each cell represents a geographic location. Each cell represents a pixel on a surface. The size of each pixel defines the `resolution` or `res` of raster. The smaller the pixel size the finer the spatial resolution. The `extent` or spatial coverage of a raster is defined by the minima and maxima for both `x` and `y` coordinates.
+A raster is a spatially explicit matrix or `grid` where each cell represents a geographic location. Each cell represents a pixel on a surface. The size of each pixel defines the resolution or `res` of raster. The smaller the pixel size the finer the spatial resolution. The `extent` or spatial coverage of a raster is defined by the minima and maxima for both x and y coordinates.
 
 Rasters can be created from the following data classes:
 <ui>
@@ -63,9 +66,9 @@ Raster data are stored in a variety of formats. The table below describes severa
 
 # Creating & writing rasters   
 ## Raster data in R
-Let's begin by creating a raster from scratch. We'll use the `raster` package to make an empty raster, set the `extent` and `resolution` and assign values. Once we create a raster in R - we'll take a closer look at the metadata and structure of rasters in `R`.
+Let's begin by creating a raster from scratch. We'll use the `raster` package to make an empty raster, set the `extent` and resolution (`res`) and assign values. Once we create a raster in R - we'll take a closer look at the metadata and structure of rasters in `R`.
 
-load the `raster` package if you haven't already done so. If you need to `install` the `raster` package - see how to do that [here](#install.packages)
+load the `raster` package if you haven't already done so. If you need to install the `raster` package - see how to do that [here](#install.packages)
 ```{r load-raster, message = FALSE, error = FALSE, warning = FALSE}
 # load library
 library(raster)
@@ -86,7 +89,7 @@ Here is what that raster looks like in `R`
 # Take a look at what the raster looks like
 firstRaster
 ```
-Notice that the object is of `class: RasterLayer` has 25 `rows`, 40 `columns` and 1000 `cells`. The `resolution` is 1x1 degree. The raster's `extent` ranges from -100 to -60 degrees longitude and 25 to 50 degrees latitude. The `coordinate reference` is WGS84 by default because `raster` recognized our inputs as degrees longitude/latitude. It doesn't always do so. 
+Notice that the object is of `class: RasterLayer` has 25 rows, 40 columns and 1000 cells. The resolution (`res`) is 1x1 degree. The raster's `extent` ranges from -100 to -60 degrees longitude and 25 to 50 degrees latitude. The coordinate reference is WGS84 by default because `raster` recognized our inputs as degrees longitude/latitude. It doesn't always do so. 
 
 ### Setting raster values
 Currently there are no values associated with the raster layer we just created. It's empty. We can assign values to the raster in a few ways. We'll set the values of the raster using the `[]` convention. See the `setValues` function in the `raster` package for another way to set values of a raster. We'll sequence values from 1 to the number of cells within the raster. You can extract the number of cells within a raster using the `ncell` function.   
@@ -105,6 +108,8 @@ Now that the raster has values we can do a few things - like plot the raster.
 ```{r plot-raster-1}
 plot(firstRaster)
 ```
+
+[back to start](#TOP)
 
 ### Reading and writing rasters
 
@@ -138,6 +143,6 @@ r[] <- 1:10
 plot(r)
 ```
 
-<div style="background-color:rgb(108, 211, 254); border-radius: 25px; text-align:center; vertical-align: middle; padding: 3px 0; margin: auto; width:200px; box-shadow: 4px 5px #6a5acd;>
+<div style="background-color:rgb(108, 211, 254); border-radius: 25px; text-align:center; vertical-align: middle; padding: 3px 0; margin: auto; width:200px; box-shadow: 4px 5px #6a5acd;">
 <a href="#";color:white;>Download R script</a>
 </div>
