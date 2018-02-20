@@ -5,17 +5,6 @@ permalink: /_pages/SpatialWorkshop/welcome
 header:
   caption: 'Photo credit: **M. T. Hallworth**'
   image: /assets/images/OVENiso.tiff
-sidebar: 
- - title: "The basics"
-    children:
-      - title: "Rasters"
-        url: /_pages/SpatialWorkshop/basics/Rasters
- - title: "Activities"
-    children:
-      - title: "Extracting raster values"
-        url: /_pages/SpatialWorkshop/activities/ExtractRasterValues
 ---
-{% include toc title="In This Activity" %}
-
 Some profound information should really be included here - 
 for now - it's boring
