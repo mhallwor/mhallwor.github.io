@@ -1,7 +1,8 @@
 ---
 title: "Introduction to spatial points in R"
 author: "Michael T. Hallworth"
-date: "`r Sys.Date()`"
+contributor: "Clark S. Rushing"
+dateCreated:  2018-02-20
 layout: single
 permalink: /_pages/basics_SpatialPoints
 header:

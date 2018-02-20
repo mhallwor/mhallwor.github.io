@@ -1,5 +1,7 @@
 ---
 title: "Welcome to Get Spatial!"
+contributor: "Clark S. Rushing"
+dateCreated:  2018-02-20
 layout: single
 permalink: /_pages/welcome
 header:

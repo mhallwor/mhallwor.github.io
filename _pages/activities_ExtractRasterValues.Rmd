@@ -1,5 +1,7 @@
 ---
 title: "Extracting raster data"
+contributor: "Clark S. Rushing"
+dateCreated:  2018-02-20
 layout: single
 permalink: /_pages/activities_ExtractingRasterValues
 sidebar:
