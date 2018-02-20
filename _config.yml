@@ -109,7 +109,7 @@ author:
   stackoverflow    : # "123456/username" (the last part of your profile url, e.g. https://stackoverflow.com/users/123456/username)
   steam            : # "steamId" (the last part of your profile url, e.g. https://steamcommunity.com/id/steamId/)
   tumblr           : 
-  twitter          : "https://twitter.com/@MTHallworth"
+  twitter          : "@MTHallworth"
   vine             :
   weibo            :
   xing             :
@@ -120,7 +120,6 @@ author:
 include:
   - .htaccess
   - _pages
-  - SpatialWorkshop
 exclude:
   - "*.sublime-project"
   - "*.sublime-workspace"

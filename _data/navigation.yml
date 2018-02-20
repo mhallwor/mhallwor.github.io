@@ -3,7 +3,7 @@ main:
   - title: "GitHub"
     url: https://github.com/MTHallworth
   - title: "Get Spatial! Using R as GIS"
-    url: /_pages/SpatialWorkshop/welcome/	
+    url: /_pages/SpatialWorkshop/welcome	
   #- title: "Polygons"
   #  url: /_pages/Polygons/	
   #- title: "Rasters"
@@ -19,11 +19,11 @@ side_toc:
       - title: "Lines"
         #url: /_pages/SpatialWorkshop/basics/Lines/
       - title: "Rasters"
-        url: /_pages/SpatialWorkshop/basics/Rasters/
+        url: /_pages/SpatialWorkshop/basics/Rasters
   - title: "Activities"
     children:
       - title: "Extracting raster values"
-        url: /_pages/SpatialWorkshop/activities/ExtractRasterValues/
+        url: /_pages/SpatialWorkshop/activities/ExtractRasterValues
      # - title: "Child Page B2"
      #   url: /
      # - title: "Child Page B3"

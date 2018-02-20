@@ -1,7 +1,7 @@
 ---
 title: "Extracting raster data"
 layout: single
-permalink: /_pages/SpatialWorkshop/activities/ExtractingRasterValues/
+permalink: /_pages/SpatialWorkshop/activities/ExtractingRasterValues
 header:
   caption: 'Photo credit: **M. T. Hallworth**'
   image: assets/images/Habitat.JPG
