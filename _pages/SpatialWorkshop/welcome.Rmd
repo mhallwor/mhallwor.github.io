@@ -4,7 +4,7 @@ title: "Welcome to Get Spatial!"
 permalink: _pages/SpatialWorkshop/welcome
 header:
   caption: 'Photo credit: **M. T. Hallworth**'
-  image: assets/images/Habitat.JPG
+  image: assets/images/OVENiso.tiff
 sidebar:
   title: "Get Spatial! Using R as GIS"
   nav: side_toc
