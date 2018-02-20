@@ -11,6 +11,8 @@ main:
 SpatialWorkshop:
   - title: "The basics"
     children:
+      - title: "Points"
+        url: /_pages/basics_SpatialPoints
       - title: "Rasters"
         url: /_pages/basics_Rasters
   - title: "Activities"

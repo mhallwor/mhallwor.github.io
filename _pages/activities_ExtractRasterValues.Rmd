@@ -69,3 +69,7 @@ points <- sp::SpatialPoints(cbind(runif(100,-100,-90),runif(100,40,45)))
 plot(points, pch = 19)
 ```
 
+<div style="background-color:rgb(108, 211, 254); border-radius: 25px; text-align:center; vertical-align: middle; padding: 3px 0; margin: auto; width:200px; box-shadow: 4px 5px #6a5acd;">
+<a href="#" style="color:white";>Download R script</a>
+</div>
+

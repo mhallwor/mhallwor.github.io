@@ -1,0 +1,117 @@
+---
+title: "Introduction to spatial points in R"
+author: "Michael T. Hallworth"
+date: "`r Sys.Date()`"
+layout: single
+permalink: /_pages/basics_SpatialPoints
+header:
+  caption: 'Photo credit: **M. T. Hallworth**'
+  image: assets/images/Habitat.JPG
+sidebar:
+  title: "Get Spatial! Using R as GIS"
+  nav: "SpatialWorkshop"
+---
+{% include toc title="In This Activity" %}
+
+<a name="TOP"></a>
+
+This activity will introduce you to working with spatial points in R.
+
+**R Skill Level:** Intermediate - this activity assumes you have a working knowledge of `R`     
+
+<div style="background-color:rgba(0, 0, 0, 0.0470588); border-radius: 25px; text-align:center; vertical-align: middle; padding:3px 0; width: 600px; margin: auto; box-shadow: 4px 5px gray;">
+
+<h1>Objectives & Goals</h1>      
+<b>Upon completion of this activity, you will:</b>
+<ul>
+<li>know how to <strong>create</strong> and write spatial points</li>   
+<li>Be able to <strong>project</strong> spatial points</li>             
+<li>Be able to <strong>calculate distances</strong> between points</li>             
+<li>Be able to <strong>create buffers</strong> around spatial points</li> 
+</ul>
+</div>
+
+<br>
+<br>
+<a name="install.packages"></a>
+<div style="background-color:rgba(0, 1, 1, 0.0470588); border-radius: 25px; text-align:center; vertical-align: middle; padding:2px 0; width: 600px; margin: auto; box-shadow: 4px 5px gray;">
+<h3> Required packages</h3> 
+To complete the following activity you will need the following packages installed:
+
+<strong>raster</strong>               
+<strong>sp</strong>     
+<strong>rgeos</strong>        
+  
+<h4>Installing the packages</h4>     
+If installing these packages for the first time consider adding <code>dependencies=TRUE</code><br>   
+<code>install.packages("raster")</code>        
+<code>install.packages("sp")</code>        
+<code>install.packages("rgeos")</code>
+
+</div>
+        
+<br>
+<hr>
+
+# What are spatial points?    
+Spatial points are a set of spatially explicit coordinates that represent a geographic location. Each point represents a location on a surface. Spatial points are created from a series of x and y coordinates. Spatial points can be combined with data frames to create what's called a `SpatialPointsDataFrame`. The difference between `SpatialPoints` and `SpatialPointsDataFrame` are the attributes that are associated with the points. `SpatialPointsDataFrames` have additional information associated with the points (e.g., site, year, individual, etc.) while `SpatialPoints` contain only the spatial information about the point. 
+
+# Creating & writing spatial points   
+## Spatial Points in R
+Let's begin by creating a set spatial points layer from scratch. We'll use the `sp` package to make a `SpatialPoints` object using randomly generated XY coordinates. Once we create a `SpatialPoints` object in R - we'll take a closer look at its metadata and structure.
+
+load the `sp` package if you haven't already done so. If you need to install the `sp` package - see how to do that [here](#install.packages)
+```{r load-raster, message = FALSE, error = FALSE, warning = FALSE}
+# load library
+library(sp)
+```
+
+Now that the `sp` library is loaded we can use the `SpatialPoints()` function to create a `SpatialPoints` object in `R`. 
+```{r spatial-points}
+# Generate 100 random X and Y coordinates 
+# with longitude and latitude in the familiar
+# degrees
+
+x_coords <- runif(n = 100, min = -100, max = -80)
+y_coords <- runif(n = 100, min = 25, max = 45)
+
+# Have a look at the first coordinates
+head(cbind(x_coords,y_coords))
+```
+
+Now that we have generated random coordinates we can make those data spatially explicit. We'll use the `SpatialPoints` function in the `sp` package to do that. Before we use the function let's see what arguments we need to pass to `SpatialPoints`.
+
+```{r see-args}
+args("SpatialPoints")
+```
+
+The `SpatialPoints` function is looking for coordinates (`coords`), a projection / datum argument (`proj4string`) and a bounding box (`bbox`). Both `proj4string` and `bbox` have preset values so we don't need to specify them - it'll use the defaults. Let's use those options for now. 
+
+The `coords` input looking for a specific type of input. It needs a matrix or data.frame where the first column is longitude and second is latitude. **Note** - the order is <strong>LONGITUDE</strong> then <strong>LATITUDE</strong>.
+
+```{r make-spatial-points}
+# coords = c(longitude,latitude)
+
+firstPoints <- SpatialPoints(coords = cbind(x_coords,y_coords))
+```
+
+Let's have a look at what we just created. 
+```{r str-points}
+str(firstPoints)
+```
+
+We can plot the points in space by simply using the `plot` function. 
+```{r plot-points}
+plot(firstPoints, pch = 19)
+```
+
+## Writing a shapefile
+We can save our `firstPoints` object as a shapefile using the `raster` package. The `shapefile` function in the `raster` package is very convienent in that it can both read a shapefile into `R` but it can also write a `SpatialPoints` or other spatial object classes (lines, polygons, etc.) to a shapefile. 
+```{r save-shp, eval = FALSE, message = FALSE, warning = FALSE}
+library(raster)
+shapefile(x = firstPoints, file = "path/to/output/file.shp")
+```
+
+<div style="background-color:rgb(108, 211, 254); border-radius: 25px; text-align:center; vertical-align: middle; padding: 3px 0; margin: auto; width:200px; box-shadow: 4px 5px #6a5acd;">
+<a href="#" style="color:white";>Download R script</a>
+</div>

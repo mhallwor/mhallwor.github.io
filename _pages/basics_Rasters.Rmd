@@ -1,10 +1,15 @@
 ---
 title: "Introduction to raster data in R"
+author: "Michael T. Hallworth"
+date: "`r Sys.Date()`"
 layout: single
 permalink: /_pages/basics_Rasters
 header:
   caption: 'Photo credit: **M. T. Hallworth**'
   image: assets/images/Habitat.JPG
+sidebar:
+  title: "Get Spatial! Using R as GIS"
+  nav: "SpatialWorkshop"
 ---
 {% include toc title="In This Activity" %}
 
@@ -144,5 +149,5 @@ plot(r)
 ```
 
 <div style="background-color:rgb(108, 211, 254); border-radius: 25px; text-align:center; vertical-align: middle; padding: 3px 0; margin: auto; width:200px; box-shadow: 4px 5px #6a5acd;">
-<a href="#";color:white;>Download R script</a>
+<a href="#" style="color:white";>Download R script</a>
 </div>
