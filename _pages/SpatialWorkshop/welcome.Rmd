@@ -1,15 +1,21 @@
 ---
-layout: single
 title: "Welcome to Get Spatial!"
-permalink: _pages/SpatialWorkshop/welcome
+layout: single
+permalink: /_pages/SpatialWorkshop/welcome
 header:
   caption: 'Photo credit: **M. T. Hallworth**'
-  image: assets/images/OVENiso.tiff
-sidebar:
-  title: "Get Spatial! Using R as GIS"
-  nav: side_toc
+  image: /assets/images/OVENiso.tiff
+sidebar: 
+ - title: "The basics"
+    children:
+      - title: "Rasters"
+        url: /_pages/SpatialWorkshop/basics/Rasters
+ - title: "Activities"
+    children:
+      - title: "Extracting raster values"
+        url: /_pages/SpatialWorkshop/activities/ExtractRasterValues
 ---
-{% include sidebar %}
+{% include toc title="In This Activity" %}
 
 Some profound information should really be included here - 
 for now - it's boring
