@@ -4,11 +4,19 @@ layout: single
 permalink: /_pages/welcome
 header:
   caption: 'Photo credit: **M. T. Hallworth**'
-  image: assets/images/OVENiso.jpg
+  image: assets/images/Habitat.JPG
+sidebar:
+  title: "Get Spatial! Using R as GIS"
+  nav: "SpatialWorkshop"
 ---
-{% include figure image_path="/assets/images/OVENmove.jpg" %}
+
+Welcome to Get Spatial! Using R as GIS. This material is intended to introduce you to the different spatial data types and how to create, read, manipulate and analyze spatial data in `R`. The lessons / activities cover a range of complexities - from reading in XY coordinates and making a shapefile to making origin assignments using stable-isotopes. The exercises are geared towards analyzes that are commonly found in the field of ornithology but are likely widely applicable to other fields as well. 
+
+This workshop assumes the user has a general understanding of the `R` language. 
+
+**R Skill Level:** Intermediate - this activity assumes you have a working knowledge of `R`
 
 {% include nav_list nav="SpatialWorkshop" %}
+{% include figure image_path="/assets/images/OVENmove.jpg" %}
 
-Some profound information should really be included here - 
-for now - it's boring
+
