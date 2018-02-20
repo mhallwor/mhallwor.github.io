@@ -9,10 +9,16 @@ main:
   - title: "Rasters"
     url: /_pages/Rasters/
   - title: "Examples"
-    url: /_pages/Examples/
+    subcategories:
+    - subtitle: "Example1"
+      url: /_pages/Examples
+    #- subtitle: "Example2"
+    #  subhref: "#"
+   # url: /_pages/Examples/
   # - title: "Sample Posts"
   #   url: /year-archive/
   # - title: "Sample Collections"
   #   url: /collection-archive/
   # - title: "Sitemap"
-  #   url: /sitemap/
+  #   url: /sitemap/	
+  #- title: "Snippets"
