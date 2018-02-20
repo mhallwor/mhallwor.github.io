@@ -9,7 +9,6 @@ sidebar:
   title: "Get Spatial! Using R as GIS"
   nav: side_toc
 ---
-{% include toc title="In This Activity" icon="file-text"%}
 {% include sidebar %}
 
 Some profound information should really be included here - 
