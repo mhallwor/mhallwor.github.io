@@ -4,7 +4,11 @@ layout: single
 permalink: /_pages/SpatialWorkshop/welcome
 header:
   caption: 'Photo credit: **M. T. Hallworth**'
-  image: /assets/images/OVENiso.tiff
+  image: /assets/images/OVENiso.jpg
 ---
+{% include figure image_path="/assets/images/OVENmove.jpg" %}
+
+{% include nav_list nav="SpatialWorkshop" %}
+
 Some profound information should really be included here - 
 for now - it's boring
