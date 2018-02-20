@@ -4,49 +4,8 @@ main:
     url: https://github.com/MTHallworth
   - title: "Get Spatial! Using R as GIS"
     url: /_pages/SpatialWorkshop/welcome	
-  #- title: "Polygons"
-  #  url: /_pages/Polygons/	
-  #- title: "Rasters"
-  #  url: /_pages/Rasters/
-  #- title: "Examples"
-side_toc:
-  - title: "The basics"
-    children:
-      - title: "Points"
-       # url: /_pages/SpatialWorkshop/basics/Points/
-      - title: "Polygons"
-       # url: /_pages/SpatialWorkshop/basics/Polygons/
-      - title: "Lines"
-        #url: /_pages/SpatialWorkshop/basics/Lines/
+     children:
       - title: "Rasters"
-        url: /_pages/SpatialWorkshop/basics/Rasters
-  - title: "Activities"
-    children:
+        url: /_pages/SpatialWorkshop/basics_Rasters
       - title: "Extracting raster values"
-        url: /_pages/SpatialWorkshop/activities/ExtractRasterValues
-     # - title: "Child Page B2"
-     #   url: /
-     # - title: "Child Page B3"
-     #   url: /
-     # - title: "Child Page B4"
-     #   url: /
-     # - title: "Child Page B5"
-     #   url: /
-  #- title: "Parent Page C"
-   # children:
-    #  - title: "Child Page C1"
-    #    url: /
-    #  - title: "Child Page C2"
-    #    url: /
-    #  - title: "Child Page C3"
-    #    url: /
-    #  - title: "Child Page C4"
-    #    url: /
-    #  - title: "Child Page C5"
-    #    url: /
-  #- title: "Parent Page D"
-   # children:
-    #  - title: "Child Page D1"
-     #   url: /
-      #- title: "Child Page D2"
-       # url: /
+        url: /_pages/SpatialWorkshop/activities_ExtractRasterValues
