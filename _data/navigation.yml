@@ -23,7 +23,7 @@ side_toc:
   - title: "Activities"
     children:
       - title: "Extracting raster values"
-        url: /activities/ExtractRasterValues/
+        url: /SpatialWorkshop/activities/ExtractRasterValues/
      # - title: "Child Page B2"
      #   url: /
      # - title: "Child Page B3"

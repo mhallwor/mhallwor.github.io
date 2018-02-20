@@ -1,10 +1,13 @@
 ---
 title: "Extracting raster data"
 layout: single
-permalink: _pages/Examples/
+permalink: SpatialWorkshop/activities/ExtractingRasterValues/
 header:
   caption: 'Photo credit: **M. T. Hallworth**'
   image: assets/images/Habitat.JPG
+sidebar:
+  title: "Get Spatial! Using R as GIS"
+  nav: side_toc
 ---
 {% include toc title="In This Activity" icon="file-text"%}
 

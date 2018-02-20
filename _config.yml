@@ -120,6 +120,7 @@ author:
 include:
   - .htaccess
   - _pages
+  - SpatialWorkshop
 exclude:
   - "*.sublime-project"
   - "*.sublime-workspace"
