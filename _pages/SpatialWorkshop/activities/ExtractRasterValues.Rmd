@@ -10,6 +10,7 @@ sidebar:
   nav: side_toc
 ---
 {% include toc title="In This Activity" icon="file-text"%}
+{% include sidebar %}
 
 <a name="TOP"></a>
 
