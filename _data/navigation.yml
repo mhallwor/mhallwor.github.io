@@ -3,9 +3,17 @@ main:
   - title: "GitHub"
     url: https://github.com/MTHallworth
   - title: "Get Spatial! Using R as GIS"
-    url: /_pages/SpatialWorkshop/welcome
+    url: /_pages/welcome
+  - title: "Rasters"
+    url: /_pages/basics_Rasters
+  - title: "Extracting Raster Values"
+    url: /_pages/activities_ExtractRasterValues
 SpatialWorkshop:
   - title: "The basics"
     children:
       - title: "Rasters"
-        url: /_pages/SpatialWorkshop/basics_Rasters
+        url: /_pages/basics_Rasters
+  - title: "Activities"
+    children:
+      - title: "Extracting Raster Values"
+        url: /_pages/activities_ExtractRasterValues
