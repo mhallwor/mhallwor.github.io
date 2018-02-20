@@ -1,7 +1,13 @@
 ---
-layout: default
-title: Welcome
+layout: single
+title: "Welcome to Get Spatial!"
 permalink: _pages/SpatialWorkshop/welcome
+header:
+  caption: 'Photo credit: **M. T. Hallworth**'
+  image: assets/images/Habitat.JPG
+sidebar:
+  title: "Get Spatial! Using R as GIS"
+  nav: side_toc
 ---
 Some profound information should really be included here - 
 for now - it's boring
