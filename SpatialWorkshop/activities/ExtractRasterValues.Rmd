@@ -1,13 +1,10 @@
 ---
 title: "Extracting raster data"
 layout: single
-permalink: SpatialWorkshop/Examples/
+permalink: _pages/Examples/
 header:
-  caption: 'Stable-Hydrogen isotope assignment'
-  image: assets/images/OVENiso.tiff
-sidebar:
-  title: "Get Spatial! Using R as GIS"
-  nav: side_toc
+  caption: 'Photo credit: **M. T. Hallworth**'
+  image: assets/images/Habitat.JPG
 ---
 {% include toc title="In This Activity" icon="file-text"%}
 

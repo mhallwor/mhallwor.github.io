@@ -2,23 +2,51 @@
 main:
   - title: "GitHub"
     url: https://github.com/MTHallworth
-  - title: "Points"
-    url: /_pages/Points/	
-  - title: "Polygons"
-    url: /_pages/Polygons/	
-  - title: "Rasters"
-    url: /_pages/Rasters/
-  - title: "Examples"
-    subcategories:
-    - subtitle: "Example1"
-      url: /_pages/Examples
-    #- subtitle: "Example2"
-    #  subhref: "#"
-   # url: /_pages/Examples/
-  # - title: "Sample Posts"
-  #   url: /year-archive/
-  # - title: "Sample Collections"
-  #   url: /collection-archive/
-  # - title: "Sitemap"
-  #   url: /sitemap/	
-  #- title: "Snippets"
+  - title: "Get Spatial! Using R as GIS"
+    url: /SpatialWorkshop/welcome/	
+  #- title: "Polygons"
+  #  url: /_pages/Polygons/	
+  #- title: "Rasters"
+  #  url: /_pages/Rasters/
+  #- title: "Examples"
+side_toc:
+  - title: "The basics"
+    children:
+      - title: "Points"
+        url: /SpatialWorkshop/basics/Points/
+      - title: "Polygons"
+        url: /SpatialWorkshop/basics/Polygons/
+      - title: "Lines"
+        url: /SpatialWorkshop/basics/Lines/
+      - title: "Rasters"
+        url: /SpatialWorkshop/basics/Rasters/
+  - title: "Activities"
+    children:
+      - title: "Extracting raster values"
+        url: /activities/ExtractRasterValues/
+     # - title: "Child Page B2"
+     #   url: /
+     # - title: "Child Page B3"
+     #   url: /
+     # - title: "Child Page B4"
+     #   url: /
+     # - title: "Child Page B5"
+     #   url: /
+  #- title: "Parent Page C"
+   # children:
+    #  - title: "Child Page C1"
+    #    url: /
+    #  - title: "Child Page C2"
+    #    url: /
+    #  - title: "Child Page C3"
+    #    url: /
+    #  - title: "Child Page C4"
+    #    url: /
+    #  - title: "Child Page C5"
+    #    url: /
+  #- title: "Parent Page D"
+   # children:
+    #  - title: "Child Page D1"
+     #   url: /
+      #- title: "Child Page D2"
+       # url: /
