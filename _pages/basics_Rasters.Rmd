@@ -118,7 +118,13 @@ plot(firstRaster)
 [back to start](#TOP)
 
 ### Reading and writing rasters
+```{r}
+NDVI <- raster("../Spatial_Layers/MOD_NDVI_M_2018-01-01_rgb_3600x1800.FLOAT.TIFF")
 
+NDVI[NDVI>2]<-NA
+
+plot(NDVI)
+```
 # Raster calculations 
 
 # Projecting a raster 
