@@ -12,6 +12,7 @@ r_packages:
   - rgeos
   - raster
   - sf
+  - threejs
 before_install:
   - "docker pull ubuntu:16.04"
   - sudo add-apt-repository ppa:ubuntugis/ubuntugis-unstable -y
