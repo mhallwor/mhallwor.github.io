@@ -10,7 +10,7 @@ main:
 #    url: /_pages/activities_ExtractRasterValues
 SpatialWorkshop:
   - title: "Where to get spatial data"
-     url:/_pages/whereToGetData
+    url: /_pages/whereToGetData
   - title: "The basics"
     children:
       - title: "Points"
