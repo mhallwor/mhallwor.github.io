@@ -21,7 +21,7 @@ This workshop assumes the user has a general understanding of the `R` language.
 
 ```{r echo = FALSE}
 threejs::globejs(
-        img = "../Spatial_Layers/SRTM_RAMP2_TOPO_2000.png",
+        img = "../Spatial_Layers/SRTM_RAMP2_TOPO_2000.PNG",
         value = 1,
         bg = "white",
         color = "white",
