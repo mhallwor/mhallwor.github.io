@@ -9,7 +9,7 @@ sidebar:
   nav: "SpatialWorkshop"
 header:
   caption: 'Photo credit: **M. T. Hallworth**'
-  image: assets/images/Habitat.JPG
+  image: assets/images/lookingUp.jpg
 ---
 {% include toc title="In This Activity" %}
 

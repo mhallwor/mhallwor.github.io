@@ -1,18 +1,19 @@
 ---
 title: "Welcome to Get Spatial!"
+author: "Michael T. Hallworth"
 contributor: "Clark S. Rushing"
 dateCreated:  2018-02-20
 layout: single
 permalink: /_pages/welcome
 header:
   caption: 'Photo credit: **M. T. Hallworth**'
-  image: assets/images/Habitat.JPG
+  image: assets/images/lookingUp.jpg
 sidebar:
   title: "Get Spatial! Using R as GIS"
   nav: "SpatialWorkshop"
 ---
 
-Welcome to Get Spatial! Using R as GIS. This material is intended to introduce you to the different spatial data types and how to create, read, manipulate and analyze spatial data in `R`. The lessons / activities cover a range of complexities - from reading in XY coordinates and making a shapefile to making origin assignments using stable-isotopes. The exercises are geared towards analyzes that are commonly found in the field of ornithology but are likely applicable to other fields as well. 
+Welcome to Get Spatial! Using R as GIS. This material is intended to introduce you to the different spatial data types and how to create, read, manipulate and analyze spatial data in `R`. The lessons / activities cover a range of complexities - from reading in XY coordinates and making a shapefile to making origin assignments using stable-isotopes. The exercises are geared towards analyses that are commonly found in the field of ornithology but are likely applicable to other fields as well. 
 
 This workshop assumes the user has a general understanding of the `R` language. 
 

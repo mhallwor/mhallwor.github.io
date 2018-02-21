@@ -7,7 +7,7 @@ layout: single
 permalink: /_pages/basics_Rasters
 header:
   caption: 'Photo credit: **M. T. Hallworth**'
-  image: assets/images/Habitat.JPG
+  image: assets/images/lookingUp.jpg
 sidebar:
   title: "Get Spatial! Using R as GIS"
   nav: "SpatialWorkshop"

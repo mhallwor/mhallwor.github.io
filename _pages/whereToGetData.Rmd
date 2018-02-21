@@ -1,0 +1,26 @@
+---
+title: "whereToGetData"
+author: "Michael T. Hallworth"
+dateCreated: '2018-02-20'
+header:
+  caption: 'Photo credit: **M. T. Hallworth**'
+  image: assets/images/lookingUp.jpg
+layout: single
+permalink: /_pages/whereToGetData
+sidebar:
+  nav: SpatialWorkshop
+  title: Get Spatial! Using R as GIS
+contributor: Clark S. Rushing
+---
+
+Looking for spatial data can be a daunting task. It can be quite overwhelming trying to figure out what kinds of data are available and where to get them. Knowing where to look and what to look for can vastly improve your results. I've compiled a list of 'to go' places to find spatial layers. This list is by no means exhaustive and will likely continue to grow. 
+
+Spatial coverage = Global 
+resolution = various
+
+<a href="https://neo.sci.gsfc.nasa.gov/" target="_blank">**NASA Earth Observations-NEO**</a>
+<figure style="width: 150px" class="align-left">
+  <img src="assets/images/neo_image.jpg" alt="">
+  <figcaption>NASA Earth Observations</figcaption>
+</figure>
+
