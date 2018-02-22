@@ -21,4 +21,4 @@ Looking for spatial data can be a daunting task. It can be quite overwhelming tr
 <a href="https://lpdaac.usgs.gov/data_access/data_pool" target="_blank">**Land Processes Distributed Active Archive Center [LP DAAC]**</a>*
 
 
-*new users need create a free account to download data
+*new users need create a free account to download data 
