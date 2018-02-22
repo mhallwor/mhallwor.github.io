@@ -6,6 +6,8 @@ services:
 language: r
 cache: packages
 pandoc_version: 1.17.2
+r_github_packages:
+  - brendan-r/brocks
 r_packages:
   - sp
   - rgdal
