@@ -1,0 +1,61 @@
+---
+title: "System installation"
+author: "Michael T. Hallworth"
+contributor: "Clark S. Rushing"
+dateCreated:  2018-02-20
+layout: single
+permalink: /_pages/getting_started
+header:
+  caption: 'Photo credit: **M. T. Hallworth**'
+  image: assets/images/lookingUp.jpg
+sidebar:
+  title: "Get Spatial! Using R as GIS"
+  nav: "SpatialWorkshop"
+---
+
+{% include toc title="In This Activity" %}
+
+<a name="TOP"></a>
+
+Welcome to Get Spatial! Before working through the set of activities it's best to have a recent version of R and RStudio. For reference, these activities were written using `r sessionInfo()[[1]]$version.string` on a Windows machine (`r sessionInfo()[[2]]`)
+
+<div style="background-color:rgba(0, 0, 0, 0.0470588); border-radius: 25px; text-align:center; vertical-align: middle; padding:3px 0; width: 600px; margin: auto; box-shadow: 4px 5px gray;">
+# Update R and RStudio
+You can install or update to the latest version of [`R` here](https://cloud.r-project.org/) and [RStudio here](https://www.rstudio.com/products/rstudio/download/)
+</div>
+<br>
+<br>
+<a name="install.packages"></a>
+<div style="background-color:rgba(0, 1, 1, 0.0470588); border-radius: 25px; text-align:center; vertical-align: middle; padding:2px 0; width: 600px; margin: auto; box-shadow: 4px 5px gray;">
+<h3> Installing Required Libraries</h3> 
+The spatial libraries needed for these activites are:
+
+<strong>raster</strong>     
+<strong>rgdal</strong>      
+<strong>sp</strong>     
+<strong>rgeos</strong>        
+  
+<h4>Installing the packages</h4>     
+If installing these packages for the first time consider adding <code>dependencies=TRUE</code>        
+
+<code>install.packages(c("raster","rgdal","sp","rgeos"),dependencies = TRUE)</code></li>
+<br>       
+</div>
+
+## On Mac 
+Download [GDAL](https://trac.osgeo.org/gdal/wiki/DownloadingGdalBinaries) and install the .dmg file. 
+
+Download the `rgdal` package from CRAN [found here](https://cran.r-project.org/web/packages/rgdal/index.html).
+
+Place the downloaded rgdal_1.2-16.tgz in your Desktop folder
+
+Run `install.packages("~/Desktop/rgdal_1.2-16.tgz", repos=NULL)`
+
+Install `raster` and `sp` by running: `install.packages(c("sp","raster"),dependencies = TRUE)`
+<br>
+<hr> 
+
+Running Windows and interested in MODIS data? You will need <strong>OSGeo4W</strong> ([available for download here](https://trac.osgeo.org/osgeo4w/)) because it comes with a HDF4 driver.
+
+
+Setup instructions are based on a very helpful [post by Nick Eubank](http://www.nickeubank.com/wp-content/uploads/2015/10/RGIS1_SpatialDataTypes_part0_setup.html)

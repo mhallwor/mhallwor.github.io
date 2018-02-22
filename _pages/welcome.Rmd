@@ -19,18 +19,6 @@ This workshop assumes the user has a general understanding of the `R` language.
 
 **R Skill Level:** Intermediate - this activity assumes you have a working knowledge of `R`
 
-```{r echo = FALSE}
-threejs::globejs(
-        img = "../Spatial_Layers/SRTM_RAMP2_TOPO_2000.PNG",
-        value = 1,
-        bg = "white",
-        color = "white",
-        atmosphere=TRUE,
-        lightcolor = "white",
-        bodycolor = "white",
-        emission = "yellow",
-        fov = 23)
-```
 {% include figure image_path="/assets/images/OVENmove.jpg" %}
 
 
