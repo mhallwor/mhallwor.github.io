@@ -20,8 +20,8 @@ sidebar:
 Welcome to Get Spatial! Before working through the set of activities it's best to have a recent version of R and RStudio. For reference, these activities were written using `r sessionInfo()[[1]]$version.string` on a Windows machine (`r sessionInfo()[[2]]`)
 
 <div style="background-color:rgba(0, 0, 0, 0.0470588); border-radius: 25px; text-align:center; vertical-align: middle; padding:3px 0; width: 600px; margin: auto; box-shadow: 4px 5px gray;">
-# Update R and RStudio
-You can install or update to the latest version of [`R` here](https://cloud.r-project.org/) and [RStudio here](https://www.rstudio.com/products/rstudio/download/)
+<h2>Update R and RStudio</h2>
+You can install or update to the latest version of <a href="https://cloud.r-project.org/"><code>R</code>here</a> and <a href="https://www.rstudio.com/products/rstudio/download/">RStudio here</a>
 </div>
 <br>
 <br>
@@ -38,7 +38,10 @@ The spatial libraries needed for these activites are:
 <h4>Installing the packages</h4>     
 If installing these packages for the first time consider adding <code>dependencies=TRUE</code>        
 
-<code>install.packages(c("raster","rgdal","sp","rgeos"),dependencies = TRUE)</code></li>
+<li><code>install.packages("raster",dependencies = TRUE)</code></li>
+<li><code>install.packages("rgdal",dependencies = TRUE)</code></li>
+<li><code>install.packages("rgeos",dependencies = TRUE)</code></li>
+<li><code>install.packages("sp",dependencies = TRUE)</code></li>
 <br>       
 </div>
 
@@ -58,4 +61,4 @@ Install `raster` and `sp` by running: `install.packages(c("sp","raster"),depende
 Running Windows and interested in MODIS data? You will need <strong>OSGeo4W</strong> ([available for download here](https://trac.osgeo.org/osgeo4w/)) because it comes with a HDF4 driver.
 
 
-Setup instructions are based on a very helpful [post by Nick Eubank](http://www.nickeubank.com/wp-content/uploads/2015/10/RGIS1_SpatialDataTypes_part0_setup.html)
+*Setup instructions are based on a very helpful [post by Nick Eubank](http://www.nickeubank.com/wp-content/uploads/2015/10/RGIS1_SpatialDataTypes_part0_setup.html)*

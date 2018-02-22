@@ -15,6 +15,10 @@ sidebar:
 
 Looking for spatial data can be a daunting task. It can be quite overwhelming trying to figure out what kinds of data are available and where to get them. Knowing where to look and what to look for can vastly improve your results. I've compiled a list of 'to go' places to find spatial layers. This list is by no means exhaustive and will likely continue to grow. 
 
-Global coverages - 
-<a href="https://neo.sci.gsfc.nasa.gov/" target="_blank">**NASA Earth Observations-NEO**</a>
+<h3>Global coverages</h3>
+<a href="https://neo.sci.gsfc.nasa.gov/" target="_blank">**NASA Earth Observations [NEO]**</a>
 
+<a href="https://lpdaac.usgs.gov/data_access/data_pool" target="_blank">**Land Processes Distributed Active Archive Center [LP DAAC]**</a>*
+
+
+*new users need create a free account to download data
