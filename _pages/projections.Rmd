@@ -104,7 +104,7 @@ Each projection has a set of 'instructions' on how to distort the earth. For a d
 Below are some of my 'go to' sites for finding projection definitions. 
 <ui>
 <li><a href = "http://spatialreference.org/" target="_blank"><strong>spatialreference.org</strong></a></li><br>
-<li><a href = "http://proj4.org/projections/index.html" target"_blank"><strong>proj4.org</strong></a></li><br>
+<li><a href = "http://proj4.org/projections/index.html" target="_blank"><strong>proj4.org</strong></a></li><br>
 <li><a href = "http://www.epsg-registry.org/" target="_blank"><strong>EPSG-registry.org</strong></a></li><br>
 
 ## Projecting spatial data
