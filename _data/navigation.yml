@@ -9,7 +9,7 @@ main:
 #  - title: "Extracting Raster Values"
 #    url: /_pages/activities_ExtractRasterValues
 SpatialWorkshop:
-  - title: "System installation"
+  - title: "System setup"
     url: /_pages/getting_started
   - title: "Where to get spatial data"
     url: /_pages/whereToGetData
@@ -19,7 +19,15 @@ SpatialWorkshop:
         url: /_pages/basics_SpatialPoints
       - title: "Rasters"
         url: /_pages/basics_Rasters
+  - title: "Projecting data"
+     #url:/_pages/projections
+  - title: "Extracting Raster Values"
+     #url: /_pages/activities_ExtractingRasterValues
+  - title: "Raster Calculations"
+     #url: /_pages/raster_calculations
   - title: "Activities"
     children:
-      - title: "Extracting Raster Values"
-        url: /_pages/activities_ExtractingRasterValues
+       - title: "Making territories"
+         #url: /_pages/activities_MakingTerritories
+       - title: "Isotope assignments"
+         #url: /_pages/basics_SpatialPoints
