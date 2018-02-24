@@ -1,0 +1,100 @@
+---
+title: "Projections"
+author: "Michael T. Hallworth"
+dateCreated: '2018-02-20'
+header:
+  caption: 'Photo credit: **M. T. Hallworth**'
+  image: assets/images/lookingUp.jpg
+layout: single
+permalink: /_pages/projections
+sidebar:
+  nav: SpatialWorkshop
+  title: Get Spatial! Using R as GIS
+contributor: Clark S. Rushing
+---
+{% include toc title="In This Activity" %}
+
+<a name="TOP"></a>
+
+This activity will introduce you projecting spatial data R.
+
+**R Skill Level:** Intermediate - this activity assumes you have a working knowledge of `R` 
+
+
+<div style="background-color:rgba(0, 0, 0, 0.0470588); border-radius: 25px; text-align:center; vertical-align: middle; padding:3px 0; width: 600px; margin: auto; box-shadow: 4px 5px gray;">
+
+<h1>Objectives & Goals</h1>      
+<b>Upon completion of this activity, you will:</b>
+<ul>
+<li>know <strong>how</strong> and <strong>why</strong> to project data </li>  
+<li>know where to <strong>find</strong> projection definitions</li>
+<li>know how <strong>assign</strong> projections </li>
+<li>know how to <strong>project</strong> spatial data</li>
+</ul>
+</div>
+
+<br>
+<br>
+<a name="install.packages"></a>
+<div style="background-color:rgba(0, 1, 1, 0.0470588); border-radius: 25px; text-align:center; vertical-align: middle; padding:2px 0; width: 600px; margin: auto; box-shadow: 4px 5px gray;">
+<h3> Required packages</h3> 
+To complete the following activity you will need the following packages installed:
+
+<strong>raster</strong>               
+<strong>sp</strong>     
+<strong>rgeos</strong>        
+  
+<h4>Installing the packages</h4>     
+If installing these packages for the first time consider adding <code>dependencies=TRUE</code>    
+<code>install.packages("raster")</code>        
+<code>install.packages("sp")</code>        
+<code>install.packages("rgeos")</code>
+
+</div>
+        
+<br>
+<hr> 
+
+# Projections
+The reason we need projections is so that we can map a three dimensional surface - like the earth in two dimensional space. Unfortunately, not all properties of the 3D surface are maintained when plotting in 2D space. Attributes of the 3D surface such as area, distance, shape and direction are distorted when creating a 2D map. Projections define the way we distort the 3D surface in order to render it in 2D. The projection is the mathmatical equation used to 'flatten' the world. Every time we create a map we distort the true surface in some fashion. Different projections preserve different aspects of the 3D properties. Therefore, knowing which projections to use is important when doing spatial analyses. For example, if you're looking to create a map that looks 'correct' a conformal projection might be used as these types of projections preserve shape. If you're looking to make accurate distance measurements on a surface projections in the equidistant class are appropriate. 
+
+```{r, echo = FALSE}
+par(mar = c(0,0,0,0),mfrow = c(2,2))
+world <- raster::shapefile("../Spatial_Layers/TM_WORLD_BORDERS-0.3.shp")
+graticules <- sp::gridlines(world, easts = seq(-180,180,5), norths = seq(-90,90,5))
+raster::plot(graticules, col = "gray80")
+raster::plot(world,col = "gray70",add = TRUE)
+
+
+worldROB <- sp::spTransform(world,sp::CRS("+proj=robin +lon_0=0 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs"))
+graticulesROB <- sp::spTransform(graticules,sp::CRS("+proj=robin +lon_0=0 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs"))
+raster::plot(graticulesROB, col = "gray80")
+raster::plot(worldROB, add = TRUE, col = "gray70")
+
+worldMOLL <- sp::spTransform(world,sp::CRS("+proj=moll +lon_0=0 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs"))
+graticulesMOLL <- sp::spTransform(graticules,sp::CRS("+proj=moll +lon_0=0 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs"))
+raster::plot(graticulesMOLL, col = "gray80")
+raster::plot(worldMOLL, col = "gray70", add = TRUE)
+
+worldConic <- sp::spTransform(world, sp::CRS("+proj=aea +lat_1=50 +lat_2=90 +lat_0=-90 +lon_0=-10 +x_0=0 +y_0=0 +ellps=GRS80 +datum=NAD83 +units=m +no_defs"))
+graticulesConic <- sp::spTransform(graticules, sp::CRS("+proj=aea +lat_1=50 +lat_2=90 +lat_0=-90 +lon_0=-10 +x_0=0 +y_0=0 +ellps=GRS80 +datum=NAD83 +units=m +no_defs"))
+raster::plot(graticulesConic, col = "gray80")
+raster::plot(worldConic, col = "gray70", add = TRUE)
+```
+
+<strong> Area of Greenland </strong>
+
+|Projection| Area |
+|---------|------|
+|WGS84 (unproj)|`r rgeos::gArea(world[world$NAME=="Greenland",])`|
+|Mollewide |`r rgeos::gArea(worldMOLL[worldMOLL$NAME == "Greenland",])/10000`|
+|Robinson | `r rgeos::gArea(worldROB[worldROB$NAME == "Greenland",])/10000`|
+|Albers Eq Area |`r rgeos::gArea(worldConic[worldConic$NAME == "Greenland",])/10000`|
+
+Projecting data in R isn't done on the fly (for the most part) like it is in ArcMap. That means that we need to:
+<ul>
+<li> <strong>know the projection</strong> of all spatial layers &</li>
+<li> be sure they <strong>match</strong> </li>
+</ul>
+
+The good news is that it's quite simple to project spatial data in `R`. 

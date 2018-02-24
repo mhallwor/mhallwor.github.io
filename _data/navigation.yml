@@ -20,7 +20,7 @@ SpatialWorkshop:
       - title: "Rasters"
         url: /_pages/basics_Rasters
   - title: "Projecting data"
-     #url:/_pages/projections
+     url:/_pages/projections
   - title: "Extracting Raster Values"
      #url: /_pages/activities_ExtractingRasterValues
   - title: "Raster Calculations"

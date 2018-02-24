@@ -47,7 +47,7 @@ To complete the following activity you will need the following packages installe
 <strong>rgeos</strong>        
   
 <h4>Installing the packages</h4>     
-If installing these packages for the first time consider adding <code>dependencies=TRUE</code>   
+If installing these packages for the first time consider adding <code>dependencies=TRUE</code>    
 <code>install.packages("raster")</code>        
 <code>install.packages("sp")</code>        
 <code>install.packages("rgeos")</code>
@@ -117,14 +117,8 @@ plot(firstRaster)
 
 [back to start](#TOP)
 
-### Reading and writing rasters
-```{r}
-NDVI <- raster("../Spatial_Layers/MOD_NDVI_M_2018-01-01_rgb_3600x1800.FLOAT.TIFF")
+### Reading rasters from file
 
-NDVI[NDVI>2]<-NA
-
-plot(NDVI)
-```
 # Raster calculations 
 
 # Projecting a raster 
