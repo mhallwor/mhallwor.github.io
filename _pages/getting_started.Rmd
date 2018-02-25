@@ -58,6 +58,14 @@ Install `raster` and `sp` by running: `install.packages(c("sp","raster"),depende
 <br>
 <hr> 
 
+## Correct installation
+```{r,warning = FALSE}
+library(raster)
+library(sp)
+library(rgeos)
+library(rgdal)
+```
+
 Running Windows and interested in MODIS data? You will need <strong>OSGeo4W</strong> ([available for download here](https://trac.osgeo.org/osgeo4w/)) because it comes with a HDF4 driver.
 
 

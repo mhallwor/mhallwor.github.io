@@ -112,7 +112,6 @@ Below are some of my 'go to' sites for finding projection definitions.
 
 The good news is that it's quite simple to project spatial data in `R`. First, we need to know whether an object has a `coordinate reference system` (crs) or not. For the next few examples we'll use a `SpatialPolygonDataFrame` that we can get through the `raster` package. 
 ```{r get-polys,eval = FALSE, warning = FALSE,message = FALSE,error = FALSE}
-library(raster)
 States <- raster::getData(name = "GADM",
                              country = "United States",
                              level = 1,
@@ -124,8 +123,11 @@ States
 # Let's remove Alaska and Hawaii for plotting purposes
 States <- States[States$NAME_1 != "Alaska" & States$NAME_1 != "Hawaii",]
 ```
+
 ```{r read-states,echo = FALSE,message = FALSE,warning = FALSE}
 library(raster)
+library(rgdal)
+
 States <- readRDS("../Spatial_Layers/GADM_2.8_USA_adm1.rds")
 States
 States <- States[States$NAME_1 != "Alaska" & States$NAME_1 != "Hawaii",]
