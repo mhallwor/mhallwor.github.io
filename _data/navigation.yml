@@ -17,6 +17,8 @@ SpatialWorkshop:
     children:
       - title: "Points"
         url: /_pages/basics_SpatialPoints
+      - title: "Polygons"
+        url: /_pages/basics_SpatialPolygons
       - title: "Rasters"
         url: /_pages/basics_Rasters
   - title: "Projecting data"

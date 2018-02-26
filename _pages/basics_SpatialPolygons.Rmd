@@ -1,0 +1,204 @@
+---
+title: "Introduction to spatial points in R"
+author: "Michael T. Hallworth"
+contributor: "Clark S. Rushing"
+dateCreated:  2018-02-26
+layout: single
+permalink: /_pages/basics_SpatialPolygons
+header:
+  caption: 'Photo credit: **M. T. Hallworth**'
+  image: assets/images/lookingUp.jpg
+sidebar:
+  nav: SpatialWorkshop
+  title: Get Spatial! Using R as GIS
+---
+{% include toc title="In This Activity" %}
+
+<a name="TOP"></a>
+
+This activity will introduce you to working with spatial polygons in R.
+
+**R Skill Level:** Intermediate - this activity assumes you have a working knowledge of `R`     
+
+<div style="background-color:rgba(0, 0, 0, 0.0470588); border-radius: 25px; text-align:center; vertical-align: middle; padding:3px 0; width: 600px; margin: auto; box-shadow: 4px 5px gray;">
+
+<h1>Objectives & Goals</h1>      
+<b>Upon completion of this activity, you will:</b>
+<ul>
+<li>know how to <strong>create</strong> and write spatial polygons</li>   
+<li>Be able to <strong>project</strong> spatial polygons</li>     
+<li>Be able to <strong>dissolve</strong> boundaries</li>
+<li>Be able to <strong>create buffers</strong> around spatial polygons</li> 
+<li>Be able to <strong>extract</strong> data to polygons</li>
+</ul>
+</div>
+
+<br>
+<br>
+<a name="install.packages"></a>
+<div style="background-color:rgba(0, 1, 1, 0.0470588); border-radius: 25px; text-align:center; vertical-align: middle; padding:2px 0; width: 600px; margin: auto; box-shadow: 4px 5px gray;">
+<h3> Required packages</h3> 
+To complete the following activity you will need the following packages installed:
+
+<strong>raster</strong>               
+<strong>sp</strong>     
+<strong>rgeos</strong>        
+  
+<h4>Installing the packages</h4>     
+If installing these packages for the first time consider adding <code>dependencies=TRUE</code><br>   
+<code>install.packages("raster")</code><br>        
+<code>install.packages("sp")</code> <br>         
+<code>install.packages("rgeos")</code><br>  
+
+</div>
+        
+<br>
+<hr>
+
+# What are spatial polygons?    
+Spatial polygons are a set of spatially explicit shapes/polygons that represent a geographic location. Spatial polygons are composed of vertices which are a set of a series of x and y coordinates or <a href="_pages/basics_SpatialPoints" target="_blank">Spatial points</a>. Spatial polygons can be combined with data frames to create what's called a `SpatialPolygonsDataFrame`. The difference between `SpatialPolygons` and `SpatialPolygonsDataFrame` are the attributes that are associated with the polygons. `SpatialPolygonsDataFrames` have additional information associated with the polygon (e.g., site, year, individual, etc.) while `SpatialPolygons` contain only the spatial information (vertices) about the polygon. 
+
+# Creating & writing spatial polygons   
+## Spatial Polygons in R
+Let's begin by creating a set spatial polygons layer from scratch. We'll use the `sp` package to make a `SpatialPolygons` object. First we need to create a set of XY coordinates that represent the vertices of a polygon. We'll use use some randomly generated XY coordinates. Once we create a `SpatialPolygons` object in R - we'll take a closer look at its metadata and structure.
+
+load the `sp` package if you haven't already done so. If you need to install the `sp` package - see how to do that [here](#install.packages)
+```{r load-raster, message = FALSE, error = FALSE, warning = FALSE}
+# load library
+library(sp)
+```
+
+Now that the `sp` library is loaded we can use the `SpatialPolygons()` function to create a `SpatialPolygons` object in `R`.
+
+Here is the general workflow for generating polygons from scratch:    
+<ui>
+<li>Determine a set of coordinates for the vertices</li>    
+note that the first and last vertex need to be the same to 'close' the polygon. 
+<li>Give the polygon an ID</li>
+</ui>
+```{r spatial-points}
+# Make a set of coordinates that represent vertices
+# with longitude and latitude in the familiar
+# degrees
+
+x_coords <- c(-60,-60,-62,-62,-60)
+y_coords <- c(20,25,25,20,20)
+```
+Next we use the `Polygon` function in the sp package to make a polygon from our matrix of vertices
+```{r}
+poly1 <- sp::Polygon(cbind(x_coords,y_coords))
+```
+
+Then we make `poly1` into a Polygon class using the `Polygons` function
+```{r}
+firstPoly <- sp::Polygons(list(poly1),"A")
+
+str(firstPoly,1)
+```
+Then we can make `firstPoly` into a `SpatialPolygons`
+```{r}
+firstSpatialPoly <- sp::SpatialPolygons(list(firstPoly))
+
+firstSpatialPoly
+```
+
+We can create two or more polygons into a single SpatialPolygon file as well. That workflow looks something like this:
+```{r}
+# define the vertices
+x1 <- c(-60,-60,-62,-62,-60)
+x2 <-c(-50,-50,-55,-55,-50)
+y1 <- c(20,25,25,20,20)
+y2 <- c(15,25,25,15,15)
+
+# assign the vertices to a `polygon` 
+poly1 <- sp::Polygon(cbind(x1,y1))
+poly2 <- sp::Polygon(cbind(x2,y2))
+
+# This step combines the last two together - making Polygons and then SpatialPolygons
+TwoPolys <- sp::SpatialPolygons(list(sp::Polygons(list(poly1),ID = "A"),
+                                     sp::Polygons(list(poly2), ID = "B")))
+
+#Let's take a look
+TwoPolys
+```
+
+```{r}
+plot(TwoPolys)
+```
+
+
+## Writing a shapefile
+We can save our `SpatialPolygons` object as a shapefile using the `raster` package. The `shapefile` function in the `raster` package is very convienent in that it can both read a shapefile into `R` but it can also write a `SpatialPolygons` or other spatial object classes (lines, polygons, etc.) to a shapefile. 
+
+```{r save-shp, eval = FALSE, message = FALSE, warning = FALSE}
+library(raster)
+shapefile(x = TwoPolys, file = "path/to/output/file.shp")
+```
+
+## Reading a SpatialPolygon from file
+
+Creating 100s of polygons by hand is a very daunting task. Most people deal with `SpatialPolygon` files that have already been created and are read into `R` via a shapefile. In the next portion of this tutorial we'll download a `SpatialPolygonDataFrame` that contains US State boundaries. 
+
+We can get the data directly from within `R` using the `getData` function available in the `raster` package.
+
+```{r download-statboundaries, message = FALSE, warning = FALSE}
+# This looks up the GADM dataset - for the country US and returns 
+# the first level of administration which in this case is state boundaries. 
+
+States <- raster::getData("GADM", country = "United States", level = 1)
+
+# Have a look at the data
+States
+```
+
+We can see that the `States` object is a `SpatialPolygonsDataFrame`. It contains spatial information about the state boundaries but also additional data like the name and some other things. 
+
+Plot this to see that it looks like 
+```{r}
+plot(States)
+```
+
+For plotting purposes let's subset out Alaksa and Hawaii from the current data
+```{r}
+States <- States[States$NAME_1 != "Alaska" & States$NAME_1 != "Hawaii",]
+```
+```{r echo = FALSE}
+plot(States)
+```
+
+## Dissolving boundaries
+
+Often we find that we have lots of spatial polygons that represent the same information. For example, let's say you have a very fine scale polygon shapefile of the United States. Each island or disjunct polygon will become it's own polygon within the larger dataset. Let's imagine that you want to extract values for a particular state - Alaska for example. Each individual Aleutian island will be it's own polygon and thus when summarizing data each island will have it's own mean. We can get around that by <strong>dissolving</strong> boundaries based on similar attributes. Essentially collapsing multiple polygons into a single polygon. 
+
+Here we're going to dissolve the state boundaries to make a single United States (lower 48) border polygon. We'll use the `rgeos` package to do that. Make sure you have it installed. 
+```{r}
+library(rgeos)
+```
+
+Within the `rgeos` package there are lots of handy spatial functions. We'll use a special case of the <a href="https://www.rdocumentation.org/packages/rgeos/versions/0.3-26/topics/gUnion" target="_blank"><code>gUnion</code></a> function to dissolve our state boundaries. In order to dissolve we need a common identifier in all the polygons we want to 'merge' together. The `ISO` field is the same for all polygons. We'll use that to dissolve boundaries into one polygon. 
+```{r}
+USborder <- rgeos::gUnaryUnion(States, id = States$ISO)
+```
+
+Take a look at the new single polygon
+```{r}
+# What does it look like
+USborder
+
+# Plot it
+plot(USborder)
+```
+
+Let's make a map using the newly created `USborder` and the state level data. 
+```{r}
+plot(States, 
+     col = "gray70", # fill color
+     border = "white") # outline color
+plot(USborder, 
+     lwd = 2,
+     add = TRUE) # add to current plot
+```
+
+<div style="background-color:rgb(108, 211, 254); border-radius: 25px; text-align:center; vertical-align: middle; padding: 3px 0; margin: auto; width:200px; box-shadow: 4px 5px #6a5acd;">
+<a href="#" style="color:white";>Download R script</a>
+</div>
