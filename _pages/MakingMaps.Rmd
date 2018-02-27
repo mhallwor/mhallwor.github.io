@@ -1,0 +1,96 @@
+---
+title: "Introduction to spatial points in R"
+author: "Michael T. Hallworth"
+contributor: "Clark S. Rushing"
+dateCreated:  2018-02-26
+layout: single
+permalink: /_pages/MakingMaps
+header:
+  caption: 'Photo credit: **M. T. Hallworth**'
+  image: assets/images/lookingUp.jpg
+sidebar:
+  title: "Get Spatial! Using R as GIS"
+  nav: "SpatialWorkshop"
+---
+{% include toc title="In This Activity" %}
+
+<a name="TOP"></a>
+
+This activity will introduce you to working with spatial points in R.
+
+**R Skill Level:** Intermediate - this activity assumes you have a working knowledge of `R`     
+
+<div style="background-color:rgba(0, 0, 0, 0.0470588); border-radius: 25px; text-align:center; vertical-align: middle; padding:3px 0; width: 600px; margin: auto; box-shadow: 4px 5px gray;">
+
+<h1>Objectives & Goals</h1>      
+<b>Upon completion of this activity, you will:</b>
+<ul>
+<li>know how to <strong>create</strong> and write spatial points</li>   
+<li>Be able to <strong>project</strong> spatial points</li>             
+<li>Be able to <strong>calculate distances</strong> between points</li>             
+<li>Be able to <strong>create buffers</strong> around spatial points</li> 
+</ul>
+</div>
+
+<br>
+<br>
+<a name="install.packages"></a>
+<div style="background-color:rgba(0, 1, 1, 0.0470588); border-radius: 25px; text-align:center; vertical-align: middle; padding:2px 0; width: 600px; margin: auto; box-shadow: 4px 5px gray;">
+<h3> Required packages</h3> 
+To complete the following activity you will need the following packages installed:
+
+<strong>raster</strong>               
+<strong>sp</strong>     
+<strong>rgeos</strong>        
+  
+<h4>Installing the packages</h4>     
+If installing these packages for the first time consider adding <code>dependencies=TRUE</code><br>   
+<code>install.packages("raster")</code>        
+<code>install.packages("sp")</code>        
+<code>install.packages("rgeos")</code>
+<code>install.packages("leaflet")</code>
+)
+
+</div>
+        
+<br>
+<hr>
+```{r}
+library(raster)
+library(leaflet)
+```
+
+## Interactive plots 
+
+The `leaflet` package makes making interactive plots fairly straightforward once you learn the syntax. See <a href = "https://rstudio.github.io/leaflet/" target="_blank">here</a> for lots more info on leaflet functions. The general workflow for interactive plots is:
+
+<li> generate the interactive plot by calling `leaflet(data = spatial data)`</li>
+<li> add base layers using the `addTiles` function. </li>
+<li> add additional layers using addPolygons, addMarkers, addCircleMarkers, etc. </li>
+
+The following code creates a rather simple map with a small inset, two baselayers the user can switch between and the polygon boundary is highlighted when the users mouse navigates over it.  
+```{r}
+# Read the State boundaries
+States <- raster::getData("GADM",country = "United States", level = 1)
+
+# Subset to include only New Hampshire
+NH <- States[States$NAME_1 == "New Hampshire",]
+
+# This call makes the map
+mapNH <- leaflet(data = NH) %>%  # inital map
+      addTiles() %>%            # add a baselayer
+   addProviderTiles("Esri.WorldImagery", group = "Aerial") %>% # specific baselayer with name
+   addProviderTiles("OpenTopoMap", group = "Topography")%>% # specific baselayer with name
+   addPolygons(., stroke = TRUE, weight = 1, color = "black", # add New Hampshire polygon
+      highlightOptions = highlightOptions(color = "white", weight = 2, # highlight when over
+      bringToFront = TRUE)) %>%
+ # Layers control 
+            addLayersControl(      # give user control of basemap 
+              baseGroups = c("Aerial", "Topography"), # these groups are labelled above
+              options = layersControlOptions(collapsed = TRUE)) # collapse options
+
+mapNH %>% addMiniMap() # add map inset to plot
+```
+<div style="background-color:rgb(108, 211, 254); border-radius: 25px; text-align:center; vertical-align: middle; padding: 3px 0; margin: auto; width:200px; box-shadow: 4px 5px #6a5acd;">
+<a href="#" style="color:white";>Download R script</a>
+</div>

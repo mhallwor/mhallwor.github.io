@@ -27,6 +27,8 @@ SpatialWorkshop:
      #url: /_pages/activities_ExtractingRasterValues
   - title: "Raster Calculations"
      #url: /_pages/raster_calculations
+  - title: "Making Maps"
+     url: /_pages/MakingMaps
   - title: "Activities"
     children:
        - title: "Making territories"
