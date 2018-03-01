@@ -119,36 +119,42 @@ plot(firstRaster)
 
 ### Reading rasters from file
 
-# Raster calculations 
-
-# Projecting a raster 
-
-# Extracting values from a raster
-
-# Reclassifing & resampling rasters
-
-```{r,message = FALSE,warning = FALSE}
-# Generate random variables #
-library(raster)
-
-x <- runif(100,min = -101, max = -100)
-y <- runif(100, 43,44)
-coordinates <- sp::SpatialPoints(cbind(x,y))
-plot(coordinates,pch = 19)
-
-plot(rgeos::gBuffer(coordinates, byid = TRUE, width = 0.05),add = TRUE)
-```
-
-## Does this work
-```{r}
-r <- raster(ncol = 10, nrow = 10)
-r[] <- 1:10
-```
+The `raster()` function within the `raster` package can also be used to read in a raster from file. Let's read in some <a href = "https://neo.sci.gsfc.nasa.gov/view.php?datasetId=MOD_NDVI_M&date=2018-01-01" target="_blank">Normalized Difference Vegetation Index (NDVI)</a> data from <a href="https://neo.sci.gsfc.nasa.gov/" target="_blank">NASA's NEO</a>. See <a href = "https://mhallwor.github.io/_pages/whereToGetData.html" target = "_blank">where to get data</a> for other potential data sources. 
 
 ```{r}
-plot(r)
+# read in raster layer using raster function
+# NDVI <- raster("path/to/raster/file")
+NDVI <- raster::raster("../Spatial_Layers/MOD_NDVI_M_2018-01-01_rgb_3600x1800.FLOAT.TIFF")
+```
+
+Let's take a look at the data
+```{r}
+NDVI
+```
+
+```{r, echo = FALSE}
+par(bty="n",mar = c(0,0,0,3))
+plot(NDVI, axes = FALSE)
+```
+<div style="background-color: #ffffe6; border-radius: 25px; text-align:center; vertical-align: middle; padding: 3px 0; margin: auto; width:600px; box-shadow: 4px 5px #f2f2f2;"> 
+<h3><strong>Challenge</strong></h3>
+<strong>Does the NDVI appear as you expected?</strong>
+<li> If not, why? </li>
+<li> What needs to be done to make it fit your expectations?</li>
+</div>
+```{r, echo = FALSE,warning = FALSE,message = FALSE}
+# First option for making NDVI appear as expected
+# set values larger than 2 to NA 
+#NDVI[NDVI>2]<-NA
+par(bty = "n",mar = c(0,0,2,3))
+#plot(NDVI, axes = FALSE)
+
+# Second option - leave NDVI values intact but
+# only plot values within the range of 'normal' 
+# NDVI values c(-0.1,0.9)
+raster::plot(NDVI, axes = FALSE, zlim = c(-0.1,0.9))
 ```
 
 <div style="background-color:rgb(108, 211, 254); border-radius: 25px; text-align:center; vertical-align: middle; padding: 3px 0; margin: auto; width:200px; box-shadow: 4px 5px #6a5acd;">
-<a href="#" style="color:white";>Download R script</a>
+<a href="#" style="color:white";">Download R script</a>
 </div>
