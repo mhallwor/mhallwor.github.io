@@ -45,10 +45,11 @@ To complete the following activity you will need the following packages installe
   
 <h4>Installing the packages</h4>     
 If installing these packages for the first time consider adding <code>dependencies=TRUE</code><br>   
-<code>install.packages("raster")</code>        
-<code>install.packages("sp")</code>        
-<code>install.packages("rgeos")</code>
-<code>install.packages("leaflet")</code>
+<li><code>install.packages("raster",dependencies = TRUE)</code></li>
+<li><code>install.packages("rgdal",dependencies = TRUE)</code></li>
+<li><code>install.packages("rgeos",dependencies = TRUE)</code></li>
+<li><code>install.packages("sp",dependencies = TRUE)</code></li>
+<li><code>install.packages("leaflet")</code></li>
 )
 
 </div>

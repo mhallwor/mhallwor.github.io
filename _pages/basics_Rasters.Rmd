@@ -39,19 +39,22 @@ This activity will introduce you to working with raster data in R.
 <br>
 <a name="install.packages"></a>
 <div style="background-color:rgba(0, 1, 1, 0.0470588); border-radius: 25px; text-align:center; vertical-align: middle; padding:2px 0; width: 600px; margin: auto; box-shadow: 4px 5px gray;">
+
 <h3> Required packages</h3> 
 To complete the following activity you will need the following packages installed:
 
-<strong>raster</strong>               
-<strong>sp</strong>     
-<strong>rgeos</strong>        
+<strong>raster</strong>                  
+<strong>sp</strong>        
+<strong>rgeos</strong>            
   
 <h4>Installing the packages</h4>     
-If installing these packages for the first time consider adding <code>dependencies=TRUE</code>    
-<code>install.packages("raster")</code>        
-<code>install.packages("sp")</code>        
-<code>install.packages("rgeos")</code>
+If installing these packages for the first time consider adding <code>dependencies=TRUE</code>        
 
+<li><code>install.packages("raster",dependencies = TRUE)</code></li>
+<li><code>install.packages("rgdal",dependencies = TRUE)</code></li>
+<li><code>install.packages("rgeos",dependencies = TRUE)</code></li>
+<li><code>install.packages("sp",dependencies = TRUE)</code></li>
+<br> 
 </div>
         
 <br>
@@ -155,6 +158,6 @@ par(bty = "n",mar = c(0,0,2,3))
 raster::plot(NDVI, axes = FALSE, zlim = c(-0.1,0.9))
 ```
 
-<div style="background-color:rgb(108, 211, 254); border-radius: 25px; text-align:center; vertical-align: middle; padding: 3px 0; margin: auto; width:200px; box-shadow: 4px 5px #6a5acd;">
-<a href="#" style="color:white";">Download R script</a>
+<div style="background-color:rgb(108, 211, 254); border-radius: 25px; text-align:center; vertical-align: middle; padding: 3px 3px; margin: auto; width:200px; box-shadow: 4px 5px #6a5acd;">
+<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/master/Rscripts/basics_Rasters.R" target="_blank" style="color:white";>Download R script</a>
 </div>

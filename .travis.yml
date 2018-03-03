@@ -17,6 +17,8 @@ r_packages:
   - geosphere
   - dismo
   - leaflet
+  - unmarked
+  - AHMbook
 before_install:
   - "docker pull ubuntu:16.04"
   - sudo add-apt-repository ppa:ubuntugis/ubuntugis-unstable -y
