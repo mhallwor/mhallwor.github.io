@@ -31,8 +31,8 @@ SpatialWorkshop:
     url: /_pages/MakingMaps
   - title: "Activities"
     children:
-	  - title: "Point Counts"
-	    url: /_pages/activities_PointCount
+      - title: "Point Counts"
+        url: /_pages/activities_PointCount
       - title: "Making territories"
         #url: /_pages/activities_MakingTerritories
       - title: "Isotope assignments"
