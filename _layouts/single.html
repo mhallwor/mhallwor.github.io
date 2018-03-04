@@ -41,7 +41,15 @@ layout: default
               {% include toc.html sanitize=true html=content h_min=2 h_max=3 class="toc__menu" %}
             </nav>
           </aside>
-        {% endif %}
+		 {% endif %}
+		  <!-- List authors at the top of the lesson -->
+          <span class="post-date">
+           Authors: {{ page.authors | join: ', ' }}<br>
+            {% if page.contributors %}
+           Reviewers: {{ page.contributors | join: ', ' }}
+            {% endif %}   
+           </span>
+        
         {{ content }}
         {% if page.link %}<div><a href="{{ page.link }}" class="btn btn--primary">{{ site.data.ui-text[site.locale].ext_link_label | default: "Direct Link" }}</a></div>{% endif %}
       </section>

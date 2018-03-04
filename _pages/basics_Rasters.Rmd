@@ -20,6 +20,7 @@ This activity will introduce you to working with raster data in R.
 
 **R Skill Level:** Intermediate - this activity assumes you have a working knowledge of `R` 
 
+Need to brush up on syntax and data classes in `R`? See <a href= "{{ site.baseurl }}/_pages/R_basics" target = "_blank">R basics</a> for a refresher.
 
 <div style="background-color:rgba(0, 0, 0, 0.0470588); border-radius: 25px; text-align:center; vertical-align: middle; padding:3px 0; width: 600px; margin: auto; box-shadow: 4px 5px gray;">
 
