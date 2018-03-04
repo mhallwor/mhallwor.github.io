@@ -1,7 +1,7 @@
 ---
 title: "Working with Point-Count like data"
-author: "Michael T. Hallworth"
-contributor: "Clark S. Rushing"
+author: Michael_T_Hallworth
+contributor: Clark_S_Rushing
 dateCreated:  2018-02-20
 layout: single
 permalink: /_pages/activities_PointCount
