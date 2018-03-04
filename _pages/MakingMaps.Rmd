@@ -78,20 +78,29 @@ States <- raster::getData("GADM",country = "United States", level = 1)
 NH <- States[States$NAME_1 == "New Hampshire",]
 
 # This call makes the map
-mapNH <- leaflet(data = NH) %>%  # inital map
-      addTiles() %>%            # add a baselayer
-   addProviderTiles("Esri.WorldImagery", group = "Aerial") %>% # specific baselayer with name
-   addProviderTiles("OpenTopoMap", group = "Topography")%>% # specific baselayer with name
-   addPolygons(., stroke = TRUE, weight = 1, color = "black", # add New Hampshire polygon
-      highlightOptions = highlightOptions(color = "white", weight = 2, # highlight when over
+  # inital map
+mapNH <- leaflet(data = NH) %>%  
+  # add a baselayer
+      addTiles() %>% 
+  # specific baselayer with name          
+   addProviderTiles("Esri.WorldImagery", group = "Aerial") %>% 
+  # specific baselayer with name
+   addProviderTiles("OpenTopoMap", group = "Topography")%>% 
+  # add New Hampshire polygon
+   addPolygons(., stroke = TRUE, weight = 1, color = "black", 
+  # highlight when over
+      highlightOptions = highlightOptions(color = "white", weight = 2, 
       bringToFront = TRUE)) %>%
  # Layers control 
-            addLayersControl(      # give user control of basemap 
-              baseGroups = c("Aerial", "Topography"), # these groups are labelled above
-              options = layersControlOptions(collapsed = TRUE)) # collapse options
-
-mapNH %>% addMiniMap() # add map inset to plot
+  # give user control of basemap 
+            addLayersControl(      
+      # these groups are labelled above
+              baseGroups = c("Aerial", "Topography"), 
+        # collapse options
+              options = layersControlOptions(collapsed = TRUE)) 
+# add map inset to plot
+mapNH %>% addMiniMap() 
 ```
 <div style="background-color:rgb(108, 211, 254); border-radius: 25px; text-align:center; vertical-align: middle; padding: 3px 0; margin: auto; width:200px; box-shadow: 4px 5px #6a5acd;">
-<a href="#" style="color:white";>Download R script</a>
+<a href="#" style="color:white">Download R script</a>
 </div>

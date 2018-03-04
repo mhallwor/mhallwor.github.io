@@ -20,5 +20,17 @@ Looking for spatial data can be a daunting task. It can be quite overwhelming tr
 
 <a href="https://lpdaac.usgs.gov/data_access/data_pool" target="_blank">**Land Processes Distributed Active Archive Center [LP DAAC]**</a>*
 
+<h3>United States</h3>
+<a href="https://data.fs.usda.gov/geodata/edw/datasets.php" target="_blank">**FSGeodata Clearinghouse**</a>
+
+<a href="https://www.census.gov/geo/maps-data/data/tiger.html" target="_blank">**United States Census Bureau**</a>
+
+<a href="http://prism.oregonstate.edu/" target = "_blank"> **PRISM Climate Group**</a>
 
 *new users need create a free account to download data 
+
+```{r echo = FALSE}
+raster::plotRGB(raster::brick("../Spatial_Layers/BlueMarbleNG-TB_2004-09-01_rgb_3600x1800.TIFF"),
+                colNA = "black")
+
+```

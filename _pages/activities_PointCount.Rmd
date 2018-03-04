@@ -118,7 +118,7 @@ plot(surveyPts, add = TRUE, pch = 19)
 ## Generate buffer around points
 Now that we have generate survey points - let's make a 50m radius around each point.
 
-Before we go any further we need to know a few things. We need to know if the <code>coordinate reference system (crs)</code> is defined for our survey points and we also need to what the <code>crs</code is. To make our lives easier if would be good to have the surveyPoints projected into an Equal Area projection in meters. The reason for this is two-fold. First, an equal area projection will conserve area so our buffers should be accurate and second, if it's in a meters we can specify the <code>width</code> parameter in meters. 
+Before we go any further we need to know a few things. We need to know if the <code>coordinate reference system (crs)</code> is defined for our survey points and we also need to what the <code>crs</code> is. To make our lives easier if would be good to have the surveyPoints projected into an Equal Area projection in meters. The reason for this is two-fold. First, an equal area projection will conserve area so our buffers should be accurate and second, if it's in a meters we can specify the <code>width</code> parameter in meters. 
 
 ```{r}
 surveyPts
@@ -140,7 +140,8 @@ surveyPts_m <- sp::spTransform(surveyPts, sp::CRS(EqArea))
 CNF_m <- sp::spTransform(CNF, sp::CRS(EqArea))
 ```
 
-Now for the DEM - it's quite large and we only need a small portion. Let's crop the DEM to include only the area around Coronado National Forest. 
+Now for the DEM - it's quite large and we only need a small portion. Let's crop the DEM to include only the area around Coronado National Forest.
+
 ```{r}
 DEM <- crop(DEM,CNF)
 
