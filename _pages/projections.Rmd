@@ -1,7 +1,7 @@
 ---
 title: "Projections"
 author: Michael_T_Hallworth
-dateCreated: '2018-02-20'
+dateCreated: 2018-02-20
 modified: 2018-03-04
 header:
   caption: 'Photo credit: **M. T. Hallworth**'
@@ -14,7 +14,6 @@ sidebar:
 contributor: Clark_S_Rushing
 ---
 {% include toc title="In This Activity" %}
-{% last_modified_at %}
 
 <a name="TOP"></a>
 
