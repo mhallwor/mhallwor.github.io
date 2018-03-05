@@ -1,7 +1,8 @@
 ---
 title: "Projections"
-author: "Michael T. Hallworth"
+author: Michael_T_Hallworth
 dateCreated: '2018-02-20'
+modified: 2018-03-04
 header:
   caption: 'Photo credit: **M. T. Hallworth**'
   image: assets/images/lookingUp.jpg
@@ -10,9 +11,10 @@ permalink: /_pages/projections
 sidebar:
   nav: SpatialWorkshop
   title: Get Spatial! Using R as GIS
-contributor: Clark S. Rushing
+contributor: Clark_S_Rushing
 ---
 {% include toc title="In This Activity" %}
+{% last_modified_at %}
 
 <a name="TOP"></a>
 
@@ -106,6 +108,7 @@ Below are some of my 'go to' sites for finding projection definitions.
 <li><a href = "http://spatialreference.org/" target="_blank"><strong>spatialreference.org</strong></a></li><br>
 <li><a href = "http://proj4.org/projections/index.html" target="_blank"><strong>proj4.org</strong></a></li><br>
 <li><a href = "http://www.epsg-registry.org/" target="_blank"><strong>EPSG-registry.org</strong></a></li><br>
+<li><a href = "http://spatialreference.org/ref/epsg/" target="_blank"><strong>EPSG-registry.org</strong></a></li><br>
 </ui>
 
 ## Projecting spatial data
