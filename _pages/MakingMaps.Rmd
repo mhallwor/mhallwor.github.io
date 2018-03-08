@@ -1,22 +1,25 @@
 ---
 title: "Introduction to spatial points in R"
-author: "Michael T. Hallworth"
-contributor: "Clark S. Rushing"
-dateCreated:  2018-02-26
-layout: single
-permalink: /_pages/MakingMaps
+author: "Michael_T_Hallworth"
+contributor: Clark_S_Rushing
+dateCreated: '2018-02-26'
 header:
   caption: 'Photo credit: **M. T. Hallworth**'
   image: assets/images/lookingUp.jpg
+layout: single
+permalink: /_pages/MakingMaps
 sidebar:
-  title: "Get Spatial! Using R as GIS"
-  nav: "SpatialWorkshop"
+  nav: SpatialWorkshop
+  title: Get Spatial! Using R as GIS
+classes: wide
 ---
 {% include toc title="In This Activity" %}
-
+```{r setup,echo = FALSE}
+knitr::opts_chunk$set(error = TRUE)
+```
 <a name="TOP"></a>
 
-This activity will introduce you to working with spatial points in R.
+This activity will introduce you to creating maps and plotting spatial data in R.
 
 **R Skill Level:** Intermediate - this activity assumes you have a working knowledge of `R`     
 
@@ -25,10 +28,10 @@ This activity will introduce you to working with spatial points in R.
 <h1>Objectives & Goals</h1>      
 <b>Upon completion of this activity, you will:</b>
 <ul>
-<li>know how to <strong>create</strong> and write spatial points</li>   
-<li>Be able to <strong>project</strong> spatial points</li>             
-<li>Be able to <strong>calculate distances</strong> between points</li>             
-<li>Be able to <strong>create buffers</strong> around spatial points</li> 
+<li>know how to <strong>plot</strong> spatial</li>   
+<li>Be able to <strong>customize legends</strong> for raster data</li>             
+<li>Be able to <strong>add a scalebar</strong> to a plot</li>             
+<li>Be able to generate an <strong>interactive plot</strong> using leaflet</li> 
 </ul>
 </div>
 
@@ -41,7 +44,9 @@ To complete the following activity you will need the following packages installe
 
 <strong>raster</strong>               
 <strong>sp</strong>     
-<strong>rgeos</strong>        
+<strong>rgeos</strong>      
+<strong>leaflet</strong>     
+<strong>dismo</strong>      
   
 <h4>Installing the packages</h4>     
 If installing these packages for the first time consider adding <code>dependencies=TRUE</code><br>   
@@ -49,17 +54,255 @@ If installing these packages for the first time consider adding <code>dependenci
 <li><code>install.packages("rgdal",dependencies = TRUE)</code></li>
 <li><code>install.packages("rgeos",dependencies = TRUE)</code></li>
 <li><code>install.packages("sp",dependencies = TRUE)</code></li>
-<li><code>install.packages("leaflet")</code></li>
-)
+<li><code>install.packages("leaflet",dependencies = TRUE)</code></li>
+<li><code>install.packages("dismo",dependencies = TRUE)</code></li>
 
 </div>
         
 <br>
 <hr>
-```{r}
+
+```{r, warning = FALSE, error = FALSE, message = FALSE}
 library(raster)
+library(sp)
+library(rgeos)
 library(leaflet)
+library(dismo)
 ```
+
+## Making Maps
+
+Making maps is as much an art as it is a science and making nice maps takes a lot of practice. We won't go into map making in great detail here. I'll illustrate some features that you can use to maps in R. We'll start with basic maps of spatial features like points and work our way up to plotting rasters with custom legends and finally to interactive plots. 
+
+Let's read in the states SpatialPolygonsDataFrame using the raster package to get started. 
+```{r}
+# Get State boundaries
+States <- raster::getData("GADM", country = "United States", level = 1)
+```
+
+Now let's plot New Hampshire 
+```{r, warning = FALSE, message = FALSE, error = FALSE}
+# make NH polygon
+NH <- States[States$NAME_1 == "New Hampshire",]
+
+# plot a single polygon
+plot(NH)
+```
+
+All we did was call the `plot()` function on our spatial polygon and it created a map. Pretty straight forward so far. 
+```{r echo = FALSE, warning = FALSE, message = FALSE}
+# Detach packages to illustrate error message 
+detach("package:rgeos",unload = TRUE)
+detach("package:raster", unload = TRUE)
+detach("package:sp", unload = TRUE)
+```
+If you get the following error be sure to load the `raster` package before plotting. You get the following error because the basic plot function in `R` doesn't know how to plot spatial data without `raster` or some other spatial package loaded. 
+```{r echo = FALSE, message = FALSE, warning = FALSE}
+# plot NH without raster or sp loaded to show error
+plot(NH)
+```
+
+```{r echo = FALSE, error = FALSE, message = FALSE, warning = FALSE}
+# bring the libraries back
+library(raster)
+library(sp)
+```
+
+## Adding multiple spatial layers
+Maps are often a few different spatial layers added togther. Therefore, we need to know how to plot multiple spatial layers together to render maps. These next few lines of code will add a few different data layers together to make a map. First, we'll generate some random points within New Hampshire and plot those. Then, we'll put New Hampshire into context so it doesn't look like its floating. Then we'll add some color to add emphasis. 
+
+First the random points. 
+```{r}
+# Set the random seed 
+set.seed(12345)
+
+# make random points within New Hampshire
+randPts <- sp::spsample(x = NH, n = 100, type = "random")
+```
+
+Plot New Hampshire boundary
+```{r eval = FALSE}
+# Plot New Hampshire
+plot(NH)
+```
+```{r echo = FALSE}
+plot(NH)
+```
+
+Add the random points on top of New Hampshire
+```{r eval = FALSE}
+# Add random points
+plot(randPts, 
+     add = TRUE,
+     pch = 19)
+```
+
+```{r echo = FALSE}
+# Plot New Hampshire 
+plot(NH)
+# add random points 
+plot(randPts,
+     add = TRUE,
+     pch = 19)
+```
+    
+add the other state boundaries for context
+```{r eval = FALSE}
+# Add States for context
+plot(States, 
+     add = TRUE)
+```
+
+```{r echo = FALSE}
+# Plot New Hampshire 
+plot(NH)
+# add random points 
+plot(randPts,
+     add = TRUE,
+     pch = 19)
+# Add States for context
+plot(States, 
+     add = TRUE)
+```
+
+## Adding map extras
+#### axes 
+Let's add some location information like latitude and longitude for reference. The <code>sp</code> function has a nice axis helper to do just that and make it look 'pretty'. 
+
+```{r}
+plot(NH)
+sp::degAxis(side = 1)
+sp::degAxis(side = 2,las = 2)
+```
+
+#### north arrow
+The <code>sp</code> package also has a nice feature that generates a north arrow. We'll put types on the same map. The <code>layout.north.arrow</code> function creates a spatial object that has spatial coordinates that are correct relative to themselves. Therefore, in order to place the north arrow on the map in locations that we want we can shift the spatial coordinates of the north arrow using the <code>elide</code> function in the <code>maptools</code> package. 
+
+There are two types of north arrow included in the <code>layout.north.arrow</code> function. The first type (<code>type = 1</code>) places a north arrow behind a captial N. The second type (<code>type = 2</code>) is a northward facing arrow. 
+
+```{r}
+plot(NH)
+# generate the north arrow type 1
+arrow1 <-  layout.north.arrow(type = 1) 
+
+# shift the coordinates 
+# shift = c(x,y) direction
+Narrow1 <- maptools::elide(arrow1, shift = c(extent(NH)[2],extent(NH)[3]))
+
+# add north arrow to current NH plot
+plot(Narrow1, add = TRUE,col = "black")
+
+# Make north arrow type 2
+arrow2 <- layout.north.arrow(type = 2)
+
+# shift the coordinates
+# shift = c(x,y) direction
+Narrow2 <- maptools::elide(arrow2, shift = c(extent(NH)[1]-0.5,extent(NH)[3]))
+
+# add north arrow to current plot
+plot(Narrow2, add = TRUE, col = "blue")
+```
+
+#### scalebar
+
+Both <code>raster</code> package and the <code>sp</code> packages have a function to add a scale bar. The scalebar in the <code>sp</code> package is very basic. 
+
+```{r}
+# New Hampshire plot
+plot(NH)
+# scale bar layer
+sb <- layout.scale.bar(height = 0.05)
+# shift scale bar
+sb_slide <- maptools::elide(sb, shift = c(extent(NH)[1],extent(NH)[3]+0.5))
+# Add to plot
+plot(sb_slide, add = TRUE, col = c("white","black"))
+```
+
+Now the scalebar in the <code>raster</code> package.
+```{r}
+plot(NH)
+raster::scalebar(d = 100, # distance in km
+                 # location where to place scalebar
+                 xy = c(extent(NH)[1],extent(NH)[3]+0.5),
+                 # Type either 'bar' or 'line'
+                 type = "bar", 
+                 # how many divisons in bar/line
+                 divs = 2, 
+                 # text below bar
+                 below = "km", 
+                 # are the data longitude / latitude
+                 lonlat = TRUE,
+                 # Labels for c(beginning, middle, end)
+                 label = c(0,50,100), 
+                 # label adjustments - c(horiz,vertical)
+                 adj=c(0, -0.75), 
+                 # width of lines
+                 lwd = 2)
+```
+     
+## Adding Satellite Image
+
+Adding satellite images from Google Earth is also possible. We'll use the <code>dismo</code> package for that. The <code>gmap()</code> function returns a google map. Several types ("roadmap", "satellite", "hybrid", "terrain") are available. You can use the <code>style</code> option to customize colors, etc. See <a href="https://developers.google.com/maps/documentation/static-maps/styling" target="_blank">here</a> for style options.
+
+```{r, eval = FALSE}
+# load dismo package
+library(dismo)
+
+# Download a map from Google Maps API
+sat <- gmap(x = NH,
+      # multiplier to change extent
+      # values less than 1 - zooms in
+      # values greater than 1 - zooms out
+            exp = 1,
+      # zoom is another parameter to
+      # zoom in or out on areas
+      # 1 = world, 20 = pick out individual trees
+            zoom = NULL,
+      # Type of image to return 
+            type = "satellite",
+      # return in coord lonlat
+            lonlat = FALSE,
+      # return raster stack with red,green,blue values
+            rgb = TRUE)
+
+# Avoid weird white space by using using the rgb = TRUE &
+# using raster's plotRGB function.
+plotRGB(sat)
+```
+
+```{r echo = FALSE}
+
+# Download a map from Google Maps API
+sat <- gmap(x = NH,
+      # multiplier to change extent
+      # values less than 1 - zooms in
+      # values greater than 1 - zooms out
+            exp = 1,
+      # zoom is another parameter to
+      # zoom in or out on areas
+      # 1 = world, 20 = pick out individual trees
+            zoom = NULL,
+      # Type of image to return 
+            type = "satellite",
+      # return in coord lonlat
+            lonlat = FALSE,
+      # return raster stack with red,green,blue values
+            rgb = TRUE)
+
+# Project NH into merc projection
+NHproj <- sp::spTransform(NH,sp::CRS(sat@crs@projargs))
+
+# Avoid weird white space by using using the rgb = TRUE &
+# using raster's plotRGB function.
+par(mfrow = c(1,2))
+plotRGB(sat)
+# mask sat by NH
+sat_mask <- raster::mask(sat,NHproj)
+plotRGB(sat_mask)
+# add states but transform first
+plot(sp::spTransform(States,sp::CRS(sat@crs@projargs)),add = TRUE)
+```
+
 
 ## Interactive plots 
 
