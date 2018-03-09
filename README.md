@@ -1,9 +1,11 @@
 # Backend for mhallworth.github.io using the [Minimal Mistakes Jekyll Theme](https://mmistakes.github.io/minimal-mistakes/)
 
+[![Build Status](https://travis-ci.org/mhallwor/mhallwor.github.io.svg?branch=master)](https://travis-ci.org/mhallwor/mhallwor.github.io)
+
 This website is still in progress. Eventually it'll be my primary website but for now its primary focus is to distribute workshop materials. 
 
 #Get Spatial! Using R as GIS
-![alt text](https://github.com/mhallwor/mhallwor.github.io/blob/master/assets/images/OVENmove.jpg?raw=true) "It's an Ovenbird world"
+![alt text](https://github.com/mhallwor/mhallwor.github.io/blob/master/assets/images/OVENmove.jpg?raw=true)
 
 ## License
 
