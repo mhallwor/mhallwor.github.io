@@ -1,9 +1,10 @@
 ---
 title: "Introduction to spatial points in R"
-author: "Michael T. Hallworth"
-contributor: "Clark S. Rushing"
+author: Michael_T_Hallworth
+contributor: Clark_S_Rushing
 dateCreated:  2018-02-26
 layout: single
+classes: wide
 permalink: /_pages/basics_SpatialPolygons
 header:
   caption: 'Photo credit: **M. T. Hallworth**'
@@ -128,7 +129,7 @@ plot(TwoPolys)
 
 
 ## Writing a shapefile
-We can save our `SpatialPolygons` object as a shapefile using the `raster` package. The `shapefile` function in the `raster` package is very convienent in that it can both read a shapefile into `R` but it can also write a `SpatialPolygons` or other spatial object classes (lines, polygons, etc.) to a shapefile. 
+We can save our `SpatialPolygons` object as a shapefile using the `raster` package. The `shapefile` function in the `raster` package is very convenient in that it can both read a shapefile into `R` but it can also write a `SpatialPolygons` or other spatial object classes (lines, polygons, etc.) to a shapefile. 
 
 ```{r save-shp, eval = FALSE, message = FALSE, warning = FALSE}
 library(raster)
@@ -158,7 +159,7 @@ Plot this to see that it looks like
 plot(States)
 ```
 
-For plotting purposes let's subset out Alaksa and Hawaii from the current data
+For plotting purposes let's subset out Alaska and Hawaii from the current data
 ```{r}
 States <- States[States$NAME_1 != "Alaska" & States$NAME_1 != "Hawaii",]
 ```
@@ -168,7 +169,7 @@ plot(States)
 
 ## Dissolving boundaries
 
-Often we find that we have lots of spatial polygons that represent the same information. For example, let's say you have a very fine scale polygon shapefile of the United States. Each island or disjunct polygon will become it's own polygon within the larger dataset. Let's imagine that you want to extract values for a particular state - Alaska for example. Each individual Aleutian island will be it's own polygon and thus when summarizing data each island will have it's own mean. We can get around that by <strong>dissolving</strong> boundaries based on similar attributes. Essentially collapsing multiple polygons into a single polygon. 
+Often we find that we have lots of spatial polygons that represent the same information. For example, let's say you have a very fine scale polygon shapefile of the United States. Each island or disjunct polygon will become it's own polygon within the larger data set. Let's imagine that you want to extract values for a particular state - Alaska for example. Each individual Aleutian island will be it's own polygon and thus when summarizing data each island will have it's own mean. We can get around that by <strong>dissolving</strong> boundaries based on similar attributes. Essentially collapsing multiple polygons into a single polygon. 
 
 Here we're going to dissolve the state boundaries to make a single United States (lower 48) border polygon. We'll use the `rgeos` package to do that. Make sure you have it installed. 
 ```{r}
