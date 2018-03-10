@@ -17,7 +17,9 @@ sidebar:
 
 <a name="TOP"></a>
 
-Welcome to Get Spatial! Before working through the set of activities it's best to have a recent version of R and RStudio. For reference, these activities were written using `r sessionInfo()[[1]]$version.string` on a Windows machine (`r sessionInfo()[[2]]`)
+Welcome to Get Spatial! Before working through the set of activities it's best to have a recent version of R and RStudio. 
+
+For reference, these activities were written using `r sessionInfo()[[1]]$version.string` on a Windows machine (`r sessionInfo()[[2]]`)
 
 <div style="background-color:rgba(0, 0, 0, 0.0470588); border-radius: 25px; text-align:center; vertical-align: middle; padding:3px 0; width: 600px; margin: auto; box-shadow: 4px 5px gray;">
 <h2>Update R and RStudio</h2>
@@ -44,6 +46,14 @@ If installing these packages for the first time consider adding <code>dependenci
 <li><code>install.packages("sp",dependencies = TRUE)</code></li>
 <br>       
 </div>
+
+## Install required packages 
+Before starting these activities - you can run the following line of code to get all the packages we use in the activities / tutorials. 
+```{r echo = FALSE, comment = ""}
+packagesNeeded <- readLines("../DEPENDS.txt")
+pkgs <- paste(packagesNeeded,collapse = ",")
+cat("install.packages(c(",pkgs,"), dependencies = TRUE)")
+```
 
 ## On Mac 
 Download [GDAL](https://trac.osgeo.org/gdal/wiki/DownloadingGdalBinaries) and install the .dmg file. 

@@ -1,0 +1,6 @@
+dismo
+leaflet
+raster
+rgdal
+rgeos
+sp
