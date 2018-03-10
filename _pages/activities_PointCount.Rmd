@@ -4,6 +4,7 @@ author: Michael_T_Hallworth
 contributor: Clark_S_Rushing
 dateCreated:  2018-02-20
 layout: single
+classes: wide
 permalink: /_pages/activities_PointCount
 header:
   caption: 'Photo credit: **M. T. Hallworth**'
