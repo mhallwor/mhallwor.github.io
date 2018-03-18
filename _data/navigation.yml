@@ -36,6 +36,6 @@ SpatialWorkshop:
       - title: "Point Counts"
         url: /_pages/activities_PointCount
       - title: "Making territories"
-        #url: /_pages/activities_MakingTerritories
+        url: /_pages/activities_GenerateTerritories
       - title: "Isotope assignments"
         #url: /_pages/basics_SpatialPoints
