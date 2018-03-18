@@ -1,0 +1,307 @@
+---
+title: "Generating territories"
+author: "Michael_T_Hallworth"
+contributor: Clark_S_Rushing
+dateCreated: '2018-03-10'
+header:
+  caption: 'Photo credit: **M. T. Hallworth**'
+  image: assets/images/lookingUp.jpg
+layout: single
+permalink: /_pages/activities_GenerateTerritories
+sidebar:
+  nav: SpatialWorkshop
+  title: Get Spatial! Using R as GIS
+classes: wide
+---
+{% include toc title="In This Activity" %}
+
+<a name="TOP"></a>
+
+**R Skill Level:** Intermediate - this activity assumes you have a working knowledge of `R`. If you're not familiar with the <code>apply</code> family of operations in <code>R</code> you may wish to brush up on those before proceeding. See the <a href = "https://www.rdocumentation.org/packages/base/versions/3.4.3/topics/apply" target="_blank">help files</a> for more information.  
+
+
+<div style="background-color:rgba(0, 0, 0, 0.0470588); border-radius: 25px; text-align:center; vertical-align: middle; padding:3px 0; width: 600px; margin: auto; box-shadow: 4px 5px gray;">
+
+<h1>Objectives & Goals</h1>      
+<b>Upon completion of this activity, you will:</b>
+<ul>
+<li> create territories using <strong>kernel density estimates</strong></li>
+<li> create territories using <strong>minimum convex polygon</strong></li>
+<li> find the <strong>area</strong> of each territory</li>
+<li> calculate an index of <strong>density</strong></li>
+<li> <strong>Extract</strong> raster data to terrtiories </li>
+</ul>
+</div>
+
+<br>
+<br>
+<a name="install.packages"></a>
+<div style="background-color:rgba(0, 1, 1, 0.0470588); border-radius: 25px; text-align:center; vertical-align: middle; padding:2px 0; width: 600px; margin: auto; box-shadow: 4px 5px gray;">
+
+<h3> Required packages</h3> 
+To complete the following activity you will need the following packages installed:
+
+<strong>raster</strong>                  
+<strong>sp</strong>        
+<strong>rgeos</strong>            
+  
+<h4>Installing the packages</h4>     
+If installing these packages for the first time consider adding <code>dependencies=TRUE</code>        
+
+<li><code>install.packages("raster",dependencies = TRUE)</code></li>
+<li><code>install.packages("rgdal",dependencies = TRUE)</code></li>
+<li><code>install.packages("rgeos",dependencies = TRUE)</code></li>
+<li><code>install.packages("sp",dependencies = TRUE)</code></li>
+<br> 
+</div>
+        
+<br>
+<hr> 
+
+If you work with marked populations or have telemetry-like data you may be interested in constructing territories with either a minimum convex polygon or using kernel density estimation. This activity will illustrate how to go from GPS coordinates of locations for individuals to a territories using both minimum convex polygons and kernel density estimates.
+
+We'll use location data from a marked population of Ovenbirds breeding at Hubbard Brook Experimental Forest in New Hampshire. The data used in this activity are real data collected in 2012 - we may encounter some hic-cups along the way - we'll sort them out as/if we encouter them. 
+```{r warning = FALSE, error = FALSE, message = FALSE}
+library(raster)
+library(sp)
+library(ks)
+```
+
+## Read in bird locations
+The location data are stored as a csv file. 
+```{r}
+OVEN_locs <- read.csv("../Spatial_Layers/OVEN_2012_locs.csv")
+```
+
+```{r echo = FALSE}
+str(OVEN_locs)
+```
+
+## Covert points to SpatialPoints object
+
+Now that we have the data in <code>R</code> we can create a <code>SpatialPoints</code> object.
+
+```{r}
+# coords = cbind(long,lat)
+# crs = WGS84 
+OVENpts <- sp::SpatialPoints(coords = cbind(OVEN_locs$long,OVEN_locs$lat),
+                             proj4string = sp::CRS("+init=epsg:4326"))
+
+# take a peek
+head(OVENpts)
+```
+
+Let's keep all the data together and make a <code>SpatialPointsDataFrame</code>
+```{r}
+OVEN_spdf <- sp::SpatialPointsDataFrame(OVENpts,OVEN_locs)
+
+head(OVEN_spdf)
+```
+
+One handy function available in <code>R</code> that isn't in ArcMap (or at least it wasn't when I stopped using it) is a function to split a shapefile based on attributes to make a series of spatial layers. The <code>split</code> does exactly that. We'll use it here to make a <code>SpatialPoints</code> object for each individual in the dataset. 
+
+```{r}
+OVEN_sep <- split(x = OVEN_spdf, f = OVEN_spdf$Bird, drop = FALSE)
+```
+
+We now have a <code>list</code>, one element for each unique Bird id. We'll use this to make our territories.
+
+## Minimum Convex Hull
+Minimum convex polygon (MCP) generates a polygon that encapsulates all points for an individual. The first step is to make a minimum convex polygon for each individual. The <code> gConvexHull </code> does exactly that. Here we'll using the <code>lapply</code> function to avoid <code>for</code> loops.
+
+```{r}
+OVENmcp <- lapply(OVEN_sep, FUN = function(x){rgeos::gConvexHull(x)})
+``` 
+
+The above function returns a list. Ideally, we want all the polygons merged into a single <code>SpatialPolygonsDataFrame</code>. Before we can collapse the list we need to change the <code>ID</code> field in each polygon. Currently, each polygon has the same value in the <code>ID</code> field. Because of that - we can't combine them. The next bit of code labels each polygon <code>ID</code> field as the Bird id.
+
+```{r}
+OVENmcp <- mapply(OVENmcp, names(OVENmcp), 
+                  SIMPLIFY = FALSE,
+                  FUN = function(x,y){x@polygons[[1]]@ID <- y
+                  return(x)})
+```
+
+Now that the <code>ID</code> field is unique for each polygon we can merge the polygons together into a single <code>SpatialPolygons</code> object. 
+
+```{r}
+OVENmcp <- do.call(rbind,OVENmcp)
+```
+```{r echo = FALSE}
+OVENmcp
+```
+
+Let's finish this portion by creating a <code>SpatialPolygonsDataFrame</code>
+```{r}
+OVENmcp <- SpatialPolygonsDataFrame(Sr = OVENmcp,
+                                    data = data.frame(Bird = names(OVENmcp)),
+                                    match.ID = FALSE)
+```
+
+```{r, echo = FALSE}
+OVENmcp
+```
+
+```{r, echo = FALSE}
+# This chunck creates a plot
+# Generate colors 
+genCols <- colorRampPalette(c(rgb(0,0,0,0.5),
+                              rgb(0.1,0.1,0.9,0.5),
+                              rgb(0.9,0.9,0,0.5)),
+                              alpha = TRUE)
+
+# generate x colors 
+cols <- genCols(length(OVENmcp))
+
+plot(OVENmcp, col = cols)
+```
+
+There are some issues. Looks like maybe a few points were labeled incorrectly. We'll come back to fix those up. 
+
+<a href="#TOP">Back to top</a>
+
+## Kernel density estimation 
+
+Below is just one way to estimate territories using kernel density estimates. We'll use least-square cross validation to estimate the bandwidth - see <a href = "" target="_blank">Barg et al. 2005</a> for more information.  
+
+First, we'll estimate the bandwidth for each bird. To do that we'll use the least-squares cross validation (LSCV) estimator that is part of the <code>ks</code> package. We'll use <code>lapply</code> again to avoid <code>for</code> loops. The following code will estimate the bandwidth using the coordinates for each bird. LSCV doesn't like having duplicated points - it may return a warning. Here, we'll just ignore those warnings for now. 
+
+```{r}
+bw <- lapply(OVEN_sep, FUN = function(x){ks::Hlscv(x@coords)})
+```
+
+Now that we've estimated the bandwidth we can generate the territories. We'll use the <code>kde</code> (kernel density estimate) in the <code>ks</code> package to create the kernel density estimate. Then in the same function call we'll convert the kernel density estimate into a raster layer that is spatially explicit. To do this we'll use the <code>mapply</code> function. See <a href = "https://stat.ethz.ch/R-manual/R-devel/library/base/html/mapply.html" target = "_blank">here for more information</a> on what mapply does.
+
+```{r}
+OVEN_kde <-mapply(OVEN_sep,bw,
+                  SIMPLIFY = FALSE,
+                  FUN = function(x,y){
+                   raster(kde(x@coords,h=y))})
+```
+
+Here's a quick peek at the difference between the MCP and KDE for the same individual. 
+```{r echo = FALSE}
+plot(OVEN_kde[[1]])
+plot(OVENmcp[1,],add = TRUE)
+```
+
+We're not finished yet with the making the KDE's. Let's create a 95% kernel density estimate. To do that we'll first need to determine what the 95% contour value is. Then, we'll set all raster values that are less than that value to <code>NA</code>. Once we have the 95% kernel density estimate, we'll then convert the raster into a polygon so we can find the area, extract landcover data, etc. 
+
+Let's find the 95% contour. To do this we'll write a custom function. The function will take the kde and probability as inputs. The below function call <code>getContour</code> will make the 95% KDE for us. 
+```{r}
+# This code makes a custom function called getContour. 
+# Inputs:
+#    kde = kernel density estimate
+#    prob = probabily - default is 0.95
+
+getContour <- function(kde, prob = 0.95){
+   # set all values 0 to NA
+      kde[kde == 0]<-NA
+   # create a vector of raster values
+      kde_values <- raster::getValues(kde)
+   # sort values 
+      sortedValues <- sort(kde_values[!is.na(kde_values)],decreasing = TRUE)
+   # find cumulative sum up to ith location
+      sums <- cumsum(as.numeric(sortedValues))
+   # binary response is value in the probabily zone or not
+      p <- sum(sums <= prob * sums[length(sums)])
+   # Set values in raster to 1 or 0
+      kdeprob <- raster::setValues(kde, kde_values >= sortedValues[p])
+   # return new kde
+      return(kdeprob)
+}
+```
+
+```{r}
+OVEN_95kde <- lapply(OVEN_kde,
+                   FUN = getContour,prob = 0.95)
+```
+
+```{r echo = FALSE}
+par(mfrow = c(1,2))
+plot(OVEN_kde[[1]],legend = FALSE)
+plot(OVEN_95kde[[1]],legend = FALSE)
+```
+
+Now that we have the 95% KDE, let's make a polygon. We'll use raster's <code>rasterToPolygons</code> to do that. First, we'll change all the values in the 95% KDE to 1. After we do that we'll covert to a polygon. We first convert all values to 1 so that we only make a single polygon that represents the 95% KDE. 
+```{r}
+OVEN_95poly <- lapply(OVEN_95kde, 
+                      FUN = function(x){
+                        x[x==0]<-NA
+                        y <- rasterToPolygons(x, dissolve = TRUE)
+                        return(y)
+                      })
+```
+
+Before we can merge the 95% KDE together into a single <code>SpatialPolygonsDataFrame</code> we need to change the polygon ID field. We did this above in the MCP example. We'll use the same processes again here. 
+```{r}
+OVEN_95poly <- mapply(OVEN_95poly, names(OVEN_95poly), 
+                  SIMPLIFY = FALSE,
+                  FUN = function(x,y){x@polygons[[1]]@ID <- y
+                  return(x)})
+```
+
+Now that the <code>ID</code> field is unique for each polygon we can merge the polygons together into a single <code>SpatialPolygons</code> object. 
+
+```{r}
+OVEN_95poly <- do.call(rbind,OVEN_95poly)
+```
+
+We'll finish this portion by adding the bird ID field to the <code>SpatialPolygonsDataFrame</code>. I introduce a new helper function within the <code>sp</code> package called <code>getSpPolygonsIDSlots</code> which does exactly as the function suggests - it returns the ID slot within an object of class <code>SpatialPolygon</code>.
+```{r}
+OVEN_95poly$Bird <- getSpPPolygonsIDSlots(OVEN_95poly)
+```
+
+```{r, echo = FALSE}
+plot(OVEN_95poly, col = cols)
+```
+
+<a href="#TOP">Back to top</a>
+
+## Calculate attributes / Extract raster data 
+
+Now that we have made some territories - let's extract some information. One attribute of interest is territory size. Before we calculate the size, let's take a look at the <code>crs</code>. 
+```{r}
+OVEN_95poly
+```
+Notice that the <code>crs</code> is WGS84 or in other words - lat/long, not projected. Let's first project into a projection that will give us meaningful area estimates. Since these data were gathered at Hubbard Brook Experimental Forest in New Hampshire, let's use UTM, ZONE 19 N (EPSG:32619) as our projection.
+```{r}
+OVENkde_utm <- sp::spTransform(OVEN_95poly, sp::CRS("+init=epsg:32619"))
+```
+
+Now that we have projected data that is in meters we can get a more meaningful measure of area. We'll use the <code>gArea</code> function in the <code>rgeos</code> package to calculate the area. Let's have it return the area in hectares.
+```{r}
+rgeos::gArea(OVENkde_utm, byid = TRUE)/10000
+```
+
+Let's extract some environmental data to our territories. Here, we'll extract elevation but the process is the same regardless of the variable so long as it's a raster. 
+
+First, we need to read in the digital elevation model (DEM).
+```{r}
+# read in raster
+DEM <- raster::raster("../Spatial_Layers/hb10mdem.txt")
+
+# project raster to match territories
+DEMutm <- projectRaster(DEM, crs = "+init=epsg:32619")
+```
+
+```{r, echo = FALSE,warning = FALSE, message = FALSE}
+hs <- raster::hillShade(terrain(DEMutm,"slope"),terrain(DEMutm,"aspect"))
+
+par(bty = "n")
+plot(hs,col = gray(1:100/100),legend = FALSE, axes = FALSE, ext = extent(OVENkde_utm)+1000)
+plot(OVENkde_utm,add = TRUE)
+```
+
+Extract elevation values underlying the territories and append the values to the <code>SpatialPolygonsDataFrame</code>. 
+```{r}
+OVENkde_utm$meanElev <- extract(DEMutm,OVENkde_utm, mean)
+```
+```{r echo = FALSE}
+head(data.frame(BirdID = OVENkde_utm$Bird,
+           area_ha = rgeos::gArea(OVENkde_utm, byid = TRUE)/10000,
+           Elev_mean = extract(DEMutm,OVENkde_utm, mean),
+           Elev_lower = extract(DEMutm,OVENkde_utm,min),
+           Elev_upper = extract(DEMutm,OVENkde_utm,max)))
+```
+<a href="#TOP">Back to top</a>

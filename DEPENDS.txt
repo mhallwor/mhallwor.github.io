@@ -1,4 +1,5 @@
 dismo
+ks
 leaflet
 raster
 rgdal

@@ -3,6 +3,7 @@ title: "Extracting raster data"
 contributor: "Clark S. Rushing"
 dateCreated:  2018-02-20
 layout: single
+classes: wide
 permalink: /_pages/activities_ExtractingRasterValues
 sidebar:
   title: "Get Spatial! Using R as GIS"
@@ -64,12 +65,7 @@ If installing these packages for the first time consider adding <code>dependenci
 library(raster)
 library(rgeos)
 ```
-    
-## Reading in data
-```{r read-data}
-points <- sp::SpatialPoints(cbind(runif(100,-100,-90),runif(100,40,45)))
-plot(points, pch = 19)
-```
+ 
 
 <div style="background-color:rgb(108, 211, 254); border-radius: 25px; text-align:center; vertical-align: middle; padding: 3px 0; margin: auto; width:200px; box-shadow: 4px 5px #6a5acd;">
 <a href="#" style="color:white";>Download R script</a>
