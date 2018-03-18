@@ -4,6 +4,7 @@ author: Michael_T_Hallworth
 contributor: Clark_S_Rushing
 dateCreated:  2018-03-04
 layout: single
+classes: wide
 permalink: /_pages/spatial_predicates
 header:
   caption: 'Photo credit: **M. T. Hallworth**'
@@ -12,9 +13,9 @@ sidebar:
   title: "Get Spatial! Using R as GIS"
   nav: "SpatialWorkshop"
 ---
-{% include toc title="In This Activity" %}
-
 <a name="TOP"></a>
+
+{% include toc title="In This Activity" %}
 
 **R Skill Level:** Intermediate - this activity assumes you have a working knowledge of `R` 
 
@@ -78,6 +79,8 @@ library(sp)
 library(rgeos)
 ```
 
+<a href="#TOP">back to top</a>
+
 ### Clipping a polygon
 
 Clipping one polygon by another is a fairly common GIS procedure that you may have done in the past. To demonstrate how we can do this in <code>R</code> we'll use a species distribution map to clip the United States to determine which states the species distribution includes. We'll learn some new techniques along the way. For instance we'll encounter the function used to <strong> dissolve </strong> boundaries. We'll <strong>clip</strong> a polygon and then find the <strong>area</strong> of the overlapping polygons. 
@@ -120,6 +123,8 @@ OVEN <- raster::shapefile("../Spatial_Layers/ovenbird/ra06740.shp")
 # have a look
 OVEN
 ```
+
+<a href="#TOP">back to top</a>
 
 ### Dissolving features 
 One thing you should notice is that there are a ton of polygons. There are `r nrow(OVEN)` different polygons! Let's dissolve the boundaries so we have only a single polygon. In order to do that we need to make sure we have a variable within <code>OVEN</code> that is shared by all features. Looks like we'll need to create one. 
@@ -188,4 +193,6 @@ State_area <- data.frame(State = OVENstates_raster$NAME_1,
 
 head(State_area)
 ```
+
+<a href="#TOP">back to top</a>
 

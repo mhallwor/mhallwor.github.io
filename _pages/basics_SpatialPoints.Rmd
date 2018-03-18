@@ -4,6 +4,7 @@ author: "Michael T. Hallworth"
 contributor: "Clark S. Rushing"
 dateCreated:  2018-02-20
 layout: single
+classes: wide
 permalink: /_pages/basics_SpatialPoints
 header:
   caption: 'Photo credit: **M. T. Hallworth**'
@@ -12,9 +13,9 @@ sidebar:
   title: "Get Spatial! Using R as GIS"
   nav: "SpatialWorkshop"
 ---
+<a name="TOP"></a>
 {% include toc title="In This Activity" %}
 
-<a name="TOP"></a>
 
 This activity will introduce you to working with spatial points in R.
 
@@ -106,12 +107,16 @@ We can plot the points in space by simply using the `plot` function.
 plot(firstPoints, pch = 19)
 ```
 
+<a href="#TOP">Back to top</a>
+
 ## Writing a shapefile
 We can save our `firstPoints` object as a shapefile using the `raster` package. The `shapefile` function in the `raster` package is very convienent in that it can both read a shapefile into `R` but it can also write a `SpatialPoints` or other spatial object classes (lines, polygons, etc.) to a shapefile. 
 ```{r save-shp, eval = FALSE, message = FALSE, warning = FALSE}
 library(raster)
 shapefile(x = firstPoints, file = "path/to/output/file.shp")
 ```
+
+<a href="#TOP">Back to top</a>
 
 <div style="background-color:rgb(108, 211, 254); border-radius: 25px; text-align:center; vertical-align: middle; padding: 3px 0; margin: auto; width:200px; box-shadow: 4px 5px #6a5acd;">
 <a href="#" style="color:white";>Download R script</a>

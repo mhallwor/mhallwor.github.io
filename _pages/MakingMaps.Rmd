@@ -7,17 +7,18 @@ header:
   caption: 'Photo credit: **M. T. Hallworth**'
   image: assets/images/lookingUp.jpg
 layout: single
+classes: wide
 permalink: /_pages/MakingMaps
 sidebar:
   nav: SpatialWorkshop
   title: Get Spatial! Using R as GIS
-classes: wide
+
 ---
+<a name="TOP"></a>
 {% include toc title="In This Activity" %}
 ```{r setup,echo = FALSE}
 knitr::opts_chunk$set(error = TRUE)
 ```
-<a name="TOP"></a>
 
 This activity will introduce you to creating maps and plotting spatial data in R.
 
@@ -91,10 +92,7 @@ plot(NH)
 All we did was call the `plot()` function on our spatial polygon and it created a map. Pretty straight forward so far. 
 
 If you get the following error be sure to load the `raster` package before plotting. You get the following error because the basic plot function in `R` doesn't know how to plot spatial data without `raster` or some other spatial package loaded. 
-```{r echo = FALSE, message = FALSE, warning = FALSE}
-# plot NH without raster or sp loaded to show error
-plot(NH)
-```
+
 >Error in as.double(y) : cannot coerce type 'S4' to vector of type 'double'<
 
 ```{r echo = FALSE, error = FALSE, message = FALSE, warning = FALSE}
@@ -104,6 +102,8 @@ library(raster)
 library(sp)
 library(rgeos)
 ```
+
+<a href="#TOP">back to top</a>
 
 ## Adding multiple spatial layers
 Maps are often a few different spatial layers added together. Therefore, we need to know how to plot multiple spatial layers together to render maps. These next few lines of code will add a few different data layers together to make a map. First, we'll generate some random points within New Hampshire and plot those. Then, we'll put New Hampshire into context so it doesn't look like its floating. Then we'll add some color to add emphasis. 
@@ -120,9 +120,6 @@ randPts <- sp::spsample(x = NH, n = 100, type = "random")
 Plot New Hampshire boundary
 ```{r eval = FALSE}
 # Plot New Hampshire
-plot(NH)
-```
-```{r echo = FALSE}
 plot(NH)
 ```
 
@@ -161,6 +158,8 @@ plot(randPts,
 plot(States, 
      add = TRUE)
 ```
+
+<a href="#TOP">back to top</a>
 
 ## Adding map extras
 #### axes 
@@ -238,7 +237,9 @@ raster::scalebar(d = 100, # distance in km
                  adj=c(0, -0.75), 
                  lwd = 2)
 ```
-     
+
+<a href="#TOP">back to top</a>
+
 ## Adding Satellite Image
 
 Adding satellite images from Google Earth is also possible. We'll use the <code>dismo</code> package for that. The <code>gmap()</code> function returns a google map. Several types ("roadmap", "satellite", "hybrid", "terrain") are available. You can use the <code>style</code> option to customize colors, etc. See <a href="https://developers.google.com/maps/documentation/static-maps/styling" target="_blank">here</a> for style options.
@@ -301,6 +302,8 @@ plotRGB(sat_mask)
 # add states but transform first
 plot(sp::spTransform(States,sp::CRS(sat@crs@projargs)),add = TRUE)
 ```
+
+<a href="#TOP">back to top</a>
 
 ## Plotting rasters 
 
@@ -391,7 +394,9 @@ plot(elev,
      add = TRUE, #add to current plot
      alpha = 0.5) # set transparency
 ```
-     
+
+<a href="#TOP">back to top</a>
+
 #### legends 
 Legend placement, orientation and size can all be altered to make the legend fit a map. Below we'll go over a few options we can change to make legends look better.
 
@@ -419,6 +424,7 @@ We can use the smallplot option or move the legend around and the axis.args to c
   # values between 0-1 (percent of plot)
   # c(x1,x2,y1,y2)
 # axis.args
+par(bty = "n")
 plot(elev,
      col = bpy.colors(200),
      legend = FALSE,
@@ -442,6 +448,8 @@ plot(elev,
                       line = 0.5, 
                       cex = 1))
 ```
+
+<a href="#TOP">back to top</a>
 
 ## Interactive plots 
 
@@ -483,6 +491,9 @@ mapNH <- leaflet(data = NH) %>%
 # add map inset to plot
 mapNH %>% addMiniMap() 
 ```
+
+<a href="#TOP">back to top</a>
+
 <div style="background-color:rgb(108, 211, 254); border-radius: 25px; text-align:center; vertical-align: middle; padding: 3px 0; margin: auto; width:200px; box-shadow: 4px 5px #6a5acd;">
 <a href="#" style="color:white">Download R script</a>
 </div>

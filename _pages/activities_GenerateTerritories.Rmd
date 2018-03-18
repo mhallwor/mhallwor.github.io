@@ -13,9 +13,9 @@ sidebar:
   title: Get Spatial! Using R as GIS
 classes: wide
 ---
+<a name="TOP"></a>
 {% include toc title="In This Activity" %}
 
-<a name="TOP"></a>
 
 **R Skill Level:** Intermediate - this activity assumes you have a working knowledge of `R`. If you're not familiar with the <code>apply</code> family of operations in <code>R</code> you may wish to brush up on those before proceeding. See the <a href = "https://www.rdocumentation.org/packages/base/versions/3.4.3/topics/apply" target="_blank">help files</a> for more information.  
 

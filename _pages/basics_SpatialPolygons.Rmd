@@ -13,9 +13,9 @@ sidebar:
   nav: SpatialWorkshop
   title: Get Spatial! Using R as GIS
 ---
-{% include toc title="In This Activity" %}
-
 <a name="TOP"></a>
+
+{% include toc title="In This Activity" %}
 
 This activity will introduce you to working with spatial polygons in R.
 
@@ -127,6 +127,7 @@ TwoPolys
 plot(TwoPolys)
 ```
 
+<a href="#TOP">Back to top</a>
 
 ## Writing a shapefile
 We can save our `SpatialPolygons` object as a shapefile using the `raster` package. The `shapefile` function in the `raster` package is very convenient in that it can both read a shapefile into `R` but it can also write a `SpatialPolygons` or other spatial object classes (lines, polygons, etc.) to a shapefile. 
@@ -167,6 +168,8 @@ States <- States[States$NAME_1 != "Alaska" & States$NAME_1 != "Hawaii",]
 plot(States)
 ```
 
+<a href="#TOP">Back to top</a>
+
 ## Dissolving boundaries
 
 Often we find that we have lots of spatial polygons that represent the same information. For example, let's say you have a very fine scale polygon shapefile of the United States. Each island or disjunct polygon will become it's own polygon within the larger data set. Let's imagine that you want to extract values for a particular state - Alaska for example. Each individual Aleutian island will be it's own polygon and thus when summarizing data each island will have it's own mean. We can get around that by <strong>dissolving</strong> boundaries based on similar attributes. Essentially collapsing multiple polygons into a single polygon. 
@@ -199,6 +202,7 @@ plot(USborder,
      lwd = 2,
      add = TRUE) # add to current plot
 ```
+<a href="#TOP">Back to top</a>
 
 <div style="background-color:rgb(108, 211, 254); border-radius: 25px; text-align:center; vertical-align: middle; padding: 3px 0; margin: auto; width:200px; box-shadow: 4px 5px #6a5acd;">
 <a href="#" style="color:white";>Download R script</a>

@@ -4,6 +4,7 @@ author: "Michael T. Hallworth"
 contributor: "Clark S. Rushing"
 dateCreated:  2018-02-20
 layout: single
+classes: wide
 permalink: /_pages/basics_Rasters
 header:
   caption: 'Photo credit: **M. T. Hallworth**'
@@ -12,9 +13,10 @@ sidebar:
   title: "Get Spatial! Using R as GIS"
   nav: "SpatialWorkshop"
 ---
+<a name="TOP"></a>
+
 {% include toc title="In This Activity" %}
 
-<a name="TOP"></a>
 
 This activity will introduce you to working with raster data in R.
 
@@ -101,6 +103,8 @@ firstRaster
 ```
 Notice that the object is of `class: RasterLayer` has 25 rows, 40 columns and 1000 cells. The resolution (`res`) is 1x1 degree. The raster's `extent` ranges from -100 to -60 degrees longitude and 25 to 50 degrees latitude. The coordinate reference is WGS84 by default because `raster` recognized our inputs as degrees longitude/latitude. It doesn't always do so. 
 
+<a href="#TOP">Back to top</a>
+
 ### Setting raster values
 Currently there are no values associated with the raster layer we just created. It's empty. We can assign values to the raster in a few ways. We'll set the values of the raster using the `[]` convention. See the `setValues` function in the `raster` package for another way to set values of a raster. We'll sequence values from 1 to the number of cells within the raster. You can extract the number of cells within a raster using the `ncell` function.   
 *note - the number of values you supply needs to be equivilant to the number of cells in the raster. You can however provide `NA` values.*
@@ -119,7 +123,7 @@ Now that the raster has values we can do a few things - like plot the raster.
 plot(firstRaster)
 ```
 
-[back to start](#TOP)
+<a href="#TOP">Back to top</a>
 
 ### Reading rasters from file
 
@@ -158,6 +162,8 @@ par(bty = "n",mar = c(0,0,2,3))
 # NDVI values c(-0.1,0.9)
 raster::plot(NDVI, axes = FALSE, zlim = c(-0.1,0.9))
 ```
+
+<a href="#TOP">Back to top</a>
 
 <div style="background-color:rgb(108, 211, 254); border-radius: 25px; text-align:center; vertical-align: middle; padding: 3px 3px; margin: auto; width:200px; box-shadow: 4px 5px #6a5acd;">
 <a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/master/Rscripts/basics_Rasters.R" target="_blank" style="color:white";>Download R script</a>

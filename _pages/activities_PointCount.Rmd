@@ -13,9 +13,8 @@ sidebar:
   title: "Get Spatial! Using R as GIS"
   nav: "SpatialWorkshop"
 ---
-{% include toc title="In This Activity" %}
-
 <a name="TOP"></a>
+{% include toc title="In This Activity" %}
 
 **R Skill Level:** Intermediate - this activity assumes you have a working knowledge of `R` 
 
@@ -101,6 +100,8 @@ plot(DEM,ext = extent(CNF),axes = FALSE)
 plot(CNF, add = TRUE)
 ```
 
+<a href="#TOP">Back to top</a>
+
 ## Generate point count locations
 The <code>sp</code> package has a function to generate random points. It has a few options but here we'll use <code>type = "regular"</code> to generate random points that are systematically aligned. The <code>n</code> is the approximate sample size. We'll also set the seed for the random number generator so you should get the same locations. 
 
@@ -115,6 +116,8 @@ Let's take a look at how many sites were generated and where they ended up.
 plot(CNF)
 plot(surveyPts, add = TRUE, pch = 19)
 ```
+
+<a href="#TOP">Back to top</a>
 
 ## Generate buffer around points
 Now that we have generate survey points - let's make a 50m radius around each point.
@@ -172,6 +175,8 @@ hist(pt_elev, xlab = "Elevation", ylab = "Frequency", main = "",
 axis(2,las = 2)
 ```
 
+<a href="#TOP">Back to top</a>
+
 ### Simulate count data 
 We'll simulate occupancy data using a function from Kery & Royle 2016 <a href = "https://www.mbr-pwrc.usgs.gov/pubanalysis/keryroylebook/" target="_blank">Applied Hierarchical Modeling in Ecology</a>. Here we use the simOcc function saving most of the preset values. We just want the count data so I save only the <code>y</code> ouput. 
 ```{r, message = FALSE, error = FALSE, warning = FALSE}
@@ -202,6 +207,8 @@ umf <- unmarked::unmarkedFrameOccu(y = simCount,
 # run the occupancy model
 occ <- unmarked::occu(~1~pt_elev,umf)
 ```
+
+<a href="#TOP">Back to top</a>
 
 ## Map occupancy probability 
 

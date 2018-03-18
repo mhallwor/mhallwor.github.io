@@ -7,15 +7,16 @@ header:
   caption: 'Photo credit: **M. T. Hallworth**'
   image: assets/images/lookingUp.jpg
 layout: single
+classes: wide
 permalink: /_pages/projections
 sidebar:
   nav: SpatialWorkshop
   title: Get Spatial! Using R as GIS
 contributor: Clark_S_Rushing
 ---
-{% include toc title="In This Activity" %}
-
 <a name="TOP"></a>
+
+{% include toc title="In This Activity" %}
 
 This activity will introduce you projecting spatial data R.
 
@@ -98,6 +99,8 @@ Projecting data in R isn't done automatically (for the most part) like it is in 
 <li> be sure they <strong>match</strong> </li>
 </ul>
 
+<a href="#TOP">back to top</a>
+
 ### Finding projection definitions
 <a name="FindProj"></a>
 Each projection has a set of 'instructions' on how to distort the earth. For a detailed explaination of each parameter in a `coordinate reference system` (crs) see <a href = "http://proj4.org/parameters.html" target="_blank">proj4.org </a>.<br>
@@ -109,6 +112,8 @@ Below are some of my 'go to' sites for finding projection definitions.
 <li><a href = "http://www.epsg-registry.org/" target="_blank"><strong>EPSG-registry.org</strong></a></li><br>
 <li><a href = "http://spatialreference.org/ref/epsg/" target="_blank"><strong>EPSG-registry.org</strong></a></li><br>
 </ui>
+
+<a href="#TOP">back to top</a>
 
 ## Projecting spatial data
 
@@ -182,6 +187,7 @@ Let's remove the `coordinate reference system` (crs) from `States` then try to p
 crs(States)<-NA
 States
 ```
+
 ### Defining projection to `SpatialObject`
 
 If your `SpatialObject` doesn't have a `coordinate reference system` (crs) defined it won't know how to project the data. Therefore, if the `coordinate reference system` (crs) is `NA` you need to assign it. <strong>A word of caution</strong> - `R` will let you assign any valid PROJ.4 CRS string as the `coordinate reference system` to an object even if it doesn't make sense.   
@@ -205,5 +211,7 @@ crs(States) <- WGS84
 # take a look
 States
 ```
+
+<a href="#TOP">back to top</a>
 
 ## Projecting Rasters

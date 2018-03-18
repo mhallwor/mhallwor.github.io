@@ -4,6 +4,7 @@ author: "Michael T. Hallworth"
 contributor: "Clark S. Rushing"
 dateCreated:  2018-03-04
 layout: single
+classes: wide
 permalink: /_pages/R_basics
 header:
   caption: 'Photo credit: **M. T. Hallworth**'
@@ -12,6 +13,9 @@ sidebar:
   title: "Get Spatial! Using R as GIS"
   nav: "SpatialWorkshop"
 ---
+<a name="TOP"></a>
+{% include toc title="In This Activity" %}
+
 # Getting started in R
 
 ## Obtaining R packages 
@@ -40,6 +44,8 @@ When sharing code with other people it's good etiquette to place the library whe
 raster::shapefile("path/to/shapefile")
 ```
 
+<a href="#TOP">back to top</a>
+
 ## Reading in data
 There are several ways to read data into R. Perhaps the most commonly used is the `read.csv` function which is a special function within the `read.table` function. 
 ```{r eval = FALSE}
@@ -62,6 +68,8 @@ objname <- read.table("path/to/file", sep = "\t")
 ### R Studio
 
 [RStudio](https://www.rstudio.com/") is a graphical user interface where users interact with R. It's a great way to use and learn R programming language. There are many benefits of using RStudio, too many to list here but here are a few. First, RStudio allows users to see and explore variables that are loaded within the working environment. Second, searching for help files is very easy. Third, all aspects of R (scripts, console, plots, & github terminal) are easily accessible and visible. 
+
+<a href="#TOP">back to top</a>
 
 ## Data Classes in R
 
@@ -156,6 +164,8 @@ is.logical(TRUE)
 is.logical(T)
 as.logical(c(1,0,1,0,0))
 ```
+
+<a href="#TOP">back to top</a>
 
 ## Data Types
 R has four main data types. These are structural types that data can be stored in. They are defined by if they take more than class type and the dimensions of the data.
@@ -277,3 +287,5 @@ list.data[[3]][5,1]
 list.data[[3]]$starttime[5]
 list.data$DataFrame$starttime[5]
 ```
+
+<a href="#TOP">back to top</a>

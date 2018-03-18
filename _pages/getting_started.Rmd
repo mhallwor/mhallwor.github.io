@@ -13,10 +13,8 @@ sidebar:
   title: "Get Spatial! Using R as GIS"
   nav: "SpatialWorkshop"
 ---
-
-{% include toc title="In This Activity" %}
-
 <a name="TOP"></a>
+{% include toc title="In This Activity" %}
 
 Welcome to Get Spatial! Before working through the set of activities it's best to have a recent version of R and RStudio. 
 
@@ -56,6 +54,8 @@ pkgs <- paste(packagesNeeded,collapse = ",")
 cat("install.packages(c(",pkgs,"), dependencies = TRUE)")
 ```
 
+<a href="#TOP">Back to top</a>
+
 ## On Mac 
 Download [GDAL](https://trac.osgeo.org/gdal/wiki/DownloadingGdalBinaries) and install the .dmg file. 
 
@@ -67,7 +67,9 @@ Run `install.packages("~/Desktop/rgdal_1.2-16.tgz", repos=NULL)`
 
 Install `raster` and `sp` by running: `install.packages(c("sp","raster"),dependencies = TRUE)`
 <br>
-<hr> 
+<hr>
+
+<a href="#TOP">Back to top</a>
 
 ## Correct installation
 ```{r,warning = FALSE}
