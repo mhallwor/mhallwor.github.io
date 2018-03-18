@@ -21,6 +21,7 @@ r_packages:
   - AHMbook
   - dismo
   - maptools
+  - ks
   
 before_install:
   - "docker pull ubuntu:16.04"
