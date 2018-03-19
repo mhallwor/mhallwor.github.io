@@ -1,8 +1,9 @@
 ---
 title: "Generating territories"
-author: "Michael_T_Hallworth"
-contributor: Clark_S_Rushing
+authors: "Michael_T_Hallworth"
+contributors: Clark_S_Rushing
 dateCreated: '2018-03-10'
+lastModified: format(Sys.time(), "%Y-%m-%d")
 header:
   caption: 'Photo credit: **M. T. Hallworth**'
   image: assets/images/lookingUp.jpg
