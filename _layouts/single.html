@@ -103,5 +103,4 @@ layout: default
 {% assign dep_file = page.url | replace_regex:'/$','.html' |
    prepend : 'htmlwidgets' %}
 {% include {{dep_file}} %}
-{% endif %}
 
