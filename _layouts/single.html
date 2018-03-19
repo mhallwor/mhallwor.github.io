@@ -98,9 +98,3 @@ layout: default
     </div>
   {% endif %}
 </div>
-
-<!-- htmlwidgets dependencies --> 
-{% assign dep_file = page.url | replace_regex:'/$','.html' |
-   prepend : 'htmlwidgets' %}
-{% include {{dep_file}} %}
-
