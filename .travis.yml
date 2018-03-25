@@ -8,6 +8,8 @@ cache: packages
 pandoc_version: 1.17.2
 r_github_packages:
   - brendan-r/brocks
+  - tidyverse/rlang
+  - tidyverse/ggplot2
 r_packages:
   - sp
   - rgdal
@@ -23,6 +25,9 @@ r_packages:
   - maptools
   - ks
   - webshot
+  - dplyr
+  - maps
+  - tidyverse
   
 before_install:
   - "docker pull ubuntu:16.04"

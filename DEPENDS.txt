@@ -1,7 +1,10 @@
 dismo
 ks
 leaflet
+maps
 raster
 rgdal
 rgeos
+sf
 sp
+tidyverse
