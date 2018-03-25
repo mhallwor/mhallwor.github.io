@@ -25,7 +25,7 @@ SpatialWorkshop:
         url: /_pages/basics_Rasters
   - title: "Projecting data"
     url: /_pages/projections
-  - title: "Spatial Predicates"  
+  - title: "Spatial Predicates"
     url: /_pages/spatial_predicates
   - title: "Extracting Raster Values"
      #url: /_pages/activities_ExtractingRasterValues
