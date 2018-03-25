@@ -31,7 +31,7 @@ SpatialWorkshop:
      #url: /_pages/activities_ExtractingRasterValues
   - title: "Raster Calculations"
      #url: /_pages/raster_calculations
-  - title "Spatial data & the tidyverse"
+  - title: "Spatial data & the tidyverse"
     url: /_pages/Tidyverse_intro
   - title: "Making Maps"
     url: /_pages/MakingMaps

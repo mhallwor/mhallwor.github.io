@@ -157,7 +157,7 @@ States@proj4string@projargs
 ```
 
 ### Projection using `sp` package
-Projecting data in `R` is very straightforward. The `spTransform` function found in the `sp` package makes projecting `Spatial` objects possible with only a single line of code. Let's change the projection from WGS84 into North America Lambert Equal Area. See [where to find projections](#FindProj) for where to find a definition for the North America Lambert Equal Area projection. There are two ways to assign the projection. First is to include a string of the <a href = "proj4.org" target="_blank">proj4</a> definition. The second is to refer to the ESPG authority number. Best practice is to use the ESPG code because the database is updated and if changes occur to the projection it will update your map accordingly if you re-run the code. Providing a character string of the projection does will not automatically update unless you manually go back and change the values. One benefit to using a character string (in my opinion) is that it's easy to manually create new projections with different central maridens that likely aren't predefined. 
+Projecting data in `R` is very straightforward. The `spTransform` function found in the `sp` package makes projecting `Spatial` objects possible with only a single line of code. Let's change the projection from WGS84 into North America Lambert Equal Area. See [where to find projections](#FindProj) for where to find a definition for the North America Lambert Equal Area projection. There are two ways to assign the projection. First is to include a string of the <a href = "proj4.org" target="_blank">proj4</a> definition. The second is to refer to the EPSG authority number. Best practice is to use the EPSG code because the database is updated and if changes occur to the projection it will update your map accordingly if you re-run the code. Providing a character string of the projection does will not automatically update unless you manually go back and change the values. One benefit to using a character string (in my opinion) is that it's easy to manually create new projections with different central maridens that likely aren't predefined. 
 
 ```{r project-EqArea}
 # Define the proj4 string 
@@ -173,7 +173,7 @@ States_EqArea2 <- sp::spTransform(x = States,
 
 # project using the ESPG authority number
 States_EqArea1 <- sp::spTransform(x = States,
-                                 CRS("+init=ESRI:102008"))
+                                 CRS("+init=EPSG:5070"))
 ```
 
 ```{r, echo = FALSE,fig.width = 6}
@@ -215,3 +215,40 @@ States
 <a href="#TOP">back to top</a>
 
 ## Projecting Rasters
+
+<strong>Word of caution</strong>: Consider the following when using raster data for analyses. In general it's not the best approach to project rasters. Below is a brief description for why it's not a great idea to project rasters. The text below is borrowed <strong>heavily</strong> from <a href="http://rspatial.org/spatial/rst/6-crs.html#transforming-raster-data" target ="_blank">rspatial.org</a>, a blog written by Robert Hijmans - the author of the <code>raster</code> package. 
+Vector data can be transformed to and from different projections without losing precision. However, that is not true with raster data. Because rasters consist of rectangular cells that are the same size with respect to the CRS units, their actual size may vary. It's not possible to transform a raster cell by cell. Therefore, estimates for the values of new cells are made based on the values in the old cells. A commonly used approach to estimating the values of the new cells is 'nearest neighbor'. Otherwise an interpolation (e.g. 'bilinear') approach is used - this can be set by the user when projecting rasters using the <code>projectRaster</code> function. Because projecting rasters affects cell values, in most cases you will want to avoid projecting raster data and project <code>SpatialObjects</code> instead.
+
+For mapping purposes we'll go over how to project rasters. 
+
+Let's grab a raster we are already familiar with. We'll use the NDVI raster from January 2018.
+```{r}
+# read in raster layer using raster function
+# NDVI <- raster("path/to/raster/file")
+NDVI <- raster::raster("../Spatial_Layers/MOD_NDVI_M_2018-01-01_rgb_3600x1800.FLOAT.TIFF")
+```
+
+```{r echo = FALSE}
+NDVI
+```
+
+The NDVI raster is pretty large. It has `r raster::ncell(NDVI)` cells. It takes a little while to project the raster. 
+```{r}
+a <- Sys.time()
+NDVIproj <- projectRaster(from = NDVI,
+                          crs = "+init=EPSG:5070")
+Sys.time()-a
+```
+```{r,echo = FALSE}
+NDVIproj
+
+NDVIproj[NDVIproj>5]<-NA
+plot(NDVIproj)
+```
+<div style="background-color: #ffffe6; border-radius: 25px; text-align:center; vertical-align: middle; padding: 3px 0; margin: auto; width:600px; box-shadow: 4px 5px #f2f2f2;"> 
+<h4><strong>On your own:</strong></h4>
+Compare the number of cells </code>raster::ncell(raster)</code> before and after projecting the raster. Are they the same or are they different? If they're different, why do you think they differ? 
+</div>
+<br>
+
+<a href="#TOP">back to top</a>
