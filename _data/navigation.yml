@@ -13,6 +13,8 @@ SpatialWorkshop:
     url: /_pages/getting_started
   - title: "Where to get spatial data"
     url: /_pages/whereToGetData
+  - title: "The tidyverse"
+    url: /_pages/tidyverse_basics
   - title: "The basics"
     children:
       - title: "Points"
@@ -29,6 +31,8 @@ SpatialWorkshop:
      #url: /_pages/activities_ExtractingRasterValues
   - title: "Raster Calculations"
      #url: /_pages/raster_calculations
+  - title "Spatial data & the tidyverse"
+     url: /_pages/Tidyverse_intro
   - title: "Making Maps"
     url: /_pages/MakingMaps
   - title: "Activities"
