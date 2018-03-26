@@ -15,6 +15,9 @@ sidebar:
   title: Get Spatial! Using R as GIS
 ---
 <a name="TOP"></a>
+```{r echo = FALSE}
+options(scipen = 999)
+```
 
 {% include toc title="In This Activity" %}
 
@@ -233,10 +236,10 @@ NDVI
 ```
 
 The NDVI raster is pretty large. It has `r raster::ncell(NDVI)` cells. It takes a little while to project the raster. 
-```{r}
+```{r, warning = FALSE}
 a <- Sys.time()
-NDVIproj <- projectRaster(from = NDVI,
-                          crs = "+init=epsg:5070")
+NDVIproj <- raster::projectRaster(from = NDVI,
+                          crs = sp::CRS("+init=epsg:5070"))
 Sys.time()-a
 ```
 ```{r,echo = FALSE}
@@ -245,9 +248,10 @@ NDVIproj
 NDVIproj[NDVIproj>5]<-NA
 plot(NDVIproj)
 ```
+
 <div style="background-color: #ffffe6; border-radius: 25px; text-align:center; vertical-align: middle; padding: 3px 0; margin: auto; width:600px; box-shadow: 4px 5px #f2f2f2;"> 
 <h4><strong>On your own:</strong></h4>
-Compare the number of cells </code>raster::ncell(raster)</code> before and after projecting the raster. Are they the same or are they different? If they're different, why do you think they differ? 
+Compare the number of cells <code>raster::ncell(raster)</code> before and after projecting the raster. Are they the same or are they different? If they're different, why do you think they differ? 
 </div>
 <br>
 
