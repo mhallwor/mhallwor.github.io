@@ -1,8 +1,7 @@
 ---
 title: "System installation"
-author: "Michael T. Hallworth"
-contributor: "Clark S. Rushing"
-dateCreated:  2018-02-20
+authors: "Michael T. Hallworth & Clark S. Rushing"
+date:  '`r format(Sys.Date(),"%Y-%b-%d")`'
 layout: single
 classes: wide
 permalink: /_pages/getting_started

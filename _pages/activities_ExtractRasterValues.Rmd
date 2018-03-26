@@ -2,7 +2,7 @@
 title: "Extracting raster data"
 authors: "Michael T. Hallworth"
 contributors: "Clark S. Rushing"
-dateCreated:  2018-02-20
+date:  '`r format(Sys.Date(),"%Y-%b-%d")`'
 layout: single
 classes: wide
 permalink: /_pages/activities_ExtractingRasterValues
@@ -64,7 +64,7 @@ If installing these packages for the first time consider adding <code>dependenci
 <br>
 <hr>
 
-```{r load-packages, warnings = FALSE, error = FALSE, message = FALSE}
+```{r load-packages, warning = FALSE, error = FALSE, message = FALSE}
 library(raster)
 library(sp)
 library(rgeos)
@@ -108,7 +108,7 @@ LandCover
 |18|Tundra|
 *National Center for Atmospheric Research Staff (Eds). Last modified 10 Feb 2017. "The Climate Data Guide: CERES: IGBP Land Classification." Retrieved from https://climatedataguide.ucar.edu/climate-data/ceres-igbp-land-classification.
 
-Now that we have a basic landcover map. We can gather spatial data for Arizona. We'll grab the entire United States and then subset out Arizona. 
+Now that we have a basic Landcover layer, we'll can gather spatial data for Arizona. We'll grab the entire United States and then subset out Arizona. 
 ```{r}
 States <- raster::getData("GADM", country = "United States", level = 1)
 ```
@@ -122,108 +122,142 @@ AZ
 ```
 Great - now we have a <code>SpatialPolygonsDataFrame</code> of Arizona. Take note of the <code>CRS</code>. 
 
-## Extract raster to polygon
+## Extract raster to polygon/s
 
-## Making a gridded system within the area of interest
-### Project the area of interest so the grid cells are meaningful 
+Landcover types are factors since they're categorical. The reason that's important is because when extracting raster data there are options to apply a function to the underlying raster data. For example, the <code>extract</code> function allows users to specify a function like <code>mean</code> and the function will return the mean raster value under the area of interest. However, because landcover types are factors, returning the mean landcover type is meaningless. Instead, as a final result were interested in having a table giving the percent of each landcover type in Arizona. We'll work our way up to that. We'll start by first extracting the landcover types in Arizona using the <code>extract</code> function available in the <code>raster</code> package.
 
-```{r, eval = FALSE}
-EqArea <- "+proj=laea 
-           +lat_0=45.5 
-           +lon_0=-114.125 
-           +x_0=0 +y_0=0 
-           +a=6371007.181 +b=6371007.181 
-           +units=m +no_defs"
+```{r}
+# x = raster layer
+# y = SpatialLayer
 
-AreaOfInterest <- sp::spTransform(AreaOfInterest, sp::CRS(EqArea))
+AZ_lc <- extract(x = LandCover,
+                 y = AZ)
+```
+ 
+<div style="background-color: #ffffe6; border-radius: 25px; text-align:center; vertical-align: middle; padding: 3px 0; margin: auto; width:600px; box-shadow: 4px 5px #f2f2f2;"> 
+<h4><strong>On your own:</strong></h4>
+What does the <code>extract</code> function return? How are the data stored? How do you think the resulting object would differ if we had more than one <code>SpatialPolygon</code>?
+</div>
+<br>
 
+```{r, echo = FALSE}
+# Get the structure of the extracted data
+str(AZ_lc)
 ```
 
-Here we make a hexagon grid that is 100 km wide and is clipped to the area of interest. The smaller the `cell_width` the longer it takes to make the grid. Important to note that the cell_width and cell_area inputs are in the same scale as the projection. For example, if your AreaOfInterest shapefile has a WGS84 projection (degrees) then 1 is equivalent to 1 degree. If in meters, 1 is equivalent to 1 m. 
-```{r, eval = FALSE, echo = FALSE}
-AreaOfInterest <- raster::crop(AreaOfInterest,
-                               raster::extent(454588.3,3573089,-2015963,-559267.1))
-
-raster::plot(AreaOfInterest)
+The <code>extract</code> function returns a list with the raster values that fall within our area of interest. Let's summarize the data a little bit. We'll use the <code>table</code> function to briefly summarize the landcover types within Arizona. 
+```{r}
+table(AZ_lc)
+```
+```{r, echo = FALSE, fig.width = 8, fig.width = 6}
+lower48 <- States[!(States$NAME_1 %in% c("Hawaii","Alaska")),]
+plot(lower48)
+plot(LandCover, add = TRUE, ext = raster::extent(lower48))
+plot(lower48, add = TRUE)
+plot(AZ,add = TRUE,border = "red",lwd = 2)
+par(new = TRUE, fig = c(0.5,0.9,0.1,0.9), mar = c(1,1,1,1))
+plot(AZ)
+plot(LandCover, add = TRUE, ext = raster::extent(AZ))
+plot(AZ, add = TRUE)
 ```
 
+## Custom function to summarize landcover data # 
 
-```{r, eval = FALSE}
-A <- Sys.time()
-# Create hexagonal points with cellsize in meters #
-HexagonPts <-sp::spsample(AreaOfInterest, type="hexagonal", cellsize=50*1000)
-
-# Use hexagon points to make a hexagon polygon #
-HexGrid <- sp::HexPoints2SpatialPolygons(HexagonPts)
-Sys.time()-A
+Let's write a simple function that returns the landcover data as a percentage. The first thing we'll do is make a sorted vector that has all the unique landcover types that are found in the landcover data set. 
+```{r}
+# sort the unique values in LandCover
+z <- sort(unique(raster::values(LandCover)))
 ```
 
-```{r, echo = FALSE, eval = FALSE}
-raster::plot(AreaOfInterest)
-raster::plot(HexGrid, add = TRUE)
+```{r echo = FALSE}
+z
 ```
 
-Making the grid can take a while depending on the spatial scale of interest. You may want to write it into a shapefile so you only ever need to do it once. 
-```{r, eval = FALSE}
-raster::shapefile(HexGrid,"grid_km.shp")
-```
+Now that we have a sorted vector of all the landcover types in the LandCover raster - let's summarize the landcover types in Arizona. To do that we'll need to write a custom function. Our function will be called <code>summarizeLC</code>. The <code>summarizeLC</code> function will except three arguments: <code>x</code> = extracted landcover data, <code>LC_classes</code> = land cover classes in the data set & <code>LC_names</code> a vector that contains the names of the landcover types. We'll set <code>LC_names</code> = NULL so it's optional.
 
-Here you can extract values from land cover data within each grid. 
-```{r, eval = FALSE}
-NLCD <- raster::raster("C:/Users/hallworthm/Google_Drive/PROW_GL/PROW_MC/Spatial_Layers/LC_5min_global_2012.tif")
-```
-
-```{r, eval = FALSE}
-WGS84 <- "+proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0"
-grid.wgs <- sp::spTransform(HexGrid,sp::CRS(WGS84))
-
-# Extract values that are under each grid cell 
-extract_vals <- raster::extract(NLCD,grid.wgs)
-
-# Table the results for each grid cell
-table_vals <- lapply(extract_vals,table)
-```
-
-```{r, echo = FALSE, eval = FALSE}
-raster::plot(grid.wgs)
-raster::plot(NLCD, add = TRUE)
-raster::plot(grid.wgs, border = "white", add = TRUE)
-```
-
-# Custom function to summarize landcover data # 
-### Find out what the values are within the NLCD dataset are
-```{r, eval = FALSE}
-z <- sort(unique(raster::values(NLCD)))
-```
-
-```{r, eval = FALSE}
-summarizeLC <- function(x,z){
+```{r}
+summarizeLC <- function(x,LC_classes,LC_names = NULL){
                # Find the number of cells 
-               y <- sum(x)
+               y <- length(x)
+               # Make a table of the cells
+               tx <- table(x)
                # Create an empty array to store landcover data
-               LC <- array(NA,c(1,length(z)))
-               for(i in seq(z)){
-               LC[1,i] <- ifelse(z[i] %in% dimnames(x)[[1]], 
-                                 x[which(dimnames(x)[[1]]==z[i])], #if true
-                                 0) # else 0
-               }
+               LC <- array(NA,c(1,length(LC_classes)))
+               # Loop through the landcover types & return 
+               # the number of cells within each landcover type
+               for(i in seq(LC_classes)){
+               LC[1,i] <- ifelse(LC_classes[i] %in% dimnames(tx)[[1]], 
+                                 #if true
+                                 tx[which(dimnames(tx)[[1]]==LC_classes[i])],
+                                 # if false
+                                 0) 
+               } # end loop
+               # Convert to percentage 
                LC <- LC/y
-               colnames(LC)<-z
+               # 
+               if(!is.null(LC_names)){
+                 colnames(LC)<-LC_names}
+               else{colnames(LC)<-LC_classes}
+        
                return(LC)
 }
-
-summaryValues <- lapply(table_vals,FUN = summarizeLC,z = z)
 ```
 
-### Bring all the values together 
-```{r, eval = FALSE}
+Here we'll apply our function to the extracted raster data. Remember, the extracted raster data (<code>AZ_lc</code>) are stored as a list. Because of that we'll use the <code>lapply</code> function to apply our function (<code>summarizeLC</code>) to all elements of a list. This is especially useful when you extract raster values to more than one polygon, as the extracted values are stored in separate lists. 
+
+```{r}
+summaryValues <- lapply(AZ_lc,FUN = summarizeLC,LC_classes = z)
+```
+
+Here is what the final result may look like. 
+
+```{r, echo = FALSE}
+# Make a vector of all landcover types possible in the data set
+LC_types <- c("Evergreen Needleleaf forest","Evergreen Broadleaf forest","Deciduous Needleleaf forest","Deciduous Broadleaf forest","Mixed forest","Closed shrublands","Open shrublands","Woody savannas","Savannas","Grasslands","Permanent wetlands","Croplands","Urban and built-up","Cropland/Natural vegetation mosaic","Snow and ice","Barren or sparsely vegetated","Water bodies","Tundra")
+
+# Rerun the summarizeLC function providing the LC_names
+summaryValues <- lapply(AZ_lc,
+                        FUN = summarizeLC,
+                        LC_classes = z,
+                        LC_names = LC_types[z])
+
+# Name the row "percent"
+rownames(summaryValues[[1]]) <- "Percent"
+
+# round to 3 digits and transpose the table 
+round(t(summaryValues[[1]]),3)
+```
+
+<div style="background-color: #ffffe6; border-radius: 25px; text-align:center; vertical-align: middle; padding: 3px 0; margin: auto; width:600px; box-shadow: 4px 5px #f2f2f2;"> 
+<h4><strong>On your own:</strong></h4>
+Find the proportion of each landcover type within your state. Use the <code>extract</code> function and the custom <code>summarizeLC</code> function return the landcover percentages.
+
+<h4><strong>Challenge</strong></h4>
+Compare and contrast the landcover classes for two or more states.
+</div>
+<br>
+
+```{r echo = FALSE}
+# Create a SpatialPolygons file with the states of interest
+StatesOfInterest <- States[States$NAME_1 %in% c("New Hampshire","West Virginia"),]
+
+# Extract the raster values 
+SOI_lc <- extract(x = LandCover, y = StatesOfInterest)
+
+lz <- sort(unique(unlist(SOI_lc)))
+
+# Rerun the summarizeLC function providing the LC_names
+summaryValues <- lapply(SOI_lc,
+                        FUN = summarizeLC,
+                        LC_classes = lz,
+                        LC_names = LC_types[lz])
+# use do.call to combine two or more lists
 percentCover <- do.call('rbind',summaryValues)
 
-head(round(percentCover,2))
+rownames(percentCover)<-StatesOfInterest$NAME_1
+
+round(t(percentCover),3)
 ```
 
-
-<div style="background-color:rgb(108, 211, 254); border-radius: 25px; text-align:center; vertical-align: middle; padding: 3px 0; margin: auto; width:200px; box-shadow: 4px 5px #6a5acd;">
-<a href="#" style="color:white";>Download R script</a>
-</div>
+<a href="#" target="_blank" class="btn btn--info";>Download R script</a>
 

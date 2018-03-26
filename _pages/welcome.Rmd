@@ -2,7 +2,7 @@
 title: "Welcome to Get Spatial!"
 authors: "Michael_T_Hallworth"
 contributors: "Clark_S_Rushing"
-dateCreated: '2018-02-20'
+date:  '`r format(Sys.Date(),"%Y-%b-%d")`'
 layout: single
 classes: wide
 permalink: /_pages/welcome
@@ -20,7 +20,9 @@ This workshop assumes the user has a general understanding of the `R` language. 
 
 **R Skill Level:** Intermediate - this activity assumes you have a working knowledge of `R`
 
-<strong>Download spatial layers used in this workshop</strong><a href="https://github.com/mhallwor/mhallwor.github.io/blob/master/dataDownloads/Spatial_Layers.zip?raw=true" target="_blank" class="btn btn--info">Download data</a>
+<strong>Download spatial layers used in this workshop</strong>
+
+<a href="https://github.com/mhallwor/mhallwor.github.io/blob/master/dataDownloads/Spatial_Layers.zip?raw=true" target="_blank" class="btn btn--info">Download data</a>
 
 
 {% include figure image_path="/assets/images/OVENmove.jpg" %}

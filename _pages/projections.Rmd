@@ -2,8 +2,7 @@
 title: "Projections"
 authors: "Michael T. Hallworth"
 contributors: "Clark S. Rushing"
-dateCreated: 2018-02-20
-modified: 2018-03-04
+date:  '`r format(Sys.Date(),"%Y-%b-%d")`'
 header:
   caption: 'Photo credit: **M. T. Hallworth**'
   image: assets/images/lookingUp.jpg
@@ -256,3 +255,7 @@ Compare the number of cells <code>raster::ncell(raster)</code> before and after 
 <br>
 
 <a href="#TOP">back to top</a>
+
+
+<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/master/Rscripts/projections.R" target="_blank" class="btn btn--info">Download R script</a>
+
