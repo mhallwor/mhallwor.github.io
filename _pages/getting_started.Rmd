@@ -27,31 +27,20 @@ You can install or update to the latest version of <a href="https://cloud.r-proj
 <br>
 <br>
 <a name="install.packages"></a>
-<div style="background-color:rgba(0, 1, 1, 0.0470588); border-radius: 25px; text-align:center; vertical-align: middle; padding:2px 0; width: 600px; margin: auto; box-shadow: 4px 5px gray;">
-<h3> Installing Required Libraries</h3> 
-The spatial libraries needed for these activites are:
-
-<strong>raster</strong>     
-<strong>rgdal</strong>      
-<strong>sp</strong>     
-<strong>rgeos</strong>        
-  
-<h4>Installing the packages</h4>     
-If installing these packages for the first time consider adding <code>dependencies=TRUE</code>        
-
-<li><code>install.packages("raster",dependencies = TRUE)</code></li>
-<li><code>install.packages("rgdal",dependencies = TRUE)</code></li>
-<li><code>install.packages("rgeos",dependencies = TRUE)</code></li>
-<li><code>install.packages("sp",dependencies = TRUE)</code></li>
-<br>       
-</div>
 
 ## Install required packages 
-Before starting these activities - you can run the following line of code to get all the packages we use in the activities / tutorials. 
+Before starting, run the following code to get all the packages we use in the activities / tutorials. 
 ```{r echo = FALSE, comment = ""}
 packagesNeeded <- readLines("../DEPENDS.txt")
-pkgs <- paste(packagesNeeded,collapse = ",")
-cat("install.packages(c(",pkgs,"), dependencies = TRUE)")
+pkgs <- paste0(packagesNeeded,collapse = ",")
+pkgs <- gsub(x = pkgs, pattern = ",", replacement = '","')
+cat("install.packages(c(",'"',"devtools",'","',pkgs,'"',"), dependencies = TRUE)",sep="")
+```
+
+We also need some newer versions of packages that are only available on GitHub. Once you run the above code and/or have the <code>devtools</code> package you can get the required functions by running the following:
+```{r eval = FALSE}
+devtools::install_github("tidyverse/rlang", build_vignettes = TRUE)
+devtools::install_github("tidyverse/ggplot2")
 ```
 
 <a href="#TOP">Back to top</a>
