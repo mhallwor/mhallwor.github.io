@@ -1,6 +1,7 @@
 ---
 title: "Extracting raster data"
-contributor: "Clark S. Rushing"
+authors: "Michael T. Hallworth"
+contributors: "Clark S. Rushing"
 dateCreated:  2018-02-20
 layout: single
 classes: wide
@@ -16,16 +17,19 @@ header:
 
 <a name="TOP"></a>
 
+**R Skill Level:** Intermediate - this activity assumes you have a working knowledge of `R` 
+
 This activity incorporates the skills learned in the Points, Polygons, Raster & Projections activities.
 
 <div style="background-color:rgba(186, 196, 214,0.47); border-radius: 25px; text-align:center; vertical-align: middle;
 padding: 3px 0; width: 500px; margin: auto; box-shadow: 4px 5px gray;">
-<h3> In case you missed previous activities</h3>
-LINKS go here
+<h3> In case you missed it</h3>
+<a href = "{{ site.baseurl }}/_pages/basics_SpatialPoints" target="_blank">SpatialPoints</a><br>
+<a href = "{{ site.baseurl }}/_pages/basics_SpatialPolygons" target="_blank">SpatialPolygons</a><br>
+<a href = "{{ site.baseurl }}/_pages/basics_Rasters" target="_blank">Rasters</a><br>
+<a href = "{{ site.baseurl }}/_pages/projections" target="_blank">Projections</a><br>
 </div>
 <hr>
-
-**R Skill Level:** Intermediate - this activity assumes you have a working knowledge of `R` 
 
 
 <div style="background-color:rgba(0, 0, 0, 0.0470588); border-radius: 25px; text-align:center; vertical-align: middle; padding:3px 0; width: 600px; margin: auto; box-shadow: 4px 5px gray;">
@@ -60,12 +64,164 @@ If installing these packages for the first time consider adding <code>dependenci
 <br>
 <hr>
 
-## Load packages
 ```{r load-packages, warnings = FALSE, error = FALSE, message = FALSE}
 library(raster)
+library(sp)
 library(rgeos)
 ```
- 
+
+Extracting raster data to an area or location of interest is a common GIS task. There are a few things to keep in mind while extracting raster data in R. First, as we've seen in <code>Projections</code> it's best to use projected data. Second, make sure the two layers have the same <code>coordinate reference system</code>. Lastly, make sure you know the data class you're extracting (i.e., continuous, factor, etc.)
+
+Below, we'll determine the proportion of landcover types within the area around Tucson, Arizona. In order to complete this task, some new functions will be introduced but we'll also use some skills we learned in other activities. 
+
+### Gathering spatial data
+
+We're interested in quantifying landcover around Tucson, AZ or more broadly the landcover types found in Arizona. 
+
+First, we'll read in the landcover classes. In this example, we'll use landcover data with a relatively coarse resolution for simplicity and speed. 
+
+```{r}
+LandCover <- raster::raster("../Spatial_Layers/MCD12C1_T1_2011-01-01_rgb_3600x1800.TIFF")
+```
+```{r}
+LandCover
+```
+|Code|Land Cover Class|
+|---|----|
+|01|Evergreen Needleleaf forest|
+|02|Evergreen Broadleaf forest|
+|03|Deciduous Needleleaf forest|
+|04|Deciduous Broadleaf forest|
+|05|Mixed forest|
+|06|Closed shrublands|
+|07|Open shrublands|
+|08|Woody savannas|
+|09|Savannas|
+|10|Grasslands|
+|11|Permanent wetlands|
+|12|Croplands|
+|13|Urban and built-up|
+|14|Cropland/Natural vegetation mosaic|
+|15|Snow and ice|
+|16|Barren or sparsely vegetated|
+|17|Water bodies|
+|18|Tundra|
+*National Center for Atmospheric Research Staff (Eds). Last modified 10 Feb 2017. "The Climate Data Guide: CERES: IGBP Land Classification." Retrieved from https://climatedataguide.ucar.edu/climate-data/ceres-igbp-land-classification.
+
+Now that we have a basic landcover map. We can gather spatial data for Arizona. We'll grab the entire United States and then subset out Arizona. 
+```{r}
+States <- raster::getData("GADM", country = "United States", level = 1)
+```
+
+```{r}
+AZ <- States[States$NAME_1=="Arizona",]
+```
+
+```{r, warning = FALSE,echo = FALSE}
+AZ
+```
+Great - now we have a <code>SpatialPolygonsDataFrame</code> of Arizona. Take note of the <code>CRS</code>. 
+
+## Extract raster to polygon
+
+## Making a gridded system within the area of interest
+### Project the area of interest so the grid cells are meaningful 
+
+```{r, eval = FALSE}
+EqArea <- "+proj=laea 
+           +lat_0=45.5 
+           +lon_0=-114.125 
+           +x_0=0 +y_0=0 
+           +a=6371007.181 +b=6371007.181 
+           +units=m +no_defs"
+
+AreaOfInterest <- sp::spTransform(AreaOfInterest, sp::CRS(EqArea))
+
+```
+
+Here we make a hexagon grid that is 100 km wide and is clipped to the area of interest. The smaller the `cell_width` the longer it takes to make the grid. Important to note that the cell_width and cell_area inputs are in the same scale as the projection. For example, if your AreaOfInterest shapefile has a WGS84 projection (degrees) then 1 is equivalent to 1 degree. If in meters, 1 is equivalent to 1 m. 
+```{r, eval = FALSE, echo = FALSE}
+AreaOfInterest <- raster::crop(AreaOfInterest,
+                               raster::extent(454588.3,3573089,-2015963,-559267.1))
+
+raster::plot(AreaOfInterest)
+```
+
+
+```{r, eval = FALSE}
+A <- Sys.time()
+# Create hexagonal points with cellsize in meters #
+HexagonPts <-sp::spsample(AreaOfInterest, type="hexagonal", cellsize=50*1000)
+
+# Use hexagon points to make a hexagon polygon #
+HexGrid <- sp::HexPoints2SpatialPolygons(HexagonPts)
+Sys.time()-A
+```
+
+```{r, echo = FALSE, eval = FALSE}
+raster::plot(AreaOfInterest)
+raster::plot(HexGrid, add = TRUE)
+```
+
+Making the grid can take a while depending on the spatial scale of interest. You may want to write it into a shapefile so you only ever need to do it once. 
+```{r, eval = FALSE}
+raster::shapefile(HexGrid,"grid_km.shp")
+```
+
+Here you can extract values from land cover data within each grid. 
+```{r, eval = FALSE}
+NLCD <- raster::raster("C:/Users/hallworthm/Google_Drive/PROW_GL/PROW_MC/Spatial_Layers/LC_5min_global_2012.tif")
+```
+
+```{r, eval = FALSE}
+WGS84 <- "+proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0"
+grid.wgs <- sp::spTransform(HexGrid,sp::CRS(WGS84))
+
+# Extract values that are under each grid cell 
+extract_vals <- raster::extract(NLCD,grid.wgs)
+
+# Table the results for each grid cell
+table_vals <- lapply(extract_vals,table)
+```
+
+```{r, echo = FALSE, eval = FALSE}
+raster::plot(grid.wgs)
+raster::plot(NLCD, add = TRUE)
+raster::plot(grid.wgs, border = "white", add = TRUE)
+```
+
+# Custom function to summarize landcover data # 
+### Find out what the values are within the NLCD dataset are
+```{r, eval = FALSE}
+z <- sort(unique(raster::values(NLCD)))
+```
+
+```{r, eval = FALSE}
+summarizeLC <- function(x,z){
+               # Find the number of cells 
+               y <- sum(x)
+               # Create an empty array to store landcover data
+               LC <- array(NA,c(1,length(z)))
+               for(i in seq(z)){
+               LC[1,i] <- ifelse(z[i] %in% dimnames(x)[[1]], 
+                                 x[which(dimnames(x)[[1]]==z[i])], #if true
+                                 0) # else 0
+               }
+               LC <- LC/y
+               colnames(LC)<-z
+               return(LC)
+}
+
+summaryValues <- lapply(table_vals,FUN = summarizeLC,z = z)
+```
+
+### Bring all the values together 
+```{r, eval = FALSE}
+percentCover <- do.call('rbind',summaryValues)
+
+head(round(percentCover,2))
+```
+
 
 <div style="background-color:rgb(108, 211, 254); border-radius: 25px; text-align:center; vertical-align: middle; padding: 3px 0; margin: auto; width:200px; box-shadow: 4px 5px #6a5acd;">
 <a href="#" style="color:white";>Download R script</a>

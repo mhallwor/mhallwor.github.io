@@ -1,13 +1,13 @@
 ---
 title: "Introduction to spatial data analysis using the tidyverse"
-author: "Clark S. Rushing"
-contributor: "Michael T. Hallworth"
+authors: "Clark S. Rushing"
+contributors: "Michael T. Hallworth"
 dateCreated: '2018-02-20'
 header:
   caption: 'Photo credit: **M. T. Hallworth**'
   image: assets/images/lookingUp.jpg
 layout: single
-permalink: /_pages/tidyverse
+permalink: /_pages/Tidyverse_intro
 sidebar:
   nav: SpatialWorkshop
   title: Get Spatial! Using R as GIS

@@ -1,7 +1,7 @@
 ---
 title: "Introduction to spatial points in R"
-author: "Michael T. Hallworth"
-contributor: "Clark S. Rushing"
+authors: "Michael T. Hallworth"
+contributors: "Clark S. Rushing"
 dateCreated:  2018-02-20
 layout: single
 classes: wide

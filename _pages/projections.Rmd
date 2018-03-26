@@ -1,6 +1,7 @@
 ---
 title: "Projections"
-author: Michael_T_Hallworth
+authors: "Michael T. Hallworth"
+contributors: "Clark S. Rushing"
 dateCreated: 2018-02-20
 modified: 2018-03-04
 header:
@@ -12,7 +13,6 @@ permalink: /_pages/projections
 sidebar:
   nav: SpatialWorkshop
   title: Get Spatial! Using R as GIS
-contributor: Clark_S_Rushing
 ---
 <a name="TOP"></a>
 
@@ -173,7 +173,7 @@ States_EqArea2 <- sp::spTransform(x = States,
 
 # project using the ESPG authority number
 States_EqArea1 <- sp::spTransform(x = States,
-                                 CRS("+init=EPSG:5070"))
+                                 CRS("+init=epsg:5070"))
 ```
 
 ```{r, echo = FALSE,fig.width = 6}
@@ -236,7 +236,7 @@ The NDVI raster is pretty large. It has `r raster::ncell(NDVI)` cells. It takes 
 ```{r}
 a <- Sys.time()
 NDVIproj <- projectRaster(from = NDVI,
-                          crs = "+init=EPSG:5070")
+                          crs = "+init=epsg:5070")
 Sys.time()-a
 ```
 ```{r,echo = FALSE}
