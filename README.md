@@ -1,6 +1,6 @@
 # Backend for mhallworth.github.io using the [Minimal Mistakes Jekyll Theme](https://mmistakes.github.io/minimal-mistakes/)
 
-[![Build Status](https://travis-ci.org/mhallwor/mhallwor.github.io.svg?branch=master)](https://travis-ci.org/mhallwor/mhallwor.github.io)
+[![Build Status](https://travis-ci.org/mhallwor/mhallwor.github.io.svg?branch=develop)](https://travis-ci.org/mhallwor/mhallwor.github.io)
 
 This website is still in progress. Eventually it'll be my primary website but for now its primary focus is to distribute workshop materials. 
 
