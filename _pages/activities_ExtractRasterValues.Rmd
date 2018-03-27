@@ -2,7 +2,8 @@
 title: "Extracting raster data"
 authors: "Michael T. Hallworth"
 contributors: "Clark S. Rushing"
-date:  '`r format(Sys.time(), "%Y-%m-%d %H:%M:%S")`'
+date:  2018-02-20
+lastModified: '`r format(Sys.time(), "%Y-%m-%d")`'
 layout: single
 classes: wide
 permalink: /_pages/activities_ExtractingRasterValues
@@ -118,7 +119,7 @@ surveyElev <- raster::extract(x = DEM,
                               y = SurveyLocs_proj)
 ```
 
-The resulting object is a vector with the same length of <code>SurveyLocs_proj</code>. 
+The resulting object is a vector with the same length as <code>SurveyLocs_proj</code>. 
 
 ```{r echo = FALSE}
 str(surveyElev)

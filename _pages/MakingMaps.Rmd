@@ -2,7 +2,8 @@
 title: "Making maps in R"
 authors: "Michael_T_Hallworth"
 contributors: "Clark S. Rushing"
-date: '`r format(Sys.time(), "%Y-%m-%d %H:%M:%S")`'
+date:  2018-02-20
+lastModified: '`r format(Sys.time(), "%Y-%m-%d")`'
 header:
   caption: 'Photo credit: **M. T. Hallworth**'
   image: assets/images/lookingUp.jpg
