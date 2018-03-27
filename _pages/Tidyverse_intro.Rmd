@@ -2,7 +2,7 @@
 title: "Introduction to spatial data analysis using the tidyverse"
 authors: "Clark S. Rushing"
 contributors: "Michael T. Hallworth"
-date:  '`r Sys.time()`'
+last_modified_at: `r format(Sys.time(),"%Y-%m-%d")`
 header:
   caption: 'Photo credit: **M. T. Hallworth**'
   image: assets/images/lookingUp.jpg

@@ -1,9 +1,9 @@
 ---
 title: "Introduction to spatial points in R"
-authors: Michael T. Hallworth
-contributors: Clark S. Rushing
+authors: "Michael T. Hallworth"
+contributors: "Clark S. Rushing"
 date:  2018-02-20
-lastModified: `r format(Sys.time(), "%Y-%m-%d")`
+last_modified_at: `r format(Sys.time(), "%Y-%m-%d")`
 layout: single
 classes: wide
 permalink: /_pages/basics_SpatialPolygons
