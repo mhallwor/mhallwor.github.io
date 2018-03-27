@@ -3,7 +3,7 @@ title: "Extracting raster data"
 authors: "Michael T. Hallworth"
 contributors: "Clark S. Rushing"
 date:  2018-02-20
-lastModified: `r format(Sys.time(), "%Y-%m-%d")`
+last_modified_at: `r format(Sys.time(), "%Y-%m-%d")`
 layout: single
 classes: wide
 permalink: /_pages/activities_ExtractingRasterValues
@@ -13,6 +13,7 @@ sidebar:
 header:
   caption: 'Photo credit: **M. T. Hallworth**'
   image: assets/images/lookingUp.jpg
+comments: true
 ---
 {% include toc title="In This Activity" %}
 
