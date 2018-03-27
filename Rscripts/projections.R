@@ -1,3 +1,6 @@
+## ----echo = FALSE--------------------------------------------------------
+options(scipen = 999)
+
 ## ---- width = 6,echo = FALSE---------------------------------------------
 par(mar = c(0,0,2,0),mfrow = c(2,2))
 world <- raster::shapefile("../Spatial_Layers/TM_WORLD_BORDERS-0.3.shp")
@@ -68,7 +71,7 @@ States_EqArea2 <- sp::spTransform(x = States,
 
 # project using the ESPG authority number
 States_EqArea1 <- sp::spTransform(x = States,
-                                 CRS("+init=ESRI:102008"))
+                                 CRS("+init=epsg:5070"))
 
 ## ---- echo = FALSE,fig.width = 6-----------------------------------------
 par(mar = c(0,0,2,0),mfrow = c(1,2))
@@ -96,4 +99,24 @@ crs(States) <- WGS84
 
 # take a look
 States
+
+## ------------------------------------------------------------------------
+# read in raster layer using raster function
+# NDVI <- raster("path/to/raster/file")
+NDVI <- raster::raster("../Spatial_Layers/MOD_NDVI_M_2018-01-01_rgb_3600x1800.FLOAT.TIFF")
+
+## ----echo = FALSE--------------------------------------------------------
+NDVI
+
+## ---- warning = FALSE----------------------------------------------------
+a <- Sys.time()
+NDVIproj <- raster::projectRaster(from = NDVI,
+                          crs = sp::CRS("+init=epsg:5070"))
+Sys.time()-a
+
+## ----echo = FALSE--------------------------------------------------------
+NDVIproj
+
+NDVIproj[NDVIproj>5]<-NA
+plot(NDVIproj)
 
