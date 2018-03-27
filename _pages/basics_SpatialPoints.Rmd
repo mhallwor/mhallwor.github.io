@@ -118,6 +118,4 @@ shapefile(x = firstPoints, file = "path/to/output/file.shp")
 
 <a href="#TOP">Back to top</a>
 
-<div style="background-color:rgb(108, 211, 254); border-radius: 25px; text-align:center; vertical-align: middle; padding: 3px 0; margin: auto; width:200px; box-shadow: 4px 5px #6a5acd;">
-<a href="#" style="color:white";>Download R script</a>
-</div>
+<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/basics_SpatialPoints.R" target="_blank" class="btn btn--info">Download R script</a>

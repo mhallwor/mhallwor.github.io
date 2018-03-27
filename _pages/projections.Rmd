@@ -2,7 +2,7 @@
 title: "Projections"
 authors: "Michael T. Hallworth"
 contributors: "Clark S. Rushing"
-date:  '`r format(Sys.Date(),"%Y-%b-%d")`'
+date:  '`r Sys.time()`'
 header:
   caption: 'Photo credit: **M. T. Hallworth**'
   image: assets/images/lookingUp.jpg

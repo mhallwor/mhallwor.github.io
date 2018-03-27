@@ -2,7 +2,7 @@
 title: "Welcome to Get Spatial!"
 authors: "Michael_T_Hallworth"
 contributors: "Clark_S_Rushing"
-date:  '`r format(Sys.Date(),"%Y-%b-%d")`'
+date:  '`r Sys.time()`'
 layout: single
 classes: wide
 permalink: /_pages/welcome

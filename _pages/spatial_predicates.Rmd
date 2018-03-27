@@ -1,8 +1,8 @@
 ---
 title: "Spatial Predicates"
-author: Michael_T_Hallworth
-contributor: Clark_S_Rushing
-dateCreated:  2018-03-04
+authors: Michael_T_Hallworth
+contributors: Clark_S_Rushing
+date:  '`r Sys.time()`'
 layout: single
 classes: wide
 permalink: /_pages/spatial_predicates
@@ -196,3 +196,4 @@ head(State_area)
 
 <a href="#TOP">back to top</a>
 
+<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/spatial_predicates.R" target="_blank" class="btn btn--info">Download R script</a>

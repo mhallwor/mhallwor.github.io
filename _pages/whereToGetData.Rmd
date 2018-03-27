@@ -1,8 +1,8 @@
 ---
 title: "Where to get spatial data"
-author: "Michael T. Hallworth"
-contributor: "Clark S. Rushing"
-dateCreated: '2018-02-20'
+authors: "Michael T. Hallworth"
+contributors: "Clark S. Rushing"
+date:  '`r Sys.time()`'
 header:
   caption: 'Photo credit: **M. T. Hallworth**'
   image: assets/images/lookingUp.jpg
