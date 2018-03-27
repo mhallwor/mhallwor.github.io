@@ -2,7 +2,7 @@
 title: "Working with Point-Count like data"
 authors: Michael_T_Hallworth
 contributors: Clark_S_Rushing
-date:  '`r Sys.time()`'
+date: '`r format(Sys.time(), "%Y-%m-%d %H:%M:%S")`'
 layout: single
 classes: wide
 permalink: /_pages/activities_PointCount

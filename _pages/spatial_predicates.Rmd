@@ -1,8 +1,8 @@
 ---
 title: "Spatial Predicates"
-authors: Michael_T_Hallworth
+authors: Michael T. Hallworth
 contributors: Clark_S_Rushing
-date:  '`r Sys.time()`'
+date: '`r format(Sys.time(), "%Y-%m-%d %H:%M:%S")`'
 layout: single
 classes: wide
 permalink: /_pages/spatial_predicates

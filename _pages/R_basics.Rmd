@@ -2,7 +2,7 @@
 title: "R basics"
 authors: "Michael T. Hallworth"
 contributors: "Clark S. Rushing"
-dateCreated:  2018-03-04
+date: '`r format(Sys.time(), "%Y-%m-%d %H:%M:%S")`'
 layout: single
 classes: wide
 permalink: /_pages/R_basics
