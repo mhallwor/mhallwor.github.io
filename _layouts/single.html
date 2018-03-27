@@ -60,7 +60,7 @@ layout: default
         {% endif %}
         {% include page__taxonomy.html %}
         {% if page.modified %} 
-         <p class="byline id="post-meta"><strong>{{ page.title }}</strong> was last modified on <time datetime="{{ page.modified | date: "%Y-%m-%d" }}">{{ page.modified | date: "%B %d, %Y" }}</time>{% endif %}
+         <p class="byline id="post-meta"><strong>{{ page.title }}</strong> was last modified on <time datetime="{{ page.modified | date: "%Y-%m-%d" }}">{{ page.modified | date: "%B %d, %Y" }}</time></p>{% endif %}
       </footer>
 
       {% if page.share %}{% include social-share.html %}{% endif %}
