@@ -2,8 +2,6 @@
 title: "Generating territories"
 authors: "Michael T. Hallworth"
 contributors: "Clark S. Rushing"
-date:  2018-02-20
-lastModified: `r format(Sys.time(), "%Y-%m-%d")`
 header:
   caption: 'Photo credit: **M. T. Hallworth**'
   image: assets/images/lookingUp.jpg

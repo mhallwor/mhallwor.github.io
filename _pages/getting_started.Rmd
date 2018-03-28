@@ -1,8 +1,6 @@
 ---
 title: "System installation"
 authors: "Michael T. Hallworth & Clark S. Rushing"
-date:  2018-02-20
-last_modified_at: `r format(Sys.time(), "%Y-%m-%d")`
 layout: single
 classes: wide
 permalink: /_pages/getting_started

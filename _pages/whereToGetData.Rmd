@@ -2,7 +2,6 @@
 title: "Where to get spatial data"
 authors: "Michael T. Hallworth"
 contributors: "Clark S. Rushing"
-last_modified_at: `r format(Sys.time(),"%Y-%m-%d")`
 header:
   caption: 'Photo credit: **M. T. Hallworth**'
   image: assets/images/lookingUp.jpg
