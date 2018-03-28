@@ -9,8 +9,8 @@ layout: single
 classes: wide
 permalink: /_pages/whereToGetData
 sidebar:
-  nav: SpatialWorkshop
-  title: Get Spatial! Using R as GIS
+  nav: "SpatialWorkshop"
+  title: "Get Spatial! Using R as GIS"
 ---
 
 Looking for spatial data can be a daunting task. It can be quite overwhelming trying to figure out what kinds of data are available and where to get them. Knowing where to look and what to look for can vastly improve your results. I've compiled a list of 'to go' places to find spatial layers. This list is by no means exhaustive and will likely continue to grow. 

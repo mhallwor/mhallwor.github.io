@@ -327,4 +327,4 @@ round(t(percentCover),3)
 
 <a href="#TOP">back to top</a>
 
-<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/activities_ExtractingRasterValues.R" target="_blank" class="btn btn--info">Download R script</a>{: .align-center}
+<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/activities_ExtractingRasterValues.R" target="_blank" class="btn btn--info">Download R script</a>

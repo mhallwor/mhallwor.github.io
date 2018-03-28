@@ -8,8 +8,8 @@ header:
 layout: single
 permalink: /_pages/tidyverse_basics
 sidebar:
-  nav: SpatialWorkshop
-  title: Get Spatial! Using R as GIS
+  nav: "SpatialWorkshop"
+  title: "Get Spatial! Using R as GIS"
 classes: wide
 ---
 

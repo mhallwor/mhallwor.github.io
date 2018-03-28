@@ -9,8 +9,8 @@ layout: single
 classes: wide
 permalink: /_pages/MakingMaps
 sidebar:
-  nav: SpatialWorkshop
-  title: Get Spatial! Using R as GIS
+  nav: "SpatialWorkshop"
+  title: "Get Spatial! Using R as GIS"
 ---
 <a name="TOP"></a>
 {% include toc title="In This Activity" %}
