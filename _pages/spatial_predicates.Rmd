@@ -11,6 +11,7 @@ header:
 sidebar:
   title: "Get Spatial! Using R as GIS"
   nav: "SpatialWorkshop"
+modified: `r format(Sys.time(),"%Y-%m-%dT%H:%M%:%S-4:00")`
 ---
 <a name="TOP"></a>
 

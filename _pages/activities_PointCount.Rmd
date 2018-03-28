@@ -1,7 +1,7 @@
 ---
 title: "Working with Point-Count like data"
 authors: "Michael T. Hallworth"
-contributors: "Clark S Rushing"
+contributors: "Clark S. Rushing"
 layout: single
 classes: wide
 permalink: /_pages/activities_PointCount
@@ -11,6 +11,7 @@ header:
 sidebar:
   title: "Get Spatial! Using R as GIS"
   nav: "SpatialWorkshop"
+modified: `r format(Sys.time(),"%Y-%m-%dT%H:%M%:%S-4:00")`
 ---
 <a name="TOP"></a>
 {% include toc title="In This Activity" %}

@@ -1,6 +1,6 @@
 ---
 title: "Making maps in R"
-authors: "Michael_T_Hallworth"
+authors: "Michael T. Hallworth"
 contributors: "Clark S. Rushing"
 header:
   caption: 'Photo credit: **M. T. Hallworth**'
@@ -11,6 +11,7 @@ permalink: /_pages/MakingMaps
 sidebar:
   nav: SpatialWorkshop
   title: Get Spatial! Using R as GIS
+modified: `r format(Sys.time(),"%Y-%m-%dT%H:%M%:%S-4:00")`
 
 ---
 <a name="TOP"></a>
