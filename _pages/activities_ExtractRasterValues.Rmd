@@ -11,7 +11,7 @@ sidebar:
 header:
   caption: 'Photo credit: **M. T. Hallworth**'
   image: assets/images/lookingUp.jpg
-modified: `r format(Sys.time(),"%Y-%m-%dT%H:%M%:%S-4:00")`
+last_modified_at: "2018-03-27T22:24:49-4:00"
 comments: true
 ---
 {% include toc title="In This Activity" %}
@@ -329,4 +329,4 @@ round(t(percentCover),3)
 
 <a href="#TOP">back to top</a>
 
-<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/activities_ExtractingRasterValues.R" target="_blank" class="btn btn--info">Download R script</a>
+<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/activities_ExtractingRasterValues.R" target="_blank" class="btn btn--info">Download R script</a>{: .align-center}
