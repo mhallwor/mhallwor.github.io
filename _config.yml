@@ -9,18 +9,18 @@ minimal_mistakes_skin    :  "air" # "default" "air", "aqua", "contrast", "dark",
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Michael T. Hallworth"
+title                    : "Get Spatial! Using R as GIS"
 title_separator          : "-"
 name                     : "Michael T. Hallworth"
 description              : "personal website"
 url                      : "https://mhallwor.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
-baseurl                  : /_pages # the subpath of your site, e.g. "/blog"
+baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "MTHallworth" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
   breadcrumbs            : # true, false (default)
 words_per_minute         : 200
 comments:
-  provider               : "staticman" # false (default), "disqus", "discourse", "facebook", "google-plus", "staticman", "staticman_v2" "custom"
+  provider               : #"staticman" # false (default), "disqus", "discourse", "facebook", "google-plus", "staticman", "staticman_v2" "custom"
   disqus:
     shortname            : # https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
   discourse:
@@ -31,21 +31,21 @@ comments:
     num_posts            : # 5 (default)
     colorscheme          : # "light" (default), "dark"
 staticman:
-  allowedFields          : ['name', 'email', 'url', 'message']
-  branch                 : "develop"
-  commitMessage          : "New comment."
-  filename               : comment-{@timestamp}
-  format                 : "yml"
-  moderation             : true
-  path                   : "/_data/comments/{options.slug}" (default)
-  requiredFields         : ['name', 'email', 'message']
+  allowedFields          : #['name', 'email', 'url', 'message']
+  branch                 : #"develop"
+  commitMessage          : #"New comment."
+  filename               : #comment-{@timestamp}
+  format                 : #"yml"
+  moderation             : #true
+  path                   : #"/_data/comments/{options.slug}" (default)
+  requiredFields         : #['name', 'email', 'message']
   transforms:
-    email                : "md5"
+    email                : #"md5"
   generatedFields:
     date:
-      type               : "date"
+      type               : #"date"
       options:
-        format           : "iso8601" # (default), "timestamp-seconds", "timestamp-milliseconds"
+        format           : #"iso8601" # (default), "timestamp-seconds", "timestamp-milliseconds"
 reCaptcha:
   siteKey                :
   secret                 :
