@@ -1,8 +1,7 @@
 ---
 title: "Introduction to spatial points in R"
-author: Michael_T_Hallworth
-contributor: Clark_S_Rushing
-dateCreated:  2018-02-26
+authors: "Michael T. Hallworth"
+contributors: "Clark S. Rushing"
 layout: single
 classes: wide
 permalink: /_pages/basics_SpatialPolygons
@@ -10,8 +9,8 @@ header:
   caption: 'Photo credit: **M. T. Hallworth**'
   image: assets/images/lookingUp.jpg
 sidebar:
-  nav: SpatialWorkshop
-  title: Get Spatial! Using R as GIS
+  nav: "SpatialWorkshop""
+  title: "Get Spatial! Using R as GIS"
 ---
 <a name="TOP"></a>
 
@@ -202,8 +201,7 @@ plot(USborder,
      lwd = 2,
      add = TRUE) # add to current plot
 ```
+<br>
 <a href="#TOP">Back to top</a>
 
-<div style="background-color:rgb(108, 211, 254); border-radius: 25px; text-align:center; vertical-align: middle; padding: 3px 0; margin: auto; width:200px; box-shadow: 4px 5px #6a5acd;">
-<a href="#" style="color:white";>Download R script</a>
-</div>
+<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/basics_SpatialPolygons.R" target="_blank" class="btn btn--info">Download R script</a>

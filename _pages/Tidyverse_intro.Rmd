@@ -2,15 +2,14 @@
 title: "Introduction to spatial data analysis using the tidyverse"
 authors: "Clark S. Rushing"
 contributors: "Michael T. Hallworth"
-date:  '`r format(Sys.Date(),"%Y-%b-%d")`'
 header:
   caption: 'Photo credit: **M. T. Hallworth**'
   image: assets/images/lookingUp.jpg
 layout: single
 permalink: /_pages/Tidyverse_intro
 sidebar:
-  nav: SpatialWorkshop
-  title: Get Spatial! Using R as GIS
+  nav: "SpatialWorkshop"
+  title: "Get Spatial! Using R as GIS"
 classes: wide
 ---
 <a name="TOP"></a>
@@ -272,6 +271,4 @@ Note that adding `geom_text()` seems to override the `geom_sf()` aesthetics by a
 
 <a href="#TOP">Back to top</a>
 
-<div style="background-color:rgb(108, 211, 254); border-radius: 25px; text-align:center; vertical-align: middle; padding: 3px 3px; margin: auto; width:200px; box-shadow: 4px 5px #6a5acd;">
-<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/master/Rscripts/Tidyverse_intro.R" target="_blank" style="color:white";>Download R script</a>
-</div>
+<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/Tidyverse_intro.R" target="_blank" class="btn btn--info">Download R script</a>

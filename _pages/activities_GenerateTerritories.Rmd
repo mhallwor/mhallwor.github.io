@@ -2,8 +2,6 @@
 title: "Generating territories"
 authors: "Michael T. Hallworth"
 contributors: "Clark S. Rushing"
-dateCreated: '2018-03-10'
-lastModified: format(Sys.time(), "%Y-%m-%d")
 header:
   caption: 'Photo credit: **M. T. Hallworth**'
   image: assets/images/lookingUp.jpg
@@ -305,4 +303,7 @@ head(data.frame(BirdID = OVENkde_utm$Bird,
            Elev_lower = extract(DEMutm,OVENkde_utm,min),
            Elev_upper = extract(DEMutm,OVENkde_utm,max)))
 ```
-<a href="#TOP">Back to top</a>
+
+<a href="#TOP">back to top</a>
+
+<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/activities_GenerateTerritories.R" target="_blank" class="btn btn--info">Download R script</a>

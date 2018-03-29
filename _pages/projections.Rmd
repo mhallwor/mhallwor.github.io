@@ -2,7 +2,6 @@
 title: "Projections"
 authors: "Michael T. Hallworth"
 contributors: "Clark S. Rushing"
-date:  '`r format(Sys.Date(),"%Y-%b-%d")`'
 header:
   caption: 'Photo credit: **M. T. Hallworth**'
   image: assets/images/lookingUp.jpg
@@ -10,8 +9,8 @@ layout: single
 classes: wide
 permalink: /_pages/projections
 sidebar:
-  nav: SpatialWorkshop
-  title: Get Spatial! Using R as GIS
+  nav: "SpatialWorkshop"
+  title: "Get Spatial! Using R as GIS"
 ---
 <a name="TOP"></a>
 ```{r echo = FALSE}

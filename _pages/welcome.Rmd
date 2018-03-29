@@ -1,8 +1,6 @@
 ---
 title: "Welcome to Get Spatial!"
-authors: "Michael_T_Hallworth"
-contributors: "Clark_S_Rushing"
-date:  '`r format(Sys.Date(),"%Y-%b-%d")`'
+authors: "Michael T. Hallworth & Clark S. Rushing"
 layout: single
 classes: wide
 permalink: /_pages/welcome

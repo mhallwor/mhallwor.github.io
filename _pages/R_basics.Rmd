@@ -2,7 +2,6 @@
 title: "R basics"
 authors: "Michael T. Hallworth"
 contributors: "Clark S. Rushing"
-dateCreated:  2018-03-04
 layout: single
 classes: wide
 permalink: /_pages/R_basics
@@ -289,3 +288,5 @@ list.data$DataFrame$starttime[5]
 ```
 
 <a href="#TOP">back to top</a>
+
+<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/R_basics.R" target="_blank" class="btn btn--info">Download R script</a>

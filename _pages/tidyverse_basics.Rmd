@@ -2,15 +2,14 @@
 title: "Introduction to the tidyverse"
 authors: "Clark S. Rushing"
 contributors: "Michael T. Hallworth"
-dateCreated: '2018-02-20'
 header:
   caption: 'Photo credit: **M. T. Hallworth**'
   image: assets/images/lookingUp.jpg
 layout: single
 permalink: /_pages/tidyverse_basics
 sidebar:
-  nav: SpatialWorkshop
-  title: Get Spatial! Using R as GIS
+  nav: "SpatialWorkshop"
+  title: "Get Spatial! Using R as GIS"
 classes: wide
 ---
 

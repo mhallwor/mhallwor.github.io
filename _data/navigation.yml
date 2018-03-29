@@ -4,11 +4,9 @@ main:
     url: https://github.com/MTHallworth
   - title: "Get Spatial! Using R as GIS"
     url: /_pages/welcome
-#  - title: "Rasters"
-#    url: /_pages/basics_Rasters
-#  - title: "Extracting Raster Values"
-#    url: /_pages/activities_ExtractRasterValues
 SpatialWorkshop:
+  - title: "Welcome to Get Spatial!"
+    url: /_pages/welcome
   - title: "System setup"
     url: /_pages/getting_started
   - title: "Where to get spatial data"
@@ -27,12 +25,12 @@ SpatialWorkshop:
     url: /_pages/projections
   - title: "Spatial Predicates"
     url: /_pages/spatial_predicates
-  - title: "Extracting Raster Values"
-     #url: /_pages/activities_ExtractingRasterValues
-  - title: "Raster Calculations"
-     #url: /_pages/raster_calculations
   - title: "Spatial data & the tidyverse"
     url: /_pages/Tidyverse_intro
+  - title: "Extracting Raster Values"
+    url: /_pages/activities_ExtractingRasterValues
+  - title: "Raster Calculations"
+     #url: /_pages/raster_calculations
   - title: "Making Maps"
     url: /_pages/MakingMaps
   - title: "Activities"
@@ -42,4 +40,3 @@ SpatialWorkshop:
       - title: "Making territories"
         url: /_pages/activities_GenerateTerritories
       - title: "Isotope assignments"
-        #url: /_pages/basics_SpatialPoints

@@ -1,8 +1,7 @@
 ---
 title: "Spatial Predicates"
-author: Michael_T_Hallworth
-contributor: Clark_S_Rushing
-dateCreated:  2018-03-04
+authors: "Michael T. Hallworth"
+contributors: "Clark S. Rushing"
 layout: single
 classes: wide
 permalink: /_pages/spatial_predicates
@@ -12,6 +11,7 @@ header:
 sidebar:
   title: "Get Spatial! Using R as GIS"
   nav: "SpatialWorkshop"
+modified: `r format(Sys.time(),"%Y-%m-%dT%H:%M%:%S-4:00")`
 ---
 <a name="TOP"></a>
 
@@ -196,3 +196,4 @@ head(State_area)
 
 <a href="#TOP">back to top</a>
 
+<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/spatial_predicates.R" target="_blank" class="btn btn--info">Download R script</a>

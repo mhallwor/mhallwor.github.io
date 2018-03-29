@@ -2,7 +2,6 @@
 title: "Extracting raster data"
 authors: "Michael T. Hallworth"
 contributors: "Clark S. Rushing"
-date:  '`r format(Sys.Date(),"%Y-%b-%d")`'
 layout: single
 classes: wide
 permalink: /_pages/activities_ExtractingRasterValues
@@ -12,6 +11,7 @@ sidebar:
 header:
   caption: 'Photo credit: **M. T. Hallworth**'
   image: assets/images/lookingUp.jpg
+last_modified_at: "2018-03-28T20:35:19-4:00"
 ---
 {% include toc title="In This Activity" %}
 
@@ -72,7 +72,74 @@ library(rgeos)
 
 Extracting raster data to an area or location of interest is a common GIS task. There are a few things to keep in mind while extracting raster data in R. First, as we've seen in <code>Projections</code> it's best to use projected data. Second, make sure the two layers have the same <code>coordinate reference system</code>. Lastly, make sure you know the data class you're extracting (i.e., continuous, factor, etc.)
 
-Below, we'll determine the proportion of landcover types within the area around Tucson, Arizona. In order to complete this task, some new functions will be introduced but we'll also use some skills we learned in other activities. 
+## Extracting Raster to SpatialPoints
+
+Extracting raster data to <code>SpatialLayers</code> can be done using the <code>extract</code> function in the <code>raster</code> package. See <a href="https://www.rdocumentation.org/packages/raster/versions/2.6-7/topics/extract" target="_blank">extract function documentation</a> for details regarding options. 
+
+### Gathering spatial data
+
+For this first example, we'll use a digital elevation model (DEM) of Hubbard Brook Experimental Forest in New Hampshire. The dem is of class numerical. Which means we can perform numerical calculations like finding the mean and range of the data. Below, we'll use a data set where the data are factors.
+
+Reading in the DEM
+```{r}
+# read in DEM of HBEF
+DEM <- raster::raster("../Spatial_Layers/hb10mdem.txt")
+```
+
+Each summer, the Smithsonian Conservation Biology Institute's Migratory Bird Center conducts point counts at nearly 400 locations throughout Hubbard Brook. The point count locations have been georeferenced. Let's extract the elevation of each survey location. First, we'll need to read in the in the survey locations.  
+
+```{r}
+SurveyLocs <- raster::shapefile("../Spatial_Layers/hbef_valleywideplots.shp")
+```
+
+```{r echo = FALSE}
+SurveyLocs
+```
+Before we proceed, let's make sure the <code>CRS</code> is the same in for both the raster layer (DEM) and the <code>SpatialPoints</code> layer. 
+
+```{r}
+crs(SurveyLocs)
+crs(DEM)
+```
+
+The two layers have different <code>coordinate reference systems</code>. We'll need to transform the <code>SpatialPoints</code> layer to match the raster (DEM). See <a href="{{site.baseurl}}/_pages/projections#projecting-rasters" target="_blank">caution projecting rasters</a> for details on why we'll project the <code>SpatialPoints</code> instead of the raster. 
+
+```{r}
+# Transform points to match CRS of the DEM
+SurveyLocs_proj <- sp::spTransform(x = SurveyLocs,
+                                   CRSobj = crs(DEM))
+```
+
+Now that the two layers have the same <code>CRS</code> we can extract the elevation to survey points. We'll use the <code>extract</code> function available in the raster package. The first argument is the raster values you want to extract. The second argument (y) can be a <code>SpatialObject</code> or matrix. 
+
+```{r}
+# Extract elevation to SpatialPoints
+surveyElev <- raster::extract(x = DEM,
+                              y = SurveyLocs_proj)
+```
+
+The resulting object is a vector with the same length as <code>SurveyLocs_proj</code>. 
+
+```{r echo = FALSE}
+str(surveyElev)
+```
+
+We can add the data directly into the <code>SpatialPointsDataFrame</code> with the following code. 
+```{r}
+SurveyLocs_proj$Elev_m <- raster::extract(x = DEM,
+                                          y = SurveyLocs_proj)
+```
+
+```{r echo = FALSE}
+SurveyLocs_proj
+```
+```{r echo = FALSE}
+hist(surveyElev,col = "gray88",main = "",breaks = 15)
+```
+
+## Extract raster to polygon/s
+
+Below, we'll determine the proportion of landcover types within Arizona. In order to complete this task, some new functions will be introduced but we'll also use some skills we learned in other activities. 
 
 ### Gathering spatial data
 
@@ -81,9 +148,10 @@ We're interested in quantifying landcover around Tucson, AZ or more broadly the 
 First, we'll read in the landcover classes. In this example, we'll use landcover data with a relatively coarse resolution for simplicity and speed. 
 
 ```{r}
+# Read in landcover data
 LandCover <- raster::raster("../Spatial_Layers/MCD12C1_T1_2011-01-01_rgb_3600x1800.TIFF")
 ```
-```{r}
+```{r echo = FALSE}
 LandCover
 ```
 |Code|Land Cover Class|
@@ -121,8 +189,6 @@ AZ <- States[States$NAME_1=="Arizona",]
 AZ
 ```
 Great - now we have a <code>SpatialPolygonsDataFrame</code> of Arizona. Take note of the <code>CRS</code>. 
-
-## Extract raster to polygon/s
 
 Landcover types are factors since they're categorical. The reason that's important is because when extracting raster data there are options to apply a function to the underlying raster data. For example, the <code>extract</code> function allows users to specify a function like <code>mean</code> and the function will return the mean raster value under the area of interest. However, because landcover types are factors, returning the mean landcover type is meaningless. Instead, as a final result were interested in having a table giving the percent of each landcover type in Arizona. We'll work our way up to that. We'll start by first extracting the landcover types in Arizona using the <code>extract</code> function available in the <code>raster</code> package.
 
@@ -232,7 +298,7 @@ round(t(summaryValues[[1]]),3)
 <h4><strong>On your own:</strong></h4>
 Find the proportion of each landcover type within your state. Use the <code>extract</code> function and the custom <code>summarizeLC</code> function return the landcover percentages.
 
-<h4><strong>Challenge</strong></h4>
+<h4><strong>Challenge:</strong></h4>
 Compare and contrast the landcover classes for two or more states.
 </div>
 <br>
@@ -259,5 +325,7 @@ rownames(percentCover)<-StatesOfInterest$NAME_1
 round(t(percentCover),3)
 ```
 
-<a href="#" target="_blank" class="btn btn--info";>Download R script</a>
 
+<a href="#TOP">back to top</a>
+
+<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/activities_ExtractingRasterValues.R" target="_blank" class="btn btn--info">Download R script</a>
