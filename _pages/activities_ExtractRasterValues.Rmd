@@ -11,6 +11,7 @@ sidebar:
 header:
   caption: 'Photo credit: **M. T. Hallworth**'
   image: assets/images/lookingUp.jpg
+last_modified_at: "2018-03-28T20:35:19-4:00"
 ---
 {% include toc title="In This Activity" %}
 
