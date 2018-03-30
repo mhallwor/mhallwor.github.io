@@ -1,0 +1,380 @@
+---
+title: "Analysis and visualization of BBS data using the tidyverse"
+authors: "Clark S. Rushing"
+contributors: "Michael T. Hallworth"
+date:  '`r format(Sys.Date(),"%Y-%b-%d")`'
+header:
+  caption: 'Photo credit: **M. T. Hallworth**'
+  image: assets/images/lookingUp.jpg
+layout: single
+permalink: /_pages/Tidyverse_intro
+sidebar:
+  nav: SpatialWorkshop
+  title: Get Spatial! Using R as GIS
+classes: wide
+---
+<a name="TOP"></a>
+```{r global_options, include=FALSE}
+knitr::opts_chunk$set(warning=FALSE, message=FALSE)
+```
+
+{% include toc title="In This Activity" %}
+
+<a name="install.packages"></a>
+<div style="background-color:rgba(0, 1, 1, 0.0470588); border-radius: 25px; text-align:center; vertical-align: middle; padding:2px 0; width: 600px; margin: auto; box-shadow: 4px 5px gray;">
+<h3> Installing Required Libraries</h3> 
+The libraries needed for these activities are:
+
+<strong>sf</strong>     
+<strong>tidyverse</strong>      
+<strong>maps</strong>     
+
+<h4>Installing the packages</h4>     
+If installing these packages for the first time consider adding <code>dependencies=TRUE</code>        
+
+<li><code>install.packages("sf",dependencies = TRUE)</code></li>
+<li><code>install.packages("tidyverse",dependencies = TRUE)</code></li>
+<li><code>install.packages("maps",dependencies = TRUE)</code></li>
+<br>       
+</div>
+<br>
+This activity will introduce more advanced manipulation of spatial data using `sf` and the tidyverse. See introductions to <a href="",target="_blank">spatial predicates</a> and <a href="",target="_blank">working with `sf` objects </a>for more background information on these topics.
+
+## Breeding Bird Survey data
+
+In this tutorial, we will use data from the North American Breeding Bird Survey to highlight some additional topics related to the creation, manipulation, and visualization of spatial objects using the `sf` package and the tidyverse. The raw BBS data contains three files containing, respectively, spatial information for each route, the raw counts for each species in each year on each route, and weather/observer information for each count. The raw data (with a few modifications to reduce size and unnecessary fields) are included with this tutorial. 
+
+To start, let's load the necessary packages and read in the BBS spatial information:
+
+```{r message = FALSE, error = FALSE, warning = FALSE}
+library(sf)
+library(tidyverse)
+library(maps)
+
+### Load data.frame containing the BBS spatial information
+load("../Spatial_Layers/bbs_xy.rda")
+
+### Note the columns containing lat/long for each route
+head(bbs_xy)
+```
+
+Next we convert `bbs_xy` to class `sf`. Remember, we need to specify which columns contain the coordinates for each route and (optionally) provide a CRS:
+
+```{r message=FALSE}
+library(sf)
+### Covert to `sf`
+bbs_xy_sf <- st_as_sf(bbs_xy, coords = c("Longitude", "Latitude"), crs = 4326)
+
+head(bbs_xy_sf)
+```
+
+<div style="background-color: #ffffe6; border-radius: 25px; text-align:center; vertical-align: middle; padding: 3px 0; margin: auto; width:600px; box-shadow: 4px 5px #f2f2f2;"> 
+<h4><strong>Challenge:</strong></h4>
+What geometry type is <code>bbs_xy_sf</code>?
+</div>
+<br>
+
+## Selecting points: `sf` or tidyverse?
+
+In keeping with the Arizona theme of this tutorial, let's subset only the BBS routes found within the state. There are two ways to do this: one spatial and one non-spatial. 
+
+Because `bbs_xy_sf` is (essentially) a tidy data frame, with each row corresponding to one route, we can use the `dplyr` function `filter()` to select only the rows that match a logical condition. In this case, we can filter by `statenum` to select only the routes in Arizona:
+
+```{r}
+## Arizona's statenum == 6
+az_bbs_sf1 <- dplyr::filter(bbs_xy_sf, statenum == 6)
+```
+
+Let's visualize the output to make sure the filter did what we want. We'll also recreate the polygon object containing the AZ border to give our route map more context (note the use of pipes to avoid creating intermediary objects and the use of `st_transform()` to set the CRS):
+
+```{r}
+## AZ polygon
+us_states <- map("state", plot = FALSE, fill = TRUE)
+az_sf <- st_as_sf(us_states) %>%
+           st_transform(crs = 4326) %>%
+               filter(ID == "arizona")
+
+ggplot() + 
+  geom_sf(data = az_sf) +
+  geom_sf(data = az_bbs_sf1) +
+  theme_minimal()
+```
+
+Looks good. Now let's see the spatial method of doing the same thing. For this, we will use the `sf` function `st_intersection()`. This is a predicate function that takes two `sf` objects (or `sfc` or `sfg` objects) and returns the subset of the first object (`x`) that intersects with the second (`y`). When `x` is a point object and `y` is a polygon, `st_intersection()` returns the points within the polygon:
+
+```{r}
+az_bbs_sf2 <- st_intersection(x = bbs_xy_sf, y = az_sf)
+
+ggplot() + 
+  geom_sf(data = az_sf) +
+  geom_sf(data = az_bbs_sf2) +
+  theme_minimal()
+```
+
+These two methods (`filter()` vs. `st_insection()`) *should* return identical objects so the choice of which to use is up to you. But be careful! In this case, `az_bbs_sf1` and `az_bbs_sf2` are not quite identical because one route starts in Arizona (it's first stop is within the `az_sf` polygon) but is listed as a California route (statenum = 14) because the majority of the route is in that state (see it down there at the bottom left?): 
+
+```{r}
+ggplot() + 
+  geom_sf(data = az_sf) +
+  geom_sf(data = az_bbs_sf2, aes(color = as.factor(statenum))) +
+  theme_minimal()
+```
+
+### Buffering polygons
+In practice, the difference between the two point objects isn't a big problem but what if for some reason we need to ensure that all routes fall completely within Arizona?  Each BBS route is ~40km long so to be sure none of the stops are in neighboring states, we could select routes that are > 40km from the `az_sf` borders. One way to accomplish that is to create a new polygon with boundaries that are 40km from the `az_sf` boundaries and then use `st_intersection()` to subset the routes within this smaller polygon. We can do this in `sf` using the `st_buffer()` function. For this function to work properly, we first need to convert the CRS of `az_sf` to a projection that uses meters rather than lat/long. We'll use the Arizona state plane (EPSG = 26949). To buffer within the boundaries of a polygon, we provide a negative distance:
+
+```{r}
+az_sf2 <- st_transform(az_sf, crs = 26949)
+
+az_buffer <- st_buffer(az_sf2, dist = -40000) %>%
+  st_transform(crs = 4326) # Convert CRS back to 4326
+
+ggplot() +
+  geom_sf(data = az_sf) +
+  geom_sf(data = az_buffer, color = "blue")
+```
+
+Now let's select the BBS routes within this new polygon:
+
+```{r}
+az_bbs_sf <- st_intersection(bbs_xy_sf, az_buffer)
+
+ggplot() +
+  geom_sf(data = az_sf) +
+  geom_sf(data = az_buffer, color = "blue") +
+  geom_sf(data = az_bbs_sf)
+```
+
+<a href="#TOP">back to top</a>
+
+## Adding attribute data using joins
+
+Often we may need to add attribute data to spatial objects in order to complete our analyses. We saw in the previous tutorial that we can combine a `data.frame` object containing attribute data with a `sfc` object when creating a new `sf` object. We can also use the `dplyr` join functions to add attribute data to an existing `sf` object. To illustrate this, let's add some count data to the `az_bbs_sf` object.
+
+First, read in the count data for a few species:
+
+```{r}
+load("../Spatial_Layers/bbs_counts.rda")
+head(bbs_counts)
+```
+
+This a slightly-modified version of the raw BBS data. It has been filtered to only contain a subset of years and species (Greater roadrunner (aou = 3850), Cactus wren (aou = 7130), and Mountain bluebird (aou = 7680)). In addition, only the total counts (`speciestotal`) are provided (no stop-level data), and there is a new field called `routeID` (which is just `countrynum`, `statenum`, and `Route` pasted together to provide a unique ID number for each route). 
+
+As before, we only want routes within Arizona. But `bbs_counts` does not contain spatial data. Luckily, we can add the spatial information AND filter only the Arizona routes at the same time using the `dplyr` function `left_join()`. `*_join()` functions combine the columns of two dataframes (`x` and `y`) using a common field(s) to match row attributes. In addition to adding new columns, `left_join()` only keeps the rows in `y` that have a matching row in `x`. So in our case, `left_join()` uses `routeID` to add the count data to `az_bbs_sf` and drops any routes in `bbs_counts` that are in not in `az_bbs_sf` (i.e., routes that are not in Arizona):
+
+```{r}
+az_counts_sf <- left_join(az_bbs_sf, bbs_counts)
+
+## Look at new object
+head(az_counts_sf)
+
+## Map new object just to make sure it only has the routes we want
+ggplot() +
+  geom_sf(data = az_sf) +
+  geom_sf(data = az_buffer, color = "blue") +
+  geom_sf(data = az_counts_sf)
+```
+
+<div style="background-color: #ffffe6; border-radius: 25px; text-align:center; vertical-align: middle; padding: 3px 0; margin: auto; width:600px; box-shadow: 4px 5px #f2f2f2;"> 
+<h4><strong>Challenge:</strong></h4>
+What happens if you use <code>right_join(bbs_counts, az_bbs_sf)</code> instead of <code>left_join(az_bbs_sf, bbs_counts)</code>? Hint: what class of object is the first argument in each function and what class of object is the output?
+</div>
+<br>
+
+To make our lives easier, let's also add the species names as new column so we don't need to refer to species by their AOU code. The `dplyr` function `case_when()` makes this easy (look at the help file for more information about the arguments of `case_when()` and learn how to use it. Without a doubt, `case_when()` will help you at some point in the future):
+
+```{r}
+az_counts_sf <- mutate(az_counts_sf, 
+                       Species = case_when(aou == 3850 ~ "Greater roadrunner",
+                                           aou == 7130 ~ "Cactus wren", 
+                                           aou == 7680 ~ "Mountain bluebird"))
+```
+
+## Group level summaries using the tidyverse
+
+The annual BBS counts are necessary in many applications but what if we just want to know, on average, how many individuals of each species are counted on each route? To answer this question, we need to *summarise* the count data *by* species AND route. Naive R users may do this by first creating new objects that contain the annual counts of each species at each route, taking the mean count of each of these objects, and then recombining the mean counts into a new data frame. But we're not naive R users! We know that the tidyverse (specifically `dplyr`) allows to accomplish exactly those tasks without having to mannually split, summarise, and combine. The `dplyr` function `group_by()` creates internal groupings in our original data frame. The `summarise()` function applies some summary function to each group and returns a dataframe containing the summaries. And since `sf` objects are data frames, we can use these functions as part of our spatial analysis:
+
+```{r}
+mean_counts_sf <- az_counts_sf %>%
+                group_by(Species, routeID) %>%  # Group by species & route 
+                 summarise(count = mean(speciestotal)) %>% # Mean count for all years
+                  ungroup() # Always ungroup!!!!
+
+
+head(mean_counts_sf)
+```
+
+As you can see, `mean_counts_sf` contains the grouping variables (aou & routeID), the newly created summary statistic (`count`) *AND* the original `sfc` column containing the geospatial data for each route! That's important because we can continue to do spatial analyses or make maps using this new object. For example, let's look at how mean count varies across the state of Arizona for each species. To do this, we map the size of each point to it's count (`aes(size = count)`) and create a separate map (i.e., facet) for each species using `facet_wrap(~Species)`:
+
+```{r out.width="100%"}
+## Remove routes that didn't count any of the three species
+## These routes will have NA for the count fields
+## !is.na() returns only rows that ARE NOT NA
+mean_counts_sf <- dplyr::filter(mean_counts_sf, !is.na(Species))
+
+## Recreate AZ cities SF object
+cities_df <- data.frame(Name = c("Tucson", "Phoenix", "Flagstaff"),
+                        Population = c(520116, 1445632, 65870),
+                        Elevation = c(2389, 1086, 6910))
+
+tu_sfg <- st_point(c(-110.9265, 32.2217)) # Tucson
+ph_sfg <- st_point(c(-112.0740, 33.4484)) # Phoenix
+fl_sfg <- st_point(c(-111.6513, 35.1983)) # Flagstaff
+
+cities_sf <- st_sfc(tu_sfg, ph_sfg, fl_sfg, crs = 4326) %>%
+               st_sf(cities_df, geometry = .)
+
+ggplot() +
+  geom_sf(data = az_sf) +
+  geom_sf(data = cities_sf, color = "red", shape = 18, size = 4) +
+  geom_sf(data = mean_counts_sf, aes(size = count),
+          show.legend = "point") +
+  facet_wrap(~Species) +
+  theme_minimal()
+```
+
+So it looks like you have a pretty good chance of adding Cactus wren to your life list while here in Tucson, you might be able to add Greater roadrunner if you're lucky, but don't count on getting a Mountain bluebird. 
+
+<a href="#TOP">back to top</a>
+
+## Clipping polygons
+
+Based on the map we just created, it seems pretty clear that roadrunners and Cactus wrens prefer different habitats than Mountain bluebirds. To examine these differences in a bit more detail, let's see how these patterns relate to the boundaries of North American "Bird Conservation Regions". First, let's download a shapefile containing the boundaries of the 37 BCRs: 
+
+```{r}
+download.file(url = "https://www.pwrc.usgs.gov/bba/view/download_map_files/bcr_shp.zip",
+              destfile = "../Spatial_Layers/bcr.zip")
+
+unzip(zipfile = "../Spatial_Layers/bcr.zip",
+      exdir = "../Spatial_Layers/bcr")
+
+bcr <- raster::shapefile("../Spatial_Layers/bcr/BCR.shp")
+```
+
+<div style="background-color: #ffffe6; border-radius: 25px; text-align:center; vertical-align: middle; padding: 3px 0; margin: auto; width:600px; box-shadow: 4px 5px #f2f2f2;"> 
+<h4><strong>Challenge:</strong></h4>
+What is the class of the <code>bcr</code> object? What function will convert it to a <code>sf</code> object?
+</div>
+<br>
+
+```{r}
+### Covert the BCR shapefile to class `sf`
+bcr_sf <- st_as_sf(bcr)
+```
+
+If you'd like, you can plot the BCR boundaries using `plot(bcr_sf)` but be warned it may take several minutes. Since we are interested in learning about the ecosystems in Arizona, let's clip `bcr_sf` so that it contains only the BCR's within the state. In `sf`, clipping polyons is done using the `st_intersection()` function that we saw above:
+
+```{r error = TRUE}
+az_bcr_sf <- st_intersection(az_sf, bcr_sf)
+```
+Oops, that didn't work. `st_intersection()` requires both objects to have the same CRS. So we have to first change the CRS of `bcr_sf` using `st_transform()`. For simplicity, we'll just set `crs = st_crs(az_sf)` so that we know `bcr_sf` will be given the same CRS as `az_sf`. Again, we'll use pipes to do all of these steps at once:
+
+```{r}
+az_bcr_sf <- st_transform(bcr_sf, crs = st_crs(az_sf)) %>%
+  st_intersection(az_sf, .)
+```
+
+<div style="background-color: #ffffe6; border-radius: 25px; text-align:center; vertical-align: middle; padding: 3px 0; margin: auto; width:600px; box-shadow: 4px 5px #f2f2f2;"> 
+<h4><strong>Challenge:</strong></h4>
+How many different BCRs does Arizona contain? What are their names?
+</div>
+<br>
+
+Next, let's make a quick map to visualize the output of `st_intersection` and make sure it worked correctly: 
+
+```{r}
+ggplot() + 
+  geom_sf(data = az_bcr_sf, aes(fill = BCRName)) +
+  geom_sf(data = cities_sf, shape = 18, color = "red", size = 4) +
+  theme_minimal()
+```
+
+Just to illustrate some additional `sf` functions, let's compute the area of each BCR using `st_area()`: 
+
+```{r}
+st_area(az_bcr_sf)/10000
+```
+
+Without the attribute information (i.e., BCR name), it's hard to figure out which of the 4 BCRs is actually the biggest. Again, because `az_bcr_sf` is a data frame, we can add the areas as a new attribute using the `dplyr` function `mutate()`. Because the `geometry` column contains the spatial information needed to estimate area, we give that as the argument to `mutate()`:
+
+```{r}
+az_bcr_sf <- dplyr::mutate(az_bcr_sf, Area = st_area(geometry)/10000)
+az_bcr_sf
+```
+
+Now it's easier to see that the 'Sonoran and Mojave Deserts' BCR is the biggest and the 'Chihuahuan Desert' is the smallest (within Arizona at least). 
+
+<a href="#TOP">back to top</a>
+
+## Spatial summaries
+
+Now that we have the BCR map, we can layer on the BBS count data to see how the distribution of the three species related to habitat types:
+
+```{r out.width = "100%"}
+ggplot() +
+  geom_sf(data = az_sf) +
+  geom_sf(data = az_bcr_sf, aes(fill = BCRName), 
+          show.legend = FALSE) +
+  geom_sf(data = cities_sf, color = "red", shape = 18, size = 4) +
+  geom_sf(data = mean_counts_sf, aes(size = count),
+          show.legend = FALSE) +
+  facet_wrap(~Species) +
+  theme_minimal()
+```
+
+Clearly, roadrunners and Cactus wrens prefer the Sonoran and Mojave Deserts and Mountain bluebirds prefer the higher elevation Southern Rockies/Colorado Plateau. We may also infer that the Sierra Madre Occidental region is a transition between the desert and the Rockies and abundance of each species peters out in this region. 
+
+As a final exercise, let's estimate the mean count of each species within each BCR. This is a bit tricker than the mean counts per route because now we need to know which BCR polygon each route is within. So rather than subset the routes (which we did with `st_intersection()`) we want to create a new attribute field with the BCR number of each route. To do this, we can use `st_intersects()`:
+
+```{r}
+st_intersects(mean_counts_sf, az_bcr_sf)
+```
+
+Ideally, we would add the output of `st_intersects` as a new field in `mean_counts_sf` using `mutate()` but we can't because the output is a "sparse geometry binary predicate" list, whatever that means. But the key is that it is a list. So we need to convert it from a list to a vector. That could be done using `unlist()` but since we're dedicated tidyverse users, we'll use the `flatten_dbl()` function from `purrr`. We'll also use `case_when()` to map the BCR numbers created by `st_intersects()` to the BCR names:
+
+```{r}
+mean_counts_sf <- mutate(mean_counts_sf, 
+                  BCR.num = purrr::flatten_dbl(st_intersects(mean_counts_sf, az_bcr_sf)),
+                  BCR = case_when(BCR.num == 1 ~ "Southern Rockies", 
+                                  BCR.num == 2 ~ "Sonoran and Mojave Deserts", 
+                                  BCR.num == 3 ~ "Sierra Madre Occidental"))
+
+## Check that each route is indexec by BCR
+ggplot() +
+  geom_sf(data = az_sf) +
+  geom_sf(data = az_bcr_sf, aes(fill = BCRName)) +
+  geom_sf(data = cities_sf, color = "red", shape = 18, size = 4) +
+  geom_sf(data = mean_counts_sf, aes(color = BCR)) +
+  theme_minimal()
+```
+
+Terrible, ugly map but it shows that each route is correctly indexed by BCR. Now we use `group_by()` and `summarise()` again and plot the BCR-level "abundance" for each species:
+
+```{r out.width="100%"}
+bcr_abun <- mean_counts_sf %>%
+              group_by(Species, BCR) %>%
+              summarise(Abundance = mean(count),
+                        Stnd.dev = sd(count)) %>%
+              ungroup() 
+
+## Reorder BCR levels for figures
+bcr_abun$BCR <- factor(bcr_abun$BCR, levels = c("Sonoran and Mojave Deserts", 
+                                                "Sierra Madre Occidental", 
+                                                "Southern Rockies")) 
+
+ggplot(bcr_abun, aes(x = BCR, y = Abundance, fill = Species)) +
+  geom_bar(stat="identity", position = position_dodge(), colour = "black") +
+  geom_errorbar(aes(ymin = Abundance - Stnd.dev, 
+                    ymax = Abundance + Stnd.dev),
+                 width = 0.1,                    # Width of the error bars
+                 position=position_dodge(.9)) + 
+  theme_minimal()
+```
+
+
+What determines the differences in abundance of these species across the BCRs? Elevation? Precipitation? Competition? Sounds like a perfect PhD project. 
+
+
+
+<a href="#TOP">back to top</a>
+
