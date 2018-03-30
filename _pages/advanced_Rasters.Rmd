@@ -1,0 +1,99 @@
+---
+title: "Advanced tools for raster data in R"
+authors: "Michael T. Hallworth"
+contributors: "Clark S. Rushing"
+layout: single
+classes: wide
+permalink: /_pages/advanced_Rasters
+header:
+  caption: 'Photo credit: **M. T. Hallworth**'
+  image: assets/images/lookingUp.jpg
+sidebar:
+  title: "Get Spatial! Using R as GIS"
+  nav: "SpatialWorkshop"
+last_modified_at: "2018-03-28T21:33:49-4:00"
+---
+<a name="TOP"></a>
+
+{% include toc title="In This Activity" %}
+
+
+This activity will introduce you more advanced tools to use with raster data in R.
+
+**R Skill Level:** Intermediate - this activity assumes you have a working knowledge of `R` 
+
+Need to brush up on syntax and data classes in `R`? See <a href= "{{ site.baseurl }}/_pages/R_basics" target = "_blank">R basics</a> for a refresher.
+
+<div style="background-color:rgba(0, 0, 0, 0.0470588); border-radius: 25px; text-align:center; vertical-align: middle; padding:3px 0; width: 600px; margin: auto; box-shadow: 4px 5px gray;">
+
+<h1>Objectives & Goals</h1>      
+<b>Upon completion of this activity, you will:</b>
+<ul>
+<li>know how to <strong>write rasters to file</strong></li>
+<li>know how to deal with <strong>raster stack</strong> & <strong>raster bricks</strong></li>
+<li>know how to work with <strong>large</strong> rasters</li>   
+<li>know how to create raster <strong>mosaics</strong></li>
+<li>Be able <strong>reclassify</strong> rasters</li> 
+</ul>
+</div>
+
+<br>
+<br>
+<a name="install.packages"></a>
+<div style="background-color:rgba(0, 1, 1, 0.0470588); border-radius: 25px; text-align:center; vertical-align: middle; padding:2px 0; width: 600px; margin: auto; box-shadow: 4px 5px gray;">
+
+<h3> Required packages</h3> 
+To complete the following activity you will need the following packages installed:
+
+<strong>raster</strong>                  
+<strong>sp</strong>        
+<strong>rgeos</strong>            
+  
+<h4>Installing the packages</h4>     
+If installing these packages for the first time consider adding <code>dependencies=TRUE</code>        
+
+<li><code>install.packages("raster",dependencies = TRUE)</code></li>
+<li><code>install.packages("rgdal",dependencies = TRUE)</code></li>
+<li><code>install.packages("rgeos",dependencies = TRUE)</code></li>
+<li><code>install.packages("sp",dependencies = TRUE)</code></li>
+<br> 
+</div>
+        
+<br>
+<hr> 
+
+# What is a raster?    
+As a reminder, a raster is a spatially explicit matrix or `grid` where each cell represents a geographic location. Each cell represents a pixel on a surface. The size of each pixel defines the resolution or `res` of raster. The smaller the pixel size the finer the spatial resolution. The `extent` or spatial coverage of a raster is defined by the minima and maxima for both x and y coordinates.
+
+Load the `raster` package if you haven't already done so. If you need to install the `raster` package - see how to do that [here](#install.packages)
+```{r load-raster, message = FALSE, error = FALSE, warning = FALSE}
+# load library
+library(raster)
+```
+
+
+### Working with large rasters
+You can see the details (metadata) of a raster before reading it into <code>R</code> using the <code>GDALinfo</code> function available in the <code>rgdal</code> package. This can be a useful function to get an idea what the data look like, what the <code>CRS</code> is, the resolution and some basic properties like minimum and maximum values.  
+
+```{r, message = FALSE, warning = FALSE}
+rgdal::GDALinfo("../Spatial_Layers/MOD_NDVI_M_2018-01-01_rgb_3600x1800.FLOAT.TIFF")
+```
+
+If you use <code>R</code> for spatial processing, sooner or later you'll need to work with large rasters. By default, when you load a raster into <code>R</code> it loads it into memory. Doing so helps speed up some calculations and ease of access. However, it can limit the size of the rasters you're able to work with. There are a few work arounds for dealing with large rasters. 
+
+The first option is to set the location where the temporary raster is held on your computer. When working with large rasters you may notice that your laptop's precious hard drive is fills up. You can set the location where the raster package stores the temporary files by setting <code>rasterOptions(tmpdir = "/path/to/temp/raster/location")</code>. This can be helpful if you have an external hard drive or drives on your machine that have more space. 
+
+```{r, eval = FALSE}
+raster::rasterOptions(tmpdir = "path/to/drive/with/space")
+```
+
+Another way to deal with processing large rasters is to write them directly to a file rather than returning large rasters into memory. By default rasters are stored in memory, unless they are too large. In which case they are written to a temporary file. Most raster functions accept arguments that are passed directly to the <code>writeRaster</code> function. The additional arguments may include format type, datatype and whether to overwrite the file if it already exists. The default raster format is a `.grd` file. `.grd` can be read into R very quickly with the raster package. The downside is that `.grd` files don't have driver in GDAL so other spatial packages that use GDAL won't be able to read them. 
+
+```{r}
+library(gdalUtils)
+```
+
+<a href="#TOP">Back to top</a>
+
+
+<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/advanced_Rasters.R" target="_blank" class="btn btn--info">Download R script</a>
