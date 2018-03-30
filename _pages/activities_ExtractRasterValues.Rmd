@@ -154,6 +154,7 @@ LandCover <- raster::raster("../Spatial_Layers/MCD12C1_T1_2011-01-01_rgb_3600x18
 ```{r echo = FALSE}
 LandCover
 ```
+
 |Code|Land Cover Class|
 |---|----|
 |01|Evergreen Needleleaf forest|
@@ -215,7 +216,7 @@ The <code>extract</code> function returns a list with the raster values that fal
 ```{r}
 table(AZ_lc)
 ```
-```{r, echo = FALSE, fig.width = 8, fig.width = 6}
+```{r, echo = FALSE, fig.width = 8, fig.height = 6}
 lower48 <- States[!(States$NAME_1 %in% c("Hawaii","Alaska")),]
 plot(lower48)
 plot(LandCover, add = TRUE, ext = raster::extent(lower48))
