@@ -91,6 +91,7 @@ Another way to deal with processing large rasters is to write them directly to a
 
 ```{r}
 library(gdalUtils)
+library(lwgeom)
 ```
 
 <a href="#TOP">Back to top</a>
