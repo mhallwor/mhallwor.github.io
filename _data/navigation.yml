@@ -33,6 +33,8 @@ SpatialWorkshop:
      #url: /_pages/raster_calculations
   - title: "Making Maps"
     url: /_pages/MakingMaps
+  - title: "BBS tidyverse"
+    url: /_pages/BBS_tidyverse
   - title: "Activities"
     children:
       - title: "Point Counts"

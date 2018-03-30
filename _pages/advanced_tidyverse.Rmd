@@ -2,16 +2,16 @@
 title: "Analysis and visualization of BBS data using the tidyverse"
 authors: "Clark S. Rushing"
 contributors: "Michael T. Hallworth"
-date:  '`r format(Sys.Date(),"%Y-%b-%d")`'
 header:
   caption: 'Photo credit: **M. T. Hallworth**'
   image: assets/images/lookingUp.jpg
 layout: single
-permalink: /_pages/Tidyverse_intro
+permalink: /_pages/BBS_tidyverse
 sidebar:
-  nav: SpatialWorkshop
-  title: Get Spatial! Using R as GIS
+  nav: "SpatialWorkshop"
+  title: "Get Spatial! Using R as GIS"
 classes: wide
+last_modified_at:  "2018-03-29T21:28:43-4:00"
 ---
 <a name="TOP"></a>
 ```{r global_options, include=FALSE}
@@ -374,7 +374,6 @@ ggplot(bcr_abun, aes(x = BCR, y = Abundance, fill = Species)) +
 
 What determines the differences in abundance of these species across the BCRs? Elevation? Precipitation? Competition? Sounds like a perfect PhD project. 
 
-
-
 <a href="#TOP">back to top</a>
 
+<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts//_pages/BBS_tidyverse.R" target="_blank" class="btn btn--info">Download R script</a>
