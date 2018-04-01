@@ -90,10 +90,222 @@ raster::rasterOptions(tmpdir = "path/to/drive/with/space")
 Another way to deal with processing large rasters is to write them directly to a file rather than returning large rasters into memory. By default rasters are stored in memory, unless they are too large. In which case they are written to a temporary file. Most raster functions accept arguments that are passed directly to the <code>writeRaster</code> function. The additional arguments may include format type, datatype and whether to overwrite the file if it already exists. The default raster format is a `.grd` file. `.grd` can be read into R very quickly with the raster package. The downside is that `.grd` files don't have driver in GDAL so other spatial packages that use GDAL won't be able to read them. 
 
 ```{r}
+<<<<<<< HEAD
+=======
+sp::over(AZ_sinsu,MODIStiles,returnList = TRUE)
+```
+Looks like Arizona spans two MODIS tiles (h08v05 & h09v05). We'll need to merge those two tiles together later but first we need to know how to read in the data. 
+
+We'll use some MODIS data (tree cover product <a href = "https://lpdaac.usgs.gov/dataset_discovery/modis/modis_products_table/mod44b" target="_blank">MOD44B</a>)) and determine how the percent tree cover changes from 2000 to 2015. We gathered the location of the tiles we need to download. 
+```{r, error = TRUE, message = FALSE, results = hide}
+# Files to get
+hdf_to_get <- c("https://e4ftl01.cr.usgs.gov/MOLT/MOD44B.006/2015.03.06/MOD44B.A2015065.h08v05.006.2017081074011.hdf",
+                "https://e4ftl01.cr.usgs.gov/MOLT/MOD44B.006/2015.03.06/MOD44B.A2000065.h09v05.006.2017081101942.hdf",
+                "https://e4ftl01.cr.usgs.gov/MOLT/MOD44B.006/2015.03.06/MOD44B.A2015065.h08v05.006.2017081074011.hdf",
+                "https://e4ftl01.cr.usgs.gov/MOLT/MOD44B.006/2015.03.06/MOD44B.A2015065.h09v05.006.2017081074341.hdf")
+
+# Where to save the files
+save_hdf_file <- c("../Spatial_Layers/MOD44B.A2015065.h08v05.006.2017081074011.hdf",
+                "../Spatial_Layers/MOD44B.A2000065.h09v05.006.2017081101942.hdf",
+                "../Spatial_Layers/MOD44B.A2015065.h08v05.006.2017081074011.hdf",
+                "../Spatial_Layers/MOD44B.A2015065.h09v05.006.2017081074341.hdf")
+
+# Download using download.file #
+# you'll need wget to use this particular code #
+
+mapply(function(x,y){
+       download.file(url = x,
+                     destfile = y,
+                     method = "wget",
+                     cacheOK = TRUE,
+                     mode = "w",
+                     extra = list(getOption("download.file.extra"),
+                                  "--user=getspatial --password=#AOS18az"))},
+       x = hdf_to_get,
+       y = save_hdf_file)
+```
+We've gathered MODIS data from h08v05 and h09v05 for 2000 & 2015. Unfortunately, we can't read the .hdf format directly into a raster using the raster package. 
+
+```{r, error = TRUE}
+h <- raster("../Spatial_Layers/MOD44B.A2000065.h08v05.006.2017081101834.hdf")
+```
+
+In order to work with MODIS files (*.hdf) we'll need to first extract the layers (bands) we're interested in. To do that we'll use the <code>gdalUtils</code> package. 
+
+```{r, warning = FALSE, message = FALSE}
+>>>>>>> 1e92d6f... removed hdf
 library(gdalUtils)
 library(lwgeom)
 ```
 
+<<<<<<< HEAD
+=======
+The sample code below shows how to convert a single .hdf file in a geoTIFF format that we can work with in many different software. 
+```{r}
+# Extract the names of the datasets within the compressed hdf file
+subsets <- gdalUtils::get_subdatasets("../Spatial_Layers/MOD44B.A2000065.h08v05.006.2017081101834.hdf")
+
+#Covert subset of interest into geoTIFF
+gdalUtils::gdal_translate(src_dataset = subsets[1],
+                          dst_dataset = "../Spatial_Layers/tree_cover_2000.tiff")
+```
+
+```{r echo = FALSE}
+tree_cover_2000 <- raster("../Spatial_Layers/tree_cover_2000.tiff")
+cols <- colorRampPalette(c('tan','forestgreen'))(100)
+plot(tree_cover_2000,zlim = c(0,100),col = cols)
+plot(AZ_sinsu, add = TRUE)
+```
+
+If you have any files or large geographic extents you are working with, running through them all one file at a time would take all day. Let's have R do tedious task of reading, converting and then processing the .hdf files into geoTIFFs that we can use. We'll use the <code>mapply</code> function to avoid <code>for</code> loops. 
+
+```{r}
+# List the .hdf files 
+hdf_files <- list.files(path = "../Spatial_Layers/", 
+                        pattern = "*.hdf", 
+                        full.names = TRUE)
+
+# Creat vector of output file names
+out_files <- gsub(x = hdf_files,
+                  pattern = ".hdf",
+                  replacement = ".tiff")
+
+a <- Sys.time()
+# Convert all hdf to geoTiff
+mapply(x = hdf_files,
+       y = out_files,
+       FUN = function(x,y){ 
+       b <- get_subdatasets(x)
+       gdal_translate(b[1], dst_dataset = y)})
+Sys.time()-a
+```
+
+Now that we've created geoTIFF files that we can read into R. Let's use the <code>out_files</code> vector we just made to read the rasters back into R. To make it a little easier down the line we'll make two seperate lists of rasters. The first for h08v05 and the other for h09v05
+```{r}
+# Note use of grep
+h08_rasters <- lapply(out_files[grep(x=out_files,"h08")],raster)
+
+h09_rasters <- lapply(out_files[grep(x=out_files,"h09")],raster)
+```
+
+Now we have two lists that contain rasters. Every raster in h08_rasters has the same extent and resolution. That's handy because we can create a raster stack. A raster stack is pretty much exactly what it sounds like. A raster stack is two or more stacked (layered) rasters that have the same extent and resolution stored within the same object. 
+```{r}
+h08_rasters <- raster::stack(h08_rasters)
+h09_rasters <- raster::stack(h09_rasters)
+#writeRaster(h08_rasters,filename="../Spatial_Layers/h08_rasters.tif")
+#writeRaster(h09_rasters,filename="../Spatial_Layers/h09_rasters.tif")
+```
+
+```{r echo = FALSE}
+h08_rasters
+```
+
+```{r}
+# if you haven't already - this is a good
+# place to set the tmpdir to store
+# large rasters
+
+# rasterOptions(tmpdir = "path/to/temprasters")
+a <- Sys.time()
+tc_2000_2015 <- mosaic(h08_rasters,
+                       h09_rasters,
+                       fun = min,na.rm = TRUE,
+                       filename = "../Spatial_Layers/tc_2000_2015.tif",
+                       overwrite = TRUE)
+Sys.time()-a
+```
+```{r echo = FALSE, fig.width = 10,fig.height = 4}
+tc_2000_2015
+par(mfrow=c(1,2),mai = c(0.2,0.2,0.2,0.2),bty = "n")
+for(i in 1:nlayers(tc_2000_2015)){
+plot(tc_2000_2015[[i]],
+     zlim = c(0,100),
+     axes = FALSE,
+     col = cols,
+     legend = FALSE)
+     #ext = AZ_sinsu)
+plot(AZ_sinsu, add = TRUE)
+yr <- c(2000,2015)
+mtext(side = 3, text=yr[i])
+}
+```
+
+<a href="#TOP">Back to top</a>
+
+## Reclassify a raster
+Reclassifying a raster is the process of changing the value of a raster cell based on its current value. Let's say for example we want to see where on the landscape forest has increased and where on the landscape forest cover has decreased from 2000 to 2015. First, we'll need to find the difference in forest cover between the two time periods. 
+```{r}
+# raster stack layers can be indexed like lists
+# tree cover in 2015 - tree cover in 2000
+diff_tc <- tc_2000_2015[[2]]-tc_2000_2015[[1]]
+```
+
+```{r echo = FALSE}
+diff_tc
+```
+
+The difference in tree cover ranges from `r cellStats(diff_tc,min)` to `r cellStats(diff_tc,max)`. We're interested in whether forest increased (+) or decreased (-) but we'll allow for some 'sampling error'. Let's say that anywhere between -2.5 and 2.5 is just noise (note: 2.5% was chosen haphazardly and isn't meaningful we're just using it for illustration). We can use the <code>reclassify</code> function to set the values for us. The <code>reclassify</code> function requires a matrix that specifies how to reclassify the raster. The matrix consists of rows that have 3 columns. The first column correpsonds to the minimum value that should take the new reclassification value. The second column is the maximum value that will take the reclassification value and the final column contains the new reclassification value.
+
+```{r} 
+# from -100 to -2.5 take value 1
+# from -2.5 to 2.5 take value 0
+# from 2.5 to 100 take value 2 
+reclassMatrix <- matrix(c(-100,-2.5,1,
+                          -2.5,2.5,0,
+                          2.5,100,2),3,3,byrow = TRUE)
+
+# reclassify diff_tc to values ranging from 0-2
+tc_change <- reclassify(diff_tc, rcl = reclassMatrix)
+```
+
+```{r, echo = FALSE}
+tc_change
+plot(tc_change, col = sp::bpy.colors(3))
+```
+<a href="#TOP">Back to top</a>
+
+### Raster brick
+Raster bricks and raster stacks are very similar. One cool thing about raster bricks is that you can make a raster appear the same on any machine. Similar to a template in ArcMap. Let's convert our <code>tc_change</code> layer we just created into a raster brick that contains the RGB (red,green,blue) fields so when you share the raster file with a collaborator it appears the same way it does above. To do that we'll need to make three copies tc_change. Instead of making three copies then adding them into a raster brick. We'll skip the intermediate step and create a raster brick directly. We'll reclassify the values directly in the brick.
+```{r}
+tc_brick <- brick(c(tc_change,tc_change,tc_change))
+```
+Now that we have a RasterBrick we'll reclassify each layer. The first layer will correspond to the red channel, the second layer to the green channel and finally the third layer will correspond to the blue channel. In the plot above I used the <code>sp::bpy.colors</code> function. We'll use that again below for consitency. 
+```{r}
+sp::bpy.colors(3)
+```
+We'll need to convert the colors into rgb format. 
+```{r}
+rgb_vals <- col2rgb(sp::bpy.colors(3))
+```
+```{r echo = FALSE}
+rgb_vals
+```
+
+Now let's reclassify the RasterBrick based on the values.
+```{r}
+# Make our reclassify matrix
+# note I transposed the rgb_vals
+reclassRGB <- cbind(c(-0.5,0.5,1.5),#from
+                    c(0.5,1.5,2.5),#to
+                    t(rgb_vals))#transposed rgb values
+
+tc_brick[[1]] <- reclassify(tc_brick[[1]],rcl=reclassRGB[,c(1:2,3)])
+tc_brick[[2]] <- reclassify(tc_brick[[2]],rcl=reclassRGB[,c(1:2,4)])
+tc_brick[[3]] <- reclassify(tc_brick[[3]],rcl=reclassRGB[,c(1:2,5)])
+```
+
+Now you can write the <code>RasterBrick</code> to file and send to collaborators and if they read the raster into <code>R</code> using the <code>brick</code> function and plot it using <code>plotRGB</code> is should look exactly the same everytime. 
+
+```{r}
+plotRGB(tc_brick)
+```
+
+```{r echo = FALSE}
+# DELETE FILES SO THEY DON'T MAKE IT TO GITHUB
+file.remove(c(save_hdf_file,out_files))
+```
+
+>>>>>>> 1e92d6f... removed hdf
 <a href="#TOP">Back to top</a>
 
 
