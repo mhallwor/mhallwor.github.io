@@ -1,7 +1,10 @@
 dismo
+gdalUtils
 ks
 leaflet
+lwgeom
 maps
+maptools
 raster
 rgdal
 rgeos

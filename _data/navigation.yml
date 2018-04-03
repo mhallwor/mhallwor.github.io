@@ -27,6 +27,8 @@ SpatialWorkshop:
     url: /_pages/spatial_predicates
   - title: "Spatial data & the tidyverse"
     url: /_pages/Tidyverse_intro
+  - title: "Advanced Rasters"
+    url: /_pages/Advanced_Rasters
   - title: "Extracting Raster Values"
     url: /_pages/activities_ExtractingRasterValues
   - title: "Raster Calculations"
