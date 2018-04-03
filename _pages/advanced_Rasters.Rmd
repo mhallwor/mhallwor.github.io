@@ -199,9 +199,11 @@ The sample code below shows how to convert a single .hdf file in a geoTIFF forma
 subsets <- gdalUtils::get_subdatasets(save_hdf_file[1])
 ```
 
+
 We need both red (sur_refl_b01_1) and near infrared (sur_refl_b02_1) bands to generate NDVI values. We'll extract them from the .hdf files using the gdal_translate function. This function pulls the compressed layer out of the .hdf and creates a new raster in geoTIFF format.
 
-```{r echo = FALSE}
+**Windows users**
+```{r eval = FALSE}
 #Covert subset of interest into geoTIFF
 # red band
 gdalUtils::gdal_translate(src_dataset = subsets[2],
@@ -212,8 +214,13 @@ gdalUtils::gdal_translate(src_dataset = subsets[3],
 ```
 
 If you have any files or large geographic extents you are working with, running through them all one file at a time would take all day. Let's have R do tedious task of reading, converting and then processing the .hdf files into geoTIFFs that we can use. We'll use the <code>mapply</code> function to avoid <code>for</code> loops. 
-
-```{r}
+```{r eval = FALSE, echo = FALSE}
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# THE FOLLOWING CODE IS FOR WINDOWS SYSTEMS. THE WORKSHOP MATERIALS
+# ARE CREATED USING LINUX SYSTEMS  
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+```
+```{r eval = FALSE}
 # List the .hdf files 
 hdf_files <- list.files(path = "../Spatial_Layers/", 
                         pattern = "*.hdf", 
@@ -243,9 +250,49 @@ mapply(a = hdf_files,
 Sys.time()-a
 ```
 
-Now that we've created geoTIFF files that we can read into R. Let's use the output file names (<code>redband_files</code> & <code>nirband_files</code>) we just made to read the rasters back into R. To make it a little easier down the line we'll make two seperate lists of rasters. The first for h08v05 and the other for h09v05
-
+**Linux users**
+For linux users and possibly MAC users we can skip an intermediate step that working with MODIS on Windows needs to do. Using these operating systems you can read in rasters directly from the object returned using <code>get_subdatasets</code>. 
+```{r echo = FALSE}
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# THE FOLLOWING CODE IS FOR LINUX SYSTEMS. THE WORKSHOP MATERIALS
+# ARE CREATED USING LINUX SYSTEMS 
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+```
 ```{r}
+# List the .hdf files 
+hdf_files <- list.files(path = "../Spatial_Layers/", 
+                        pattern = "*.hdf", 
+                        full.names = TRUE)
+
+subsets <- lapply(hdf_files, get_subdatasets)
+
+# Create empty lists to fill with rasters. This is used to stay consistent with the 
+# windows workflow.
+
+h08_red_rasters <- h08_nir_rasters <- h09_red_rasters <- h09_nir_rasters <- vector("list",2)
+
+# Use the subsets list to generate rasters
+h08_red_rasters[[1]] <- raster(subsets[[1]][2]) #second band of first element 
+h08_red_rasters[[2]] <- raster(subsets[[3]][2]) #second band of thire element
+
+h08_nir_rasters[[1]] <- raster(subsets[[1]][3]) #second band of first element 
+h08_nir_rasters[[2]] <- raster(subsets[[3]][3]) #second band of thire element
+
+h09_nir_rasters[[1]] <- raster(subsets[[2]][2]) #second band of first element 
+h09_nir_rasters[[2]] <- raster(subsets[[4]][2]) #second band of thire element
+
+h09_nir_rasters[[1]] <- raster(subsets[[2]][3]) #second band of first element 
+h09_nir_rasters[[2]] <- raster(subsets[[4]][3]) #second band of thire element
+```
+Now that we've created geoTIFF files that we can read into R. Let's use the output file names (<code>redband_files</code> & <code>nirband_files</code>) we just made to read the rasters back into R. To make it a little easier down the line we'll make two seperate lists of rasters. The first for h08v05 and the other for h09v05
+**On Windows**
+```{r echo = FALSE}
+######################################################## 
+# THE FOLLOWING CODE SHOULD BE RUN IF YOU'RE USING A
+# A WINDOWS MACHINE
+########################################################
+```
+```{r eval = FALSE}
 # Note use of grep
 h08_red_rasters <- lapply(redband_files[grep(x=redband_files,"h08")],raster)
 h08_nir_rasters <- lapply(nirband_files[grep(x=nirband_files,"h08")],raster)
