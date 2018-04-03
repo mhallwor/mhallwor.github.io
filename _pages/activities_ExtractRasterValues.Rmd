@@ -156,7 +156,7 @@ LandCover
 ```
 <br>
 |Code|Land Cover Class|
-|---|----|
+|:-------|:--------|
 |01|Evergreen Needleleaf forest|
 |02|Evergreen Broadleaf forest|
 |03|Deciduous Needleleaf forest|
