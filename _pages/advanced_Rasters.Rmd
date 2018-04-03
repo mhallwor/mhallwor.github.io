@@ -180,9 +180,12 @@ mapply(function(x,y){
 ```
 We've gathered MODIS data from h08v05 and h09v05 for 2000 & 2015. Unfortunately, we can't read the .hdf format directly into a raster using the raster package. 
 
-```{r, error = TRUE}
+```{r, eval = FALSE,error = TRUE}
 h <- raster::raster(save_hdf_file[1])
 ```
+>
+>Error in .rasterObjectFromFile(x, band = band, objecttype = "RasterLayer", : Cannot create a RasterLayer >object from this file.
+>
 
 In order to work with MODIS files (*.hdf) we'll need to first extract the layers (bands) we're interested in. To do that we'll use the <code>gdalUtils</code> package. 
 
