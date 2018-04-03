@@ -4,17 +4,12 @@ services:
   - docker
 
 language: r
-
-# cache local R libraries directory:
-cache:r_packages
-
+cache: packages
 pandoc_version: 1.17.2
-
 r_github_packages:
   - brendan-r/brocks
   - tidyverse/rlang
   - tidyverse/ggplot2
- 
 r_packages:
   - sp
   - rgdal
@@ -42,6 +37,7 @@ before_install:
   - sudo apt-get --yes --force-yes update -qq
   #- sudo apt-get -f install liblwgeom-dev libgdal-dev libgeos-dev libproj-dev libudunits2-dev libv8-dev libprotobuf-dev protobuf-compiler
   - sudo apt-get install --yes libudunits2-dev libproj-dev libgeos-dev libgdal-dev
+  
 branches:
   only: develop
   
