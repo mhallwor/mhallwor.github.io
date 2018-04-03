@@ -1,17 +1,17 @@
 ---
 title: "Advanced tools for raster data in R"
-authors: "Michael T. Hallworth"
-contributors: "Clark S. Rushing"
-layout: single
 classes: wide
-permalink: /_pages/advanced_Rasters
+contributors: Clark S. Rushing
 header:
   caption: 'Photo credit: **M. T. Hallworth**'
   image: assets/images/lookingUp.jpg
+last_modified_at: 2018-04-02T21:33:49-4:00
+layout: single
+permalink: /_pages/advanced_Rasters
 sidebar:
-  title: "Get Spatial! Using R as GIS"
-  nav: "SpatialWorkshop"
-last_modified_at: "2018-03-28T21:33:49-4:00"
+  nav: SpatialWorkshop
+  title: Get Spatial! Using R as GIS
+authors: Michael T. Hallworth
 ---
 <a name="TOP"></a>
 
@@ -69,6 +69,9 @@ Load the `raster` package if you haven't already done so. If you need to install
 ```{r load-raster, message = FALSE, error = FALSE, warning = FALSE}
 # load library
 library(raster)
+library(lwgeom)
+library(maptools)
+library(rgdal)
 ```
 
 
@@ -79,16 +82,62 @@ You can see the details (metadata) of a raster before reading it into <code>R</c
 rgdal::GDALinfo("../Spatial_Layers/MOD_NDVI_M_2018-01-01_rgb_3600x1800.FLOAT.TIFF")
 ```
 
-If you use <code>R</code> for spatial processing, sooner or later you'll need to work with large rasters. By default, when you load a raster into <code>R</code> it loads it into memory. Doing so helps speed up some calculations and ease of access. However, it can limit the size of the rasters you're able to work with. There are a few work arounds for dealing with large rasters. 
+If you use R for spatial processing, sooner or later you'll need to work with large rasters. By default, when you load a raster into R it loads it into memory. Doing so helps speed up some calculations and ease of access. However, it can limit the size of the rasters you're able to work with. There are a few work arounds for dealing with large rasters.
 
-The first option is to set the location where the temporary raster is held on your computer. When working with large rasters you may notice that your laptop's precious hard drive is fills up. You can set the location where the raster package stores the temporary files by setting <code>rasterOptions(tmpdir = "/path/to/temp/raster/location")</code>. This can be helpful if you have an external hard drive or drives on your machine that have more space. 
+The first option is to set the location where the temporary raster is held on your computer. When working with large rasters you may notice that your laptop's precious hard drive fills up. You can set the location where the raster package stores the temporary files by setting <code>rasterOptions(tmpdir = "/path/to/temp/raster/location")</code>. This can be helpful if you have an external hard drive or drives on your machine that have more space.
 
-```{r, eval = FALSE}
+```{r eval = FALSE}
 raster::rasterOptions(tmpdir = "path/to/drive/with/space")
 ```
 
-Another way to deal with processing large rasters is to write them directly to a file rather than returning large rasters into memory. By default rasters are stored in memory, unless they are too large. In which case they are written to a temporary file. Most raster functions accept arguments that are passed directly to the <code>writeRaster</code> function. The additional arguments may include format type, datatype and whether to overwrite the file if it already exists. The default raster format is a `.grd` file. `.grd` can be read into R very quickly with the raster package. The downside is that `.grd` files don't have driver in GDAL so other spatial packages that use GDAL won't be able to read them. 
+Another way to deal with processing large rasters is to write them directly to a file rather than returning large rasters into memory. By default rasters are stored in memory, unless they are too large. In which case they are written to a temporary file. Most raster functions accept arguments that are passed directly to the writeRaster function. The additional arguments may include format type, datatype and whether to overwrite the file if it already exists. The default raster format is a .grd file. .grd can be read into R very quickly with the raster package. The downside is there is no driver in GDAL for .grd files so other spatial packages that use GDAL won't be able to read them. We'll use this feature in this tutorial.
 
+<a href="#TOP">Back to top</a>
+
+### Raster mosaics
+
+Combining (merging) multiple rasters is usually needed if working with data that spans large geographic extents and you require high resolution raster data. High resolution data like MODIS are saved as tiles. One raster derived from MODIS files you may be familiar with is the treecover dataset. The raster resolution is 30x30m - the global coverage can be over >600 gigabytes.
+
+Moderate Resolution Imaging Spectroradiometer (MODIS) data are stored in tiles. You can see how they're indexed in the figure below. 
+```{r echo = FALSE}
+data(wrld_simpl, package = "maptools")
+MODIStiles <- raster::shapefile("../Spatial_Layers/modis_sinusoidal_grid_world.shp")
+wrld_proj <- sp::spTransform(wrld_simpl,sp::CRS(MODIStiles@proj4string@projargs))
+
+raster::plot(wrld_proj,col = "gray88",border = "gray88")
+raster::plot(MODIStiles,add = TRUE)
+mtext(side = 3, text = "h")
+mtext(side = 2, text = "v",las = 1)
+hlab <- rgeos::gCentroid(MODIStiles[MODIStiles$v ==0,],byid = TRUE)
+vlab <- rgeos::gCentroid(MODIStiles[MODIStiles$h ==0,],byid = TRUE)
+text(x = hlab@coords[,1], y = rep(hlab@coords[1,2],36),(0:35),cex = 0.75)
+text(x = rep(hlab@coords[1,1],17), y = vlab@coords[,2],(17:0),cex = 0.75)
+```
+
+Let's figure out which tile Arizona falls within. To do that we'll need to read in the MODIS tile grid pictured above. The MODIS tiles are have a sinusoidal projection. 
+```{r}
+# Read in MODIS tile grid
+MODIStiles <- raster::shapefile("../Spatial_Layers/modis_sinusoidal_grid_world.shp")
+```
+Next, we'll read in a spatial layer for the states, subset out Arizona, and transform to match the MODIStiles.
+
+```{r}
+# Read in states
+States <- raster::getData("GADM", country = "United States", level = 1)
+
+# Subset out AZ
+AZ <- States[States$NAME_1 == "Arizona",]
+
+# transform AZ to MODIS
+AZ_sinsu <- sp::spTransform(AZ, sp::CRS(MODIStiles@proj4string@projargs))
+```
+
+Quick check that the CRS are the same.
+```{r}
+identicalCRS(x = MODIStiles, y= AZ_sinsu)
+```
+
+Now that the layers have the same CRS we can use the over function to figure out which MODIS tile/s Arizona falls in.
 ```{r}
 sp::over(AZ_sinsu,MODIStiles,returnList = TRUE)
 ```
@@ -96,7 +145,7 @@ Looks like Arizona spans two MODIS tiles (h08v05 & h09v05). We'll need to merge 
 
 We'll use some MODIS data to derive NDVI values (250m resolution) on March 31st from 2000 to 2017 (<a href = "https://lpdaac.usgs.gov/dataset_discovery/modis/modis_products_table/MOD09GC" target="_blank">MOD09GC</a>). To same some time and bandwith we'll only read in the values for 2000 and 2017. We've provided the links to the other years as well if you're interested but we'll only use a select few here.
 
-```{r, error = TRUE, message = FALSE, results = hide}
+```{r, error = TRUE, message = FALSE, results = "hide"}
 #MODIS files to download
 MODISfiles <- read.csv("../Spatial_Layers/MODIStoget.csv")
 
@@ -271,13 +320,14 @@ NDVI_2017[NDVI_2017 > 1] <- NA
 NDVI_2017[NDVI_2017 < -1] <- NA
 ```
 
-```{r echo = FALSE}
+```{r echo = FALSE, fig.width = 10}
 NDVIs <- stack(NDVI_2000,NDVI_2017)
 
-par(mfrow = c(1,2))
+par(mfrow = c(1,2),mai = c(0.2,0.2,0.2,0.2),bty="n")
 yr <- c(2000,2017)
 for(i in 1:2){
-plot(NDVIs[[i]],main = yr[i])
+plot(NDVIs[[i]],axes=FALSE,legend = FALSE)
+mtext(side=3,yr[i],line = -8)
 plot(AZ_sinsu, add = TRUE)
 }
 ```
@@ -294,7 +344,7 @@ diff_ndvi <- NDVI_2017-NDVI_2000
 ```{r echo = FALSE}
 diff_ndvi
 plot(diff_ndvi, zlim = c(-1,1))
-hist(diff_ndvi, yaxt = "n",las=1,main = "Difference in NDVI\n 2000-2017",xlab = "Difference in NDVI")
+hist(diff_ndvi, yaxt = "n",las=1,main = "Difference in NDVI\n 2000-2017",xlab = "Difference in NDVI",col = "gray88",border = "white")
 ```
 
 The difference in NDVI ranges from -2 to 2. We're interested in whether NDVI increased (+) or decreased (-) but we'll allow for some 'sampling error'. Let's say that anywhere between -0.025 and 0.025 is just noise (note: 0.025 was chosen haphazardly and isn't meaningful we're just using it for illustration). We can use the reclassify function to set the values for us. The reclassify function requires a matrix that specifies how to reclassify the raster. The matrix consists of rows that have 3 columns. The first column correpsonds to the minimum value that should take the new reclassification value. The second column is the maximum value that will take the reclassification value and the final column contains the new reclassification value.
@@ -325,7 +375,7 @@ Now that we have a RasterBrick we'll reclassify each layer. The first layer will
 
 We'll need to convert the colors into rgb format. 
 ```{r}
-rgb_vals <- colorRampPalette(c("wheat3","springgreen4"))(3)
+rgb_vals <- col2rgb(colorRampPalette(c("wheat3","springgreen4"))(3))
 ```
 ```{r echo = FALSE}
 rgb_vals
@@ -337,7 +387,7 @@ Now let's reclassify the RasterBrick based on the values.
 # note I transposed the rgb_vals
 
 reclassRGB <- cbind(c(-2.5,-0.05,0.05),#from
-                    c(-0.5,0.05,2.5),#to
+                    c(-0.05,0.05,2.5),#to
                     t(rgb_vals))#transposed rgb values
 
 ndvi_brick[[1]] <- reclassify(ndvi_brick[[1]],rcl=reclassRGB[,c(1:2,3)])
@@ -351,12 +401,14 @@ Now you can write the <code>RasterBrick</code> to file and send to collaborators
 plotRGB(ndvi_brick)
 ```
 
-```{r echo = FALSE}
+```{r echo = FALSE, results="hide",message = FALSE,warning = FALSE}
 # DELETE FILES SO THEY DON'T MAKE IT TO GITHUB
-nd <- list.files("../Spatial_Layers")[grep(x=list.files("../Spatial_Layers"),pattern = "ndvi*")]
-bd <- list.file("../Spatial_Layers/")[grep(x=list.files("../Spatial_Layers"),pattern = "*.hdf")]
+remove(list=ls())
+nd <- list.files("../Spatial_Layers",full.names = TRUE)[grep(x=list.files("../Spatial_Layers"),pattern = "ndvi*")]
+bd <- list.files("../Spatial_Layers/",,full.names = TRUE)[grep(x=list.files("../Spatial_Layers"),pattern = "h08v05")]
+d <- list.files("../Spatial_Layers/" ,full.names = TRUE)[grep(x=list.files("../Spatial_Layers"),pattern = "h09v05")]
 
-file.remove(c(nd,bd))
+file.remove(c(nd,bd,d))
 ```
 
 <a href="#TOP">Back to top</a>
