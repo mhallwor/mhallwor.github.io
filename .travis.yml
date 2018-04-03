@@ -4,14 +4,19 @@ services:
   - docker
 
 language: r
-cache: packages
+
+# cache local R libraries directory:
+cache:
   directories:
-    - ~/Rlib
+	- ~/Rlib
+
 pandoc_version: 1.17.2
+
 r_github_packages:
   - brendan-r/brocks
   - tidyverse/rlang
   - tidyverse/ggplot2
+ 
 r_packages:
   - sp
   - rgdal
