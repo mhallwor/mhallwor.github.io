@@ -154,7 +154,7 @@ LandCover <- raster::raster("../Spatial_Layers/MCD12C1_T1_2011-01-01_rgb_3600x18
 ```{r echo = FALSE}
 LandCover
 ```
-
+<br>
 |Code|Land Cover Class|
 |---|----|
 |01|Evergreen Needleleaf forest|
@@ -175,7 +175,9 @@ LandCover
 |16|Barren or sparsely vegetated|
 |17|Water bodies|
 |18|Tundra|
+
 *National Center for Atmospheric Research Staff (Eds). Last modified 10 Feb 2017. "The Climate Data Guide: CERES: IGBP Land Classification." Retrieved from https://climatedataguide.ucar.edu/climate-data/ceres-igbp-land-classification.
+<br>
 
 Now that we have a basic Landcover layer, we'll can gather spatial data for Arizona. We'll grab the entire United States and then subset out Arizona. 
 ```{r}

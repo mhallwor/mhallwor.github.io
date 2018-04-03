@@ -5,6 +5,8 @@ services:
 
 language: r
 cache: packages
+  directories:
+    - ~/Rlib
 pandoc_version: 1.17.2
 r_github_packages:
   - brendan-r/brocks
@@ -37,6 +39,10 @@ before_install:
   - sudo apt-get --yes --force-yes update -qq
   #- sudo apt-get -f install liblwgeom-dev libgdal-dev libgeos-dev libproj-dev libudunits2-dev libv8-dev libprotobuf-dev protobuf-compiler
   - sudo apt-get install --yes libudunits2-dev libproj-dev libgeos-dev libgdal-dev
+
+install:
+  - mkdir -p ~/Rlib
+  - echo 'R_LIBS=~/Rlib' > .Renviron
   
 branches:
   only: develop

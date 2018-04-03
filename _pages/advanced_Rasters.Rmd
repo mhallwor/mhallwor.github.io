@@ -72,6 +72,7 @@ library(raster)
 library(lwgeom)
 library(maptools)
 library(rgdal)
+library(gdalUtils)
 ```
 
 
@@ -189,12 +190,7 @@ h <- raster::raster(save_hdf_file[1])
 
 In order to work with MODIS files (*.hdf) we'll need to first extract the layers (bands) we're interested in. To do that we'll use the <code>gdalUtils</code> package. 
 
-```{r, warning = FALSE, message = FALSE}
-library(gdalUtils)
-library(lwgeom)
-```
-
-The sample code below shows how to convert a single .hdf file in a geoTIFF format that we can work with in many different software. 
+The sample code below shows how to convert a single .hdf file into a geoTIFF format that we can work with in many different kinds of software. 
 ```{r}
 # Extract the names of the datasets within the compressed hdf file
 # Band 1 = Red
@@ -223,6 +219,7 @@ If you have any files or large geographic extents you are working with, running 
 # ARE CREATED USING LINUX SYSTEMS  
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 ```
+
 ```{r eval = FALSE}
 # List the .hdf files 
 hdf_files <- list.files(path = "../Spatial_Layers/", 
