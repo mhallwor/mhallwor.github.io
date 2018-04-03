@@ -455,7 +455,7 @@ plotRGB(ndvi_brick)
 # DELETE FILES SO THEY DON'T MAKE IT TO GITHUB
 remove(list=ls())
 nd <- list.files("../Spatial_Layers",full.names = TRUE)[grep(x=list.files("../Spatial_Layers"),pattern = "ndvi*")]
-bd <- list.files("../Spatial_Layers/",,full.names = TRUE)[grep(x=list.files("../Spatial_Layers"),pattern = "h08v05")]
+bd <- list.files("../Spatial_Layers/",full.names = TRUE)[grep(x=list.files("../Spatial_Layers"),pattern = "h08v05")]
 d <- list.files("../Spatial_Layers/" ,full.names = TRUE)[grep(x=list.files("../Spatial_Layers"),pattern = "h09v05")]
 
 file.remove(c(nd,bd,d))
