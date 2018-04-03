@@ -4,7 +4,8 @@ services:
   - docker
 
 language: r
-cache: packages
+cache:
+  packages: true
 pandoc_version: 1.17.2
 r_github_packages:
   - brendan-r/brocks
