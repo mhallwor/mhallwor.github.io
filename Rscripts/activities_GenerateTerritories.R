@@ -163,3 +163,27 @@ head(data.frame(BirdID = OVENkde_utm$Bird,
            Elev_lower = extract(DEMutm,OVENkde_utm,min),
            Elev_upper = extract(DEMutm,OVENkde_utm,max)))
 
+## ------------------------------------------------------------------------
+# Empty raster with 1ha resolution
+study_plot_raster <- raster::raster(OVENkde_utm, res =c(100,100))
+
+# Covert to SpatialPolygon
+study_grid <- as(study_plot_raster,"SpatialPolygons")
+
+## ----echo = FALSE--------------------------------------------------------
+plot(study_grid, border = "gray70")
+plot(OVENkde_utm,add = TRUE)
+
+## ------------------------------------------------------------------------
+# Create a list with all birds wihtin each 1ha grid cell.
+birds_in_ha <- sp::over(study_grid, OVENkde_utm, returnList = TRUE)
+
+# Find how many unique birds are in each cell 
+study_grid$birds <- unlist(lapply(birds_in_ha,FUN=function(x){length(unique(x$Bird))}))
+
+#convert to raster 
+birds.per.ha <- rasterize(study_grid,study_plot_raster,study_grid$birds)
+
+## ---- echo = FALSE-------------------------------------------------------
+plot(birds.per.ha)
+

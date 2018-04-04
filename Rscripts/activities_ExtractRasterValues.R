@@ -70,7 +70,7 @@ str(AZ_lc)
 ## ------------------------------------------------------------------------
 table(AZ_lc)
 
-## ---- echo = FALSE, fig.width = 8, fig.width = 6-------------------------
+## ---- echo = FALSE, fig.width = 8, fig.height = 6------------------------
 lower48 <- States[!(States$NAME_1 %in% c("Hawaii","Alaska")),]
 plot(lower48)
 plot(LandCover, add = TRUE, ext = raster::extent(lower48))

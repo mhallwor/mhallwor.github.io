@@ -155,8 +155,15 @@ LandCover <- raster::raster("../Spatial_Layers/MCD12C1_T1_2011-01-01_rgb_3600x18
 LandCover
 ```
 <br>  
+<style>
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+</style>
 <table>
-<tr><th><b>Code</b></th><th><b>Land Cover Class</b></th></tr>
+<tr style="background-color:#dddddd"><th><b>Code</b></th><th><b>Land Cover Class</b></th></tr>
 <tr><td>01</td><td>Evergreen Needleleaf forest</td></tr>
 <tr><td>02</td><td>Evergreen Broadleaf forest</td></tr>
 <tr><td>03</td><td>Deciduous Needleleaf forest</td></tr>

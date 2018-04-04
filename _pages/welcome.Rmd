@@ -20,8 +20,7 @@ This workshop assumes the user has a general understanding of the `R` language. 
 
 <strong>Download spatial layers used in this workshop</strong>
 
-<a href="https://github.com/mhallwor/mhallwor.github.io/blob/master/dataDownloads/Spatial_Layers.zip?raw=true" target="_blank" class="btn btn--info">Download data</a>
-
+<a href="https://github.com/mhallwor/mhallwor.github.io/blob/master/dataDownloads/Spatial_Layers.zip?raw=true" target="_blank" class="btn btn--info">Download data</a> `r paste0("[",round(file.info("../dataDownloads/Spatial_Layers.zip")$size/1000000,2)," MB]")`
 
 {% include figure image_path="/assets/images/OVENmove.jpg" %}
 

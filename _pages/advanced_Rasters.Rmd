@@ -279,16 +279,16 @@ h08_red_rasters <- h08_nir_rasters <- h09_red_rasters <- h09_nir_rasters <- vect
 
 # Use the subsets list to generate rasters
 h08_red_rasters[[1]] <- raster(subsets[[1]][2]) #second band of first element 
-h08_red_rasters[[2]] <- raster(subsets[[3]][2]) #second band of thire element
+h08_red_rasters[[2]] <- raster(subsets[[3]][2]) #second band of third element
 
 h08_nir_rasters[[1]] <- raster(subsets[[1]][3]) #second band of first element 
-h08_nir_rasters[[2]] <- raster(subsets[[3]][3]) #second band of thire element
+h08_nir_rasters[[2]] <- raster(subsets[[3]][3]) #second band of third element
 
-h09_nir_rasters[[1]] <- raster(subsets[[2]][2]) #second band of first element 
-h09_nir_rasters[[2]] <- raster(subsets[[4]][2]) #second band of thire element
+h09_red_rasters[[1]] <- raster(subsets[[2]][2]) #second band of first element 
+h09_red_rasters[[2]] <- raster(subsets[[4]][2]) #second band of third element
 
 h09_nir_rasters[[1]] <- raster(subsets[[2]][3]) #second band of first element 
-h09_nir_rasters[[2]] <- raster(subsets[[4]][3]) #second band of thire element
+h09_nir_rasters[[2]] <- raster(subsets[[4]][3]) #second band of third element
 ```
 Now that we've created geoTIFF files that we can read into R. Let's use the output file names (<code>redband_files</code> & <code>nirband_files</code>) we just made to read the rasters back into R. To make it a little easier down the line we'll make two seperate lists of rasters. The first for h08v05 and the other for h09v05   
 

@@ -4,6 +4,7 @@ library(raster)
 library(lwgeom)
 library(maptools)
 library(rgdal)
+library(gdalUtils)
 
 ## ---- message = FALSE, warning = FALSE-----------------------------------
 rgdal::GDALinfo("../Spatial_Layers/MOD_NDVI_M_2018-01-01_rgb_3600x1800.FLOAT.TIFF")
@@ -16,9 +17,9 @@ data(wrld_simpl, package = "maptools")
 MODIStiles <- raster::shapefile("../Spatial_Layers/modis_sinusoidal_grid_world.shp")
 wrld_proj <- sp::spTransform(wrld_simpl,sp::CRS(MODIStiles@proj4string@projargs))
 
-raster::plot(wrld_proj,col = "gray88",border = "gray88")
+raster::plot(wrld_proj,col = "gray",border = "gray")
 raster::plot(MODIStiles,add = TRUE)
-mtext(side = 3, text = "h")
+mtext(side = 3, text = "h", line = 1)
 mtext(side = 2, text = "v",las = 1)
 hlab <- rgeos::gCentroid(MODIStiles[MODIStiles$v ==0,],byid = TRUE)
 vlab <- rgeos::gCentroid(MODIStiles[MODIStiles$h ==0,],byid = TRUE)
@@ -78,12 +79,8 @@ mapply(function(x,y){
        x = urls_to_get,
        y = save_hdf_file)
 
-## ---- error = TRUE-------------------------------------------------------
-h <- raster::raster(save_hdf_file[1])
-
-## ---- warning = FALSE, message = FALSE-----------------------------------
-library(gdalUtils)
-library(lwgeom)
+## ---- eval = FALSE,error = TRUE------------------------------------------
+## h <- raster::raster(save_hdf_file[1])
 
 ## ------------------------------------------------------------------------
 # Extract the names of the datasets within the compressed hdf file
@@ -149,6 +146,10 @@ hdf_files <- list.files(path = "../Spatial_Layers/",
 
 subsets <- lapply(hdf_files, get_subdatasets)
 
+## ----echo = FALSE--------------------------------------------------------
+str(subsets)
+
+## ------------------------------------------------------------------------
 # Create empty lists to fill with rasters. This is used to stay consistent with the 
 # windows workflow.
 
@@ -156,16 +157,16 @@ h08_red_rasters <- h08_nir_rasters <- h09_red_rasters <- h09_nir_rasters <- vect
 
 # Use the subsets list to generate rasters
 h08_red_rasters[[1]] <- raster(subsets[[1]][2]) #second band of first element 
-h08_red_rasters[[2]] <- raster(subsets[[3]][2]) #second band of thire element
+h08_red_rasters[[2]] <- raster(subsets[[3]][2]) #second band of third element
 
 h08_nir_rasters[[1]] <- raster(subsets[[1]][3]) #second band of first element 
-h08_nir_rasters[[2]] <- raster(subsets[[3]][3]) #second band of thire element
+h08_nir_rasters[[2]] <- raster(subsets[[3]][3]) #second band of third element
 
-h09_nir_rasters[[1]] <- raster(subsets[[2]][2]) #second band of first element 
-h09_nir_rasters[[2]] <- raster(subsets[[4]][2]) #second band of thire element
+h09_red_rasters[[1]] <- raster(subsets[[2]][2]) #second band of first element 
+h09_red_rasters[[2]] <- raster(subsets[[4]][2]) #second band of third element
 
 h09_nir_rasters[[1]] <- raster(subsets[[2]][3]) #second band of first element 
-h09_nir_rasters[[2]] <- raster(subsets[[4]][3]) #second band of thire element
+h09_nir_rasters[[2]] <- raster(subsets[[4]][3]) #second band of third element
 
 ## ----echo = FALSE--------------------------------------------------------
 ######################################################## 
@@ -292,7 +293,7 @@ plotRGB(ndvi_brick)
 # DELETE FILES SO THEY DON'T MAKE IT TO GITHUB
 remove(list=ls())
 nd <- list.files("../Spatial_Layers",full.names = TRUE)[grep(x=list.files("../Spatial_Layers"),pattern = "ndvi*")]
-bd <- list.files("../Spatial_Layers/",,full.names = TRUE)[grep(x=list.files("../Spatial_Layers"),pattern = "h08v05")]
+bd <- list.files("../Spatial_Layers/",full.names = TRUE)[grep(x=list.files("../Spatial_Layers"),pattern = "h08v05")]
 d <- list.files("../Spatial_Layers/" ,full.names = TRUE)[grep(x=list.files("../Spatial_Layers"),pattern = "h09v05")]
 
 file.remove(c(nd,bd,d))
