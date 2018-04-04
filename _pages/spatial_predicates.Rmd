@@ -11,7 +11,7 @@ header:
 sidebar:
   title: "Get Spatial! Using R as GIS"
   nav: "SpatialWorkshop"
-modified: `r format(Sys.time(),"%Y-%m-%dT%H:%M%:%S-4:00")`
+last_modified_at: "2018-04-03T23:44:02-4:00"
 ---
 <a name="TOP"></a>
 
@@ -91,7 +91,7 @@ First, we need to get a polygon file of the United States.
 States <- getData("GADM",country = "United States", level = 1)
 ```
 
-Next, let's grab a polygon shapefile of the Ovenbird distribution from the <a "href=https://www.mbr-pwrc.usgs.gov/bbs/shape_ra15.html" target="_blank">Breeding Bird Survey's</a> website.
+Next, let's grab a polygon shapefile of the Ovenbird distribution from the <a href="https://www.mbr-pwrc.usgs.gov/bbs/shape_ra15.html" target="_blank">Breeding Bird Survey's</a> website.
 ```{r}
 # Use the download.file function -
 # Don't forget the destfile = "path/where/to/store/file"

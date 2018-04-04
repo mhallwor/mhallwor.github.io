@@ -9,7 +9,7 @@ header:
   caption: 'Photo credit: **M. T. Hallworth**'
   image: assets/images/lookingUp.jpg
 sidebar:
-  nav: "SpatialWorkshop""
+  nav: "SpatialWorkshop"
   title: "Get Spatial! Using R as GIS"
 ---
 <a name="TOP"></a>

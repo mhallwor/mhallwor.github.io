@@ -1,17 +1,17 @@
 ---
 title: "Advanced tools for raster data in R"
+authors: "Michael T. Hallworth"
+contributors: "Clark S. Rushing"
+layout: single
 classes: wide
-contributors: Clark S. Rushing
+permalink: /_pages/advanced_Rasters
+sidebar:
+  nav: "SpatialWorkshop"
+  title: "Get Spatial! Using R as GIS"
 header:
   caption: 'Photo credit: **M. T. Hallworth**'
   image: assets/images/lookingUp.jpg
-last_modified_at: 2018-04-02T21:33:49-4:00
-layout: single
-permalink: /_pages/advanced_Rasters
-sidebar:
-  nav: SpatialWorkshop
-  title: Get Spatial! Using R as GIS
-authors: Michael T. Hallworth
+last_modified_at: "2018-04-03T21:00:49-4:00"
 ---
 <a name="TOP"></a>
 
