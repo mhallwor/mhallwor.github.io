@@ -1,17 +1,17 @@
 ---
 title: "Extracting raster data"
-authors: "Michael T. Hallworth"
-contributors: "Clark S. Rushing"
-layout: single
 classes: wide
-permalink: /_pages/activities_ExtractingRasterValues
-sidebar:
-  title: "Get Spatial! Using R as GIS"
-  nav: "SpatialWorkshop"
+contributors: Clark S. Rushing
 header:
   caption: 'Photo credit: **M. T. Hallworth**'
   image: assets/images/lookingUp.jpg
-last_modified_at: "2018-03-28T20:35:19-4:00"
+last_modified_at: 2018-03-28T20:35:19-4:00
+layout: single
+permalink: /_pages/activities_ExtractingRasterValues
+sidebar:
+  nav: SpatialWorkshop
+  title: Get Spatial! Using R as GIS
+authors: Michael T. Hallworth
 ---
 {% include toc title="In This Activity" %}
 
@@ -154,29 +154,30 @@ LandCover <- raster::raster("../Spatial_Layers/MCD12C1_T1_2011-01-01_rgb_3600x18
 ```{r echo = FALSE}
 LandCover
 ```
-<br>
-|Code|Land Cover Class|
-|:-------|:--------|
-|01|Evergreen Needleleaf forest|
-|02|Evergreen Broadleaf forest|
-|03|Deciduous Needleleaf forest|
-|04|Deciduous Broadleaf forest|
-|05|Mixed forest|
-|06|Closed shrublands|
-|07|Open shrublands|
-|08|Woody savannas|
-|09|Savannas|
-|10|Grasslands|
-|11|Permanent wetlands|
-|12|Croplands|
-|13|Urban and built-up|
-|14|Cropland/Natural vegetation mosaic|
-|15|Snow and ice|
-|16|Barren or sparsely vegetated|
-|17|Water bodies|
-|18|Tundra|
+<br>  
+<table>
+<tr><th><b>Code</b></th><th><b>Land Cover Class</b></th></tr>
+<tr><td>01</td><td>Evergreen Needleleaf forest</td></tr>
+<tr><td>02</td><td>Evergreen Broadleaf forest</td></tr>
+<tr><td>03</td><td>Deciduous Needleleaf forest</td></tr>
+<tr><td>04</td><td>Deciduous Broadleaf forest</td></tr>
+<tr><td>05</td><td>Mixed forest</td></tr>
+<tr><td>06</td><td>Closed shrublands</td></tr>
+<tr><td>07</td><td>Open shrublands</td></tr>
+<tr><td>08</td><td>Woody savannas</td></tr>
+<tr><td>09</td><td>Savannas</td></tr>
+<tr><td>10</td><td>Grasslands</td></tr>
+<tr><td>11</td><td>Permanent wetlands</td></tr>
+<tr><td>12</td><td>Croplands</td></tr>
+<tr><td>13</td><td>Urban and built-up</td></tr>
+<tr><td>14</td><td>Cropland/Natural vegetation mosaic</td></tr>
+<tr><td>15</td><td>Snow and ice</td></tr>
+<tr><td>16</td><td>Barren or sparsely vegetated</td></tr>
+<tr><td>17</td><td>Water bodies</td></tr>
+<tr><td>18</td><td>Tundra</td></tr>
+</table>
 
-National Center for Atmospheric Research Staff (Eds). Last modified 10 Feb 2017. "The Climate Data Guide: CERES: IGBP Land Classification." Retrieved from https://climatedataguide.ucar.edu/climate-data/ceres-igbp-land-classification.
+*National Center for Atmospheric Research Staff (Eds). Last modified 10 Feb 2017. "The Climate Data Guide: CERES: IGBP Land Classification." Retrieved from https://climatedataguide.ucar.edu/climate-data/ceres-igbp-land-classification.
 <br>
 
 Now that we have a basic Landcover layer, we'll can gather spatial data for Arizona. We'll grab the entire United States and then subset out Arizona. 

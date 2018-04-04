@@ -1,7 +1,7 @@
 ---
 title: "R basics"
 authors: "Michael T. Hallworth"
-contributors: "Clark S. Rushing"
+contributors: "Clark S. Rushing & Matt Boone"
 layout: single
 classes: wide
 permalink: /_pages/R_basics
@@ -157,7 +157,7 @@ levels(days_of_week)
 ```
 
 ### Logical 
-Logical is TRUE or FALSE. There are only two possible states, yes or no, on or off. These are can be represented in three ways. R understands a few different ways to specify a logical. T or F for True and False, TRUE or FALSE and 1 or 0. 
+Logical is TRUE or FALSE. There are only two possible states, yes or no, on or off. R understands a few different ways to specify a logical. They can be represented in three ways, T or F for True and False, TRUE or FALSE and 1 or 0. 
 ```{r}
 is.logical(TRUE)
 is.logical(T)
@@ -170,7 +170,7 @@ as.logical(c(1,0,1,0,0))
 R has four main data types. These are structural types that data can be stored in. They are defined by if they take more than class type and the dimensions of the data.
 
 ### Vectors
-Vectors are one dimensional data sets where the only dimension is length. They can only consist of a single data class (Numeric,Character,Logical,etc). Vectors are created using the c() syntax.
+Vectors are one dimensional data sets where the only dimension is length. They can only consist of a single data class (Numeric,Character,Logical,etc). Vectors are created using the <code>c()</code> syntax.
 
 ```{r}
 c(1,2,3,4,5)
@@ -211,7 +211,7 @@ mat[,10]
 ```
 
 ### Array 
-Arrays are multi-dimensional matrices. All data has to be of the same data.class. Think of arrays as stacked matrices.
+Arrays are multi-dimensional matrices. All data needs to be of the same <code>data.class</code>. Think of arrays as stacked matrices.
 
 ```{r}
 # dim = c(rows,columns,dimension)
