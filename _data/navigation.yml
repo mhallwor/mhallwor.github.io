@@ -5,6 +5,8 @@ main:
   - title: "Get Spatial! Using R as GIS"
     url: /_pages/welcome
 SpatialWorkshop:
+  - title: "Workshop Schedule"
+    url: /_pages/breakdown_AOS18AZ
   - title: "Welcome to Get Spatial!"
     url: /_pages/welcome
   - title: "System setup"
