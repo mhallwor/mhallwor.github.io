@@ -13,6 +13,9 @@ sidebar:
 classes: wide
 last_modified_at: "2018-03-28T20:35:19-4:00"
 ---
+```{r echo = FALSE}
+knitr::opts_chunk$set(fig.width=10)
+```
 <a name="TOP"></a>
 {% include toc title="In This Activity" %}
 

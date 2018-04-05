@@ -101,14 +101,14 @@ Combining (merging) multiple rasters is usually needed if working with data that
 
 Moderate Resolution Imaging Spectroradiometer (MODIS) data are stored in tiles. You can see how they're indexed in the figure below. 
 
-```{r echo = FALSE}
+```{r echo = FALSE, fig.width = 10}
 data(wrld_simpl, package = "maptools")
 MODIStiles <- raster::shapefile("../Spatial_Layers/modis_sinusoidal_grid_world.shp")
 wrld_proj <- sp::spTransform(wrld_simpl,sp::CRS(MODIStiles@proj4string@projargs))
 
 raster::plot(wrld_proj,col = "gray",border = "gray")
-raster::plot(MODIStiles,add = TRUE)
-mtext(side = 3, text = "h", line = 1)
+raster::plot(MODIStiles,add = TRUE, border = "gray60")
+mtext(side = 3, text = "h", line = 0)
 mtext(side = 2, text = "v",las = 1)
 hlab <- rgeos::gCentroid(MODIStiles[MODIStiles$v ==0,],byid = TRUE)
 vlab <- rgeos::gCentroid(MODIStiles[MODIStiles$h ==0,],byid = TRUE)
@@ -322,7 +322,11 @@ h08_rasters
 ```
 
 Now that we have all the data required to calculate NDVI - let's go ahead and do that. We'll first calculate NDVI within each tile then we'll merge the two rasters together. That processes is called making a raster mosaic. But first, let's calculate NDVI. The equation to derive NDVI is as follows:
-$$NDVI=\frac{NIR???red}{NIR+red}$$
+
+<div lang="latex">
+NDVI=\frac{NIR???red}{NIR+red}
+</div>
+
 Raster calculations, for the most part, are pretty intuitive. Below, we'll create NDVI for each tile separately by indexing the layers (NIR and Red) from with the raster stack.
 ```{r}
 # Calculate NDVI for each year

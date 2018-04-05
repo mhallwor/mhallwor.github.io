@@ -14,7 +14,9 @@ sidebar:
 ---
 <a name="TOP"></a>
 {% include toc title="In This Activity" %}
-
+```{r echo = FALSE}
+knitr::opts_chunk$set(fig.width=10)
+```
 
 This activity will introduce you to working with spatial points in R.
 

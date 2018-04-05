@@ -14,6 +14,10 @@ sidebar:
 <a name="TOP"></a>
 {% include toc title="In This Activity" %}
 
+```{r echo = FALSE}
+knitr::opts_chunk$set(fig.width=10)
+```
+
 Welcome to Get Spatial! Before working through the set of activities it's best to have a recent version of R and RStudio. 
 
 For reference, these activities were written using `r sessionInfo()[[1]]$version.string` on a Windows machine (`r sessionInfo()[[2]]`)

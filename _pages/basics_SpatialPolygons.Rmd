@@ -13,7 +13,9 @@ sidebar:
   title: "Get Spatial! Using R as GIS"
 ---
 <a name="TOP"></a>
-
+```{r echo = FALSE}
+knitr::opts_chunk$set(fig.width=10)
+```
 {% include toc title="In This Activity" %}
 
 This activity will introduce you to working with spatial polygons in R.

@@ -12,6 +12,9 @@ sidebar:
   title: "Get Spatial! Using R as GIS"
   nav: "SpatialWorkshop"
 ---
+```{r echo = FALSE}
+knitr::opts_chunk$set(fig.width=10)
+```
 <a name="TOP"></a>
 {% include toc title="In This Activity" %}
 

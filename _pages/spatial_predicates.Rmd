@@ -14,7 +14,9 @@ sidebar:
 last_modified_at: "2018-04-03T23:44:02-4:00"
 ---
 <a name="TOP"></a>
-
+```{r echo = FALSE}
+knitr::opts_chunk$set(fig.width=10)
+```
 {% include toc title="In This Activity" %}
 
 **R Skill Level:** Intermediate - this activity assumes you have a working knowledge of `R` 
