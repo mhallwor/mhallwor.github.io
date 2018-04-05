@@ -341,4 +341,4 @@ birds.per.ha <- rasterize(study_grid,study_plot_raster,study_grid$birds)
 plot(birds.per.ha)
 ```
 
-<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/activities_GenerateTerritories.R" target="_blank" class="btn btn--info">Download R script</a>
+<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/activities_GenerateTerritories.R" target="_blank" class="btn btn--info">Download R script</a> `r paste0("Last modified: ",file.mtime("../Rscripts/activities_GenerateTerritories.R"))`

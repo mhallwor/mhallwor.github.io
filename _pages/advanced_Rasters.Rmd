@@ -475,4 +475,4 @@ file.remove(c(nd,bd,d))
 <a href="#TOP">Back to top</a>
 
 
-<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/advanced_Rasters.R" target="_blank" class="btn btn--info">Download R script</a>
+<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/advanced_Rasters.R" target="_blank" class="btn btn--info">Download R script</a> `r paste0("Last modified: ",file.mtime("../Rscripts/activities_advanced_Rasters.R"))`

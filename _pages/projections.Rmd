@@ -256,5 +256,5 @@ Compare the number of cells <code>raster::ncell(raster)</code> before and after 
 <a href="#TOP">back to top</a>
 
 
-<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/master/Rscripts/projections.R" target="_blank" class="btn btn--info">Download R script</a>
+<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/master/Rscripts/projections.R" target="_blank" class="btn btn--info">Download R script</a> `r paste0("Last modified: ",file.mtime("../Rscripts/projections.R"))`
 

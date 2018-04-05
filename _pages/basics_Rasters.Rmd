@@ -166,4 +166,4 @@ raster::plot(NDVI, axes = FALSE, zlim = c(-0.1,0.9))
 
 <a href="#TOP">Back to top</a>
 
-<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/basics_Rasters.R" target="_blank" class="btn btn--info">Download R script</a>
+<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/basics_Rasters.R" target="_blank" class="btn btn--info">Download R script</a> `r paste0("Last modified: ",file.mtime("../Rscripts/basics_Rasters.R"))`

@@ -292,4 +292,4 @@ list.data$DataFrame$starttime[5]
 
 <a href="#TOP">back to top</a>
 
-<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/R_basics.R" target="_blank" class="btn btn--info">Download R script</a>
+<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/R_basics.R" target="_blank" class="btn btn--info">Download R script</a> `r paste0("Last modified: ",file.mtime("../Rscripts/R_basics.R"))`

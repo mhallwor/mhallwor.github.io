@@ -119,4 +119,4 @@ shapefile(x = firstPoints, file = "path/to/output/file.shp")
 
 <a href="#TOP">Back to top</a>
 
-<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/basics_SpatialPoints.R" target="_blank" class="btn btn--info">Download R script</a>
+<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/basics_SpatialPoints.R" target="_blank" class="btn btn--info">Download R script</a> `r paste0("Last modified: ",file.mtime("../Rscripts/basics_SpatialPoints.R"))`

@@ -5,15 +5,15 @@ main:
 SpatialWorkshop:
   - title: "Welcome to Get Spatial!"
     children:
-	  - title: "System setup"
-	    url: /_pages/getting_started
-	  - title: "Schedule"
-	    url: /_pages/breakdown_AOS18AZ
+      - title: "System setup"
+        url: /_pages/getting_started
+      - title: "Schedule"
+        url: /_pages/breakdown_AOS18AZ
   - title: "R resources"
     children:
-	  - title: "R syntax"
-	    url: /_pages/R_basics
-	  - title: "The tidyverse"
+      - title: "R syntax"
+        url: /_pages/R_basics
+      - title: "The tidyverse"
         url: /_pages/tidyverse_basics
   - title: "Where to get spatial data"
     url: /_pages/whereToGetData
@@ -25,7 +25,7 @@ SpatialWorkshop:
         url: /_pages/basics_SpatialPolygons
       - title: "Rasters"
         url: /_pages/basics_Rasters
-	  - title: "Spatial data & the tidyverse"
+      - title: "Spatial data & the tidyverse"
         url: /_pages/Tidyverse_intro
   - title: "Projecting data"
     url: /_pages/projections
@@ -33,13 +33,13 @@ SpatialWorkshop:
     children:
       - title: "Spatial Predicates"
         url: /_pages/spatial_predicates
-	  - title: "Spatial Predicates (tidyverse)"
+      - title: "Spatial Predicates (tidyverse)"
         url: /_pages/BBS_tidyverse
   - title: "Making Maps"
     url: /_pages/MakingMaps
   - title: "Moving beyond the basics"
     children:
-	  - title: "Extracting Raster Values"
+      - title: "Extracting Raster Values"
         url: /_pages/activities_ExtractingRasterValues
       - title: "Advanced Rasters"
         url: /_pages/advanced_Rasters
@@ -52,3 +52,6 @@ SpatialWorkshop:
       - title: "Making territories"
         url: /_pages/activities_GenerateTerritories
       - title: "Isotope assignments"
+  - title: "Coming soon"
+    children:
+      - title: "Interpolation"

@@ -271,4 +271,4 @@ Note that adding `geom_text()` seems to override the `geom_sf()` aesthetics by a
 
 <a href="#TOP">Back to top</a>
 
-<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/Tidyverse_intro.R" target="_blank" class="btn btn--info">Download R script</a>
+<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/Tidyverse_intro.R" target="_blank" class="btn btn--info">Download R script</a> `r paste0("Last modified: ",file.mtime("../Rscripts/Tidyverse_intro.R"))`

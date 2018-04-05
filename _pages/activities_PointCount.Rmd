@@ -223,4 +223,4 @@ occMap <- exp(unmarked::coef(occ)[1]+unmarked::coef(occ)[2]*DEM_m)/
 plot(mask(occMap, CNF_m),col = bpy.colors(30))
 ```
 
-<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/activities_PointCount.R" target="_blank" class="btn btn--info">Download R script</a>
+<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/activities_PointCount.R" target="_blank" class="btn btn--info">Download R script</a> `r paste0("Last modified: ",file.mtime("../Rscripts/activities_PointCount.R"))`
