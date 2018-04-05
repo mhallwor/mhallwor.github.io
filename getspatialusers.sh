@@ -42,7 +42,7 @@ for id in $(seq 1 $1); do
         --shell /bin/false \
         --disabled-password \
         getspatial$id < /dev/null
-    cp -a /home/rstudio/welcome_AWS.r $userhome
+    cp -a /home/rstudio/ $userhome
     chown -R getspatial$id $userhome
     echo "getspatial$id:AOS18AZ" | chpasswd
 done
