@@ -14,6 +14,9 @@ header:
 last_modified_at: "2018-04-03T21:00:49-4:00"
 ---
 <a name="TOP"></a>
+```{r echo = FALSE}
+knitr::opts_chunk$set(fig.width=10)
+```
 
 {% include toc title="In This Activity" %}
 
@@ -323,9 +326,9 @@ h08_rasters
 
 Now that we have all the data required to calculate NDVI - let's go ahead and do that. We'll first calculate NDVI within each tile then we'll merge the two rasters together. That processes is called making a raster mosaic. But first, let's calculate NDVI. The equation to derive NDVI is as follows:
 
-<div lang="latex">
-NDVI=\frac{NIR???red}{NIR+red}
-</div>
+
+$$NDVI=\frac{NIR-red}{NIR+red}$$
+
 
 Raster calculations, for the most part, are pretty intuitive. Below, we'll create NDVI for each tile separately by indexing the layers (NIR and Red) from with the raster stack.
 ```{r}

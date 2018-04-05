@@ -1,20 +1,22 @@
 # main links
 main:
-  - title: "GitHub"
-    url: https://github.com/MTHallworth
   - title: "Get Spatial! Using R as GIS"
     url: /_pages/welcome
 SpatialWorkshop:
-  - title: "Workshop Schedule"
-    url: /_pages/breakdown_AOS18AZ
   - title: "Welcome to Get Spatial!"
-    url: /_pages/welcome
-  - title: "System setup"
-    url: /_pages/getting_started
+    children:
+	  - title: "System setup"
+	    url: /_pages/getting_started
+	  - title: "Schedule"
+	    url: /_pages/breakdown_AOS18AZ
+  - title: "R resources"
+    children:
+	  - title: "R syntax"
+	    url: /_pages/R_basics
+	  - title: "The tidyverse"
+        url: /_pages/tidyverse_basics
   - title: "Where to get spatial data"
     url: /_pages/whereToGetData
-  - title: "The tidyverse"
-    url: /_pages/tidyverse_basics
   - title: "The basics"
     children:
       - title: "Points"
@@ -23,22 +25,26 @@ SpatialWorkshop:
         url: /_pages/basics_SpatialPolygons
       - title: "Rasters"
         url: /_pages/basics_Rasters
+	  - title: "Spatial data & the tidyverse"
+        url: /_pages/Tidyverse_intro
   - title: "Projecting data"
     url: /_pages/projections
   - title: "Spatial Predicates"
-    url: /_pages/spatial_predicates
-  - title: "Spatial data & the tidyverse"
-    url: /_pages/Tidyverse_intro
-  - title: "Advanced Rasters"
-    url: /_pages/advanced_Rasters
-  - title: "Extracting Raster Values"
-    url: /_pages/activities_ExtractingRasterValues
-  - title: "Raster Calculations"
-     #url: /_pages/raster_calculations
+    children:
+      - title: "Spatial Predicates"
+        url: /_pages/spatial_predicates
+	  - title: "Spatial Predicates (tidyverse)"
+        url: /_pages/BBS_tidyverse
   - title: "Making Maps"
     url: /_pages/MakingMaps
-  - title: "BBS tidyverse"
-    url: /_pages/BBS_tidyverse
+  - title: "Moving beyond the basics"
+    children:
+	  - title: "Extracting Raster Values"
+        url: /_pages/activities_ExtractingRasterValues
+      - title: "Advanced Rasters"
+        url: /_pages/advanced_Rasters
+      - title: "Raster Calculations"
+        #url: /_pages/raster_calculations
   - title: "Activities"
     children:
       - title: "Point Counts"

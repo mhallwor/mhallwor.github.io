@@ -14,7 +14,9 @@ sidebar:
 authors: Michael T. Hallworth
 ---
 {% include toc title="In This Activity" %}
-
+```{r echo = FALSE}
+knitr::opts_chunk$set(fig.width=10)
+```
 <a name="TOP"></a>
 
 **R Skill Level:** Intermediate - this activity assumes you have a working knowledge of `R` 

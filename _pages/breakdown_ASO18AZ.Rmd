@@ -73,7 +73,7 @@ td, th {
 ### Schedule
 Below is the tentative schedule for the workshop. We've allowed 30 mins at the end of the workshop for a little bit of wiggle room in case some activities take longer than expected. <br>
 
-<table style="font-family=arial,sans-serif; border-collapse=collapse; width=60%; align="left";">
+<table style="font-family:arial,sans-serif; border-collapse:collapse; width:60%;">
 <tr><th>Time</th><th>Activity</th></tr>
 <tr><td>8:00-10:00</td><td>The Basics (points,lines,polygons,rasters)</td></tr>
 <tr style="background-color:#dddddd"><td>10:00-10:20</td><td>Break</td></tr>
