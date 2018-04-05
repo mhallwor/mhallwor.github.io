@@ -80,7 +80,7 @@ OVEN_locs <- read.csv("../Spatial_Layers/OVEN_2012_locs.csv")
 str(OVEN_locs)
 ```
 
-## Covert points to SpatialPoints object
+## Convert points to SpatialPoints object
 
 Now that we have the data in <code>R</code> we can create a <code>SpatialPoints</code> object.
 

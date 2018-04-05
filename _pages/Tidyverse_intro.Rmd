@@ -37,7 +37,7 @@ If installing these packages for the first time consider adding <code>dependenci
 <br>       
 </div>
 <br>
-This activity will integrate spatial data with the tidyverse. See <a href="",target="_blank">introduction to the tidyverse</a> for more information on the tidyverse.
+This activity will integrate spatial data with the tidyverse. See <a href = "{{ site.baseurl }}/_pages/tidyverse_basics" target="_blank">introduction to the tidyverse</a> for more information on the tidyverse.
 
 ## The tidyverse and spatial data
 
