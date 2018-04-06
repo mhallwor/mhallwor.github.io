@@ -326,7 +326,7 @@ plot(study_grid, border = "gray70")
 plot(OVENkde_utm,add = TRUE)
 ```
 
-For out simple 'density' metric let's figure out how many unique birds use each one hectare grid within the system.
+For our simple 'density' metric let's figure out how many unique birds use each one hectare grid within the system.
 ```{r}
 # Create a list with all birds wihtin each 1ha grid cell.
 birds_in_ha <- sp::over(study_grid, OVENkde_utm, returnList = TRUE)
@@ -339,6 +339,20 @@ birds.per.ha <- rasterize(study_grid,study_plot_raster,study_grid$birds)
 ```
 ```{r, echo = FALSE}
 plot(birds.per.ha)
+```
+
+The figure above is a bit misleading. It's unlikely that there are no Ovenbirds between our study areas.
+
+<div style="background-color: #ffffe6; border-radius: 25px; text-align:center; vertical-align: middle; padding: 3px 0; margin: auto; width:600px; box-shadow: 4px 5px #f2f2f2;"> 
+<h4><strong>Challenge:</strong></h4>
+Take a minute to think about how you may go about removing the areas between our study plots (where we didn't follow individuals). There is more than one way to complete this task. How could you use <b>Spatial Predicates</b>, <b>extract</b> or <b>over</b> to determine which 1 hectare grids were sampled. Perhaps dissolving (<code>gUnion</code>) may be useful.
+</div>
+<br>
+
+```{r echo = FALSE}
+### Here's one way to get rid of the locations where we didn't sample
+# First find the 1ha grids where individual points were taken
+# we'll need to project the points first
 ```
 
 <a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/activities_GenerateTerritories.R" target="_blank" class="btn btn--info">Download R script</a> `r paste0("Last modified: ",file.mtime("../Rscripts/activities_GenerateTerritories.R"))`
