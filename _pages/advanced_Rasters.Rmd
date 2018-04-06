@@ -427,7 +427,7 @@ plot(ndvi_change, col = colorRampPalette(c("wheat3","springgreen4"))(3))
 
 ### Raster brick
 
-Raster bricks and raster stacks are very similar. One cool thing about raster bricks is that you can make a raster appear the same on any machine. Similar to a template in ArcMap. Let's convert our <code>ndvi_change</code> layer we just created into a raster brick that contains the RGB (red,green,blue) fields so when you share the raster file with a collaborator it appears the same way it does above. To do that we'll need to make three copies tc_change. Instead of making three copies then adding them into a raster brick. We'll skip the intermediate step and create a raster brick directly. We'll reclassify the values directly in the brick.
+Raster bricks and raster stacks are very similar. One cool thing about raster bricks is that you can make a raster appear the same on any machine. Similar to a template in ArcMap. Let's convert our <code>ndvi_change</code> layer we just created into a raster brick that contains the RGB (red,green,blue) fields so when you share the raster file with a collaborator it appears the same way it does above. To do that we'll need to make three copies ndvi_change. Instead of making three copies then adding them into a raster brick. We'll skip the intermediate step and create a raster brick directly. We'll reclassify the values directly in the brick.
 
 ```{r}
 ndvi_brick <- brick(c(ndvi_change,ndvi_change,ndvi_change))
@@ -475,4 +475,4 @@ file.remove(c(nd,bd,d))
 <a href="#TOP">Back to top</a>
 
 
-<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/advanced_Rasters.R" target="_blank" class="btn btn--info">Download R script</a> `r paste0("Last modified: ",file.mtime("../Rscripts/activities_advanced_Rasters.R"))`
+<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/advanced_Rasters.R" target="_blank" class="btn btn--info">Download R script</a> `r paste0("Last modified: ",file.mtime("../Rscripts/advanced_Rasters.R"))`

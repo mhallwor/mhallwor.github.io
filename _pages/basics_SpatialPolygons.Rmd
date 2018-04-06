@@ -1,5 +1,5 @@
 ---
-title: "Introduction to spatial points in R"
+title: "Introduction to spatial polygons in R"
 authors: "Michael T. Hallworth"
 contributors: "Clark S. Rushing"
 layout: single
@@ -30,8 +30,6 @@ This activity will introduce you to working with spatial polygons in R.
 <li>know how to <strong>create</strong> and write spatial polygons</li>   
 <li>Be able to <strong>project</strong> spatial polygons</li>     
 <li>Be able to <strong>dissolve</strong> boundaries</li>
-<li>Be able to <strong>create buffers</strong> around spatial polygons</li> 
-<li>Be able to <strong>extract</strong> data to polygons</li>
 </ul>
 </div>
 

@@ -30,7 +30,6 @@ This activity will introduce you to working with spatial points in R.
 <li>know how to <strong>create</strong> and write spatial points</li>   
 <li>Be able to <strong>project</strong> spatial points</li>             
 <li>Be able to <strong>calculate distances</strong> between points</li>             
-<li>Be able to <strong>create buffers</strong> around spatial points</li> 
 </ul>
 </div>
 
@@ -118,5 +117,34 @@ shapefile(x = firstPoints, file = "path/to/output/file.shp")
 ```
 
 <a href="#TOP">Back to top</a>
+
+## Calculate distance between points
+
+One task that may be useful now that we have spatial points is calculating the distance between points either within the same layer or between two layers. Since we already have a SpatialPoints file, we'll calculate the distance between points. We need to be a little careful here. First, we need to make sure we're calculating the distance we intend to calculate. Let's start simple and get Euclidean distances in the units of the SpatialPoints layer. If in meters, it'll return meters. If degrees, it'll return degrees. 
+```{r}
+# longlat = FALSE returns Euclidean distance
+euclidDist <- sp::spDists(firstPoints,longlat = FALSE)
+```
+```{r echo = FALSE}
+str(euclidDist)
+```
+
+Another option is to calculate the GreatCircle distance. 
+```{r, warning = FALSE}
+# longlat = TRUE returns GreatCircle distance
+gcDist <- sp::spDists(firstPoints,longlat = TRUE)
+```
+
+```{r echo = FALSE}
+str(gcDist)
+
+hist(gcDist[upper.tri(gcDist)],
+     col = "gray",border = "white",
+     las = 1,
+     xlab = "Distance (km)",
+     main = "")
+```
+
+We'll dive a bit deeper into point-based analyses in <a href="{{ site.baseurl }}/_pages/spatial_predicates" target="_blank">spatial predicates</a> and in the <a href="{{ site.baseurl }}/_pages/activites_GenerateTerritories" target="_blank">activities</a>
 
 <a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/basics_SpatialPoints.R" target="_blank" class="btn btn--info">Download R script</a> `r paste0("Last modified: ",file.mtime("../Rscripts/basics_SpatialPoints.R"))`

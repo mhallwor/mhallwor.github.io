@@ -61,8 +61,7 @@ head(bbs_xy)
 Next we convert `bbs_xy` to class `sf`. Remember, we need to specify which columns contain the coordinates for each route and (optionally) provide a CRS:
 
 ```{r message=FALSE}
-library(sf)
-### Covert to `sf`
+### Convert to `sf`
 bbs_xy_sf <- st_as_sf(bbs_xy, coords = c("Longitude", "Latitude"), crs = 4326)
 
 head(bbs_xy_sf)
