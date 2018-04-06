@@ -1,0 +1,134 @@
+---
+title: "Spatial Interpolation"
+authors: "Michael T. Hallworth"
+contributors: "Clark S. Rushing"
+header:
+  caption: 'Photo credit: **M. T. Hallworth**'
+  image: assets/images/lookingUp.jpg
+layout: single
+permalink: /_pages/interpolation
+sidebar:
+  nav: "SpatialWorkshop"
+  title: "Get Spatial! Using R as GIS"
+classes: wide
+last_modified_at: "2018-04-02T13:19:19-4:00"
+---
+<a name="TOP"></a>
+```{r echo = FALSE}
+knitr::opts_chunk$set(fig.width=10)
+```
+{% include toc title="In This Activity" %}
+
+This activity will introduce you to spatial interpolation in R.
+
+**R Skill Level:** Intermediate - this activity assumes you have a working knowledge of `R` 
+
+Need to brush up on syntax and data classes in `R`? See <a href= "{{ site.baseurl }}/_pages/R_basics" target = "_blank">R basics</a> for a refresher.
+
+<hr>
+### This is still very much a work in progress
+
+One basic principle of geography is that variables that are close in space typically have similar values. We can use this principle to make predictions and interpolate a smooth surface from data sampled at points. There are a few ways to do this. Generally, when people refer to 'kriging' they are referring to interpolation. 
+
+The following examples will use the raw number of species detected along breed bird survey (BBS) routes within Arizona. The data were summarized for brevity but the data represent the number of species detected along each route through time. We didn't do any formal analysis that accounts for imperfect detection. We just wanted some real data to illustrate interpolation.
+
+```{r message = FALSE, warning = FALSE}
+library(raster)
+library(sp)
+library(gstat)
+library(spatstat)
+```
+
+```{r}
+load("../Spatial_Layers/spproute.rda")
+```
+```{r echo = FALSE}
+States <- readRDS("GADM_2.8_USA_adm1.rds")
+cols <- sp::bpy.colors(100)
+breaks <- seq(0,100,1) 
+a <- cut(sppStateRoute$SpeciesDetected,breaks)
+raster::plot(States[States$NAME_1=="Arizona",])
+raster::plot(States,add = TRUE, col = "gray88")
+raster::plot(sppStateRoute,col = cols[a],pch = 19,cex =as.numeric(a)/30,add = TRUE)
+raster::plot(States,add = TRUE)
+legend(x = raster::extent(sppStateRoute)[2]+1.5,
+       y=raster::extent(sppStateRoute)[4],
+       legend = c(1,5,10,20,40,50,100),
+       pch = 19,
+       title = "Species",
+       col = cols[c(1,5,10,20,40,50,100)],
+       pt.cex = c(1,5,10,20,40,50,100)/30,
+       bty = "n")
+```
+
+Now that we have some data let's interpolate (predict values for locations were we have no data) species richness across Arizona.
+
+Let's make an empty raster so that we can predict species richness across AZ. We'll use this several times so we'll go ahead and make it here. 
+```{r}
+# Spatial grid over the extent of sppStateRoute
+# approximately 5000 random points
+# set.seed() makes sure the random points are the same each time
+# increases reproducability 
+
+set.seed(12345)
+samplegrid <- raster::raster(sppStateRoute,res = c(0.025,0.025))
+
+# define CRS
+raster::crs(samplegrid) <- raster::crs(sppStateRoute) <- sp::CRS("+init=epsg:4326")
+```
+
+We'll use the <code>gstat</code> package to interpolate species richness using a few different methods.
+
+### Inverse distance weighting
+
+```{r}
+idw.model <- gstat(formula=sppStateRoute$SpeciesDetected~1, 
+                   locations=sppStateRoute)
+
+idw.spp <- raster::interpolate(samplegrid, idw.model)
+```
+```{r echo = FALSE}
+idw.spp
+```
+
+Let's use the <code>mask</code> function to clip the raster to Arizona. 
+```{r}
+idw.spp.az <- raster::mask(idw.spp, States[States$NAME_1=="Arizona",])
+
+raster::plot(idw.spp.az)
+```
+
+### Ordinary Kriging 
+```{r}
+# create variogram 
+vario <- variogram(sppStateRoute$SpeciesDetected~1, sppStateRoute)
+```
+
+```{r, echo = FALSE}
+vario.fit <- fit.variogram(vario,
+                           vgm(psill=250, # approx asymptote
+                               range = 150,
+                               model="Exp", 
+                               nugget=50))
+vline <- variogramLine(vario.fit,maxdist = 300)
+plot(vario$gamma ~ vario$dist,pch = 19,ylim = c(0,300),las = 1, ylab = "gamma",xlab = "Lag distance")
+points(vline[,2]~vline[,1],type = "l")
+```
+
+```{r}
+vario.fit <- fit.variogram(vario,
+                           vgm(psill=250, # approx asymptote
+                               range = 150,
+                               model="Exp", 
+                               nugget=50))
+
+predict.model <- gstat(g=NULL,
+                      formula = sppStateRoute$SpeciesDetected~1,
+                      locations = sppStateRoute, 
+                      model=vario.fit)
+```
+
+
+
+
+`r paste0("Last modified: ",file.mtime("../Rscripts/R_basics.R"))`

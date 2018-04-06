@@ -55,3 +55,4 @@ SpatialWorkshop:
   - title: "Coming soon"
     children:
       - title: "Interpolation"
+        url: /_pages/interpolation

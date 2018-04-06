@@ -21,7 +21,7 @@ knitr::opts_chunk$set(fig.width=10)
 
 <img src="https://amornithmeeting.files.wordpress.com/2017/08/aos-2018-logo-hashtag.jpg?w=1024&h=721">
 
-### Celebrating Connections: <s>Birds</s> Ornithologists Across Borders
+## Celebrating Connections: Birds & <i>Ornithologists</i> Across Borders
 ```{r, echo = FALSE, warning = FALSE, error = FALSE, message = FALSE}
 library(raster)
 

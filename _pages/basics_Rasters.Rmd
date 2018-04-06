@@ -14,7 +14,7 @@ sidebar:
 ---
 <a name="TOP"></a>
 ```{r echo = FALSE}
-knitr::opts_chunk$set(fig.width=10)
+knitr::opts_chunk$set(fig.width=10, fig.align = "center")
 ```
 {% include toc title="In This Activity" %}
 
@@ -31,11 +31,7 @@ Need to brush up on syntax and data classes in `R`? See <a href= "{{ site.baseur
 <b>Upon completion of this activity, you will:</b>
 <ul>
 <li>know how to <strong>create</strong> and write rasters</li>   
-<li>know how to <strong>plot</strong> rasters & customize legends</li>
-<li>know how to do raster <strong>calculations</strong></li>
-<li>Be able to <strong>project</strong> rasters</li>             
-<li>Be able to <strong>extract values</strong> from rasters</li>             
-<li>Be able reclassify / resampling rasters</li> 
+<li>know how to do basic <strong>calculations</strong></li>
 </ul>
 </div>
 
@@ -75,7 +71,16 @@ Rasters can be created from the following data classes:
 </ui>
 
 ## Raster formats 
-Raster data are stored in a variety of formats. The table below describes several commonly encountered file types. 
+Raster data are stored in a variety of formats. The table below shows several commonly encountered file types. Use <code>raster::writeFormats()</code> to see the full list. 
+
+```{r, echo = FALSE}
+rf<-data.frame(raster::writeFormats())
+
+rf <- rf[rf$name %in% c("raster","BIL","ascii","GTiff","netCDF"),]
+rf$extension <- c(".grd",".bil",".asc",".tiff",".nc")
+names(rf)<-c("Name","Long Name","File Extension")
+rf
+```
 
 # Creating & writing rasters   
 ## Raster data in R
