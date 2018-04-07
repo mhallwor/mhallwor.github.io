@@ -28,9 +28,6 @@ Be sure to <strong>Download spatial layers used in this workshop</strong>
 ### Etherpad 
 We'll be using Etherpad to keep track of questions / comments / concerns / tips. Join the discussion on the <a href="https://etherpad.wikimedia.org/p/GetSpatial!_AOS18AZ" target="_blank">Get Spatial! Etherpad</a>
 
-<iframe name="embed_readwrite" src="https://etherpad.wikimedia.org/p/GetSpatial!_AOS18AZ?showControls=true&showChat=true&showLineNumbers=true&useMonospaceFont=false" width=600 height=400></iframe>
-
-
 
 {% include figure image_path="/assets/images/OVENmove.jpg" %}
 

@@ -31,7 +31,8 @@ r_packages:
   - tidyverse
   - lwgeom
   - gdalUtils
-  
+  - gstat
+  - spatstat
 before_install:
   - "docker pull ubuntu:16.04"
   - sudo add-apt-repository ppa:ubuntugis/ubuntugis-unstable -y

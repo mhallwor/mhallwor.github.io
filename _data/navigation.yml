@@ -4,6 +4,7 @@ main:
     url: /_pages/welcome
 SpatialWorkshop:
   - title: "Welcome to Get Spatial!"
+    url: /_pages/welcome
     children:
       - title: "System setup"
         url: /_pages/getting_started
@@ -44,7 +45,7 @@ SpatialWorkshop:
       - title: "Advanced Rasters"
         url: /_pages/advanced_Rasters
       - title: "Raster Calculations"
-        #url: /_pages/raster_calculations
+        url: /404
   - title: "Activities"
     children:
       - title: "Point Counts"
@@ -52,6 +53,7 @@ SpatialWorkshop:
       - title: "Making territories"
         url: /_pages/activities_GenerateTerritories
       - title: "Isotope assignments"
+        url: /404
   - title: "Coming soon"
     children:
       - title: "Interpolation"
