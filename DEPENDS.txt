@@ -1,13 +1,17 @@
+animation
 dismo
 gdalUtils
+gstat
 ks
 leaflet
 lwgeom
 maps
 maptools
 raster
+rasterVis
 rgdal
 rgeos
 sf
 sp
+spatstat
 tidyverse
