@@ -24,6 +24,8 @@ SpatialWorkshop:
         url: /_pages/basics_SpatialPoints
       - title: "Polygons"
         url: /_pages/basics_SpatialPolygons
+      - title: "Lines"
+        url: /_pages/basics_SpatialLines
       - title: "Rasters"
         url: /_pages/basics_Rasters
       - title: "Spatial data & the tidyverse"
