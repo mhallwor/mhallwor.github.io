@@ -91,7 +91,7 @@ poly1 <- sp::Polygon(cbind(x_coords,y_coords))
 
 Then we make `poly1` into a Polygon class using the `Polygons` function
 ```{r}
-firstPoly <- sp::Polygons(list(poly1),"A")
+firstPoly <- sp::Polygons(list(poly1), ID = "A")
 
 str(firstPoly,1)
 ```
