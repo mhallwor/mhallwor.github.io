@@ -53,6 +53,12 @@ If installing these packages for the first time consider adding <code>dependenci
         
 <br>
 <hr>
+```{r, warning = FALSE,message = FALSE, error = FALSE}
+library(raster)
+library(sp)
+library(geosphere)
+library(rgeos)
+```
 
 Creating spatial lines using the <code>sp</code> package is similar to making polygons from scratch - tedious. Here, for completeness we'll make a few spatial lines from scratch. Once we know how to do that, we'll use a simplier method. 
 
@@ -90,7 +96,7 @@ First using the <code>sp</code> package again. Here, we'll convert to <code>Spat
 points <- sp::SpatialPoints(cbind(x_coords,y_coords))
 
 # use as to convert to line
-sp_line <- as(points,"SpatialLines")
+sp_line <- sp::as(points,"SpatialLines")
 ```
 
 ```{r echo = FALSE}
@@ -105,8 +111,8 @@ How would you create a line with only the first 10 points instead of all of them
 <br>
 ```{r echo = FALSE}
 # simply subset out the points you want
-first10 <- as(points[1:10],"SpatialLines")
-last20 <- as(points[(length(points)-20):length(points)],"SpatialLines")
+first10 <- sp::as(points[1:10],"SpatialLines")
+last20 <- sp::as(points[(length(points)-20):length(points)],"SpatialLines")
 
 #plot them
 raster::plot(last20)
