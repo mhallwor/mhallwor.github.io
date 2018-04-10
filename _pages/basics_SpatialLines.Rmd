@@ -78,14 +78,14 @@ ID <- paste0("line_",1:100)
 head(data.frame(x_coords = x_coords,y_coords = y_coords, ID = ID))
 ```
 
-Now that we have the endpoints (endpoints are rows), we need tocreate a <code>Line</code> object then convert that to a <code>Lines</code> object and give them an ID then we can finally convert them to <code>SpatialLines</code>
+Now that we have the endpoints, we need to create a <code>Line</code> object then convert that to a <code>Lines</code> object and give them an ID then we can finally convert them to <code>SpatialLines</code>. Here, we'll use the first two points for our first line.
 
 ```{r}
 line_obj <- sp::Line(cbind(x_coords[1:2],y_coords[1:2]))
 
 lines_obj <- sp::Lines(list(line_obj),ID=ID[1])
 
-Line1 <- sp::SpatialLines(list(lines_obj))
+firstLine <- sp::SpatialLines(list(lines_obj))
 ```
 
 The code to generat a series of lines from a list of points get's a bit ugly and creating lines from scratch isn't common - at least I haven't done it very often in my work. Here are a few 'easier' ways to create <code>SpatialLine</code> objects.
