@@ -1,0 +1,111 @@
+---
+title: ""
+classes: wide
+header:
+  caption: 'Photo credit: **M. T. Hallworth**'
+  image: assets/images/lookingUp.jpg
+layout: single
+permalink: /website/CV
+authors: Michael T. Hallworth
+---
+<center>
+# Michael T. Hallworth, Ph.D.
+### _CURRICULUM VITAE_
+</center>
+<hr "100%">
+### **Appointments**
+
+**2019- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;** _Postdoctoral Fellow_ - Northeast Climate Adaptation Science Center, University of Massachusetts, Amherst, MA.      
+                             
+**2015-2018** _Postdoctoral research associate_ - Smithsonian Conservation Biology Institute - Migratory Bird Center, Washington, D.C.     
+                                                                               
+**2014-2015** _Postdoctoral research associate_ - University of Maryland, Baltimore County, Baltimore, MD.						                    Geography & Environmental Systems
+<center>
+<hr "75%">
+</center>
+
+### **Education**
+
+
+**_Ph.D._**, Environmental Science and Public Policy, 2014.
+George Mason University, Fairfax, VA.    
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Advisors: Dr. Peter P. Marra & Dr. Larry Rockwood
+
+**_M.S._**, Biology, 2007.
+Plymouth State University, Plymouth, NH.     
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Advisor: Dr. Leonard Reitsma
+
+**_B.S._**, Biology, 2004.
+Plymouth State University, Plymouth, NH.
+Minor: Chemistry     
+
+### **Publications**
+
+
+**Hallworth, M. T.**, P. P. Marra, K. E. McFarland, S. Zahendra and C. E. Studds. _Submitted_. Tacking dragons: The annual cycle of a long-distance migratory insect. **Nature Ecology & Evolution**.
+
+**Hallworth, M. T.**, T. S. Sillett and P. P. Marra. _In revision_. Migratory phenology influences the population growth rate of a long distance migratory songbird. **Journal of Animal Ecology**. 
+
+Odom, K. J., E. M. Shank, **M. T. Hallworth**, O. A. Diaz-Marrero and K. E. Omland. In review. Females and males maintain similar sized, stable territories between the breeding and non-breeding seasons in a tropical oriole (_Icterus icterus_). **Journal of field ornithology**.
+
+Tonra, C. M., **M. T. Hallworth**, T. J. Boves, L. P. Bulluck, M. Johnson, C. Viverette, E. M. Ames, A. Matthews, J. Resse, M. C. Slevin, R. R. Wilson and E. I. Johnson. _In review_. Range-wide migratory connectivity estimation reveals concentration of a widespread breeding population in few critically important nonbreeding locations. **Journal of Avian Biology**. 
+
+<ol reversed>
+<li>Cohen, E. B., C. R. Rushing, F. R. Moore, **M. T. Hallworth**, J. A. Hostetler, M. Gutierrez Ramirez and P. P. Marra. _In press_. Spatial and temporal en route migratory connectivity of three Nearctic-Neotropical species through the Gulf Of Mexico region. **Ecography**.</li>       
+
+
+
+<li>Lisovski, S., H. Schmaljohann, E. S. Bridge, S. Bauer, A. Farnsworth , S. A. Gauthreaux, Jr., S. Hahn, **M. T. Hallworth**, C. M. Hewson, J. F. Kelly, F. Liechti, P. P. Marra, E. Rakhimberdiev, J. D. Ross, N. E. Seavy, M. D. Sumner, C. M. Taylor, D. W. Winkler, S. J. Wotherspoon, and M. B. Wunder. Inherent limits of light-level geolocation may lead to over-interpretations (Comment on Streby et al. (2015) Tornadic Storm Avoidance Behavior in Breeding Songbirds. Curr. Biol. 25, R98-R102.). 2018. **Current Biology**. 28:3. R99-R100.</li>       
+
+
+<li>Cohen, E. B., J. Hostetler, **M. T. Hallworth**, C. Rushing, T. S. Sillett and P. P. Marra. 2018. A quantitative definition for the strength of migratory connectivity. **Methods in Ecology and Evolution**. 9:3. 513-524.</li>
+
+<li>Reitsma, L. R., J. J. Jukosky, A. J. Kimiatek, M. L. Goodnow, and **M. T. Hallworth**. 2018. Extra-pair paternity in a long-distance migratory songbird beyond neighbors' borders and across male age classes. **Canadian Journal of Zoology**. 96:1. 49-54. https://doi.org/10.1139/cjz-2016-0277. </li>
+
+<li>Haché, S. E.M. Bayne, M.-A. Villard, H. Proctor, C.S. Davis, D. Stralberg, E. Vasi, A. Grossi, J.C. Gorrell, J.K. Janes, **M. T. Hallworth**, K.R. Foster and R. Krikun. 2017. Phylogeography of a migratory songbird across its Canadian breeding range: implications for conservation units. **Ecology and Evolution**. 7:6078-6088. https://doi.org/10.1002/ece3.3170. </li>
+
+<li> Cooper, N. W., **M. T. Hallworth** and P. P. Marra. 2017. Light-level geolocation reveals wintering distribution, migration routes, and primary stopover locations of an endangered long-distance migratory songbird. **Journal of Avian Biology**. 48:2. 209-219.  *Cover article.</li>
+
+<li>**Hallworth, M. T.** and P. P. Marra. 2015. Miniaturized GPS Tags Identify Non-breeding territories of a small breeding migratory songbird. **Scientific Reports**. 5:11069. doi:10.1038/srep11069.</li>
+
+<li>**Hallworth, M. T.**, T. S. Sillett, S. J. Van Wilgenburg, K. A. Hobson and P. P. Marra. 2015. Migratory connectivity of a Neotropical migratory songbird revealed using archival light-level geolocators. **Ecological Applications**. http://dx.doi.org/10.1890/14-0195.1</li>
+
+<li>**Hallworth, M. T.**, C. E. Studds, T. S. Sillett and P. P. Marra. 2013. Do archival light-level geolocators and stable-hydrogen isotopes provide comparable estimates of breeding ground origin? **Auk** 130(2): 273-282.</li>
+
+<li>**Hallworth, M. T.**, L. Reitsma and K. Parent. 2011. Habitat- and spatial use of the Louisiana Waterthrush during the non-breeding season in the Caribbean National Forest, Puerto Rico. **Wilson's journal of Ornithology** 123(3): 567-574.</li>
+
+<li>Reitsma, L, M. Goodnow, **M. T. Hallworth** and C. J. Conway. 2010. Canada Warbler (_Wilsonia canadensis_), The Birds of North America Online (A. Poole, Ed.). Ithaca: Cornell Lab of Ornithology</li>
+
+<li>Hallworth, M., K. Parent and L. Reitsma 2009. Modified version of the leg harness technique for mounting radio transmitters. **North American Bird Bander**. 34(2): 50-53.</li>
+
+<li>**Hallworth, M.**, A. Ueland, E. Anderson, J.D. Lambert and L. Reitsma. 2008. Habitat selection and site fidelity of the Canada warbler (_Wilsonia canadensis_) in central, New Hampshire. **Auk** 125(4): 880-888.</li>
+
+<li>Reitsma L., **M. Hallworth**, P. Benham. 2008. Does age influence territory size, habitat selection and reproductive success of male Canada warblers (_Wilsonia canadensis_) in central New Hampshire? **Wilson's Journal of Ornithology** 120(3): 446-454.</li>
+
+<li>**Hallworth, M.**, P. Benham, J. D. Lambert, and L. Reitsma. 2008. Canada warbler (_Wilsonia canadensis_) breeding ecology in young forest stands compared to red maple (_Acer rubrum_) swamp. **Forest Ecology and Management** 255, 1353-58.</li>
+
+<li>Elander M., A. Blackstone, C. Cleary, H. Clogston, **M. Hallworth**, H. Jardin, J. Kornfeld, K. Parent, Z. Johnson, K. Donahue L. Reitsma, 2006. Community-based conservation in East Africa: a case study of Ndarakwai ranch, Tanzania. **Interdisciplinary Environmental Review** 8(1): 89-95.</li>
+
+<li>Elander M., A. Blackstone, C. Cleary, H. Clogston, **M. Hallworth**, H. Jardin, J. Kornfeld, K. Parent, Z. Johnson, K. Donahue L. Reitsma, 2005 Community-based conservation in East Africa: A case study of western Usambara Mountains, Tanzania. **Interdisciplinary Environmental Review** 7(2): 60-75.</li>
+</ol>
+
+_Manuscripts in Preparation - complete draft only_
+
+Johnson, A., **M. T. Hallworth**, T. S. Sillett, D. Luther, I. Lacher and W. J. McShea. Modelling the seasonal distribution of a partial migrant, the loggerhead shrike (_Lanius ludovicianus_), and implications for conservation. _The Auk: Ornithological Advances_.
+
+**Hallworth, M. T.**, T. S. Sillett, P. P. Marra. Adaptive nest-site selection of a long distance migratory songbird. _Journal of Ornithology_
+
+**Hallworth, M. T.**, T. S. Sillett, N. L. Rodenhouse and C. E. Studds. Deterministic processes structure spatiotemporal patterns of ??-diversity and abundance in a reassembling bird community. _Proceedings of the Royal Society, B_.
+
+### **Thesis & Dissertation** 
+
+**Hallworth, M. T.** 2014. The influence of migratory connectivity and seasonal interactions on individual- and population-level dynamics of a long distance migratory bird. Dissertation. George Mason University, Fairfax, VA. Advisors: Peter P. Marra and Larry L. Rockwood
+
+**Hallworth, M**. 2007. The breeding ecology of the Canada warbler in central New Hampshire. Thesis. Plymouth State University, Plymouth, NH. Advisor: Leonard R. Reitsma
+
+### **Software**
+
+  Hostetler, J., **M. T. Hallworth** and C. S. Rushing. 2018. MigConnectivity: Estimate Strength of Migratory Connectivity for Migratory Animals. R package version 0.2.5. https://github.com/SMBC-NZP/MigConnectivity v0.2.5 (Version v0.2.5). Zenodo. http://doi.org/10.5281/zenodo.1162943
+

@@ -1,5 +1,7 @@
 # main links
 main:
+  - title: "CV"
+    url: /website/CV
   - title: "Get Spatial! Using R as GIS"
     url: /_pages/welcome
 SpatialWorkshop:
