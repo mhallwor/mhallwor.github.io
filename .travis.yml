@@ -23,6 +23,7 @@ r_github_packages:
  - brendan-r/brocks
  - tidyverse/rlang
  - tidyverse/ggplot2
+ - yihui/tinytex
  
 r_packages:
   - sp
