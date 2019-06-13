@@ -39,7 +39,8 @@ before_install:
   #- sudo apt-get install --yes libudunits2-dev libproj-dev libgeos-dev libgdal-dev libhdf4-alt-dev
   ## NetCDF and geo-spatial wunderkind
   # - sudo apt-get install libv8-3.14-dev libarchive-dev libnetcdf-dev proj-bin  libproj-dev libgdal-dev gdal-bin libgeos-dev  libssl-dev libgl1-mesa-dev libglu1-mesa-dev libudunits2-dev libprotobuf-dev protobuf-compiler --assume-yes
-  - gem install bundler -v 1.17.3 --no-document
+  - gem uninstall -v '>= 2' -i $(rvm gemdir)@global -ax bundler || true
+  - gem install bundler -v '< 2' --no-document
   
 r_github_packages:
  - brendan-r/brocks
