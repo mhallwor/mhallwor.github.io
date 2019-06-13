@@ -1,16 +1,16 @@
 ---
 title: "Introduction to spatial polygons in R"
-authors: "Michael T. Hallworth"
-contributors: "Clark S. Rushing"
-layout: single
 classes: wide
-permalink: /_pages/basics_SpatialPolygons
+contributors: Clark S. Rushing
 header:
   caption: 'Photo credit: **M. T. Hallworth**'
   image: assets/images/lookingUp.jpg
+layout: single
+permalink: /_pages/basics_SpatialPolygons
 sidebar:
-  nav: "SpatialWorkshop"
-  title: "Get Spatial! Using R as GIS"
+  nav: SpatialWorkshop
+  title: Get Spatial! Using R as GIS
+authors: Michael T. Hallworth
 ---
 <a name="TOP"></a>
 ```{r echo = FALSE}
@@ -53,6 +53,9 @@ If installing these packages for the first time consider adding <code>dependenci
 </div>
         
 <br>
+
+<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/basics_SpatialPolygons.R" target="_blank" class="btn btn--info">Download R script</a> `r paste0("Last modified: ",file.mtime("../Rscripts/basics_SpatialPolygons.R"))`
+
 <hr>
 
 # What are spatial polygons?    
@@ -203,5 +206,3 @@ plot(USborder,
 ```
 <br>
 <a href="#TOP">Back to top</a>
-
-<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/basics_SpatialPolygons.R" target="_blank" class="btn btn--info">Download R script</a> `r paste0("Last modified: ",file.mtime("../Rscripts/basics_SpatialPolygons.R"))`

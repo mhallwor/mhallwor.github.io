@@ -71,6 +71,7 @@ r_packages:
   - gdalUtils
   - gstat
   - spatstat
+  - velox
   
 
 branches:

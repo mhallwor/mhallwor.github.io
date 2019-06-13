@@ -11,7 +11,7 @@ SpatialWorkshop:
       - title: "System setup"
         url: /_pages/getting_started
       - title: "Schedule"
-        url: /_pages/breakdown_AOS18AZ
+        url: /_pages/breakdown_AOS19AK
   - title: "R resources"
     children:
       - title: "R syntax"

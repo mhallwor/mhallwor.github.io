@@ -247,7 +247,7 @@ Sys.time()-a
 ```
 
 ```{r,echo = FALSE}
-NDVIproj <- raster("../Spatial_Layers/MOD_NDVI_M_2018-01-01_rgb_3600x1800.FLOAT_proj.TIFF")
+NDVIproj <- raster("../Spatial_Layers/MOD_NDVI_M_2018-01-01_rgb_3600x1800.FLOAT_proj.tif")
 
 NDVIproj
 

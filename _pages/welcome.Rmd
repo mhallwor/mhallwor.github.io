@@ -14,6 +14,8 @@ sidebar:
 ```{r echo = FALSE}
 knitr::opts_chunk$set(fig.width=10)
 ```
+
+
 Welcome to Get Spatial! Using R as GIS. This material is intended to introduce you to the different spatial data types and how to create, read, manipulate and analyze spatial data in `R`. The exercises are geared towards analyses that are commonly found in the field of ornithology but are likely applicable to other fields as well. The lessons / activities range in complexity from reading in XY coordinates and making a shapefile to generating origin assignments using stable-isotopes.  
 
 This workshop assumes the user has a general understanding of the `R` language. See <a href="{{ site.baseurl }}/_pages/R_basics" target="_blank">R basics</a> for reference. 
@@ -21,7 +23,7 @@ This workshop assumes the user has a general understanding of the `R` language. 
 **R Skill Level:** Intermediate - this activity assumes you have a working knowledge of `R`
 
 ### Data 
-Be sure to <strong>Download spatial layers used in this workshop</strong>
+Be sure to <strong>download spatial layers used in this workshop</strong>
 
 <a href="https://github.com/mhallwor/mhallwor.github.io/blob/master/dataDownloads/Spatial_Layers.zip?raw=true" target="_blank" class="btn btn--info">Download data</a> `r paste0("[",round(file.info("../dataDownloads/Spatial_Layers.zip")$size/1000000,2)," MB]")`
 
