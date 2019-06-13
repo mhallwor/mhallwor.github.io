@@ -20,21 +20,21 @@ addons:
     sources:
       - sourceline: 'ppa:ubuntugis/ubuntugis-unstable'
     packages:
-	  - libv8-3.14-dev
-	  - libarchive-dev
-	  - proj-bin
+      - libv8-3.14-dev
+      - libarchive-dev
+      - proj-bin
       - libgdal-dev
       - libproj-dev
       - libgeos-dev
       - libudunits2-dev
       - libnetcdf-dev
       - netcdf-bin
-	  - gdal-bin
-	  - libssl-dev
-	  - libgl1-mesa-dev
-	  - libudunits2-dev
-	  - libprotobuf-dev
-	  - protobuf-compiler
+      - gdal-bin
+      - libssl-dev
+      - libgl1-mesa-dev
+      - libudunits2-dev
+      - libprotobuf-dev
+      - protobuf-compiler
 
 before_install:
   - "docker pull ubuntu:16.04"
