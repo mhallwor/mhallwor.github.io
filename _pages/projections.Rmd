@@ -15,7 +15,6 @@ authors: Michael T. Hallworth
 <a name="TOP"></a>
 ```{r echo = FALSE}
 options(scipen = 999)
-options(tinytex.verbose = TRUE)
 knitr::opts_chunk$set(fig.width=10, fig.align = "center")
 ```
 
