@@ -81,7 +81,7 @@ script:
 deploy:
   provider: pages
   edge:
-    branch: v1.8.47
+    branch: v1.10.11
   skip_cleanup: true
   github_token: $GITHUB_PATH
   on:
