@@ -41,6 +41,7 @@ before_install:
   # - sudo apt-get install libv8-3.14-dev libarchive-dev libnetcdf-dev proj-bin  libproj-dev libgdal-dev gdal-bin libgeos-dev  libssl-dev libgl1-mesa-dev libglu1-mesa-dev libudunits2-dev libprotobuf-dev protobuf-compiler --assume-yes
   - gem uninstall -v '>= 2' -i $(rvm gemdir)@global -ax bundler || true
   - gem install bundler -v '< 2' --no-document
+  - gem install octokit
   
 r_github_packages:
  - brendan-r/brocks
