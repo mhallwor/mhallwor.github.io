@@ -14,7 +14,28 @@ services:
   - docker
 
 pandoc_version: 1.17.2
-	
+
+addons:
+  apt:
+    sources:
+      - sourceline: 'ppa:ubuntugis/ubuntugis-unstable'
+    packages:
+	  - libv8-3.14-dev
+	  - libarchive-dev
+	  - proj-bin
+      - libgdal-dev
+      - libproj-dev
+      - libgeos-dev
+      - libudunits2-dev
+      - libnetcdf-dev
+      - netcdf-bin
+	  - gdal-bin
+	  - libssl-dev
+	  - libgl1-mesa-dev
+	  - libudunits2-dev
+	  - libprotobuf-dev
+	  - protobuf-compiler
+
 before_install:
   - "docker pull ubuntu:16.04"
   - sudo add-apt-repository ppa:ubuntugis/ubuntugis-unstable -y
@@ -22,7 +43,7 @@ before_install:
   #- sudo apt-get -f install liblwgeom-dev libgdal-dev libgeos-dev libproj-dev libudunits2-dev libv8-dev libprotobuf-dev protobuf-compiler
   #- sudo apt-get install --yes libudunits2-dev libproj-dev libgeos-dev libgdal-dev libhdf4-alt-dev
   ## NetCDF and geo-spatial wunderkind
-  - sudo apt-get install libv8-3.14-dev libarchive-dev libnetcdf-dev proj-bin  libproj-dev libgdal-dev gdal-bin libgeos-dev  libssl-dev libgl1-mesa-dev libglu1-mesa-dev libudunits2-dev libprotobuf-dev protobuf-compiler --assume-yes
+  # - sudo apt-get install libv8-3.14-dev libarchive-dev libnetcdf-dev proj-bin  libproj-dev libgdal-dev gdal-bin libgeos-dev  libssl-dev libgl1-mesa-dev libglu1-mesa-dev libudunits2-dev libprotobuf-dev protobuf-compiler --assume-yes
   - gem install bundler -v 1.17.3 --no-document
   
 r_github_packages:
