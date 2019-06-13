@@ -239,13 +239,16 @@ NDVI
 ```
 
 The NDVI raster is pretty large. It has `r raster::ncell(NDVI)` cells. It takes a little while to project the raster. 
-```{r, warning = FALSE}
+```{r, eval = FALSE,warning = FALSE}
 a <- Sys.time()
 NDVIproj <- raster::projectRaster(from = NDVI,
                           crs = sp::CRS("+init=epsg:5070"))
 Sys.time()-a
 ```
+
 ```{r,echo = FALSE}
+NDVIproj <- raster("../Spatial_Layers/MOD_NDVI_M_2018-01-01_rgb_3600x1800.FLOAT_proj.TIFF")
+
 NDVIproj
 
 NDVIproj[NDVIproj>5]<-NA
