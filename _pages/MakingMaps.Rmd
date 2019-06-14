@@ -59,6 +59,9 @@ If installing these packages for the first time consider adding <code>dependenci
 </div>
         
 <br>
+
+<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/MakingMaps.R" target="_blank" class="btn btn--info">Download R script</a> `r paste0("Last modified: ",file.mtime("../Rscripts/MakingMaps.R"))`
+
 <hr>
 
 ```{r, warning = FALSE, error = FALSE, message = FALSE}
@@ -491,5 +494,3 @@ mapNH %>% addMiniMap()
 ```
 
 <a href="#TOP">back to top</a>
-
-<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/MakingMaps.R" target="_blank" class="btn btn--info">Download R script</a> `r paste0("Last modified: ",file.mtime("../Rscripts/MakingMaps.R"))`
