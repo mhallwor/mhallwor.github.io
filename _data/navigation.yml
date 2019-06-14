@@ -5,7 +5,7 @@ main:
 SpatialWorkshop:
   - title: "Get Spatial! Using R as GIS"
     children:
-      - title:"Welcome to Get Spatial!"
+      - title: "Welcome to Get Spatial!"
         url: /_pages/welcome
       - title: "System setup"
         url: /_pages/getting_started
@@ -34,7 +34,7 @@ SpatialWorkshop:
       - title: "Spatial data & the tidyverse"
         url: /_pages/Tidyverse_intro
   - title: "Projecting data"
-    children:"Projecting data"
+    children: "Projecting data"
         url: /_pages/projections
   - title: "Spatial Predicates"
     children:
@@ -44,7 +44,7 @@ SpatialWorkshop:
         url: /_pages/BBS_tidyverse
   - title: "Making Maps"
     children:
-      - title:"Making Maps"
+      - title: "Making Maps"
         url: /_pages/MakingMaps
   - title: "Moving beyond the basics"
     children:
