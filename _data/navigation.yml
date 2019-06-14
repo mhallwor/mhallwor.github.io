@@ -34,7 +34,8 @@ SpatialWorkshop:
       - title: "Spatial data & the tidyverse"
         url: /_pages/Tidyverse_intro
   - title: "Projecting data"
-    children: "Projecting data"
+    children:
+      - title: "Projecting data"
         url: /_pages/projections
   - title: "Spatial Predicates"
     children:
