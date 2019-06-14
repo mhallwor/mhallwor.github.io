@@ -1,15 +1,18 @@
 ## ----setup,echo = FALSE--------------------------------------------------
 knitr::opts_chunk$set(error = TRUE)
 
+
 ## ---- warning = FALSE, error = FALSE, message = FALSE--------------------
 library(raster)
 library(sp)
 library(rgeos)
 library(leaflet)
 
+
 ## ------------------------------------------------------------------------
 # Get State boundaries
 States <- raster::getData("GADM", country = "United States", level = 1)
+
 
 ## ---- warning = FALSE, message = FALSE, error = FALSE--------------------
 # make NH polygon
@@ -18,12 +21,14 @@ NH <- States[States$NAME_1 == "New Hampshire",]
 # plot a single polygon
 plot(NH)
 
+
 ## ----echo = FALSE, error = FALSE, message = FALSE, warning = FALSE-------
 # bring the libraries back
 library(dismo)
 library(raster)
 library(sp)
 library(rgeos)
+
 
 ## ------------------------------------------------------------------------
 # Set the random seed 
@@ -32,15 +37,18 @@ set.seed(12345)
 # make random points within New Hampshire
 randPts <- sp::spsample(x = NH, n = 100, type = "random")
 
+
 ## ----eval = FALSE--------------------------------------------------------
 ## # Plot New Hampshire
 ## plot(NH)
+
 
 ## ----eval = FALSE--------------------------------------------------------
 ## # Add random points
 ## plot(randPts,
 ##      add = TRUE,
 ##      pch = 19)
+
 
 ## ----echo = FALSE--------------------------------------------------------
 # Plot New Hampshire 
@@ -50,10 +58,12 @@ plot(randPts,
      add = TRUE,
      pch = 19)
 
+
 ## ----eval = FALSE--------------------------------------------------------
 ## # Add States for context
 ## plot(States,
 ##      add = TRUE)
+
 
 ## ----echo = FALSE--------------------------------------------------------
 # Plot New Hampshire 
@@ -66,10 +76,12 @@ plot(randPts,
 plot(States, 
      add = TRUE)
 
+
 ## ------------------------------------------------------------------------
 plot(NH)
 sp::degAxis(side = 1)
 sp::degAxis(side = 2,las = 2)
+
 
 ## ------------------------------------------------------------------------
 plot(NH)
@@ -93,6 +105,7 @@ Narrow2 <- maptools::elide(arrow2, shift = c(extent(NH)[1]-0.5,extent(NH)[3]))
 # add north arrow to current plot
 plot(Narrow2, add = TRUE, col = "blue")
 
+
 ## ------------------------------------------------------------------------
 # New Hampshire plot
 plot(NH)
@@ -102,6 +115,7 @@ sb <- layout.scale.bar(height = 0.05)
 sb_slide <- maptools::elide(sb, shift = c(extent(NH)[1],extent(NH)[3]-0.1))
 # Add to plot
 plot(sb_slide, add = TRUE, col = c("white","black"))
+
 
 ## ------------------------------------------------------------------------
 plot(NH)
@@ -125,6 +139,7 @@ raster::scalebar(d = 100, # distance in km
                  adj=c(0, -0.75), 
                  lwd = 2)
 
+
 ## ---- eval = FALSE-------------------------------------------------------
 ## # Download a map from Google Maps API
 ## # exp = multiplier to change extent
@@ -142,6 +157,7 @@ raster::scalebar(d = 100, # distance in km
 ## 
 ## sat <- gmap(x = NH,
 ##             exp = 1,
+##             map_key = "add your key here",
 ##             zoom = NULL,
 ##             type = "satellite",
 ##             lonlat = FALSE,
@@ -149,6 +165,7 @@ raster::scalebar(d = 100, # distance in km
 ## 
 ## # plotRGB uses the raster stack to make the colors
 ## raster::plotRGB(sat)
+
 
 ## ----echo = FALSE--------------------------------------------------------
 # Download a map from Google Maps API
@@ -162,7 +179,9 @@ raster::scalebar(d = 100, # distance in km
       # return in coord lonlat
       # return raster stack with red,green,blue values
 
-sat <- gmap(x = NH,
+# NOTE YOU NEED TO CHANGE map_key to your personal key #
+sat <- dismo::gmap(x = NH,
+            map_key ="YOUR KEY HERE",
             exp = 1,
             zoom = NULL,
             type = "satellite",
@@ -182,11 +201,14 @@ plotRGB(sat_mask)
 # add states but transform first
 plot(sp::spTransform(States,sp::CRS(sat@crs@projargs)),add = TRUE)
 
+
 ## ------------------------------------------------------------------------
 elev <- raster::raster("../Spatial_Layers/hb10mdem.txt")
 
+
 ## ------------------------------------------------------------------------
 plot(elev)
+
 
 ## ---- fig.width = 10-----------------------------------------------------
 # Plot two plots c(rows,columns)
@@ -197,6 +219,7 @@ plot(elev,
 # plot elevation with yellow.purple.blue pallette
 plot(elev,
      col = rev(sp::bpy.colors()))
+
 
 ## ---- warning = FALSE----------------------------------------------------
 # plot histogram
@@ -210,11 +233,13 @@ cellStats(elev,max)
 # find quantiles of the elevation 
 quantile(elev, probs = c(0.25,0.5,0.75))
 
+
 ## ------------------------------------------------------------------------
 set.breaks <- quantile(elev, probs = c(0,0.25,0.5,0.75,1))
 plot(elev,
      breaks = set.breaks,
      col = c("blue","yellow","green","red"))
+
 
 ## ------------------------------------------------------------------------
 # Generate color ramp from "gray88" to "black"
@@ -229,6 +254,7 @@ plot(elev,
 plot(elev,
      col = newcolors(200))
 
+
 ## ------------------------------------------------------------------------
 # generate aspect and slope
 aspect <- raster::terrain(elev,"Aspect")
@@ -239,6 +265,7 @@ HS <- raster::hillShade(aspect,slope)
 
 plot(HS)
 
+
 ## ------------------------------------------------------------------------
 # add color over the hillshade
 plot(HS, 
@@ -248,6 +275,7 @@ plot(elev,
      col = bpy.colors(200), 
      add = TRUE, #add to current plot
      alpha = 0.5) # set transparency
+
 
 ## ------------------------------------------------------------------------
 # no margins, no border #
@@ -262,6 +290,7 @@ plot(elev,
      horizontal = TRUE,
      alpha = 0.5,
      add = TRUE)
+
 
 ## ------------------------------------------------------------------------
 # smallplot
@@ -292,6 +321,7 @@ plot(elev,
                       font = 2, 
                       line = 0.5, 
                       cex = 1))
+
 
 ## ------------------------------------------------------------------------
 # Read the State boundaries

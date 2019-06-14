@@ -1,11 +1,17 @@
+## ----echo = FALSE--------------------------------------------------------
+knitr::opts_chunk$set(fig.width=10)
+
+
 ## ---- message = FALSE, error = FALSE, warning = FALSE--------------------
 library(raster)
 library(sp)
 library(rgeos)
 
+
 ## ------------------------------------------------------------------------
 # Download or read in states polygon
 States <- getData("GADM",country = "United States", level = 1)
+
 
 ## ------------------------------------------------------------------------
 # Use the download.file function -
@@ -13,8 +19,10 @@ States <- getData("GADM",country = "United States", level = 1)
 download.file(url = "https://www.mbr-pwrc.usgs.gov/bbs/ra15/ra06740.zip",
               destfile = "../Spatial_Layers/ovenbird.zip")
 
+
 ## ------------------------------------------------------------------------
 file.exists("../Spatial_Layers/ovenbird.zip")
+
 
 ## ------------------------------------------------------------------------
 # unzip the zipped folder
@@ -27,15 +35,18 @@ unzip(zipfile = "../Spatial_Layers/ovenbird.zip",
 # take a look at the files
 list.files("../Spatial_Layers/ovenbird")
 
+
 ## ------------------------------------------------------------------------
 OVEN <- raster::shapefile("../Spatial_Layers/ovenbird/ra06740.shp")
 
 # have a look
 OVEN
 
+
 ## ------------------------------------------------------------------------
 # make a variable used to dissolve boundaries
 OVEN$dissolve <- 1
+
 
 ## ------------------------------------------------------------------------
 #Dissolve boundaries
@@ -47,6 +58,7 @@ OVEN_single_poly
 
 ## ----echo = FALSE--------------------------------------------------------
 raster::plot(OVEN_single_poly, col = "gray88")
+
 
 ## ------------------------------------------------------------------------
 # Project states into same CRS
@@ -66,15 +78,19 @@ OVENstates_raster <- raster::intersect(x = OVEN_single_poly,
                                        y = States_aea)
 Sys.time()-a
 
+
 ## ----echo = FALSE--------------------------------------------------------
 raster::plot(OVENstates_raster)
+
 
 ## ------------------------------------------------------------------------
 OVEN_area <- rgeos::gArea(OVEN_single_poly)/10000
 
+
 ## ------------------------------------------------------------------------
 # Here we set byid = TRUE 
 State_area <- rgeos::gArea(OVENstates_raster, byid = TRUE)/10000
+
 
 ## ------------------------------------------------------------------------
 # Get states within their distribution
