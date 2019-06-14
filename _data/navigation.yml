@@ -1,7 +1,5 @@
 # main links
 main:
-  #- title: "CV"
-  #  url: /website/CV
   - title: "Get Spatial! Using R as GIS"
     url: /_pages/welcome
 SpatialWorkshop:
@@ -9,7 +7,6 @@ SpatialWorkshop:
     children:
       - title:"Welcome to Get Spatial!"
         url: /_pages/welcome
-    children:
       - title: "System setup"
         url: /_pages/getting_started
       - title: "Schedule"
