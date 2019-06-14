@@ -54,7 +54,7 @@ If installing these packages for the first time consider adding <code>dependenci
 <li><code>install.packages("rgeos",dependencies = TRUE)</code></li>
 <li><code>install.packages("sp",dependencies = TRUE)</code></li>
 <li><code>install.packages("leaflet",dependencies = TRUE)</code></li>
-<li><code>install.packages("dismo",dependencies = TRUE)</code></li>
+<li><code>devtools::install_github("rspatial/dismo")</code></li>
 
 </div>
         
@@ -245,6 +245,8 @@ raster::scalebar(d = 100, # distance in km
 
 Adding satellite images from Google Earth is also possible. We'll use the <code>dismo</code> package for that. The <code>gmap()</code> function returns a google map. Several types ("roadmap", "satellite", "hybrid", "terrain") are available. You can use the <code>style</code> option to customize colors, etc. See <a href="https://developers.google.com/maps/documentation/static-maps/styling" target="_blank">here</a> for style options.
 
+<b>Note</b>: To use Google maps you need to <a href="https://developers.google.com/maps/documentation/embed/get-api-key" target="_blank">get an API key</a>. This
+
 ```{r, eval = FALSE}
 # Download a map from Google Maps API
 # exp = multiplier to change extent
@@ -262,6 +264,7 @@ Adding satellite images from Google Earth is also possible. We'll use the <code>
 
 sat <- gmap(x = NH,
             exp = 1,
+            map_key = "add your key here",
             zoom = NULL,
             type = "satellite",
             lonlat = FALSE,
@@ -283,7 +286,8 @@ raster::plotRGB(sat)
       # return in coord lonlat
       # return raster stack with red,green,blue values
 
-sat <- gmap(x = NH,
+sat <- dismo::gmap(x = NH,
+            map_key ="AIzaSyCUDuD9A4XHBaHw0D_ckJDy7MrbxMDgASI",
             exp = 1,
             zoom = NULL,
             type = "satellite",

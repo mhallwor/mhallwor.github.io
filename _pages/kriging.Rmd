@@ -1,17 +1,17 @@
 ---
 title: "Spatial Interpolation"
-authors: "Michael T. Hallworth"
-contributors: "Clark S. Rushing"
+classes: wide
+contributors: Clark S. Rushing
 header:
   caption: 'Photo credit: **M. T. Hallworth**'
   image: assets/images/lookingUp.jpg
+last_modified_at: 2018-04-02T13:19:19-4:00
 layout: single
 permalink: /_pages/interpolation
 sidebar:
-  nav: "SpatialWorkshop"
-  title: "Get Spatial! Using R as GIS"
-classes: wide
-last_modified_at: "2018-04-02T13:19:19-4:00"
+  nav: SpatialWorkshop
+  title: Get Spatial! Using R as GIS
+authors: Michael T. Hallworth
 ---
 <a name="TOP"></a>
 ```{r echo = FALSE}
@@ -23,10 +23,55 @@ This activity will introduce you to spatial interpolation in R.
 
 **R Skill Level:** Intermediate - this activity assumes you have a working knowledge of `R` 
 
-Need to brush up on syntax and data classes in `R`? See <a href= "{{ site.baseurl }}/_pages/R_basics" target = "_blank">R basics</a> for a refresher.
+This activity incorporates the skills learned in the Points, Raster & Projections activities.
+
+<div style="background-color:rgba(186, 196, 214,0.47); border-radius: 25px; text-align:center; vertical-align: middle;
+padding: 3px 0; width: 500px; margin: auto; box-shadow: 4px 5px gray;">
+<h3> In case you missed it</h3>
+<a href = "{{ site.baseurl }}/_pages/basics_SpatialPoints" target="_blank">SpatialPoints</a><br>
+<a href = "{{ site.baseurl }}/_pages/basics_Rasters" target="_blank">Rasters</a><br>
+<a href = "{{ site.baseurl }}/_pages/projections" target="_blank">Projections</a><br>
+</div>
+<hr>
+
+<div style="background-color:rgba(0, 0, 0, 0.0470588); border-radius: 25px; text-align:center; vertical-align: middle; padding:3px 0; width: 600px; margin: auto; box-shadow: 4px 5px gray;">
+
+<h1>Objectives & Goals</h1>      
+<b>Upon completion of this activity, you will:</b>
+<ul>
+<li>know how to <strong>interpolate</strong> using <strong>inverse distance weighting</strong></li>   
+<li>know how to use <strong>ordinary kriging</strong> to predict across a surface</li>
+</ul>
+</div>
+
+<br>
+<br>
+<a name="install.packages"></a>
+<div style="background-color:rgba(0, 1, 1, 0.0470588); border-radius: 25px; text-align:center; vertical-align: middle; padding:2px 0; width: 600px; margin: auto; box-shadow: 4px 5px gray;">
+<h3> Required packages</h3> 
+To complete the following activity you will need the following packages installed:
+
+<strong>raster</strong>       
+<strong>sp</strong>       
+<strong>gstat</strong>          
+<strong>spatstat</strong>             
+  
+<h4>Installing the packages</h4>     
+If installing these packages for the first time consider adding <code>dependencies=TRUE</code>   
+<code>install.packages("raster")</code>     
+<code>install.packages("sp")</code>        
+<code>install.packages("gstat")</code>   
+<code>install.packages("spatstat")</code> 
+
+</div>
+        
+<br>
+
+<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/kriging.R" target="_blank" class="btn btn--info">Download R script</a> `r paste0("Last modified: ",file.mtime("../Rscripts/kriging.R"))`
 
 <hr>
-### This is still very much a work in progress
+
+<b>This is still very much a work in progress</b>
 
 One basic principle of geography is that variables that are close in space typically have similar values. We can use this principle to make predictions and interpolate a smooth surface from data sampled at points. There are a few ways to do this. Generally, when people refer to 'kriging' they are referring to interpolation. 
 
@@ -42,8 +87,9 @@ library(spatstat)
 ```{r}
 load("../Spatial_Layers/spproute.rda")
 ```
+
 ```{r echo = FALSE}
-States <- readRDS("GADM_2.8_USA_adm1.rds")
+States <- readRDS("../Spatial_Layers/GADM_2.8_USA_adm1.rds")
 cols <- sp::bpy.colors(100)
 breaks <- seq(0,100,1) 
 a <- cut(sppStateRoute$SpeciesDetected,breaks)
@@ -95,11 +141,18 @@ Let's use the <code>mask</code> function to clip the raster to Arizona.
 ```{r}
 idw.spp.az <- raster::mask(idw.spp, States[States$NAME_1=="Arizona",])
 
-raster::plot(idw.spp.az)
+par(bty="n",mar = c(0,0,0,0))
+raster::plot(idw.spp.az,
+             axes = FALSE,
+             legend.args = list("Species\nRichness"))
+plot(States, add = TRUE)
 ```
 
 ### Ordinary Kriging 
 ```{r}
+# remove duplicate locations because otherwise Kriging returns NA
+sppStateRoute <- sppStateRoute[-sp::zerodist(sppStateRoute)[,1],]
+
 # create variogram 
 vario <- variogram(sppStateRoute$SpeciesDetected~1, sppStateRoute)
 ```
@@ -111,6 +164,9 @@ vario.fit <- fit.variogram(vario,
                                model="Exp", 
                                nugget=50))
 vline <- variogramLine(vario.fit,maxdist = 300)
+```
+
+```{r, echo = FALSE}
 plot(vario$gamma ~ vario$dist,pch = 19,ylim = c(0,300),las = 1, ylab = "gamma",xlab = "Lag distance")
 points(vline[,2]~vline[,1],type = "l")
 ```
@@ -126,9 +182,26 @@ predict.model <- gstat(g=NULL,
                       formula = sppStateRoute$SpeciesDetected~1,
                       locations = sppStateRoute, 
                       model=vario.fit)
+
+# make an empty raster to predict on #
+
+r <- raster(ext = extent(sppStateRoute),
+            res = c(0.025, 0.025), # same res as above
+            crs = crs(sppStateRoute)@projargs)
+
+# using ordinary kriging #
+SpeciesRichness <- raster::interpolate(object = r, model = predict.model)
 ```
 
+If you receive warnings that look similar to below, you have duplicate locations in your data. See above for how to remove duplicate locations.
+```{r,eval = FALSE, comment=""}
+Covariance matrix singular at location [-114.543,36.7882,0]: skipping...
+```
 
+```{r, echo = FALSE}
+krig.spp.az <- raster::mask(SpeciesRichness, States[States$NAME_1=="Arizona",])
+plot(krig.spp.az,las = 1,legend.args=list("Species\nRichness"))
+plot(States,add = TRUE)
+```
 
-
-`r paste0("Last modified: ",file.mtime("../Rscripts/R_basics.R"))`
+<a href="#TOP">back to top</a>

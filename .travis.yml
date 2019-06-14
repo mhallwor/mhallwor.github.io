@@ -54,6 +54,7 @@ r_github_packages:
  - tidyverse/rlang
  - tidyverse/ggplot2
  - yihui/tinytex
+ - rspatial/dismo
  
 #r_packages:
 #  - sp
