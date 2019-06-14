@@ -10,6 +10,8 @@ services:
 
 pandoc_version: 1.17.2
 
+
+
 addons:
   apt:
     sources:
@@ -30,6 +32,7 @@ addons:
       - libudunits2-dev
       - libprotobuf-dev
       - protobuf-compiler
+      - ccache	  
 
 before_install:
   - "docker pull ubuntu:16.04"
@@ -42,6 +45,9 @@ before_install:
   - gem uninstall -v '>= 2' -i $(rvm gemdir)@global -ax bundler || true
   - gem install bundler -v '< 2' --no-document
   - gem install octokit
+  # see blogpost https://pjs-web.de/post/using-ccache-to-speed-up-r-package-checks-on-travis-ci/
+  # mkdir
+  - mkdir $HOME/.R && echo -e 'CXX_STD = CXX14\n\nVER=\nCCACHE=ccache\nCC=$(CCACHE) gcc$(VER) -std=gnu99\nCXX=$(CCACHE) g++$(VER)\nC11=$(CCACHE) g++$(VER)\nC14=$(CCACHE) g++$(VER)\nFC=$(CCACHE) gfortran$(VER)\nF77=$(CCACHE) gfortran$(VER)' > $HOME/.R/Makevars
   
 r_github_packages:
  - brendan-r/brocks
