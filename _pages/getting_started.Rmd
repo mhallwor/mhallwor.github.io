@@ -39,6 +39,10 @@ pkgs <- gsub(x = pkgs, pattern = ",", replacement = '","')
 cat("install.packages(c(",'"',"devtools",'","',pkgs,'"',"), dependencies = TRUE)",sep="")
 ```
 
+```{r,echo = FALSE, message = FALSE,warning = FALSE,results='hide'}
+install.packages(c("devtools","animation","dismo","gdalUtils","gstat","ks","leaflet","lwgeom","maps","maptools","raster","rasterVis","rgdal","rgeos","sf","sp","spatstat","tidyverse","velox"), dependencies = TRUE)
+```
+
 We also need some newer versions of packages that are only available on GitHub. Once you run the above code and/or have the <code>devtools</code> package you can get the required functions by running the following:
 ```{r eval = FALSE}
 devtools::install_github("tidyverse/rlang", build_vignettes = TRUE)

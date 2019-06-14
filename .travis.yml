@@ -55,29 +55,29 @@ r_github_packages:
  - tidyverse/ggplot2
  - yihui/tinytex
  
-r_packages:
-  - sp
-  - rgdal
-  - rgeos
-  - raster
-  - sf
-  - geosphere
-  - dismo
-  - leaflet
-  - unmarked
-  - AHMbook
-  - dismo
-  - maptools
-  - ks
-  - webshot
-  - dplyr
-  - maps
-  - tidyverse
-  - lwgeom
-  - gdalUtils
-  - gstat
-  - spatstat
-  - velox
+#r_packages:
+#  - sp
+#  - rgdal
+#  - rgeos
+#  - raster
+#  - sf
+#  - geosphere
+#  - dismo
+#  - leaflet
+#  - unmarked
+#  - AHMbook
+#  - dismo
+#  - maptools
+#  - ks
+#  - webshot
+#  - dplyr
+#  - maps
+#  - tidyverse
+#  - lwgeom
+#  - gdalUtils
+#  - gstat
+#  - spatstat
+#  - velox
   
 
 branches:
