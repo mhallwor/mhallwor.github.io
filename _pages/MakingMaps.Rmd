@@ -307,7 +307,7 @@ plotRGB(sat_mask)
 plot(sp::spTransform(States,sp::CRS(sat@crs@projargs)),add = TRUE)
 ```
 
-<img src = "https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/master/assets/images/gmapNH.png"
+<img src = "https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/master/assets/images/gmapNH.png">
 
 <a href="#TOP">back to top</a>
 
