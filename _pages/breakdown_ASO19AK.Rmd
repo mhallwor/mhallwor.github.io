@@ -10,6 +10,7 @@ sidebar:
   nav: SpatialWorkshop
   title: Get Spatial! Using R as GIS
 classes: wide
+authors: Michael T. Hallworth & Clark S. Rushing
 ---
 
 ```{r echo = FALSE}
