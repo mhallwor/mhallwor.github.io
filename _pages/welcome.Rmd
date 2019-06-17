@@ -22,7 +22,7 @@ Welcome to Get Spatial! Using R as GIS. This material is intended to introduce y
 
 There are lots of reasons to learn how to do spatial analyses and make maps in `R`. For starters, `R` is free while some other programs (ESRI's ArcMap, for example) are not. If you're not affiliated with a university, governmental organization or something agency you may not have access to ArcMap. Another reason to use `R` is to have a script or documentation for all the steps in your analyses or for making a map - you can also write python scripts to run in ArcMap but I'd guess most users/practiciners don't. Finaly, when running analyses in `R` you don't have to save as many intermediate files like you do in ArcMap. The following files may look similar to what you have in your directories. 
 
-{% include figure image_path="/assets/images/example_intermediate_files.png" %}
+<img src="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/master/assets/images/example_intermediate_files.png">
 
 <br>
 <hr>

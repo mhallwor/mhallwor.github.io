@@ -75,7 +75,7 @@ library(leaflet)
 
 Making maps is as much an art as it is a science and making nice maps takes a lot of practice. We won't go into map making in great detail here. I'll illustrate some features that you can use to maps in R. We'll start with basic maps of spatial features like points and work our way up to plotting rasters with custom legends and finally to interactive plots. 
 
-Let's read in the states SpatialPolygonsDataFrame using the raster package to get started. 
+Let's read in the states <code>SpatialPolygonsDataFrame</code> using the <code>raster</code> package to get started. 
 ```{r}
 # Get State boundaries
 States <- raster::getData("GADM", country = "United States", level = 1)
@@ -245,7 +245,7 @@ raster::scalebar(d = 100, # distance in km
 
 Adding satellite images from Google Earth is also possible. We'll use the <code>dismo</code> package for that. The <code>gmap()</code> function returns a google map. Several types ("roadmap", "satellite", "hybrid", "terrain") are available. You can use the <code>style</code> option to customize colors, etc. See <a href="https://developers.google.com/maps/documentation/static-maps/styling" target="_blank">here</a> for style options.
 
-<b>Note</b>: To use Google maps you need to <a href="https://developers.google.com/maps/documentation/embed/get-api-key" target="_blank">get an API key</a>. This
+<b>Note</b>: To use Google maps you need to <a href="https://developers.google.com/maps/documentation/embed/get-api-key" target="_blank">get an API key</a>. 
 
 ```{r, eval = FALSE}
 # Download a map from Google Maps API
@@ -307,7 +307,7 @@ plotRGB(sat_mask)
 plot(sp::spTransform(States,sp::CRS(sat@crs@projargs)),add = TRUE)
 ```
 
-{% include figure image_path="/assets/images/gmapNH.png" %}
+<img src = "https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/master/assets/images/gmapNH.png"
 
 <a href="#TOP">back to top</a>
 
@@ -392,9 +392,11 @@ Now that we've generated some 'texture' we can add colors on top. The <code>alph
 
 ```{r}
 # add color over the hillshade
+par(bty = "l") # only have x - y axis
 plot(HS, 
      col = gray(1:100/100),
-     legend = FALSE) # don't plot legend
+     legend = FALSE, # don't plot legend
+     las = 1) # axis labels are parallel with plot
 plot(elev, 
      col = bpy.colors(200), 
      add = TRUE, #add to current plot
@@ -448,7 +450,7 @@ plot(elev,
                       labels = seq(200,1000,100),
                       cex.axis = 1,
                       mgp = c(5,0.3,0)),
-     legend.args = list(text = "Elevation", 
+     legend.args = list(text = "Elevation (m)", 
                       side = 3, 
                       font = 2, 
                       line = 0.5, 
