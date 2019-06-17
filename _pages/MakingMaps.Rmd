@@ -274,7 +274,7 @@ sat <- gmap(x = NH,
 raster::plotRGB(sat)
 ```
 
-```{r echo = FALSE}
+```{r, eval = FALSE, echo = FALSE}
 # Download a map from Google Maps API
       # multiplier to change extent
       # values less than 1 - zooms in
@@ -285,9 +285,8 @@ raster::plotRGB(sat)
       # Type of image to return 
       # return in coord lonlat
       # return raster stack with red,green,blue values
-
 sat <- dismo::gmap(x = NH,
-            map_key ="AIzaSyCUDuD9A4XHBaHw0D_ckJDy7MrbxMDgASI",
+            map_key ="your key here",
             exp = 1,
             zoom = NULL,
             type = "satellite",
@@ -307,6 +306,8 @@ plotRGB(sat_mask)
 # add states but transform first
 plot(sp::spTransform(States,sp::CRS(sat@crs@projargs)),add = TRUE)
 ```
+
+{% include figure image_path="/assets/images/gmapNH.png" %}
 
 <a href="#TOP">back to top</a>
 
