@@ -44,7 +44,7 @@ for id in $(seq 1 $1); do
         getspatial$id < /dev/null
     cp -a /home/rstudio/ $userhome
     chown -R getspatial$id $userhome
-    echo "getspatial$id:AOS18AZ" | chpasswd
+    echo "getspatial$id:AOS19AK" | chpasswd
 done
 
 # start again
