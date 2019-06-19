@@ -60,14 +60,16 @@ The basic units of `sf` objects are called `sfg` objects. `sfg` objects provide 
     - `MULTIPOLYGON`  
     - `GEOMETRYCOLLECTION` (any combination of the other 6 types)  
 
-To manually create any of the seven geometries, we use the corresponding functions `st_point()`, `st_linestring()`, `st_multipoint()`, etc. (**Note that all functions in the `sf` package start with `st_`**). We will use the `st_point()` function to create individual `sfg` objects for three cities. At a minimum, `sf_point()` requires a vector containing the longitude and latitude (**in that order!**) of each point: 
+To manually create any of the seven geometries, we use the corresponding functions `st_point()`, `st_linestring()`, `st_multipoint()`, etc. (**Note that all functions in the `sf` package start with `st_`**). We will use the `st_point()` function to create individual `sfg` objects for four Alaskan cities. At a minimum, `sf_point()` requires a vector containing the longitude and latitude (**in that order!**) of each point: 
 
 ```{r}
 library(sf)
+library(tidyverse)
 
-tu_sfg <- st_point(c(-110.9265, 32.2217)) #Tucson
-ph_sfg <- st_point(c(-112.0740, 33.4484)) #Phoenix
-fl_sfg <- st_point(c(-111.6513, 35.1983)) #Flagstaff
+ju_sfg <- st_point(c(-134.4333, 58.3059)) #Juneau
+an_sfg <- st_point(c(-149.8631, 61.2174)) #Anchorage
+fa_sfg <- st_point(c(-147.7767, 64.8354)) #Fairbanks
+nm_sfg <- st_point(c(-165.4064, 64.5011)) #Nome
 
 ```
 
@@ -79,23 +81,25 @@ Print one of the <code>sfg</code> objects. What do you see? Hopefully, you see t
 To extract the coordinates of an `sfg` object, use the `sf_coordinates()` function:
 
 ```{r}
-st_coordinates(tu_sfg)
+st_coordinates(ju_sfg)
 ```
 
 To create MULTIPOINT or LINESTRING `sfg` objects, we combine the coordinates of the individual points into a matrix, which is then used as the input argument to the corresponding functions:
 
 ```{r}
 ## Create MULTIPOINT object
-az_sfg <- st_multipoint(rbind(c(-110.9265, 32.2217), 
-                              c(-112.0740, 33.4484),
-                              c(-111.6513, 35.1983)))
+ak_sfg <- st_multipoint(rbind(c(-134.4333, 58.3059), 
+                              c(-149.8631, 61.2174),
+                              c(-147.7767, 64.8354),
+                              c(-165.4064, 64.5011)))
 ```
 
 ```{r eval = FALSE}
 # Create LINESTRING object
-az_sfg <- st_linestring(rbind(c(-110.9265, 32.2217), 
-                              c(-112.0740, 33.4484),
-                              c(-111.6513, 35.1983)))
+ak_sfg <- st_linestring(rbind(c(-134.4333, 58.3059), 
+                              c(-149.8631, 61.2174),
+                              c(-147.7767, 64.8354),
+                              c(-165.4064, 64.5011)))
 ```
 
 <div style="background-color: #ffffe6; border-radius: 25px; text-align:center; vertical-align: middle; padding: 3px 0; margin: auto; width:600px; box-shadow: 4px 5px #f2f2f2;"> 
@@ -113,7 +117,7 @@ The `sfg` objects we created contain coordinates and the geometry type of spatia
 `st_sfc` takes one or more `sfg` objects (in this case, `POINT` objects for each of our cities), and (optionally) a `crs` attribute, which can be an `epsg` code or a `proj4string` string (remember those?). In this case, we use `epsg` 4236, which corresponds to latitude and longitude coordinates on the WGS84 ellipsoid. The `crs`, `epsg`, geometry type, dimensions, and individual `sfg` objects can be viewed by printing the `sfc` object in the console.
 
 ```{r}
-cities_sfc <- st_sfc(tu_sfg, ph_sfg, fl_sfg, crs = 4326)
+cities_sfc <- st_sfc(ju_sfg, an_sfg, fa_sfg, nm_sfg, crs = 4326)
 cities_sfc
 ```
 
@@ -141,9 +145,9 @@ The `sfc` object we created above contains all of the geospatial data associated
 
 ```{r}
 # Create data.frame with attributes
-cities_df <- data.frame(Name = c("Tucson", "Phoenix", "Flagstaff"),
-                        Population = c(520116, 1445632, 65870),
-                        Elevation = c(2389, 1086, 6910))
+cities_df <- data.frame(Name = c("Juneau", "Anchorage", "Fairbanks", "Nome"),
+                        Population = c(31276, 291826, 3598, 31535),
+                        Elevation = c(17, 31, 6, 136))
 
 # Combine data.frame and spatial data
 cities_sf <- st_sf(cities_df, geometry = cities_sfc)
@@ -167,45 +171,36 @@ So `cities_sf` has both `sf` and `data.frame` classes. The `sf` class contains t
 ```{r}
 str(cities_sf)
 ```
+
 The first three columns are what you would expect: one factor (Name) and two numeric (Population & Elevation) vectors. But `geometry` is different. It is actually a 'list-column', meaning that each element (i.e., row) of the column contains a list. It is identical to the `cities_sfc` object, with each element containing the `sfg` object associated with each city (see how that all came together?). 
 
 <a href="#TOP">Back to top</a>   
 
 ## Creating `sf` objects from other Spatial objects
 
-Although it's useful to create an `sf` object from scratch, this process would be too cumbersome for real-world spatial objects. Luckily, `st_as_sf()` can be used to convert other types of spatial objects to class `sf`. For example, the `maps` package contains a number of spatial objects of class `map`. Let's create a polygon containing the borders of Arizona using data from the `maps` package:
+Although it's useful to create an `sf` object from scratch, this process would be too cumbersome for real-world spatial objects. Luckily, `st_as_sf()` can be used to convert other types of spatial objects to class `sf`. For example, ket's create a polygon containing the borders of Alaska from a shapefile:
 
 ```{r}
-library(maps)
-us_states <- map("state", plot = FALSE, fill = TRUE)
-str(us_states)
+ak <- raster::shapefile("../Spatial_Layers/ak.shp")
+class(ak)
 ```
-We can see that `us_maps` is a list and the final element contains the name of each state. We want just Arizona. Since we love the tidyverse, let's use the `dplyr` function `filter()` to subset just the Arizona element:
-
-```{r error = TRUE}
-library(tidyverse)
-
-az_poly <- filter(us_states, names == "arizona")
-```
-Oops! That won't work. Why? Because `map` objects are lists and `filter()` (like almost all tidyverse functions) only takes data frames as input. We need a different approach. First, we will convert `us_states` to class `sf` using `st_as_sf()`:
+We can see that `ak` is a `SpatialPolygonsDataframe`. Next, let's convert `ak` to a `sf` object and set the CRS:
 
 ```{r}
-states_sf <- st_as_sf(us_states)
+### Covert from SpatialPolygonsDataframe to sf
+ak_sf <- st_as_sf(ak)
+
+
+### Set CRS to WGS84
+ak_sf <- st_transform(ak_sf, crs = 4326)
+
+### View object
+ak_sf
 ```
 
-Now we can use `filter`! But `st_as_sf()` changed the attribute names:
+Note that to *view* the CRS of a `sf` object, use the `st_crs()` function. But to *set* the CRS of an existing object, use `st_transform()`. 
 
-```{r}
-names(states_sf)
-```
-
-So we'll filter by 'ID':
-
-```{r}
-az_sf <- filter(states_sf, ID == "arizona")
-az_sf
-```
-See how easy that was? Once we have an `sf` object, manipulation using the tidyverse is straightforward. Now let's make a map.
+Once we have an `sf` object, manipulation using the tidyverse is straightforward. Now let's make a map.
 
 <a href="#TOP">Back to top</a>  
 
@@ -213,27 +208,27 @@ See how easy that was? Once we have an `sf` object, manipulation using the tidyv
 
 As you have already seen, R has many tools for making nice maps that do not use the tidyverse. But the tidyverse contains a powerful visualization package: `ggplot2`. `ggplot2` is built on the 'grammar of graphics' - basically a set of rules for building visualizations piece by piece. Although daunting at first, `ggplot2` provides unparalleled flexibility for making publication-quality graphics, including maps. 
 
-To use `ggplot2` with `sf` objects, you will need to download the development version of the package from github. You may also need the development version of another tidyverse package, `rlang` so be sure to run the following code *in order*:
+To use `ggplot2` with `sf` objects, you will need the latest version of `ggplot2`. If you have not done so recently, be sure to update to the latest version:
 
 ```{r, eval = FALSE}
-devtools::install_github("tidyverse/rlang", build_vignettes = TRUE)
-devtools::install_github("tidyverse/ggplot2")
+install.packages("ggplot2")
 ```
 
-The development version gives us access to a new functionality: `geom_sf()`. Unlike other `ggplot2` figures, where the user needs to specify a specific geometry (e.g., `geom_point()`, `geom_polygon()`, `geom_path()`), `geom_sf()` can plot different geometries depending on the geometry type of the `sf` object. `geom_sf()` requires a column called `geometry` (which is why we explicitly named the `sfc` object 'geometry' when we created our city `sf` object) and then it takes care of the rest:
+The most recent version of `ggplot2` gives us access to a new functionality: `geom_sf()`. Unlike other `ggplot2` figures, where the user needs to specify a specific geometry (e.g., `geom_point()`, `geom_polygon()`, `geom_path()`), `geom_sf()` can plot different geometries depending on the geometry type of the `sf` object. `geom_sf()` requires a column called `geometry` (which is why we explicitly named the `sfc` object 'geometry' when we created our city `sf` object) and then it takes care of the rest:
 
 ```{r}
+library(ggplot2)
 ggplot() +
-  geom_sf(data = az_sf) +     # Arizona border polygon
-  geom_sf(data = cities_sf)   # Cities
+  geom_sf(data = ak_sf) +     # Alaska border polygon
+  geom_sf(data = cities_sf, color = "red", size = 3)   # Cities
 ```
 
 Not bad. Both the border polygon and cities are displayed nicely, the axis labels are automatically given the appropriate units, and the grid lines are displayed as graticules! That gray background isn't too pretty but we can easily fix that by changing from the default theme to `theme_minimal()`: 
 
 ```{r}
 ggplot() +
-  geom_sf(data = az_sf) +
-  geom_sf(data = cities_sf) + 
+  geom_sf(data = ak_sf) +
+  geom_sf(data = cities_sf, color = "red", size = 3) + 
   theme_minimal()
 ```
 
@@ -241,8 +236,8 @@ Next, let's use some of the attributes to make our map more informative. With `g
 
 ```{r}
 ggplot() +
-  geom_sf(data = az_sf) +
-  geom_sf(data = cities_sf, 
+  geom_sf(data = ak_sf) +
+  geom_sf(data = cities_sf, color = "red",
           aes(size = Population), 
           show.legend = "point") + 
   theme_minimal()
@@ -256,8 +251,8 @@ cities_sf <- mutate(cities_sf,
                     y = purrr::map_dbl(geometry, 2))
 
 ggplot() +
-  geom_sf(data = az_sf) +
-  geom_sf(data = cities_sf, 
+  geom_sf(data = ak_sf) +
+  geom_sf(data = cities_sf, color = "red",
           aes(size = Population), 
           show.legend = "point") + 
   geom_text(data = cities_sf, 
@@ -267,7 +262,7 @@ ggplot() +
   theme(axis.title = element_blank())
 ```
 
-Note that adding `geom_text()` seems to override the `geom_sf()` aesthetics by adding axis titles (`x` and `y`) to the graph. This is likely a bug in the development version of this function but is easily fixed by manually removing the axis titles using `theme(axis.title = element_blank())`. There may be many other tweaks we would make before being satisfied with this map but this is not a bad start for just a few lines of code. 
+There may be many other tweaks we would make before being satisfied with this map but this is not a bad start for just a few lines of code. 
 
 <a href="#TOP">Back to top</a>
 
