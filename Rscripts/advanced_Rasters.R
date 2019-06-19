@@ -1,3 +1,7 @@
+## ----echo = FALSE--------------------------------------------------------
+knitr::opts_chunk$set(fig.width=10)
+
+
 ## ----load-raster, message = FALSE, error = FALSE, warning = FALSE--------
 # load library
 library(raster)
@@ -6,29 +10,34 @@ library(maptools)
 library(rgdal)
 library(gdalUtils)
 
+
 ## ---- message = FALSE, warning = FALSE-----------------------------------
 rgdal::GDALinfo("../Spatial_Layers/MOD_NDVI_M_2018-01-01_rgb_3600x1800.FLOAT.TIFF")
+
 
 ## ----eval = FALSE--------------------------------------------------------
 ## raster::rasterOptions(tmpdir = "path/to/drive/with/space")
 
-## ----echo = FALSE--------------------------------------------------------
+
+## ----echo = FALSE, fig.width = 10----------------------------------------
 data(wrld_simpl, package = "maptools")
 MODIStiles <- raster::shapefile("../Spatial_Layers/modis_sinusoidal_grid_world.shp")
 wrld_proj <- sp::spTransform(wrld_simpl,sp::CRS(MODIStiles@proj4string@projargs))
 
 raster::plot(wrld_proj,col = "gray",border = "gray")
-raster::plot(MODIStiles,add = TRUE)
-mtext(side = 3, text = "h", line = 1)
+raster::plot(MODIStiles,add = TRUE, border = "gray60")
+mtext(side = 3, text = "h", line = 0)
 mtext(side = 2, text = "v",las = 1)
 hlab <- rgeos::gCentroid(MODIStiles[MODIStiles$v ==0,],byid = TRUE)
 vlab <- rgeos::gCentroid(MODIStiles[MODIStiles$h ==0,],byid = TRUE)
 text(x = hlab@coords[,1], y = rep(hlab@coords[1,2],36),(0:35),cex = 0.75)
 text(x = rep(hlab@coords[1,1],17), y = vlab@coords[,2],(17:0),cex = 0.75)
 
+
 ## ------------------------------------------------------------------------
 # Read in MODIS tile grid
 MODIStiles <- raster::shapefile("../Spatial_Layers/modis_sinusoidal_grid_world.shp")
+
 
 ## ------------------------------------------------------------------------
 # Read in states
@@ -40,11 +49,14 @@ AZ <- States[States$NAME_1 == "Arizona",]
 # transform AZ to MODIS
 AZ_sinsu <- sp::spTransform(AZ, sp::CRS(MODIStiles@proj4string@projargs))
 
+
 ## ------------------------------------------------------------------------
 identicalCRS(x = MODIStiles, y= AZ_sinsu)
 
+
 ## ------------------------------------------------------------------------
 sp::over(AZ_sinsu,MODIStiles,returnList = TRUE)
+
 
 ## ---- error = TRUE, message = FALSE, results = "hide"--------------------
 #MODIS files to download
@@ -79,14 +91,17 @@ mapply(function(x,y){
        x = urls_to_get,
        y = save_hdf_file)
 
+
 ## ---- eval = FALSE,error = TRUE------------------------------------------
 ## h <- raster::raster(save_hdf_file[1])
+
 
 ## ------------------------------------------------------------------------
 # Extract the names of the datasets within the compressed hdf file
 # Band 1 = Red
 # Band 2 = NIR
 subsets <- gdalUtils::get_subdatasets(save_hdf_file[1])
+
 
 ## ----eval = FALSE--------------------------------------------------------
 ## #Covert subset of interest into geoTIFF
@@ -97,11 +112,13 @@ subsets <- gdalUtils::get_subdatasets(save_hdf_file[1])
 ## gdalUtils::gdal_translate(src_dataset = subsets[3],
 ##                           dst_dataset = "../Spatial_Layers/band_2_2000_h08v05.tiff")
 
+
 ## ----eval = FALSE, echo = FALSE------------------------------------------
 ## # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 ## # THE FOLLOWING CODE IS FOR WINDOWS SYSTEMS. THE WORKSHOP MATERIALS
 ## # ARE CREATED USING LINUX SYSTEMS
 ## # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
 
 ## ----eval = FALSE--------------------------------------------------------
 ## # List the .hdf files
@@ -131,6 +148,7 @@ subsets <- gdalUtils::get_subdatasets(save_hdf_file[1])
 ##        gdal_translate(b[3], dst_dataset = z)
 ##        })
 ## Sys.time()-a
+
 
 ## ----echo = FALSE--------------------------------------------------------
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -168,6 +186,7 @@ h09_red_rasters[[2]] <- raster(subsets[[4]][2]) #second band of third element
 h09_nir_rasters[[1]] <- raster(subsets[[2]][3]) #second band of first element 
 h09_nir_rasters[[2]] <- raster(subsets[[4]][3]) #second band of third element
 
+
 ## ----echo = FALSE--------------------------------------------------------
 ######################################################## 
 # THE FOLLOWING CODE SHOULD BE RUN IF YOU'RE USING A
@@ -182,12 +201,15 @@ h09_nir_rasters[[2]] <- raster(subsets[[4]][3]) #second band of third element
 ## h09_red_rasters <- lapply(redband_files[grep(x=redband_files,"h09")],raster)
 ## h09_nir_rasters <- lapply(nirband_files[grep(x=nirband_files,"h09")],raster)
 
+
 ## ------------------------------------------------------------------------
 h08_rasters <- raster::stack(c(h08_red_rasters,h08_nir_rasters))
 h09_rasters <- raster::stack(c(h09_red_rasters,h09_nir_rasters))
 
+
 ## ----echo = TRUE---------------------------------------------------------
 h08_rasters
+
 
 ## ------------------------------------------------------------------------
 # Calculate NDVI for each year
@@ -198,9 +220,11 @@ h08_NDVI_2017 <- (h08_rasters[[4]]-h08_rasters[[2]])/(h08_rasters[[4]]+h08_raste
 h09_NDVI_2000 <- (h09_rasters[[3]]-h09_rasters[[1]])/(h09_rasters[[3]]+h09_rasters[[1]])
 h09_NDVI_2017 <- (h09_rasters[[4]]-h09_rasters[[2]])/(h09_rasters[[4]]+h09_rasters[[2]])
 
+
 ## ----echo = FALSE--------------------------------------------------------
 h08_NDVI_2000
 plot(h08_NDVI_2000, zlim = c(-1,1))
+
 
 ## ------------------------------------------------------------------------
 # if you haven't already - this is a good
@@ -224,12 +248,14 @@ NDVI_2017 <- mosaic(h08_NDVI_2017,
                     overwrite = TRUE)
 Sys.time()-a
 
+
 ## ------------------------------------------------------------------------
 NDVI_2000[NDVI_2000 > 1] <- NA
 NDVI_2000[NDVI_2000 < -1] <- NA
 
 NDVI_2017[NDVI_2017 > 1] <- NA
 NDVI_2017[NDVI_2017 < -1] <- NA
+
 
 ## ----echo = FALSE, fig.width = 10----------------------------------------
 NDVIs <- stack(NDVI_2000,NDVI_2017)
@@ -242,6 +268,7 @@ mtext(side=3,yr[i],line = -8)
 plot(AZ_sinsu, add = TRUE)
 }
 
+
 ## ------------------------------------------------------------------------
 # NDVI in 2017 - NDVI in 2000
 diff_ndvi <- NDVI_2017-NDVI_2000
@@ -250,6 +277,7 @@ diff_ndvi <- NDVI_2017-NDVI_2000
 diff_ndvi
 plot(diff_ndvi, zlim = c(-1,1))
 hist(diff_ndvi, yaxt = "n",las=1,main = "Difference in NDVI\n 2000-2017",xlab = "Difference in NDVI",col = "gray88",border = "white")
+
 
 ## ------------------------------------------------------------------------
 # from -2 to -0.025 take value 1
@@ -265,14 +293,17 @@ ndvi_change <- reclassify(diff_ndvi, rcl = reclassMatrix)
 ## ----echo = FALSE--------------------------------------------------------
 plot(ndvi_change, col = colorRampPalette(c("wheat3","springgreen4"))(3))
 
+
 ## ------------------------------------------------------------------------
 ndvi_brick <- brick(c(ndvi_change,ndvi_change,ndvi_change))
+
 
 ## ------------------------------------------------------------------------
 rgb_vals <- col2rgb(colorRampPalette(c("wheat3","springgreen4"))(3))
 
 ## ----echo = FALSE--------------------------------------------------------
 rgb_vals
+
 
 ## ------------------------------------------------------------------------
 # Make our reclassify matrix
@@ -286,8 +317,10 @@ ndvi_brick[[1]] <- reclassify(ndvi_brick[[1]],rcl=reclassRGB[,c(1:2,3)])
 ndvi_brick[[2]] <- reclassify(ndvi_brick[[2]],rcl=reclassRGB[,c(1:2,4)])
 ndvi_brick[[3]] <- reclassify(ndvi_brick[[3]],rcl=reclassRGB[,c(1:2,5)])
 
+
 ## ------------------------------------------------------------------------
 plotRGB(ndvi_brick)
+
 
 ## ----echo = FALSE, results="hide",message = FALSE,warning = FALSE--------
 # DELETE FILES SO THEY DON'T MAKE IT TO GITHUB

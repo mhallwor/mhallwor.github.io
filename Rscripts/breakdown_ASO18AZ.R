@@ -1,3 +1,7 @@
+## ----echo = FALSE--------------------------------------------------------
+knitr::opts_chunk$set(fig.width=10)
+
+
 ## ---- echo = FALSE, warning = FALSE, error = FALSE, message = FALSE------
 library(raster)
 

@@ -52,6 +52,9 @@ If installing these packages for the first time consider adding <code>dependenci
 </div>
         
 <br>
+
+<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/basics_SpatialLines.R" target="_blank" class="btn btn--info">Download R script</a> `r paste0("Last modified: ",file.mtime("../Rscripts/basics_SpatialLines.R"))`
+
 <hr>
 ```{r, warning = FALSE,message = FALSE, error = FALSE}
 library(raster)
@@ -142,5 +145,3 @@ Find the great circle length in kilometers of a line that contains the first 25 
 <br>
 
 <a href="#TOP">Back to top</a>
-
-<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/basics_SpatialLines.R" target="_blank" class="btn btn--info">Download R script</a> `r paste0("Last modified: ",file.mtime("../Rscripts/basics_SpatialLines.R"))`

@@ -87,7 +87,7 @@ author:
   name             : "Michael T. Hallworth, Ph.D."
   avatar           : "/assets/images/avatar.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "Postdoctoral fellow"
-  location         : "Newark, Delaware"
+  location         : "Amherst, Massachusetts"
   email            : "mhallworth@gmail.com"
   uri              :
   home             : # null (default), "absolute or relative url to link to author home"

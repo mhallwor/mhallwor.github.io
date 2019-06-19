@@ -5,7 +5,7 @@ contributors: Clark S. Rushing
 header:
   caption: 'Photo credit: **M. T. Hallworth**'
   image: assets/images/lookingUp.jpg
-last_modified_at: 2018-03-28T20:35:19-4:00
+last_modified_at: 2019-06-13T18:44:19-4:00
 layout: single
 permalink: /_pages/activities_ExtractingRasterValues
 sidebar:
@@ -51,23 +51,27 @@ padding: 3px 0; width: 500px; margin: auto; box-shadow: 4px 5px gray;">
 <h3> Required packages</h3> 
 To complete the following activity you will need the following packages installed:
 
-<strong>raster</strong>               
+<strong>raster</strong>  
+<strong>velox</strong> 
 <strong>sp</strong>     
 <strong>rgeos</strong>        
   
 <h4>Installing the packages</h4>     
 If installing these packages for the first time consider adding <code>dependencies=TRUE</code>   
-<code>install.packages("raster")</code>        
+<code>install.packages("raster")</code>     
+<code>install.packages("velox")</code>    
 <code>install.packages("sp")</code>        
-<code>install.packages("rgeos")</code>
+<code>install.packages("rgeos")</code>   
 
 </div>
         
 <br>
+<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/activities_ExtractRasterValues.R" target="_blank" class="btn btn--info">Download R script</a> `r paste0("Last modified: ",file.mtime("../Rscripts/activities_ExtractRasterValues.R"))`
 <hr>
 
 ```{r load-packages, warning = FALSE, error = FALSE, message = FALSE}
 library(raster)
+library(velox)
 library(sp)
 library(rgeos)
 ```
@@ -136,16 +140,16 @@ SurveyLocs_proj$Elev_m <- raster::extract(x = DEM,
 SurveyLocs_proj
 ```
 ```{r echo = FALSE}
-hist(surveyElev,col = "gray88",main = "",breaks = 15)
+hist(surveyElev,col = "gray88",main = "",breaks = 15, las = 1, xlab = "Elevation (m)")
 ```
 
 ## Extract raster to polygon/s
 
-Below, we'll determine the proportion of landcover types within Arizona. In order to complete this task, some new functions will be introduced but we'll also use some skills we learned in other activities. 
+Below, we'll determine the proportion of landcover types within Alaska. In order to complete this task, some new functions will be introduced but we'll also use some skills we learned in other activities. 
 
 ### Gathering spatial data
 
-We're interested in quantifying landcover around Tucson, AZ or more broadly the landcover types found in Arizona. 
+We're interested in quantifying landcover around Anchorage, AK or more broadly the landcover types found in Alaska. 
 
 First, we'll read in the landcover classes. In this example, we'll use landcover data with a relatively coarse resolution for simplicity and speed. 
 
@@ -189,28 +193,40 @@ td, th {
 *National Center for Atmospheric Research Staff (Eds). Last modified 10 Feb 2017. "The Climate Data Guide: CERES: IGBP Land Classification." Retrieved from https://climatedataguide.ucar.edu/climate-data/ceres-igbp-land-classification.
 <br>
 
-Now that we have a basic Landcover layer, we'll can gather spatial data for Arizona. We'll grab the entire United States and then subset out Arizona. 
+Now that we have a basic Landcover layer, we'll can gather spatial data for Alaska. We'll grab the entire United States and then subset out Alaska. 
 ```{r}
 States <- raster::getData("GADM", country = "United States", level = 1)
 ```
 
 ```{r}
-AZ <- States[States$NAME_1=="Arizona",]
+AK <- States[States$NAME_1=="Alaska",]
 ```
 
 ```{r, warning = FALSE,echo = FALSE}
-AZ
+AK
 ```
-Great - now we have a <code>SpatialPolygonsDataFrame</code> of Arizona. Take note of the <code>CRS</code>. 
+Great - now we have a <code>SpatialPolygonsDataFrame</code> of Alaska. Take note of the <code>CRS</code>. 
 
-Landcover types are factors since they're categorical. The reason that's important is because when extracting raster data there are options to apply a function to the underlying raster data. For example, the <code>extract</code> function allows users to specify a function like <code>mean</code> and the function will return the mean raster value under the area of interest. However, because landcover types are factors, returning the mean landcover type is meaningless. Instead, as a final result were interested in having a table giving the percent of each landcover type in Arizona. We'll work our way up to that. We'll start by first extracting the landcover types in Arizona using the <code>extract</code> function available in the <code>raster</code> package.
+Landcover types are factors since they're categorical. The reason that's important is because when extracting raster data there are options to apply a function to the underlying raster data. For example, the <code>extract</code> function allows users to specify a function like <code>mean</code> and the function will return the mean raster value under the area of interest. However, because landcover types are factors, returning the mean landcover type is meaningless. Instead, as a final result were interested in having a table giving the percent of each landcover type in Alaska. We'll work our way up to that. We'll start by first extracting the landcover types in Alaska using the <code>extract</code> function available in the <code>raster</code> package.
 
+The <code>velox</code> package is much faster for extracting raster values, especially with large data sets. See what else <code>velox</code> can do <a href="https://www.rdocumentation.org/packages/velox/versions/0.2.0" target="_blank">velox documentation</a> 
 ```{r}
+# Extract using the raster package 
+
 # x = raster layer
 # y = SpatialLayer
 
-AZ_lc <- extract(x = LandCover,
-                 y = AZ)
+a <- Sys.time()
+AK_lc <- extract(x = LandCover,
+                 y = AK)
+Sys.time()-a
+
+# Extract using velox 
+LandCover_velox <- velox::velox(LandCover)
+
+b <- Sys.time()
+AK_lc_velox <- LandCover_velox$extract(AK)
+Sys.time() - b
 ```
  
 <div style="background-color: #ffffe6; border-radius: 25px; text-align:center; vertical-align: middle; padding: 3px 0; margin: auto; width:600px; box-shadow: 4px 5px #f2f2f2;"> 
@@ -221,14 +237,27 @@ What does the <code>extract</code> function return? How are the data stored? How
 
 ```{r, echo = FALSE}
 # Get the structure of the extracted data
-str(AZ_lc)
+str(AK_lc)
 ```
 
-The <code>extract</code> function returns a list with the raster values that fall within our area of interest. Let's summarize the data a little bit. We'll use the <code>table</code> function to briefly summarize the landcover types within Arizona. 
+The <code>extract</code> function returns a list with the raster values that fall within our area of interest. Let's summarize the data a little bit. We'll use the <code>table</code> function to briefly summarize the landcover types within Alaska. 
 ```{r}
-table(AZ_lc)
+table(AK_lc)
 ```
+
 ```{r, echo = FALSE, fig.width = 8, fig.height = 6}
+lower48 <- States[!(States$NAME_1 %in% c("Hawaii")),]
+plot(lower48, xlim = c(-179.15,-50), ylim=c(20,80))
+plot(LandCover, add = TRUE, ext = raster::extent(c(-179.15,-50,20,80)))
+plot(lower48, add = TRUE)
+plot(AK,add = TRUE,border = "red",lwd = 2)
+#par(new = TRUE, fig = c(0.5,0.9,0.1,0.9), mar = c(1,1,1,1))
+#plot(AK,xlim = c(-179.15,-120),ylim = c(51,73))
+#plot(LandCover, add = TRUE, ext = raster::extent(c(-179.15,-140,51,73)))
+#plot(AK, add = TRUE)
+```
+
+```{r, eval = FALSE, echo = FALSE, fig.width = 8, fig.height = 6}
 lower48 <- States[!(States$NAME_1 %in% c("Hawaii","Alaska")),]
 plot(lower48)
 plot(LandCover, add = TRUE, ext = raster::extent(lower48))
@@ -252,7 +281,7 @@ z <- sort(unique(raster::values(LandCover)))
 z
 ```
 
-Now that we have a sorted vector of all the landcover types in the LandCover raster - let's summarize the landcover types in Arizona. To do that we'll need to write a custom function. Our function will be called <code>summarizeLC</code>. The <code>summarizeLC</code> function will except three arguments: <code>x</code> = extracted landcover data, <code>LC_classes</code> = land cover classes in the data set & <code>LC_names</code> a vector that contains the names of the landcover types. We'll set <code>LC_names</code> = NULL so it's optional.
+Now that we have a sorted vector of all the landcover types in the LandCover raster - let's summarize the landcover types in Alaska. To do that we'll need to write a custom function. Our function will be called <code>summarizeLC</code>. The <code>summarizeLC</code> function will except three arguments: <code>x</code> = extracted landcover data, <code>LC_classes</code> = land cover classes in the data set & <code>LC_names</code> a vector that contains the names of the landcover types. We'll set <code>LC_names</code> = NULL so it's optional.
 
 ```{r}
 summarizeLC <- function(x,LC_classes,LC_names = NULL){
@@ -285,7 +314,7 @@ summarizeLC <- function(x,LC_classes,LC_names = NULL){
 Here we'll apply our function to the extracted raster data. Remember, the extracted raster data (<code>AZ_lc</code>) are stored as a list. Because of that we'll use the <code>lapply</code> function to apply our function (<code>summarizeLC</code>) to all elements of a list. This is especially useful when you extract raster values to more than one polygon, as the extracted values are stored in separate lists. 
 
 ```{r}
-summaryValues <- lapply(AZ_lc,FUN = summarizeLC,LC_classes = z)
+summaryValues <- lapply(AK_lc,FUN = summarizeLC,LC_classes = z)
 ```
 
 Here is what the final result may look like. 
@@ -295,7 +324,7 @@ Here is what the final result may look like.
 LC_types <- c("Evergreen Needleleaf forest","Evergreen Broadleaf forest","Deciduous Needleleaf forest","Deciduous Broadleaf forest","Mixed forest","Closed shrublands","Open shrublands","Woody savannas","Savannas","Grasslands","Permanent wetlands","Croplands","Urban and built-up","Cropland/Natural vegetation mosaic","Snow and ice","Barren or sparsely vegetated","Water bodies","Tundra")
 
 # Rerun the summarizeLC function providing the LC_names
-summaryValues <- lapply(AZ_lc,
+summaryValues <- lapply(AK_lc,
                         FUN = summarizeLC,
                         LC_classes = z,
                         LC_names = LC_types[z])
@@ -321,7 +350,7 @@ Compare and contrast the landcover classes for two or more states.
 StatesOfInterest <- States[States$NAME_1 %in% c("New Hampshire","West Virginia"),]
 
 # Extract the raster values 
-SOI_lc <- extract(x = LandCover, y = StatesOfInterest)
+SOI_lc <- LandCover_velox$extract(StatesOfInterest)
 
 lz <- sort(unique(unlist(SOI_lc)))
 
@@ -340,5 +369,3 @@ round(t(percentCover),3)
 
 
 <a href="#TOP">back to top</a>
-
-<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/activities_ExtractRasterValues.R" target="_blank" class="btn btn--info">Download R script</a> `r paste0("Last modified: ",file.mtime("../Rscripts/activities_ExtractRasterValues.R"))`

@@ -1,25 +1,26 @@
 # main links
 main:
-  - title: "CV"
-    url: /website/CV
   - title: "Get Spatial! Using R as GIS"
     url: /_pages/welcome
 SpatialWorkshop:
-  - title: "Welcome to Get Spatial!"
-    url: /_pages/welcome
+  - title: "Get Spatial! Using R as GIS"
     children:
+      - title: "Welcome to Get Spatial!"
+        url: /_pages/welcome
       - title: "System setup"
         url: /_pages/getting_started
       - title: "Schedule"
-        url: /_pages/breakdown_AOS18AZ
+        url: /_pages/breakdown_AOS19AK
   - title: "R resources"
     children:
       - title: "R syntax"
         url: /_pages/R_basics
       - title: "The tidyverse"
         url: /_pages/tidyverse_basics
-  - title: "Where to get spatial data"
-    url: /_pages/whereToGetData
+  - title: "Spatial data"
+    children:
+      - title: "Where to get spatial data"	
+        url: /_pages/whereToGetData
   - title: "The basics"
     children:
       - title: "Points"
@@ -33,7 +34,9 @@ SpatialWorkshop:
       - title: "Spatial data & the tidyverse"
         url: /_pages/Tidyverse_intro
   - title: "Projecting data"
-    url: /_pages/projections
+    children:
+      - title: "Projecting data"
+        url: /_pages/projections
   - title: "Spatial Predicates"
     children:
       - title: "Spatial Predicates"
@@ -41,7 +44,9 @@ SpatialWorkshop:
       - title: "Spatial Predicates (tidyverse)"
         url: /_pages/BBS_tidyverse
   - title: "Making Maps"
-    url: /_pages/MakingMaps
+    children:
+      - title: "Making Maps"
+        url: /_pages/MakingMaps
   - title: "Moving beyond the basics"
     children:
       - title: "Extracting Raster Values"

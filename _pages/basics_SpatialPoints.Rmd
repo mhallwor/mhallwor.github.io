@@ -53,6 +53,9 @@ If installing these packages for the first time consider adding <code>dependenci
 </div>
         
 <br>
+
+<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/basics_SpatialPoints.R" target="_blank" class="btn btn--info">Download R script</a> `r paste0("Last modified: ",file.mtime("../Rscripts/basics_SpatialPoints.R"))`
+
 <hr>
 
 # What are spatial points?    
@@ -147,4 +150,3 @@ hist(gcDist[upper.tri(gcDist)],
 
 We'll dive a bit deeper into point-based analyses in <a href="{{ site.baseurl }}/_pages/spatial_predicates" target="_blank">spatial predicates</a> and in the <a href="{{ site.baseurl }}/_pages/activites_GenerateTerritories" target="_blank">activities</a>
 
-<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/basics_SpatialPoints.R" target="_blank" class="btn btn--info">Download R script</a> `r paste0("Last modified: ",file.mtime("../Rscripts/basics_SpatialPoints.R"))`

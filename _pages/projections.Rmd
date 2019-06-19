@@ -1,16 +1,16 @@
 ---
 title: "Projections"
-authors: "Michael T. Hallworth"
-contributors: "Clark S. Rushing"
+classes: wide
+contributors: Clark S. Rushing
 header:
   caption: 'Photo credit: **M. T. Hallworth**'
   image: assets/images/lookingUp.jpg
 layout: single
-classes: wide
 permalink: /_pages/projections
 sidebar:
-  nav: "SpatialWorkshop"
-  title: "Get Spatial! Using R as GIS"
+  nav: SpatialWorkshop
+  title: Get Spatial! Using R as GIS
+authors: Michael T. Hallworth
 ---
 <a name="TOP"></a>
 ```{r echo = FALSE}
@@ -59,10 +59,15 @@ If installing these packages for the first time consider adding <code>dependenci
 <br>
 <hr> 
 
+<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/master/Rscripts/projections.R" target="_blank" class="btn btn--info">Download R script</a> `r paste0("Last modified: ",file.mtime("../Rscripts/projections.R"))`
+
 # Projections
 The reason we need projections is so that we can map a three dimensional surface - like the earth in two dimensional space. Unfortunately, not all properties of the 3D surface are maintained when plotting in 2D space. Attributes of the 3D surface such as area, distance, shape and direction are distorted when creating a 2D map. Projections define the way we distort the 3D surface in order to render it in 2D. The projection is the mathmatical equation used to 'flatten' the world. Every time we create a map we distort the true surface in some fashion. Different projections preserve different aspects of the 3D properties. Therefore, knowing which projections to use is important when doing spatial analyses. For example, if you're looking to create a map that looks 'correct' a conformal projection might be used as these types of projections preserve shape. If you're looking to make accurate distance measurements on a surface projections in the equidistant class are appropriate. Take a look at this <a href = "http://projections.mgis.psu.edu/" target="_blank">interactive map</a> that shows different projections - be sure to turn on the distortion ellipse so you can see how distortion changes. 
 
-```{r, echo = FALSE}
+```{r, echo = FALSE,message = FALSE, warning = FALSE}
+library(raster)
+library(sp)
+
 par(mar = c(0,0,2,0),mfrow = c(2,2))
 world <- raster::shapefile("../Spatial_Layers/TM_WORLD_BORDERS-0.3.shp")
 graticules <- sp::gridlines(world, easts = seq(-180,180,10), norths = seq(-90,90,10))
@@ -234,17 +239,22 @@ NDVI
 ```
 
 The NDVI raster is pretty large. It has `r raster::ncell(NDVI)` cells. It takes a little while to project the raster. 
-```{r, warning = FALSE}
+```{r, eval = FALSE,warning = FALSE}
 a <- Sys.time()
 NDVIproj <- raster::projectRaster(from = NDVI,
                           crs = sp::CRS("+init=epsg:5070"))
 Sys.time()-a
 ```
+
 ```{r,echo = FALSE}
+NDVIproj <- raster("../Spatial_Layers/MOD_NDVI_M_2018-01-01_rgb_3600x1800.FLOAT_proj.tif")
+
 NDVIproj
 
 NDVIproj[NDVIproj>5]<-NA
-plot(NDVIproj)
+
+par(bty = "n")
+plot(NDVIproj,axes = FALSE,legend.args = list("NDVI"))
 ```
 
 <div style="background-color: #ffffe6; border-radius: 25px; text-align:center; vertical-align: middle; padding: 3px 0; margin: auto; width:600px; box-shadow: 4px 5px #f2f2f2;"> 
@@ -256,5 +266,5 @@ Compare the number of cells <code>raster::ncell(raster)</code> before and after 
 <a href="#TOP">back to top</a>
 
 
-<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/master/Rscripts/projections.R" target="_blank" class="btn btn--info">Download R script</a> `r paste0("Last modified: ",file.mtime("../Rscripts/projections.R"))`
+
 

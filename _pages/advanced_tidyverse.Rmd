@@ -38,6 +38,11 @@ If installing these packages for the first time consider adding <code>dependenci
 <br>       
 </div>
 <br>
+
+<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/advanced_tidyverse.R" target="_blank" class="btn btn--info">Download R script</a> `r paste0("Last modified: ",file.mtime("../Rscripts/advanced_tidyverse.R"))`
+
+<hr>
+
 This activity will introduce more advanced manipulation of spatial data using `sf` and the tidyverse. See introductions to <a href="{{ site.baseurl }}/_pages/spatial_predicates" target="_blank">spatial predicates</a> and <a href="{{ site.baseurl }}/_pages/tidyverse_basics" target="_blank">working with `sf` objects </a>for more background information on these topics.
 
 ## Breeding Bird Survey data
@@ -330,4 +335,4 @@ Ravens appear to be common through all but the Arctic Plains and Mountains BCR, 
 
 <a href="#TOP">back to top</a>
 
-<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/advanced_tidyverse.R" target="_blank" class="btn btn--info">Download R script</a> `r paste0("Last modified: ",file.mtime("../Rscripts/advanced_tidyverse.R"))`
+

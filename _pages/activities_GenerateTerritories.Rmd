@@ -59,6 +59,9 @@ If installing these packages for the first time consider adding <code>dependenci
 </div>
         
 <br>
+
+<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/activities_GenerateTerritories.R" target="_blank" class="btn btn--info">Download R script</a> `r paste0("Last modified: ",file.mtime("../Rscripts/activities_GenerateTerritories.R"))`
+
 <hr> 
 
 If you work with marked populations or have telemetry-like data you may be interested in constructing territories with either a minimum convex polygon or using kernel density estimation. This activity will illustrate how to go from GPS coordinates of locations for individuals to a territories using both minimum convex polygons and kernel density estimates.
@@ -355,4 +358,5 @@ Take a minute to think about how you may go about removing the areas between our
 # we'll need to project the points first
 ```
 
-<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/activities_GenerateTerritories.R" target="_blank" class="btn btn--info">Download R script</a> `r paste0("Last modified: ",file.mtime("../Rscripts/activities_GenerateTerritories.R"))`
+
+<a href="#TOP">back to top</a>

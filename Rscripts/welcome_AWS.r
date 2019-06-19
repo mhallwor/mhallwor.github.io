@@ -29,7 +29,7 @@
 
 # Good luck, happy coding & I hope you learn something new! 
 
-# Mike, Clark and Jonathon
+# Mike, and Clark
 
 
 
