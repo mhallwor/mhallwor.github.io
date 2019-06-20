@@ -5,7 +5,6 @@ knitr::opts_chunk$set(warning=FALSE, message=FALSE)
 ## ----message = FALSE, error = FALSE, warning = FALSE---------------------
 library(sf)
 library(tidyverse)
-library(maps)
 
 ### Load data.frame containing the BBS spatial information
 load("../Spatial_Layers/bbs_xy.rda")
@@ -22,57 +21,61 @@ head(bbs_xy_sf)
 
 
 ## ------------------------------------------------------------------------
-## Arizona's statenum == 6
-az_bbs_sf1 <- dplyr::filter(bbs_xy_sf, statenum == 6)
+## Alaska's statenum == 3
+ak_bbs_sf1 <- dplyr::filter(bbs_xy_sf, statenum == 3)
 
 
 ## ------------------------------------------------------------------------
-## AZ polygon
-us_states <- map("state", plot = FALSE, fill = TRUE)
-az_sf <- st_as_sf(us_states) %>%
-           st_transform(crs = 4326) %>%
-               filter(ID == "arizona")
+ak <- raster::shapefile("../Spatial_Layers/ak.shp")
+
+ak_sf <- st_as_sf(ak) %>%
+  st_transform(crs = 4326)
 
 ggplot() + 
-  geom_sf(data = az_sf) +
-  geom_sf(data = az_bbs_sf1) +
+  geom_sf(data = ak_sf) +
+  geom_sf(data = ak_bbs_sf1) +
   theme_minimal()
 
 
 ## ------------------------------------------------------------------------
-az_bbs_sf2 <- st_intersection(x = bbs_xy_sf, y = az_sf)
+ak_bbs_sf2 <- st_intersection(x = bbs_xy_sf, y = ak_sf)
 
 ggplot() + 
-  geom_sf(data = az_sf) +
-  geom_sf(data = az_bbs_sf2) +
+  geom_sf(data = ak_sf) +
+  geom_sf(data = ak_bbs_sf2) +
+  theme_minimal() 
+
+
+## ------------------------------------------------------------------------
+
+shared <- filter(ak_bbs_sf2, routeID %in% ak_bbs_sf1$routeID)
+
+ggplot() + 
+  geom_sf(data = ak_sf) +
+  geom_sf(data = ak_bbs_sf1, color = "red") +
+  geom_sf(data = shared) +
   theme_minimal()
 
 
 ## ------------------------------------------------------------------------
-ggplot() + 
-  geom_sf(data = az_sf) +
-  geom_sf(data = az_bbs_sf2, aes(color = as.factor(statenum))) +
-  theme_minimal()
+ak_sf2 <- st_transform(ak_sf, crs = 2964)
 
-
-## ------------------------------------------------------------------------
-az_sf2 <- st_transform(az_sf, crs = 26949)
-
-az_buffer <- st_buffer(az_sf2, dist = -40000) %>%
-  st_transform(crs = 4326) # Convert CRS back to 4326
+ak_buffer <- st_buffer(ak_sf2, dist = 25000) 
 
 ggplot() +
-  geom_sf(data = az_sf) +
-  geom_sf(data = az_buffer, color = "blue")
+  geom_sf(data = ak_buffer, color = "blue") +
+  geom_sf(data = ak_sf2)
+
 
 
 ## ------------------------------------------------------------------------
-az_bbs_sf <- st_intersection(bbs_xy_sf, az_buffer)
+ak_buffer <- st_transform(ak_buffer, crs = 4326)
+ak_bbs_sf <- st_intersection(bbs_xy_sf, ak_buffer)
 
 ggplot() +
-  geom_sf(data = az_sf) +
-  geom_sf(data = az_buffer, color = "blue") +
-  geom_sf(data = az_bbs_sf)
+  geom_sf(data = ak_sf) +
+  geom_sf(data = ak_buffer, color = "blue") +
+  geom_sf(data = ak_bbs_sf)
 
 
 ## ------------------------------------------------------------------------
@@ -81,27 +84,26 @@ head(bbs_counts)
 
 
 ## ------------------------------------------------------------------------
-az_counts_sf <- left_join(az_bbs_sf, bbs_counts)
+ak_counts_sf <- left_join(ak_bbs_sf, bbs_counts)
 
 ## Look at new object
-head(az_counts_sf)
+head(ak_counts_sf)
 
 ## Map new object just to make sure it only has the routes we want
 ggplot() +
-  geom_sf(data = az_sf) +
-  geom_sf(data = az_buffer, color = "blue") +
-  geom_sf(data = az_counts_sf)
+  geom_sf(data = ak_sf) +
+  geom_sf(data = ak_counts_sf)
 
 
 ## ------------------------------------------------------------------------
-az_counts_sf <- mutate(az_counts_sf, 
-                       Species = case_when(aou == 3850 ~ "Greater roadrunner",
-                                           aou == 7130 ~ "Cactus wren", 
-                                           aou == 7680 ~ "Mountain bluebird"))
+ak_counts_sf <- mutate(ak_counts_sf, 
+                       Species = case_when(aou == 4860 ~ "Common raven",
+                                           aou == 5090 ~ "Rusty blackbird", 
+                                           aou == 7410 ~ "Chestnut-backed chickadee"))
 
 
 ## ------------------------------------------------------------------------
-mean_counts_sf <- az_counts_sf %>%
+mean_counts_sf <- ak_counts_sf %>%
                 group_by(Species, routeID) %>%  # Group by species & route 
                  summarise(count = mean(speciestotal)) %>% # Mean count for all years
                   ungroup() # Always ungroup!!!!
@@ -116,21 +118,23 @@ head(mean_counts_sf)
 ## !is.na() returns only rows that ARE NOT NA
 mean_counts_sf <- dplyr::filter(mean_counts_sf, !is.na(Species))
 
-## Recreate AZ cities SF object
-cities_df <- data.frame(Name = c("Tucson", "Phoenix", "Flagstaff"),
-                        Population = c(520116, 1445632, 65870),
-                        Elevation = c(2389, 1086, 6910))
+## Recreate AK cities SF object
+# Create data.frame with attributes
+cities_df <- data.frame(Name = c("Juneau", "Anchorage", "Fairbanks", "Nome"),
+                        Population = c(31276, 291826, 3598, 31535),
+                        Elevation = c(17, 31, 6, 136))
 
-tu_sfg <- st_point(c(-110.9265, 32.2217)) # Tucson
-ph_sfg <- st_point(c(-112.0740, 33.4484)) # Phoenix
-fl_sfg <- st_point(c(-111.6513, 35.1983)) # Flagstaff
+ju_sfg <- st_point(c(-134.4333, 58.3059)) #Juneau
+an_sfg <- st_point(c(-149.8631, 61.2174)) #Anchorage
+fa_sfg <- st_point(c(-147.7767, 64.8354)) #Fairbanks
+nm_sfg <- st_point(c(-165.4064, 64.5011)) #Nome
 
-cities_sf <- st_sfc(tu_sfg, ph_sfg, fl_sfg, crs = 4326) %>%
+cities_sf <- st_sfc(ju_sfg, an_sfg, fa_sfg, nm_sfg, crs = 4326) %>%
                st_sf(cities_df, geometry = .)
 
 ggplot() +
-  geom_sf(data = az_sf) +
-  geom_sf(data = cities_sf, color = "red", shape = 18, size = 4) +
+  geom_sf(data = ak_sf) +
+  geom_sf(data = cities_sf, color = "red", size = 3) +
   geom_sf(data = mean_counts_sf, aes(size = count),
           show.legend = "point") +
   facet_wrap(~Species) +
@@ -149,83 +153,42 @@ bcr <- raster::shapefile("../Spatial_Layers/bcr/BCR.shp")
 
 ## ------------------------------------------------------------------------
 ### Covert the BCR shapefile to class `sf`
-bcr_sf <- st_as_sf(bcr)
+bcr_sf <- st_as_sf(bcr) 
 
 
 ## ----error = TRUE--------------------------------------------------------
-az_bcr_sf <- st_intersection(az_sf, bcr_sf)
+ak_bcr_sf <- st_intersection(ak_sf, bcr_sf)
 
 
 ## ------------------------------------------------------------------------
-az_bcr_sf <- st_transform(bcr_sf, crs = st_crs(az_sf)) %>%
-  st_intersection(az_sf, .)
+ak_bcr_sf <- st_transform(bcr_sf, crs = st_crs(ak_sf)) %>%
+  st_intersection(., ak_sf)
 
 
 ## ------------------------------------------------------------------------
 ggplot() + 
-  geom_sf(data = az_bcr_sf, aes(fill = BCRName)) +
+  geom_sf(data = ak_bcr_sf, aes(fill = BCRName)) +
   geom_sf(data = cities_sf, shape = 18, color = "red", size = 4) +
   theme_minimal()
 
 
 ## ------------------------------------------------------------------------
-st_area(az_bcr_sf)/10000
+st_area(ak_bcr_sf)/100000
 
 
 ## ------------------------------------------------------------------------
-az_bcr_sf <- dplyr::mutate(az_bcr_sf, Area = st_area(geometry)/10000)
-az_bcr_sf
+ak_bcr_sf <- dplyr::mutate(ak_bcr_sf, Area = st_area(geometry)/100000)
+ak_bcr_sf
 
 
 ## ----out.width = "100%"--------------------------------------------------
 ggplot() +
-  geom_sf(data = az_sf) +
-  geom_sf(data = az_bcr_sf, aes(fill = BCRName), 
+  geom_sf(data = ak_sf) +
+  geom_sf(data = ak_bcr_sf, aes(fill = BCRName), 
           show.legend = FALSE) +
   geom_sf(data = cities_sf, color = "red", shape = 18, size = 4) +
   geom_sf(data = mean_counts_sf, aes(size = count),
           show.legend = FALSE) +
   facet_wrap(~Species) +
-  theme_minimal()
-
-
-## ------------------------------------------------------------------------
-st_intersects(mean_counts_sf, az_bcr_sf)
-
-
-## ------------------------------------------------------------------------
-mean_counts_sf <- mutate(mean_counts_sf, 
-                  BCR.num = purrr::flatten_dbl(st_intersects(mean_counts_sf, az_bcr_sf)),
-                  BCR = case_when(BCR.num == 1 ~ "Southern Rockies", 
-                                  BCR.num == 2 ~ "Sonoran and Mojave Deserts", 
-                                  BCR.num == 3 ~ "Sierra Madre Occidental"))
-
-## Check that each route is indexec by BCR
-ggplot() +
-  geom_sf(data = az_sf) +
-  geom_sf(data = az_bcr_sf, aes(fill = BCRName)) +
-  geom_sf(data = cities_sf, color = "red", shape = 18, size = 4) +
-  geom_sf(data = mean_counts_sf, aes(color = BCR)) +
-  theme_minimal()
-
-
-## ----out.width="100%"----------------------------------------------------
-bcr_abun <- mean_counts_sf %>%
-              group_by(Species, BCR) %>%
-              summarise(Abundance = mean(count),
-                        Stnd.dev = sd(count)) %>%
-              ungroup() 
-
-## Reorder BCR levels for figures
-bcr_abun$BCR <- factor(bcr_abun$BCR, levels = c("Sonoran and Mojave Deserts", 
-                                                "Sierra Madre Occidental", 
-                                                "Southern Rockies")) 
-
-ggplot(bcr_abun, aes(x = BCR, y = Abundance, fill = Species)) +
-  geom_bar(stat="identity", position = position_dodge(), colour = "black") +
-  geom_errorbar(aes(ymin = Abundance - Stnd.dev, 
-                    ymax = Abundance + Stnd.dev),
-                 width = 0.1,                    # Width of the error bars
-                 position=position_dodge(.9)) + 
   theme_minimal()
 

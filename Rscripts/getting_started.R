@@ -2,15 +2,31 @@
 knitr::opts_chunk$set(fig.width=10)
 
 
-## ----echo = FALSE, comment = ""------------------------------------------
-packagesNeeded <- readLines("../DEPENDS.txt")
-pkgs <- paste0(packagesNeeded,collapse = ",")
-pkgs <- gsub(x = pkgs, pattern = ",", replacement = '","')
-cat("install.packages(c(",'"',"devtools",'","',pkgs,'"',"), dependencies = TRUE)",sep="")
+## ----echo = FALSE, comment = "",warning = FALSE--------------------------
+#packagesNeeded <- readLines("../DEPENDS.txt")
+#pkgs <- paste0(packagesNeeded,collapse = ",")
+#pkgs <- gsub(x = pkgs, pattern = ",", replacement = '","')
+#cat("install.packages(c(",'"',"devtools",'","',pkgs,'"',"), dependencies = TRUE)",sep="")
+
+
+## ---- eval = FALSE-------------------------------------------------------
+## install.packages(c("devtools","animation","dismo",
+##                    "gdalUtils","gstat","ks","leaflet",
+##                    "lwgeom","maps","maptools","mapview",
+##                    "raster","rasterVis","rgdal","rgeos",
+##                    "sf","sp","spatstat","tidyverse","velox"))
+## 
+## if(any(!(pkgs %in% installed.packages()))){
+##   install.packages(pkgs[!(pkgs %in% installed.packages())],
+##                    dependencies = TRUE)}
 
 
 ## ----echo = FALSE, message = FALSE,warning = FALSE,results='hide'--------
-pkgs <- c("devtools","animation","dismo","gdalUtils","gstat","ks","leaflet","lwgeom","maps","maptools","raster","rasterVis","rgdal","rgeos","sf","sp","spatstat","tidyverse","velox")
+pkgs <- c("devtools","animation","dismo",
+          "gdalUtils","gstat","ks","leaflet",
+          "lwgeom","maps","maptools","mapview",
+          "raster","rasterVis","rgdal","rgeos",
+          "sf","sp","spatstat","tidyverse","velox")
 
 if(any(!(pkgs %in% installed.packages()))){install.packages(pkgs[!(pkgs %in% installed.packages())], dependencies = TRUE)}
 

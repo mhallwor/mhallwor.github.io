@@ -7,6 +7,18 @@ library(raster)
 library(sp)
 library(rgeos)
 library(leaflet)
+library(mapview)
+
+
+## ------------------------------------------------------------------------
+# Coordinates of a mystery location #
+MysteryLocation <- cbind(???71.73,43.94)
+
+# Create a SpatialPoints layer with known crs 
+MysteryLoc <- SpatialPoints(MysteryLocation,proj4=CRS("+init=epsg:4326"))
+
+# create an interactive map to reveal the mystery location 
+mapview(MysteryLoc)
 
 
 ## ------------------------------------------------------------------------
@@ -167,39 +179,37 @@ raster::scalebar(d = 100, # distance in km
 ## raster::plotRGB(sat)
 
 
-## ----echo = FALSE--------------------------------------------------------
-# Download a map from Google Maps API
-      # multiplier to change extent
-      # values less than 1 - zooms in
-      # values greater than 1 - zooms out
-      # zoom is another parameter to
-      # zoom in or out on areas
-      # 1 = world, 20 = pick out individual trees
-      # Type of image to return 
-      # return in coord lonlat
-      # return raster stack with red,green,blue values
-
-# NOTE YOU NEED TO CHANGE map_key to your personal key #
-sat <- dismo::gmap(x = NH,
-            map_key ="YOUR KEY HERE",
-            exp = 1,
-            zoom = NULL,
-            type = "satellite",
-            lonlat = FALSE,
-            rgb = TRUE)
-
-# Project NH into merc projection
-NHproj <- sp::spTransform(NH,sp::CRS(sat@crs@projargs))
-
-# Avoid weird white space by using using the rgb = TRUE &
-# using raster's plotRGB function.
-par(mfrow = c(1,2))
-plotRGB(sat)
-# mask sat by NH
-sat_mask <- raster::mask(sat,NHproj)
-plotRGB(sat_mask)
-# add states but transform first
-plot(sp::spTransform(States,sp::CRS(sat@crs@projargs)),add = TRUE)
+## ---- eval = FALSE, echo = FALSE-----------------------------------------
+## # Download a map from Google Maps API
+##       # multiplier to change extent
+##       # values less than 1 - zooms in
+##       # values greater than 1 - zooms out
+##       # zoom is another parameter to
+##       # zoom in or out on areas
+##       # 1 = world, 20 = pick out individual trees
+##       # Type of image to return
+##       # return in coord lonlat
+##       # return raster stack with red,green,blue values
+## sat <- dismo::gmap(x = NH,
+##             map_key ="your key here",
+##             exp = 1,
+##             zoom = NULL,
+##             type = "satellite",
+##             lonlat = FALSE,
+##             rgb = TRUE)
+## 
+## # Project NH into merc projection
+## NHproj <- sp::spTransform(NH,sp::CRS(sat@crs@projargs))
+## 
+## # Avoid weird white space by using using the rgb = TRUE &
+## # using raster's plotRGB function.
+## par(mfrow = c(1,2))
+## plotRGB(sat)
+## # mask sat by NH
+## sat_mask <- raster::mask(sat,NHproj)
+## plotRGB(sat_mask)
+## # add states but transform first
+## plot(sp::spTransform(States,sp::CRS(sat@crs@projargs)),add = TRUE)
 
 
 ## ------------------------------------------------------------------------
@@ -268,9 +278,11 @@ plot(HS)
 
 ## ------------------------------------------------------------------------
 # add color over the hillshade
+par(bty = "l") # only have x - y axis
 plot(HS, 
      col = gray(1:100/100),
-     legend = FALSE) # don't plot legend
+     legend = FALSE, # don't plot legend
+     las = 1) # axis labels are parallel with plot
 plot(elev, 
      col = bpy.colors(200), 
      add = TRUE, #add to current plot
@@ -316,7 +328,7 @@ plot(elev,
                       labels = seq(200,1000,100),
                       cex.axis = 1,
                       mgp = c(5,0.3,0)),
-     legend.args = list(text = "Elevation", 
+     legend.args = list(text = "Elevation (m)", 
                       side = 3, 
                       font = 2, 
                       line = 0.5, 
