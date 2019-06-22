@@ -79,7 +79,7 @@ Before we get into making static maps we'll cover a basic interactive map. Lots 
 
 ```{r}
 # Coordinates of a mystery location #
-MysteryLocation <- cbind(???71.73,43.94)
+MysteryLocation <- cbind(71.73,43.94)
 
 # Create a SpatialPoints layer with known crs 
 MysteryLoc <- SpatialPoints(MysteryLocation,proj4=CRS("+init=epsg:4326"))
