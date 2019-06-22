@@ -1,15 +1,16 @@
 ---
 title: "System installation"
-authors: "Michael T. Hallworth & Clark S. Rushing"
-layout: single
 classes: wide
-permalink: /_pages/getting_started
 header:
   caption: 'Photo credit: **M. T. Hallworth**'
   image: assets/images/lookingUp.jpg
+output: pdf_document
+layout: single
+permalink: /_pages/getting_started
 sidebar:
-  title: "Get Spatial! Using R as GIS"
-  nav: "SpatialWorkshop"
+  nav: SpatialWorkshop
+  title: Get Spatial! Using R as GIS
+authors: Michael T. Hallworth & Clark S. Rushing
 ---
 <a name="TOP"></a>
 {% include toc title="In This Activity" %}
@@ -32,15 +33,31 @@ You can install or update to the latest version of <a href="https://cloud.r-proj
 
 ## Install required packages 
 Before starting, run the following code to get all the packages we use in the activities / tutorials. 
-```{r echo = FALSE, comment = ""}
-packagesNeeded <- readLines("../DEPENDS.txt")
-pkgs <- paste0(packagesNeeded,collapse = ",")
-pkgs <- gsub(x = pkgs, pattern = ",", replacement = '","')
-cat("install.packages(c(",'"',"devtools",'","',pkgs,'"',"), dependencies = TRUE)",sep="")
+```{r echo = FALSE, comment = "",warning = FALSE}
+#packagesNeeded <- readLines("../DEPENDS.txt")
+#pkgs <- paste0(packagesNeeded,collapse = ",")
+#pkgs <- gsub(x = pkgs, pattern = ",", replacement = '","')
+#cat("install.packages(c(",'"',"devtools",'","',pkgs,'"',"), dependencies = TRUE)",sep="")
+```
+
+```{r, eval = FALSE}
+install.packages(c("devtools","animation","dismo",
+                   "gdalUtils","gstat","ks","leaflet",
+                   "lwgeom","maps","maptools","mapview",
+                   "raster","rasterVis","rgdal","rgeos",
+                   "sf","sp","spatstat","tidyverse","velox"))
+
+if(any(!(pkgs %in% installed.packages()))){
+  install.packages(pkgs[!(pkgs %in% installed.packages())],
+                   dependencies = TRUE)}
 ```
 
 ```{r,echo = FALSE, message = FALSE,warning = FALSE,results='hide'}
-pkgs <- c("devtools","animation","dismo","gdalUtils","gstat","ks","leaflet","lwgeom","maps","maptools","raster","rasterVis","rgdal","rgeos","sf","sp","spatstat","tidyverse","velox")
+pkgs <- c("devtools","animation","dismo",
+          "gdalUtils","gstat","ks","leaflet",
+          "lwgeom","maps","maptools","mapview",
+          "raster","rasterVis","rgdal","rgeos",
+          "sf","sp","spatstat","tidyverse","velox")
 
 if(any(!(pkgs %in% installed.packages()))){install.packages(pkgs[!(pkgs %in% installed.packages())], dependencies = TRUE)}
 ```

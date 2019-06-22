@@ -57,11 +57,11 @@ To complete the following activity you will need the following packages installe
 <strong>spatstat</strong>             
   
 <h4>Installing the packages</h4>     
-If installing these packages for the first time consider adding <code>dependencies=TRUE</code>   
-<code>install.packages("raster")</code>     
-<code>install.packages("sp")</code>        
-<code>install.packages("gstat")</code>   
-<code>install.packages("spatstat")</code> 
+If installing these packages for the first time consider adding <li><code>dependencies=TRUE</code></li>   
+<li><code>install.packages("raster")</code></li>   
+<li><code>install.packages("sp")</code></li>        
+<li><code>install.packages("gstat")</code></li>   
+<li><code>install.packages("spatstat")</code></li> 
 
 </div>
         

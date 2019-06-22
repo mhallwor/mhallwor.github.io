@@ -53,6 +53,7 @@ If installing these packages for the first time consider adding <code>dependenci
 <li><code>install.packages("rgdal",dependencies = TRUE)</code></li>
 <li><code>install.packages("rgeos",dependencies = TRUE)</code></li>
 <li><code>install.packages("sp",dependencies = TRUE)</code></li>
+<li><code>install.packages("mapview",dependencies = TRUE)</code></li>     
 <li><code>install.packages("leaflet",dependencies = TRUE)</code></li>
 <li><code>devtools::install_github("rspatial/dismo")</code></li>
 
@@ -69,7 +70,24 @@ library(raster)
 library(sp)
 library(rgeos)
 library(leaflet)
+library(mapview)
 ```
+
+## Visualization 
+
+Before we get into making static maps we'll cover a basic interactive map. Lots of people rely on ArcMap to view their data or for the ability to scroll through spatial data. The <code>mapview</code> package provides users with a basic, interactive map with several different baselayers with a single line of code. If you're working in RStudio the map will open in the Viewer tab. If working in the console then the map will open in a web browser.
+
+```{r}
+# Coordinates of a mystery location #
+MysteryLocation <- cbind(???71.73,43.94)
+
+# Create a SpatialPoints layer with known crs 
+MysteryLoc <- SpatialPoints(MysteryLocation,proj4=CRS("+init=epsg:4326"))
+
+# create an interactive map to reveal the mystery location 
+mapview(MysteryLoc)
+```
+
 
 ## Making Maps
 

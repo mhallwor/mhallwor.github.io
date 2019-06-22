@@ -45,9 +45,9 @@ To complete the following activity you will need the following packages installe
   
 <h4>Installing the packages</h4>     
 If installing these packages for the first time consider adding <code>dependencies=TRUE</code><br>   
-<code>install.packages("raster")</code>        
-<code>install.packages("sp")</code>        
-<code>install.packages("rgeos")</code>
+<li><code>install.packages("raster")</code></li>       
+<li><code>install.packages("sp")</code></li>         
+<li><code>install.packages("rgeos")</code></li> 
 
 </div>
         
