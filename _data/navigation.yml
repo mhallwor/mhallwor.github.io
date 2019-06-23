@@ -62,8 +62,6 @@ SpatialWorkshop:
       - title: "Making territories"
         url: /_pages/activities_GenerateTerritories
       - title: "Isotope assignments"
-        url: /404
-  - title: "Coming soon"
-    children:
+        url: /_pages/activities_StableIsotopes
       - title: "Interpolation"
         url: /_pages/interpolation
