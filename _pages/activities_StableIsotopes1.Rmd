@@ -40,7 +40,7 @@ padding: 3px 0; width: 500px; margin: auto; box-shadow: 4px 5px gray;">
 <b>Upon completion of this activity, you will:</b>
 <ul>
 <li>know how to <strong>generate isoptope assignments</strong></li>   
-<li>know how to perform basic <strong> raster calculations</strong>
+<li>know how to perform basic <strong> raster calculations</strong></li>
 </ul>
 </div>
 
