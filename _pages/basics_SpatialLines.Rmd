@@ -91,7 +91,7 @@ lines_obj <- sp::Lines(list(line_obj),ID=ID[1])
 firstLine <- sp::SpatialLines(list(lines_obj))
 ```
 
-The code to generat a series of lines from a list of points get's a bit ugly and creating lines from scratch isn't common - at least I haven't done it very often in my work. Here are a few 'easier' ways to create <code>SpatialLine</code> objects.
+The code to generate a series of lines from a list of points gets a bit ugly and creating lines from scratch isn't common - at least I haven't done it very often in my work. Here are a few 'easier' ways to create <code>SpatialLine</code> objects.
 
 First using the <code>sp</code> package again. Here, we'll convert to <code>SpatialPoints</code> then use the <code>as</code> function to convert a <code>SpatialPoints</code> into a <code>SpatialLine</code>
 ```{r}
