@@ -39,6 +39,8 @@ If installing these packages for the first time consider adding <code>dependenci
 <br>
 This activity will integrate spatial data with the tidyverse. See <a href = "{{ site.baseurl }}/_pages/tidyverse_basics" target="_blank">introduction to the tidyverse</a> for more information on the tidyverse.
 
+<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/Tidyverse_intro.R" target="_blank" class="btn btn--info">Download R script</a> `r paste0("Last modified: ",file.mtime("../Rscripts/Tidyverse_intro.R"))`
+
 ## The tidyverse and spatial data
 
 Compared to other data science topics, analysis of spatial data using the tidyverse is relatively underdeveloped. Because the common spatial packages (`sp`, `rgdal`, and `rgeos`) use S4 objects to represent spatial data, they do not play nice with the tidyverse packages (which require data frames). However, the powerful new spatial package `sf` is starting to bridge the divide. `sf` stands for 'Simple Features', which is the open source standard for spatial data used by many GIS software programs. Unlike the other spatial packages, `sf` is built around data frames, so manipulation of `sf` objects is generally more intuitive (relative to S4 objects) even if you don't want to use the tidyverse. However, as we'll see throughout this tutorial, integrating spatial analysis with tidyverse workflows has many advantages. 
@@ -265,5 +267,3 @@ ggplot() +
 There may be many other tweaks we would make before being satisfied with this map but this is not a bad start for just a few lines of code. 
 
 <a href="#TOP">Back to top</a>
-
-<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/Tidyverse_intro.R" target="_blank" class="btn btn--info">Download R script</a> `r paste0("Last modified: ",file.mtime("../Rscripts/Tidyverse_intro.R"))`
