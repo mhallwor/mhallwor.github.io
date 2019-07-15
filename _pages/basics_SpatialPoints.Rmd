@@ -43,13 +43,12 @@ To complete the following activity you will need the following packages installe
 <strong>raster</strong>               
 <strong>sp</strong>     
 <strong>rgeos</strong>        
-  
+
 <h4>Installing the packages</h4>     
 If installing these packages for the first time consider adding <code>dependencies=TRUE</code><br>   
 <li><code>install.packages("raster")</code></li>        
 <li><code>install.packages("sp")</code></li>      
 <li><code>install.packages("rgeos")</code></li>
-
 </div>
         
 <br>
