@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: home1
 author_profile: true
 excerpt: 
 header:
@@ -12,7 +12,9 @@ header:
 
 <i>Research interests: movement ecology, migratory connectivity, population dynamics, migration, and seasonal interactions</i>
 
-In my research I integrate field observations, sophisticated tracking technology, advanced statistical modeling and isotope ecology to address components of the following question: how does movement and behavior shape individuals, populations and communities? Identifying how different phases of the annual cycle interact to shape individual-, population- and community dynamics, is needed to understand how they respond to global change. Revealing the mechanisms underlying wildlife responses to a changing environment requires identifying when and where in the annual cycle populations are limited and where they face the greatest threats.  I use multi-faceted approaches to identify where migratory individuals and populations are throughout the year to determine how the conditions they experience influence life-history and demography.
+<p style="font-size: 12px"; align: "center">
+In my research I integrate field observations, sophisticated tracking technology, advanced statistical modeling and isotope ecology to address components of the following question: <i>how does movement and behavior shape individuals, populations and communities?</i> Identifying how different phases of the annual cycle interact to shape individual-, population- and community dynamics, is needed to understand how they respond to global change. Revealing the mechanisms underlying wildlife responses to a changing environment requires identifying when and where in the annual cycle populations are limited and where they face the greatest threats.  I use multi-faceted approaches to identify where migratory individuals and populations are throughout the year to determine how the conditions they experience influence life-history and demography.
+</p>
 
 <hr style="display: block; border-width: 3px;">
 
@@ -37,10 +39,10 @@ In my research I integrate field observations, sophisticated tracking technology
 <div style="background-color: #ffffe6; border-radius: 25px; text-align:center; vertical-align: middle; padding: 3px 0; margin: auto; width:675px; box-shadow: 4px 5px #f2f2f2;">
 <h4><strong>Take a step into the field:</strong></h4>
 Below are a few videos describing some of my recently published research
- <iframe width="320" height="215"
+ <iframe width="215" height="215"
 src="https://www.youtube.com/embed/wG85QKxkwWM">
 </iframe> 
- <iframe width="320" height="215"
+ <iframe width="215" height="215"
 src="https://www.youtube.com/embed/Qf6leduWgRM">
 </iframe> 
 </div>

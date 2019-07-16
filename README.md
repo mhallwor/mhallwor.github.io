@@ -4,7 +4,7 @@
 
 This website is still in progress. Eventually it'll be my primary website but for now its primary focus is to distribute workshop materials. 
 
-#Get Spatial! Using R as GIS
+<h1>Get Spatial! Using R as GIS</h1>
 ![alt text](https://github.com/mhallwor/mhallwor.github.io/blob/master/assets/images/OVENmove.jpg?raw=true)
 
 ## License
