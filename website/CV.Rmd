@@ -53,6 +53,8 @@ Minor: Chemistry
 
 ### **Publications**
 
+`r paste0("Last modified: ",file.mtime("CV.Rmd"))`
+
 <ol reversed>
 <li>Odom, K. J., E. M. Shank, **M. T. Hallworth**, O. A. Diaz-Marrero and K. E. Omland. <i>in press</i>. Females and males maintain similar sized, stable territories between the breeding and non-breeding seasons in a tropical oriole (<i>Icterus icterus</i>). **Wilson Journal of Ornithology**.</li><br> 
 
