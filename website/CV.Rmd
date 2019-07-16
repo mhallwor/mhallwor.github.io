@@ -5,10 +5,14 @@ header:
   caption: 'Photo credit: **M. T. Hallworth**'
   image: assets/images/lookingUp.jpg
 layout: single
-permalink: /website/CV
-authors: Michael T. Hallworth
+permalink: /_pages/CV
 ---
 <script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
+
+<a name="TOP"></a>
+```{r echo = FALSE}
+knitr::opts_chunk$set(fig.width=10, fig.align = "center")
+```
 
 <center>
 # Michael T. Hallworth, Ph.D.
@@ -52,7 +56,7 @@ Minor: Chemistry
 <ol reversed>
 <li>Odom, K. J., E. M. Shank, **M. T. Hallworth**, O. A. Diaz-Marrero and K. E. Omland. <i>in press</i>. Females and males maintain similar sized, stable territories between the breeding and non-breeding seasons in a tropical oriole (<i>Icterus icterus</i>). **Wilson Journal of Ornithology**.</li><br> 
 
-<li>Brlik, V., J. Kolecek, M. Burgess, S. Hahn, M. Krist, J. Ouwehand, E. L. Weiser, P. Adamik, J. A. Alves, D. Arlt, S. Barisic, D. Becker, E. J. Belda, V. Beran, C. Both, S. P. Bravo, M. Briedis, B. Chutny, D. Cikovic, N. W. Cooper, J. S. Costa, V. R. Cueto, T. Emmenegger, K. Fraser, O. Gilg, M. Guerrero, <b>M. T. Hallworth</b>, C. Hewson, D. Humple, F. Jiguet, J. Johnson, T. Kelly, D. Kishkinev, M. Leconte, T. Lislevand, S. Lisovski, C. Lopez, K. MacFarland, P. P. Marra, S. M. Matsuoka, P. Matyjasiak, C. M. Meier, B.n Metzger, J. S. Monros, R. Neumann, A. Newman, R. Norris, T. Part, V. Pavel, N. Perlut, M. Piha, J. Reneerkens, C. Rimmer, A. Roberto-Charron, C. Scandolara, N. Sokolova, M. Takenaka, D. Tolkmitt, H. van Oosten, A. Wellbrock, H. Wheeler, J. van der Winden, K. Witte, B. Woodworth, P. Procházka. 2019. Weak effects of geolocators on small birds: a meta-analysis controlled for phylogeny and publication bias. <b>Journal of Animal Ecology</b>. 0 0:1-14. https://doi.org/10.1111/1365-2656.12962 <div data-badge-type="donut" data-doi="10.1111/1365-2656.12962" class="altmetric-embed"></div></li><br>
+<li>Brlik, V., J. Kolecek, M. Burgess, S. Hahn, M. Krist, J. Ouwehand, E. L. Weiser, P. Adamik, J. A. Alves, D. Arlt, S. Barisic, D. Becker, E. J. Belda, V. Beran, C. Both, S. P. Bravo, M. Briedis, B. Chutny, D. Cikovic, N. W. Cooper, J. S. Costa, V. R. Cueto, T. Emmenegger, K. Fraser, O. Gilg, M. Guerrero, <b>M. T. Hallworth</b>, C. Hewson, D. Humple, F. Jiguet, J. Johnson, T. Kelly, D. Kishkinev, M. Leconte, T. Lislevand, S. Lisovski, C. Lopez, K. MacFarland, P. P. Marra, S. M. Matsuoka, P. Matyjasiak, C. M. Meier, B.n Metzger, J. S. Monros, R. Neumann, A. Newman, R. Norris, T. Part, V. Pavel, N. Perlut, M. Piha, J. Reneerkens, C. Rimmer, A. Roberto-Charron, C. Scandolara, N. Sokolova, M. Takenaka, D. Tolkmitt, H. van Oosten, A. Wellbrock, H. Wheeler, J. van der Winden, K. Witte, B. Woodworth, P. Prochazka. 2019. Weak effects of geolocators on small birds: a meta-analysis controlled for phylogeny and publication bias. <b>Journal of Animal Ecology</b>. 0 0:1-14. https://doi.org/10.1111/1365-2656.12962 <div data-badge-type="donut" data-doi="10.1111/1365-2656.12962" class="altmetric-embed"></div></li><br>
 
 <li>Van Tatenhove, A., E. Filiberti, N. L. Rodenhouse, T. S. Sillett, and M. T. Hallworth. 2019. Migratory songbird and rodent distribution shifts correspond with spring temperatures in northern temperate forests. <b>Forests</b> https://doi.org/10.3390/f10020084 <div data-badge-type="donut" data-doi="10.3390/f10020084" class="altmetric-embed"></div></li><br>
 
@@ -103,6 +107,8 @@ Minor: Chemistry
 <hr "75%">
 </center>
 
+<a href="#TOP">Back to top</a>
+
 ### **Thesis & Dissertation** 
 
 **Hallworth, M. T.** 2014. The influence of migratory connectivity and seasonal interactions on individual- and population-level dynamics of a long distance migratory bird. Dissertation. George Mason University, Fairfax, VA. Advisors: Peter P. Marra and Larry L. Rockwood
@@ -117,3 +123,21 @@ Minor: Chemistry
 
   Hostetler, J., **M. T. Hallworth** and C. S. Rushing. 2018. MigConnectivity: Estimate Strength of Migratory Connectivity for Migratory Animals. R package version 0.2.5. https://github.com/SMBC-NZP/MigConnectivity v0.2.5 (Version v0.2.5). Zenodo. http://doi.org/10.5281/zenodo.1162943
 
+<a href="#TOP">Back to top</a>
+
+<a href="https://www.researchgate.net/profile/Michael_Hallworth" target="_blank">
+  <img style="float: left; width: 100px; height: 100px; margin-right: 1%; margin-bottom: 0.5em;" src="assets/images/RG.png">
+</a>
+<a href="https://scholar.google.com/citations?user=LdRgZDoAAAAJ&hl=en" target="_blank">
+  <img style="float: left; width: 100px; height: 100px; margin-right: 1%; margin-bottom: 0.5em;" src="assets/images/google-scholar-logo.png">
+</a>
+<a href="https://github.com/MTHallworth" target="_blank">
+  <img style="float: left; width: 100px; height: 100px; margin-right: 1%; margin-bottom: 0.5em;" src="assets/images/github.png">
+</a>
+<a href="https://twitter.com/MTHallworth" target="_blank">
+  <img style="float: left; width: 100px; height: 100px; margin-right: 1%; margin-bottom: 0.5em;" src="assets/images/twitter-icon.png">
+</a>
+<a href="https://orcid.org/0000-0002-6385-3815" target="_blank">
+  <img style="float: left; width: 100px; height: 100px; margin-right: 1%; margin-bottom: 0.5em;" src="assets/images/orcid.png">
+</a>
+<p style="clear: both;">

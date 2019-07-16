@@ -1,13 +1,9 @@
 ---
 author_profile: yes
-excerpt: null
 header:
-  caption: Created in R
-  cta_label: null
-  cta_url: null
-  overlay_filter: 0.3
-  overlay_image: assets/images/OVENmove.jpg
-layout: home1
+  caption: 'Photo credit: **M. T. Hallworth**'
+  image: assets/images/lookingUp.jpg
+layout: single
 ---
 
 <i>Research interests: movement ecology, migratory connectivity, population dynamics, migration, and seasonal interactions</i>
