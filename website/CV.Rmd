@@ -1,24 +1,23 @@
 ---
-title: ''
 classes: wide
 header:
   caption: 'Photo credit: **M. T. Hallworth**'
   image: assets/images/lookingUp.jpg
 layout: single
-permalink: /_pages/CV
+permalink: /website/CV
 ---
 <script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
 
+`r paste0("Last updated: ",file.mtime("CV.Rmd"))`
+
 <a name="TOP"></a>
-```{r echo = FALSE}
-knitr::opts_chunk$set(fig.width=10, fig.align = "center")
-```
 
 <center>
 # Michael T. Hallworth, Ph.D.
 ### _CURRICULUM VITAE_
 </center>
 <hr "100%">
+
 ### **Appointments**
 
 **2019- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;** _Postdoctoral Fellow_ - Northeast Climate Adaptation Science Center, University of Massachusetts, Amherst, MA.      
@@ -52,8 +51,6 @@ Minor: Chemistry
 </center>
 
 ### **Publications**
-
-`r paste0("Last updated: ",file.mtime("CV.Rmd"))`
 
 <ol reversed>
 <li>Odom, K. J., E. M. Shank, **M. T. Hallworth**, O. A. Diaz-Marrero and K. E. Omland. <i>in press</i>. Females and males maintain similar sized, stable territories between the breeding and non-breeding seasons in a tropical oriole (<i>Icterus icterus</i>). **Wilson Journal of Ornithology**.</li><br> 

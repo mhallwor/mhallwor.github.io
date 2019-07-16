@@ -1,13 +1,10 @@
 ---
-layout: home1
-author_profile: true
+layout: single
+classes: wide
 excerpt: 
 header:
   overlay_image: assets/images/lookingUp.jpg
-  overlay_filter: 0.3 # same as adding an opacity of 0.5 to a black background
   caption: 'Photo credit: **M. T. Hallworth**'
-  cta_label:
-  cta_url: 
 ---
 
 <i>Research interests: movement ecology, migratory connectivity, population dynamics, migration, and seasonal interactions</i>
