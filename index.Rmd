@@ -1,0 +1,50 @@
+---
+author_profile: yes
+excerpt: null
+header:
+  caption: Created in R
+  cta_label: null
+  cta_url: null
+  overlay_filter: 0.3
+  overlay_image: assets/images/OVENmove.jpg
+layout: home1
+---
+
+<i>Research interests: movement ecology, migratory connectivity, population dynamics, migration, and seasonal interactions</i>
+
+In my research I integrate field observations, sophisticated tracking technology, advanced statistical modeling and isotope ecology to address components of the following question: how does movement and behavior shape individuals, populations and communities? Identifying how different phases of the annual cycle interact to shape individual-, population- and community dynamics, is needed to understand how they respond to global change. Revealing the mechanisms underlying wildlife responses to a changing environment requires identifying when and where in the annual cycle populations are limited and where they face the greatest threats.  I use multi-faceted approaches to identify where migratory individuals and populations are throughout the year to determine how the conditions they experience influence life-history and demography.
+
+<hr style="display: block; border-width: 3px;">
+
+<div style="background-color: #ffffe6; border-radius: 25px; text-align:center; vertical-align: middle; padding: 3px 0; margin: auto; width:675px; box-shadow: 4px 5px #f2f2f2;">
+<h4><strong>Take a step into the field:</strong></h4>
+Below are a few videos describing some of my recently published research
+ <iframe width="320" height="215"
+src="https://www.youtube.com/embed/wG85QKxkwWM">
+</iframe> 
+ <iframe width="320" height="215"
+src="https://www.youtube.com/embed/Qf6leduWgRM">
+</iframe> 
+</div>
+<br>
+<br>
+
+
+<a href="https://www.researchgate.net/profile/Michael_Hallworth" target="_blank">
+  <img style="float: left; width: 100px; height: 100px; margin-right: 1%; margin-bottom: 0.5em;" src="assets/images/RG.png">
+</a>
+<a href="https://scholar.google.com/citations?user=LdRgZDoAAAAJ&hl=en" target="_blank">
+  <img style="float: left; width: 100px; height: 100px; margin-right: 1%; margin-bottom: 0.5em;" src="assets/images/google-scholar-logo.png">
+</a>
+<a href="https://github.com/MTHallworth" target="_blank">
+  <img style="float: left; width: 100px; height: 100px; margin-right: 1%; margin-bottom: 0.5em;" src="assets/images/github.png">
+</a>
+<a href="https://twitter.com/MTHallworth" target="_blank">
+  <img style="float: left; width: 100px; height: 100px; margin-right: 1%; margin-bottom: 0.5em;" src="assets/images/twitter-icon.png">
+</a>
+<a href="https://orcid.org/0000-0002-6385-3815" target="_blank">
+  <img style="float: left; width: 100px; height: 100px; margin-right: 1%; margin-bottom: 0.5em;" src="assets/images/orcid.png">
+</a>
+<p style="clear: both;">
+
+
