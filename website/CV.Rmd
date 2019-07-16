@@ -43,6 +43,10 @@ Plymouth State University, Plymouth, NH.
 Plymouth State University, Plymouth, NH.
 Minor: Chemistry     
 
+<center>
+<hr "75%">
+</center>
+
 ### **Publications**
 
 <ol reversed>
@@ -68,7 +72,7 @@ Minor: Chemistry
 
 <li>Reitsma, L. R., J. J. Jukosky, A. J. Kimiatek, M. L. Goodnow, and **M. T. Hallworth**. 2018. Extra-pair paternity in a long-distance migratory songbird beyond neighbors' borders and across male age classes. **Canadian Journal of Zoology**. 96:1. 49-54. https://doi.org/10.1139/cjz-2016-0277.<div data-badge-type="donut" data-doi="10.1139/cjz-2016-0277" class="altmetric-embed" data-hide-no-mentions="true"></div> </li><br> 
 
-<li>Haché, S. E.M. Bayne, M.-A. Villard, H. Proctor, C.S. Davis, D. Stralberg, E. Vasi, A. Grossi, J.C. Gorrell, J.K. Janes, **M. T. Hallworth**, K.R. Foster and R. Krikun. 2017. Phylogeography of a migratory songbird across its Canadian breeding range: implications for conservation units. **Ecology and Evolution**. 7:6078-6088. https://doi.org/10.1002/ece3.3170. <div data-badge-type="donut" data-doi="10.1002/ece3.3170" class="altmetric-embed" data-hide-no-mentions="true"></div></li><br> 
+<li>Hache, S. E.M. Bayne, M.A. Villard, H. Proctor, C.S. Davis, D. Stralberg, E. Vasi, A. Grossi, J.C. Gorrell, J.K. Janes, **M. T. Hallworth**, K.R. Foster and R. Krikun. 2017. Phylogeography of a migratory songbird across its Canadian breeding range: implications for conservation units. **Ecology and Evolution**. 7:6078-6088. https://doi.org/10.1002/ece3.3170. <div data-badge-type="donut" data-doi="10.1002/ece3.3170" class="altmetric-embed" data-hide-no-mentions="true"></div></li><br> 
 
 <li> Cooper, N. W., **M. T. Hallworth** and P. P. Marra. 2017. Light-level geolocation reveals wintering distribution, migration routes, and primary stopover locations of an endangered long-distance migratory songbird. **Journal of Avian Biology**. 48:2. 209-219.  <b>Cover article</b>.<div data-badge-type="donut" data-doi="10.1111/jav.01096" class="altmetric-embed" data-hide-no-mentions="true"></div></li><br> 
 
@@ -84,22 +88,30 @@ Minor: Chemistry
 
 <li>**Hallworth, M.**, K. Parent and L. Reitsma 2009. Modified version of the leg harness technique for mounting radio transmitters. **North American Bird Bander**. 34(2): 50-53.</li><br> 
 
-<li>**Hallworth, M.**, A. Ueland, E. Anderson, J.D. Lambert and L. Reitsma. 2008. Habitat selection and site fidelity of the Canada warbler (_Wilsonia canadensis_) in central, New Hampshire. **Auk** 125(4): 880-888.</li><br> 
+<li>**Hallworth, M.**, A. Ueland, E. Anderson, J.D. Lambert and L. Reitsma. 2008. Habitat selection and site fidelity of the Canada warbler ( _Wilsonia canadensis_ ) in central, New Hampshire. **Auk** 125(4): 880-888.</li><br> 
 
-<li>Reitsma L., **M. Hallworth**, P. Benham. 2008. Does age influence territory size, habitat selection and reproductive success of male Canada warblers (_Wilsonia canadensis_) in central New Hampshire? **Wilson Journal of Ornithology** 120(3): 446-454.</li><br> 
+<li>Reitsma L., **M. Hallworth**, P. Benham. 2008. Does age influence territory size, habitat selection and reproductive success of male Canada warblers ( _Wilsonia canadensis_ ) in central New Hampshire? **Wilson Journal of Ornithology** 120(3): 446-454.</li><br> 
 
-<li>**Hallworth, M.**, P. Benham, J. D. Lambert, and L. Reitsma. 2008. Canada warbler (_Wilsonia canadensis_) breeding ecology in young forest stands compared to red maple (_Acer rubrum_) swamp. **Forest Ecology and Management** 255, 1353-58.</li><br> 
+<li>**Hallworth, M.**, P. Benham, J. D. Lambert, and L. Reitsma. 2008. Canada warbler ( _Wilsonia canadensis_ ) breeding ecology in young forest stands compared to red maple ( _Acer rubrum_ ) swamp. **Forest Ecology and Management** 255, 1353-58.</li><br> 
 
 <li>Elander M., A. Blackstone, C. Cleary, H. Clogston, **M. Hallworth**, H. Jardin, J. Kornfeld, K. Parent, Z. Johnson, K. Donahue L. Reitsma, 2006. Community-based conservation in East Africa: a case study of Ndarakwai ranch, Tanzania. **Interdisciplinary Environmental Review** 8(1): 89-95.</li><br> 
 
 <li>Elander M., A. Blackstone, C. Cleary, H. Clogston, **M. Hallworth**, H. Jardin, J. Kornfeld, K. Parent, Z. Johnson, K. Donahue L. Reitsma, 2005 Community-based conservation in East Africa: A case study of western Usambara Mountains, Tanzania. **Interdisciplinary Environmental Review** 7(2): 60-75.</li><br> 
 </ol>
 
+<center>
+<hr "75%">
+</center>
+
 ### **Thesis & Dissertation** 
 
 **Hallworth, M. T.** 2014. The influence of migratory connectivity and seasonal interactions on individual- and population-level dynamics of a long distance migratory bird. Dissertation. George Mason University, Fairfax, VA. Advisors: Peter P. Marra and Larry L. Rockwood
 
 **Hallworth, M**. 2007. The breeding ecology of the Canada warbler in central New Hampshire. Thesis. Plymouth State University, Plymouth, NH. Advisor: Leonard R. Reitsma
+
+<center>
+<hr "75%">
+</center>
 
 ### **Software**
 
