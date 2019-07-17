@@ -69,6 +69,11 @@ If installing these packages for the first time consider adding <code>dependenci
 As a reminder, a raster is a spatially explicit matrix or `grid` where each cell represents a geographic location. Each cell represents a pixel on a surface. The size of each pixel defines the resolution or `res` of raster. The smaller the pixel size the finer the spatial resolution. The `extent` or spatial coverage of a raster is defined by the minima and maxima for both x and y coordinates.
 
 Load the `raster` package if you haven't already done so. If you need to install the `raster` package - see how to do that [here](#install.packages)
+
+```{r, message = FALSE, echo = FALSE, error = FALSE, warning = FALSE}
+if(any(!(c("lwgeom","maptools","gdalUtils") %in% installed.packages()))){install.packages(c("lwgeom","maptools","gdalUtils"))}
+```
+
 ```{r load-raster, message = FALSE, error = FALSE, warning = FALSE}
 # load library
 library(raster)
