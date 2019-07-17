@@ -8,16 +8,16 @@ permalink: /website/news
 ---
 `r paste0("Last updated: ",file.mtime("news.Rmd"))`
 
-<center>
+<div style="text-align:center">
 <h1> 2019 </h1>
 <hr width="75%">
-</center>
+</div>
 
 
-<center>
+<div style="text-align:center">
 <h1> 2018 </h1>
 <hr width="75%">
-</center>
+</div>
 
 <img src="../assets/images/bioletters2018.jpeg" style="float: left; padding: 1%;" alt="" border=1% height=150 width=150></img>
 New paper in <i>Biology Letters</i> describes the annual cycle of a long-distance migratory insect - the Common Green Darner.<br>
@@ -54,10 +54,10 @@ A cautionary tale: inherent limits of light-level geolocation may lead to over-i
 </p>
 <p style="clear: both;">
 
-<center>
+<div style="text-align:center">
 <h1> 2017 </h1>
 <hr width="75%">
-</center>
+</div>
 
 <p style="width: 600px;">
 <img src="../assets/images/jab-kirtlands-cover.jpg" style="float: left; padding: 1%;" alt="" border=1% height=150 width=150></img>
@@ -73,10 +73,10 @@ Our recent Journal of Avian Biology paper was featured in BirdWatching Magazine 
 <br>
 <p style="clear: both;">
 
-<center>
+<div style="text-align:center">
 <h1> 2015 </h1>
 <hr width="75%">
-</center>
+</div>
 
 <p style="width: 600px;">
 <img src="../assets/images/birdwatching_2015.jpg" style="float: left; padding: 1%;" alt="" border=1% height=150 width=150></img>

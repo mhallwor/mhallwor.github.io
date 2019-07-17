@@ -44,7 +44,9 @@ layout: default
 		 {% endif %}
 		  <!-- List authors at the top of the lesson -->
           <span class="post-date">
+		    {% if page.authors %}
            Authors: {{ page.authors | join: ', ' }}<br>
+		    {% endif %}
             {% if page.contributors %}
            Contributors: {{ page.contributors | join: ', ' }}
             {% endif %}   

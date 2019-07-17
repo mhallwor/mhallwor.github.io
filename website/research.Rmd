@@ -6,6 +6,6 @@ header:
 layout: single
 permalink: /website/research
 ---
-<center>
+<div style="text-align:center">
 <h1> Currently under construction </h1>
-</center>
+</div>

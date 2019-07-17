@@ -12,24 +12,24 @@ permalink: /website/CV
 
 <a name="TOP"></a>
 
-<center>
+<div style="text-align:center">
 # Michael T. Hallworth, Ph.D.
 ### _CURRICULUM VITAE_
-</center>
+</div>
 <hr width="100%">
 
-### **Appointments**
+<h2><b>Appointments</b></h2>
 
 **2019- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;** _Postdoctoral Fellow_ - Northeast Climate Adaptation Science Center, University of Massachusetts, Amherst, MA.      
                              
 **2015-2018** _Postdoctoral research associate_ - Smithsonian Conservation Biology Institute - Migratory Bird Center, Washington, D.C.     
                                                                                
 **2014-2015** _Postdoctoral research associate_ - University of Maryland, Baltimore County, Baltimore, MD.						                    Geography & Environmental Systems
-<center>
+<div style="text-align:center">
 <hr "75%">
-</center>
+</div>
 
-### **Education**
+<h2><b>Education</b></h2>
 
 **_Ph.D._**, Environmental Science and Public Policy, 2014.
 George Mason University, Fairfax, VA.    
@@ -45,11 +45,11 @@ Plymouth State University, Plymouth, NH.
 Plymouth State University, Plymouth, NH.
 Minor: Chemistry     
 
-<center>
+<div style="text-align:center">
 <hr width="75%">
-</center>
+</div>
 
-### **Publications**
+<h2><b>Publications</b></h2>
 
 <ol reversed>
 <li>Odom, K. J., E. M. Shank, **M. T. Hallworth**, O. A. Diaz-Marrero and K. E. Omland. <i>in press</i>. Females and males maintain similar sized, stable territories between the breeding and non-breeding seasons in a tropical oriole (<i>Icterus icterus</i>). **Wilson Journal of Ornithology**.</li><br> 
@@ -101,9 +101,9 @@ Minor: Chemistry
 <li>Elander M., A. Blackstone, C. Cleary, H. Clogston, **M. Hallworth**, H. Jardin, J. Kornfeld, K. Parent, Z. Johnson, K. Donahue L. Reitsma, 2005 Community-based conservation in East Africa: A case study of western Usambara Mountains, Tanzania. **Interdisciplinary Environmental Review** 7(2): 60-75.</li><br> 
 </ol>
 
-<center>
+<div style="text-align:center">
 <hr width="75%">
-</center>
+</div>
 
 <a href="#TOP">Back to top</a>
 
@@ -113,9 +113,9 @@ Minor: Chemistry
 
 **Hallworth, M**. 2007. The breeding ecology of the Canada warbler in central New Hampshire. Thesis. Plymouth State University, Plymouth, NH. Advisor: Leonard R. Reitsma
 
-<center>
+<div style="text-align:center">
 <hr width="75%">
-</center>
+</div>
 
 ### **Software**
 

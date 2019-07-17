@@ -1,6 +1,7 @@
 ---
-layout: home
+layout: single
 classes: wide
+author_profile: true
 header:
   overlay_image: assets/images/lookingUp.jpg
   caption: 'Photo credit: **M. T. Hallworth**'
@@ -15,7 +16,7 @@ In my research I integrate field observations, sophisticated tracking technology
 <hr style="display: block; border-width: 3px;">
 
 
-<table style="width: 75%"; align="center">
+<table style="width: 75%" align="center">
 <tr>
 <td>Michael T. Hallworth, Ph.D.</td>
 <td>Ph.D. Envtl Sci. & Public Policy, George Mason University</td>
