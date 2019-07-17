@@ -1,12 +1,14 @@
 animation
 dismo
 gdalUtils
+geosphere
+ggplot2
 gstat
 ks
 leaflet
 lwgeom
-maps
 maptools
+mapview
 raster
 rasterVis
 rgdal
