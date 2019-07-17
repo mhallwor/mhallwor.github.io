@@ -1,14 +1,14 @@
 # main links
 main:
-  - title: "| C.V. |"
+  - title: "C.V."
     url: /website/CV
-  - title: "| Research |"
+  - title: "Research"
     url: /website/research
-  - title: "| Mentorship |"
+  - title: "Mentorship"
     url: /website/mentorship
-  - title: "| News |"
+  - title: "News"
     url: /website/news
-  - title: "| Get Spatial! Using R as GIS |"
+  - title: "Get Spatial! Using R as GIS"
     url: /_pages/welcome
 SpatialWorkshop:
   - title: "Get Spatial! Using R as GIS"

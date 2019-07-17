@@ -3,6 +3,7 @@ classes: wide
 header:
   caption: 'Photo credit: **M. T. Hallworth**'
   image: assets/images/lookingUp.jpg
+  exerpt: 'CURRICULUM VITAE'
 layout: single
 permalink: /website/CV
 ---
@@ -13,7 +14,7 @@ permalink: /website/CV
 <a name="TOP"></a>
 
 <div style="text-align:center">
-<h1><b>Michael T. Hallworth, Ph.D.</b></h1><br>
+<h1><b>Michael T. Hallworth, Ph.D.</b></h1>
 <h2><i>CURRICULUM VITAE</i></h2>
 </div>
 <hr width="100%">
