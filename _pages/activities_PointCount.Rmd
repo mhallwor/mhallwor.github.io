@@ -184,6 +184,11 @@ axis(2,las = 2)
 
 ### Simulate count data 
 We'll simulate occupancy data using a function from Kery & Royle 2016 <a href = "https://www.mbr-pwrc.usgs.gov/pubanalysis/keryroylebook/" target="_blank">Applied Hierarchical Modeling in Ecology</a>. Here we use the simOcc function saving most of the preset values. We just want the count data so I save only the <code>y</code> ouput. 
+
+```{r, echo = FALSE, error = FALSE, message = FALSE, warning = FALSE}
+if(!(c("AHMbook","unmarked") %in% installed.packages())){install.packages(c("AHMbook","unmarked"))}
+```
+
 ```{r, message = FALSE, error = FALSE, warning = FALSE}
 #library(AHMbook)
 #library(unmarked)
