@@ -9,20 +9,20 @@ header:
 
 <i>Research interests: movement ecology, migratory connectivity, population dynamics, migration, and seasonal interactions</i>
 
-<p style="font-size: 12px"; align="justify">
+<p align="justify" style="font-size: 12px">
 In my research I integrate field observations, sophisticated tracking technology, advanced statistical modeling and isotope ecology to address components of the following question: <i>how does movement and behavior shape individuals, populations and communities?</i> Identifying how different phases of the annual cycle interact to shape individual-, population- and community dynamics, is needed to understand how they respond to global change. Revealing the mechanisms underlying wildlife responses to a changing environment requires identifying when and where in the annual cycle populations are limited and where they face the greatest threats.  I use multi-faceted approaches to identify where migratory individuals and populations are throughout the year to determine how the conditions they experience influence life-history and demography.
 </p>
 
-<hr style="display: block; border-width: 3px;">
+<hr style="display: block; border-width: 3px">
 
 
-<table style="width: 75%" align="center">
+<table style="width: 95%" align="center">
 <tr>
-<td>Michael T. Hallworth, Ph.D.</td>
+<td><b>Michael T. Hallworth, Ph.D.</b></td>
 <td>Ph.D. Envtl Sci. & Public Policy, George Mason University</td>
 </tr>
 <tr>
-<td>Postdoctoral Fellow</td>
+<td><i>Postdoctoral Fellow</i></td>
 <td>M.S. Biology, Plymouth State University</td>
 </tr>
 <tr>
@@ -31,21 +31,23 @@ In my research I integrate field observations, sophisticated tracking technology
 </tr>
 </table>
 
-<hr style="display: block; border-width: 3px;">
+<hr style="display: block; border-width: 3px">
 
-<div style="background-color: #ffffe6; border-radius: 25px; text-align:center; vertical-align: middle; padding: 3px 0; margin: auto; width:675px; box-shadow: 4px 5px #f2f2f2;">
+<div style="background-color: #ffffe6; border-radius: 25px; text-align:center; vertical-align: middle; padding: 3px 0; margin: auto; width:85%; box-shadow: 4px 5px #f2f2f2;">
 <h4><strong>Take a step into the field:</strong></h4>
-Below are a few videos describing some of my recently published research
- <iframe width="215" height="215"
+Below are a few videos describing some of my recently published research<br>
+<p style="float: left; font-size: 9pt; text-align: center; width: 48%; margin-right: 1%; margin-bottom: 0.5em">
+ <iframe width="95%" height="95%"
 src="https://www.youtube.com/embed/wG85QKxkwWM">
-</iframe> 
- <iframe width="215" height="215"
+</iframe></p>
+<p style="float: left; font-size: 9pt; text-align: center; width: 48%; margin-right: 1%; margin-bottom: 0.5em">
+ <iframe width="95%" height="95%"
 src="https://www.youtube.com/embed/Qf6leduWgRM">
-</iframe> 
+</iframe></p> 
+<p style="clear: both;">
 </div>
 <br>
 <br>
-
 
 <a href="https://www.researchgate.net/profile/Michael_Hallworth" target="_blank">
   <img style="float: left; width: 100px; height: 100px; margin-right: 1%; margin-bottom: 0.5em;" src="assets/images/RG.png">

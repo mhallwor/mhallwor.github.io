@@ -11,7 +11,7 @@ permalink: /website/mentorship
 </div>
 
 <p style="width: 600px">
-<img src="../assets/images/c_burns.jpg" style="float: left; padding: 1%;" alt="" border=1% height=100 width=200></img>
+<img src="../assets/images/c_burns.jpg" style="float: left; padding: 1%; alt="" border=1% height=100 width=200"></img>
 <h4><b>Christian A. Burns</b></h4>
 Plymouth State University<br>
 external committee member<br>
@@ -45,4 +45,4 @@ NSF-REU</p>
 NSF-REU</p>
 <p style="clear: both;">
 
-<a href="https://aprilcosta.wordpress.com/2013/05/10/a-memory/" target="blank";>Combining science and art</a> - check out this ovenbird piece by a very talented field technician of mine - April Costa
+<a href="https://aprilcosta.wordpress.com/2013/05/10/a-memory/" target="_blank;">Combining science and art</a> - check out this ovenbird piece by a very talented field technician of mine - April Costa

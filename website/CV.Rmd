@@ -13,8 +13,8 @@ permalink: /website/CV
 <a name="TOP"></a>
 
 <div style="text-align:center">
-# Michael T. Hallworth, Ph.D.
-### _CURRICULUM VITAE_
+<h1><b>Michael T. Hallworth, Ph.D.</b></h1><br>
+<h2><i>CURRICULUM VITAE</i></h2>
 </div>
 <hr width="100%">
 
@@ -26,7 +26,7 @@ permalink: /website/CV
                                                                                
 **2014-2015** _Postdoctoral research associate_ - University of Maryland, Baltimore County, Baltimore, MD.						                    Geography & Environmental Systems
 <div style="text-align:center">
-<hr "75%">
+<hr width="75%">
 </div>
 
 <h2><b>Education</b></h2>
@@ -52,53 +52,53 @@ Minor: Chemistry
 <h2><b>Publications</b></h2>
 
 <ol reversed>
-<li>Odom, K. J., E. M. Shank, **M. T. Hallworth**, O. A. Diaz-Marrero and K. E. Omland. <i>in press</i>. Females and males maintain similar sized, stable territories between the breeding and non-breeding seasons in a tropical oriole (<i>Icterus icterus</i>). **Wilson Journal of Ornithology**.</li><br> 
+<li>Odom, K. J., E. M. Shank, <b>M. T. Hallworth</b>, O. A. Diaz-Marrero and K. E. Omland. <i>in press</i>. Females and males maintain similar sized, stable territories between the breeding and non-breeding seasons in a tropical oriole (<i>Icterus icterus</i>). <b>Wilson Journal of Ornithology</b>.</li><br> 
 
 <li>Brlik, V., J. Kolecek, M. Burgess, S. Hahn, M. Krist, J. Ouwehand, E. L. Weiser, P. Adamik, J. A. Alves, D. Arlt, S. Barisic, D. Becker, E. J. Belda, V. Beran, C. Both, S. P. Bravo, M. Briedis, B. Chutny, D. Cikovic, N. W. Cooper, J. S. Costa, V. R. Cueto, T. Emmenegger, K. Fraser, O. Gilg, M. Guerrero, <b>M. T. Hallworth</b>, C. Hewson, D. Humple, F. Jiguet, J. Johnson, T. Kelly, D. Kishkinev, M. Leconte, T. Lislevand, S. Lisovski, C. Lopez, K. MacFarland, P. P. Marra, S. M. Matsuoka, P. Matyjasiak, C. M. Meier, B.n Metzger, J. S. Monros, R. Neumann, A. Newman, R. Norris, T. Part, V. Pavel, N. Perlut, M. Piha, J. Reneerkens, C. Rimmer, A. Roberto-Charron, C. Scandolara, N. Sokolova, M. Takenaka, D. Tolkmitt, H. van Oosten, A. Wellbrock, H. Wheeler, J. van der Winden, K. Witte, B. Woodworth, P. Prochazka. 2019. Weak effects of geolocators on small birds: a meta-analysis controlled for phylogeny and publication bias. <b>Journal of Animal Ecology</b>. 0 0:1-14. https://doi.org/10.1111/1365-2656.12962 <div data-badge-type="donut" data-doi="10.1111/1365-2656.12962" class="altmetric-embed"></div></li><br>
 
-<li>Van Tatenhove, A., E. Filiberti, N. L. Rodenhouse, T. S. Sillett, and M. T. Hallworth. 2019. Migratory songbird and rodent distribution shifts correspond with spring temperatures in northern temperate forests. <b>Forests</b> https://doi.org/10.3390/f10020084 <div data-badge-type="donut" data-doi="10.3390/f10020084" class="altmetric-embed"></div></li><br>
+<li>Van Tatenhove, A., E. Filiberti, N. L. Rodenhouse, T. S. Sillett, and <b>M. T. Hallworth</b>. 2019. Migratory songbird and rodent distribution shifts correspond with spring temperatures in northern temperate forests. <b>Forests</b> https://doi.org/10.3390/f10020084 <div data-badge-type="donut" data-doi="10.3390/f10020084" class="altmetric-embed"></div></li><br>
 
 <li>Jahn, A. E., J. Cereghetti, V. R. Cueto, <b>M. T. Hallworth</b> D. J. Levey, M. A. Marini, D. Masson, M. A. Pizo, J. H. Sarasola, and D. T. Tuero. 2019. Breeding latitude predicts timing but not rate of spring migration in a widespread migratory bird in South America. <b>Ecology and Evolution</b>. https://doi.org/10.1002/ece3.5159 <div data-badge-type="donut" data-doi="10.1002/ece3.5159" class="altmetric-embed"></div> </li> <br> 
 
-<li>Lisovski, S., S. Bauer, M. Briedis, S. C. Davidson, K. L. Dhanjal-Adams, **M. T. Hallworth**, J. Karagicheva, C. M. Meier, B. Merkel, J. Ouwehand, L. Pedersen, E. Rakhimberdiev, A. Roberto-Charron, N. E. Seavy, M. D. Sumner, C. M. Taylor, S. J. Wotherspoon, and E. S. Bridge. 2019. Light-level geolocator analyses: A user's guide. <b>Journal of Animal Ecology</b>. https://doi.org/10.1111/1365-2656.13036 <div data-badge-type="donut" data-doi="10.1111/1365-2656.13036" class="altmetric-embed"></div> </li> <br> 
+<li>Lisovski, S., S. Bauer, M. Briedis, S. C. Davidson, K. L. Dhanjal-Adams, <b>M. T. Hallworth</b>, J. Karagicheva, C. M. Meier, B. Merkel, J. Ouwehand, L. Pedersen, E. Rakhimberdiev, A. Roberto-Charron, N. E. Seavy, M. D. Sumner, C. M. Taylor, S. J. Wotherspoon, and E. S. Bridge. 2019. Light-level geolocator analyses: A user's guide. <b>Journal of Animal Ecology</b>. https://doi.org/10.1111/1365-2656.13036 <div data-badge-type="donut" data-doi="10.1111/1365-2656.13036" class="altmetric-embed"></div> </li> <br> 
 
-<li>Tonra, C. M., **M. T. Hallworth**, T. J. Boves, L. P. Bulluck, M. Johnson, C. Viverette, E. M. Ames, A. Matthews, J. Resse, M. C. Slevin, R. R. Wilson and E. I. Johnson. 2019. Range-wide migratory connectivity estimation reveals concentration of a widespread breeding population in few critically important nonbreeding locations. **Journal of Avian Biology**. <i>Editor's choice</i> <div data-badge-type="donut" data-doi="10.1093/condor/duz019" class="altmetric-embed"></div> </li> <br> 
+<li>Tonra, C. M., <b>M. T. Hallworth</b>, T. J. Boves, L. P. Bulluck, M. Johnson, C. Viverette, E. M. Ames, A. Matthews, J. Resse, M. C. Slevin, R. R. Wilson and E. I. Johnson. 2019. Range-wide migratory connectivity estimation reveals concentration of a widespread breeding population in few critically important nonbreeding locations. <b>Journal of Avian Biology</b>. <i>Editor's choice</i> <div data-badge-type="donut" data-doi="10.1093/condor/duz019" class="altmetric-embed"></div> </li> <br> 
 
-<li>**Hallworth, M. T.**, P. P. Marra, K. E. McFarland, S. Zahendra and C. E. Studds. 2018. Tacking dragons: Stable isotopes reveal the annual cycle of a long-distance migratory insect. **Biology Letters**. **Cover article** <div data-badge-type="donut" data-doi="10.1098/rsbl.2018.0741" class="altmetric-embed"></div> </li><br> 
+<li><b>Hallworth, M. T.</b>, P. P. Marra, K. E. McFarland, S. Zahendra and C. E. Studds. 2018. Tacking dragons: Stable isotopes reveal the annual cycle of a long-distance migratory insect. <b>Biology Letters</b>. <i>Cover article</i><div data-badge-type="donut" data-doi="10.1098/rsbl.2018.0741" class="altmetric-embed"></div> </li><br> 
 
-<li>Cohen, E. B., C. R. Rushing, F. R. Moore, **M. T. Hallworth**, J. A. Hostetler, M. Gutierrez Ramirez and P. P. Marra. 2018. Spatial and temporal en route migratory connectivity of three Nearctic-Neotropical species through the Gulf Of Mexico region. **Ecography**.<div data-badge-type="donut" data-doi="10.1111/ecog.03974" class="altmetric-embed"></div> </li><br>   
+<li>Cohen, E. B., C. R. Rushing, F. R. Moore, <b>M. T. Hallworth</b>, J. A. Hostetler, M. Gutierrez Ramirez and P. P. Marra. 2018. Spatial and temporal en route migratory connectivity of three Nearctic-Neotropical species through the Gulf Of Mexico region. <b>Ecography</b>.<div data-badge-type="donut" data-doi="10.1111/ecog.03974" class="altmetric-embed"></div> </li><br>   
 
-<li>Lisovski, S., H. Schmaljohann, E. S. Bridge, S. Bauer, A. Farnsworth , S. A. Gauthreaux, Jr., S. Hahn, **M. T. Hallworth**, C. M. Hewson, J. F. Kelly, F. Liechti, P. P. Marra, E. Rakhimberdiev, J. D. Ross, N. E. Seavy, M. D. Sumner, C. M. Taylor, D. W. Winkler, S. J. Wotherspoon, and M. B. Wunder. Inherent limits of light-level geolocation may lead to over-interpretations (Comment on Streby et al. (2015) Tornadic Storm Avoidance Behavior in Breeding Songbirds. Curr. Biol. 25, R98-R102.). 2018. **Current Biology**. 28:3. R99-R100.<div data-badge-type="donut" data-doi="10.1016/j.cub.2017.11.072" class="altmetric-embed"></div> </li><br>        
+<li>Lisovski, S., H. Schmaljohann, E. S. Bridge, S. Bauer, A. Farnsworth , S. A. Gauthreaux, Jr., S. Hahn, <b>M. T. Hallworth</b>, C. M. Hewson, J. F. Kelly, F. Liechti, P. P. Marra, E. Rakhimberdiev, J. D. Ross, N. E. Seavy, M. D. Sumner, C. M. Taylor, D. W. Winkler, S. J. Wotherspoon, and M. B. Wunder. Inherent limits of light-level geolocation may lead to over-interpretations (Comment on Streby et al. (2015) Tornadic Storm Avoidance Behavior in Breeding Songbirds. Curr. Biol. 25, R98-R102.). 2018. <b>Current Biology</b>. 28:3. R99-R100.<div data-badge-type="donut" data-doi="10.1016/j.cub.2017.11.072" class="altmetric-embed"></div> </li><br>        
 
-<li>Cohen, E. B., J. Hostetler, **M. T. Hallworth**, C. Rushing, T. S. Sillett and P. P. Marra. 2018. A quantitative definition for the strength of migratory connectivity. **Methods in Ecology and Evolution**. 9:3. 513-524.<div data-badge-type="donut" data-doi="10.1111/2041-210X.12916" class="altmetric-embed"></div></li><br> 
+<li>Cohen, E. B., J. Hostetler, <b>M. T. Hallworth</b>, C. Rushing, T. S. Sillett and P. P. Marra. 2018. A quantitative definition for the strength of migratory connectivity. <b>Methods in Ecology and Evolution</b>. 9:3. 513-524.<div data-badge-type="donut" data-doi="10.1111/2041-210X.12916" class="altmetric-embed"></div></li><br> 
 
-<li>Reitsma, L. R., J. J. Jukosky, A. J. Kimiatek, M. L. Goodnow, and **M. T. Hallworth**. 2018. Extra-pair paternity in a long-distance migratory songbird beyond neighbors' borders and across male age classes. **Canadian Journal of Zoology**. 96:1. 49-54. https://doi.org/10.1139/cjz-2016-0277.<div data-badge-type="donut" data-doi="10.1139/cjz-2016-0277" class="altmetric-embed" data-hide-no-mentions="true"></div> </li><br> 
+<li>Reitsma, L. R., J. J. Jukosky, A. J. Kimiatek, M. L. Goodnow, and <b>M. T. Hallworth</b>. 2018. Extra-pair paternity in a long-distance migratory songbird beyond neighbors' borders and across male age classes. <b>Canadian Journal of Zoology</b>. 96:1. 49-54. https://doi.org/10.1139/cjz-2016-0277.<div data-badge-type="donut" data-doi="10.1139/cjz-2016-0277" class="altmetric-embed" data-hide-no-mentions="true"></div> </li><br> 
 
-<li>Hache, S. E.M. Bayne, M.A. Villard, H. Proctor, C.S. Davis, D. Stralberg, E. Vasi, A. Grossi, J.C. Gorrell, J.K. Janes, **M. T. Hallworth**, K.R. Foster and R. Krikun. 2017. Phylogeography of a migratory songbird across its Canadian breeding range: implications for conservation units. **Ecology and Evolution**. 7:6078-6088. https://doi.org/10.1002/ece3.3170. <div data-badge-type="donut" data-doi="10.1002/ece3.3170" class="altmetric-embed" data-hide-no-mentions="true"></div></li><br> 
+<li>Hache, S. E.M. Bayne, M.A. Villard, H. Proctor, C.S. Davis, D. Stralberg, E. Vasi, A. Grossi, J.C. Gorrell, J.K. Janes, <b>M. T. Hallworth</b>, K.R. Foster and R. Krikun. 2017. Phylogeography of a migratory songbird across its Canadian breeding range: implications for conservation units. <b>Ecology and Evolution</b>. 7:6078-6088. https://doi.org/10.1002/ece3.3170. <div data-badge-type="donut" data-doi="10.1002/ece3.3170" class="altmetric-embed" data-hide-no-mentions="true"></div></li><br> 
 
-<li> Cooper, N. W., **M. T. Hallworth** and P. P. Marra. 2017. Light-level geolocation reveals wintering distribution, migration routes, and primary stopover locations of an endangered long-distance migratory songbird. **Journal of Avian Biology**. 48:2. 209-219.  <b>Cover article</b>.<div data-badge-type="donut" data-doi="10.1111/jav.01096" class="altmetric-embed" data-hide-no-mentions="true"></div></li><br> 
+<li> Cooper, N. W., <b>M. T. Hallworth</b> and P. P. Marra. 2017. Light-level geolocation reveals wintering distribution, migration routes, and primary stopover locations of an endangered long-distance migratory songbird. <b>Journal of Avian Biology</b>. 48:2. 209-219.  <b>Cover article</b>.<div data-badge-type="donut" data-doi="10.1111/jav.01096" class="altmetric-embed" data-hide-no-mentions="true"></div></li><br> 
 
-<li>**Hallworth, M. T.** and P. P. Marra. 2015. Miniaturized GPS Tags Identify Non-breeding territories of a small breeding migratory songbird. **Scientific Reports**. 5:11069. doi:10.1038/srep11069.<div data-badge-type="donut" data-doi="10.1038/srep11069" class="altmetric-embed" data-hide-no-mentions="true"></div></li><br> 
+<li><b>Hallworth, M. T.</b> and P. P. Marra. 2015. Miniaturized GPS Tags Identify Non-breeding territories of a small breeding migratory songbird. <b>Scientific Reports</b>. 5:11069. doi:10.1038/srep11069.<div data-badge-type="donut" data-doi="10.1038/srep11069" class="altmetric-embed" data-hide-no-mentions="true"></div></li><br> 
 
-<li>**Hallworth, M. T.**, T. S. Sillett, S. J. Van Wilgenburg, K. A. Hobson and P. P. Marra. 2015. Migratory connectivity of a Neotropical migratory songbird revealed using archival light-level geolocators. **Ecological Applications**. http://dx.doi.org/10.1890/14-0195.1 <div data-badge-type="donut" data-doi="10.1890/14-0195.1" class="altmetric-embed" data-hide-no-mentions="true"></div></li><br> 
+<li><b>Hallworth, M. T.</b>, T. S. Sillett, S. J. Van Wilgenburg, K. A. Hobson and P. P. Marra. 2015. Migratory connectivity of a Neotropical migratory songbird revealed using archival light-level geolocators. <b>Ecological Applications</b>. http://dx.doi.org/10.1890/14-0195.1 <div data-badge-type="donut" data-doi="10.1890/14-0195.1" class="altmetric-embed" data-hide-no-mentions="true"></div></li><br> 
 
-<li>**Hallworth, M. T.**, C. E. Studds, T. S. Sillett and P. P. Marra. 2013. Do archival light-level geolocators and stable-hydrogen isotopes provide comparable estimates of breeding ground origin? **Auk** 130(2): 273-282.<div data-badge-type="donut" data-doi="10.1525/auk.2013.13037" class="altmetric-embed" data-hide-no-mentions="true"></div></li><br> 
+<li><b>Hallworth, M. T.</b>, C. E. Studds, T. S. Sillett and P. P. Marra. 2013. Do archival light-level geolocators and stable-hydrogen isotopes provide comparable estimates of breeding ground origin? <b>Auk</b> 130(2): 273-282.<div data-badge-type="donut" data-doi="10.1525/auk.2013.13037" class="altmetric-embed" data-hide-no-mentions="true"></div></li><br> 
 
-<li>**Hallworth, M. T.**, L. Reitsma and K. Parent. 2011. Habitat- and spatial use of the Louisiana Waterthrush during the non-breeding season in the Caribbean National Forest, Puerto Rico. **Wilson Journal of Ornithology** 123(3): 567-574.</li><br> 
+<li><b>Hallworth, M. T.</b>, L. Reitsma and K. Parent. 2011. Habitat- and spatial use of the Louisiana Waterthrush during the non-breeding season in the Caribbean National Forest, Puerto Rico. <b>Wilson Journal of Ornithology</b> 123(3): 567-574.</li><br> 
 
-<li>Reitsma, L, M. Goodnow, **M. T. Hallworth** and C. J. Conway. 2010. Canada Warbler (_Wilsonia canadensis_), The Birds of North America Online (A. Poole, Ed.). Ithaca: Cornell Lab of Ornithology</li><br> 
+<li>Reitsma, L, M. Goodnow, <b>M. T. Hallworth</b> and C. J. Conway. 2010. Canada Warbler (<i>Wilsonia canadensis</i>), The Birds of North America Online (A. Poole, Ed.). Ithaca: Cornell Lab of Ornithology</li><br> 
 
-<li>**Hallworth, M.**, K. Parent and L. Reitsma 2009. Modified version of the leg harness technique for mounting radio transmitters. **North American Bird Bander**. 34(2): 50-53.</li><br> 
+<li><b>Hallworth, M.</b>, K. Parent and L. Reitsma 2009. Modified version of the leg harness technique for mounting radio transmitters. <b>North American Bird Bander</b>. 34(2): 50-53.</li><br> 
 
-<li>**Hallworth, M.**, A. Ueland, E. Anderson, J.D. Lambert and L. Reitsma. 2008. Habitat selection and site fidelity of the Canada warbler ( _Wilsonia canadensis_ ) in central, New Hampshire. **Auk** 125(4): 880-888.</li><br> 
+<li><b>Hallworth, M.</b>, A. Ueland, E. Anderson, J.D. Lambert and L. Reitsma. 2008. Habitat selection and site fidelity of the Canada warbler (<i>Wilsonia canadensis</i>) in central, New Hampshire. <b>Auk</b> 125(4): 880-888.</li><br> 
 
-<li>Reitsma L., **M. Hallworth**, P. Benham. 2008. Does age influence territory size, habitat selection and reproductive success of male Canada warblers ( _Wilsonia canadensis_ ) in central New Hampshire? **Wilson Journal of Ornithology** 120(3): 446-454.</li><br> 
+<li>Reitsma L., <b>M. Hallworth</b>, P. Benham. 2008. Does age influence territory size, habitat selection and reproductive success of male Canada warblers (<i>Wilsonia canadensis</i>) in central New Hampshire? <b>Wilson Journal of Ornithology</b> 120(3): 446-454.</li><br> 
 
-<li>**Hallworth, M.**, P. Benham, J. D. Lambert, and L. Reitsma. 2008. Canada warbler ( _Wilsonia canadensis_ ) breeding ecology in young forest stands compared to red maple ( _Acer rubrum_ ) swamp. **Forest Ecology and Management** 255, 1353-58.</li><br> 
+<li><b>Hallworth, M.</b>, P. Benham, J. D. Lambert, and L. Reitsma. 2008. Canada warbler (<i>Wilsonia canadensis</i>) breeding ecology in young forest stands compared to red maple (<i>Acer rubrum</i>) swamp. <b>Forest Ecology and Management</b> 255, 1353-58.</li><br> 
 
-<li>Elander M., A. Blackstone, C. Cleary, H. Clogston, **M. Hallworth**, H. Jardin, J. Kornfeld, K. Parent, Z. Johnson, K. Donahue L. Reitsma, 2006. Community-based conservation in East Africa: a case study of Ndarakwai ranch, Tanzania. **Interdisciplinary Environmental Review** 8(1): 89-95.</li><br> 
+<li>Elander M., A. Blackstone, C. Cleary, H. Clogston, <b>M. Hallworth</b>, H. Jardin, J. Kornfeld, K. Parent, Z. Johnson, K. Donahue L. Reitsma, 2006. Community-based conservation in East Africa: a case study of Ndarakwai ranch, Tanzania. <b>Interdisciplinary Environmental Review</b> 8(1): 89-95.</li><br> 
 
-<li>Elander M., A. Blackstone, C. Cleary, H. Clogston, **M. Hallworth**, H. Jardin, J. Kornfeld, K. Parent, Z. Johnson, K. Donahue L. Reitsma, 2005 Community-based conservation in East Africa: A case study of western Usambara Mountains, Tanzania. **Interdisciplinary Environmental Review** 7(2): 60-75.</li><br> 
+<li>Elander M., A. Blackstone, C. Cleary, H. Clogston, <b>M. Hallworth</b>, H. Jardin, J. Kornfeld, K. Parent, Z. Johnson, K. Donahue L. Reitsma, 2005 Community-based conservation in East Africa: A case study of western Usambara Mountains, Tanzania. <b>Interdisciplinary Environmental Review</b> 7(2): 60-75.</li><br> 
 </ol>
 
 <div style="text-align:center">
@@ -109,9 +109,9 @@ Minor: Chemistry
 
 ### **Thesis & Dissertation** 
 
-**Hallworth, M. T.** 2014. The influence of migratory connectivity and seasonal interactions on individual- and population-level dynamics of a long distance migratory bird. Dissertation. George Mason University, Fairfax, VA. Advisors: Peter P. Marra and Larry L. Rockwood
+<b>Hallworth, M. T.</b> 2014. The influence of migratory connectivity and seasonal interactions on individual- and population-level dynamics of a long distance migratory bird. Dissertation. George Mason University, Fairfax, VA. Advisors: Peter P. Marra and Larry L. Rockwood
 
-**Hallworth, M**. 2007. The breeding ecology of the Canada warbler in central New Hampshire. Thesis. Plymouth State University, Plymouth, NH. Advisor: Leonard R. Reitsma
+<b>Hallworth, M</b>. 2007. The breeding ecology of the Canada warbler in central New Hampshire. Thesis. Plymouth State University, Plymouth, NH. Advisor: Leonard R. Reitsma
 
 <div style="text-align:center">
 <hr width="75%">
@@ -119,7 +119,7 @@ Minor: Chemistry
 
 ### **Software**
 
-  Hostetler, J., **M. T. Hallworth** and C. S. Rushing. 2018. MigConnectivity: Estimate Strength of Migratory Connectivity for Migratory Animals. R package version 0.2.5. https://github.com/SMBC-NZP/MigConnectivity v0.2.5 (Version v0.2.5). Zenodo. http://doi.org/10.5281/zenodo.1162943
+  Hostetler, J., <b>M. T. Hallworth</b> and C. S. Rushing. 2018. MigConnectivity: Estimate Strength of Migratory Connectivity for Migratory Animals. R package version 0.2.5. https://github.com/SMBC-NZP/MigConnectivity v0.2.5 (Version v0.2.5). Zenodo. http://doi.org/10.5281/zenodo.1162943
 
 <a href="#TOP">Back to top</a>
 
