@@ -19,7 +19,7 @@ Thesis: Breeding productivity and migratory connectivity in Canada Warblers (<i>
 </p>
 <br>
 
-<hr "65%"; style="display: block; border-width: 3px;">
+<hr width="65%"; style="display: block; border-width: 3px;">
 
 <center>
 <h1> <u>Undergraduate Students & Independent Projects</u> </h1>

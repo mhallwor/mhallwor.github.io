@@ -1,7 +1,6 @@
 ---
-layout: single
+layout: home
 classes: wide
-excerpt: 
 header:
   overlay_image: assets/images/lookingUp.jpg
   caption: 'Photo credit: **M. T. Hallworth**'
@@ -9,7 +8,7 @@ header:
 
 <i>Research interests: movement ecology, migratory connectivity, population dynamics, migration, and seasonal interactions</i>
 
-<p style="font-size: 12px"; align: "center">
+<p style="font-size: 12px"; align="justify">
 In my research I integrate field observations, sophisticated tracking technology, advanced statistical modeling and isotope ecology to address components of the following question: <i>how does movement and behavior shape individuals, populations and communities?</i> Identifying how different phases of the annual cycle interact to shape individual-, population- and community dynamics, is needed to understand how they respond to global change. Revealing the mechanisms underlying wildlife responses to a changing environment requires identifying when and where in the annual cycle populations are limited and where they face the greatest threats.  I use multi-faceted approaches to identify where migratory individuals and populations are throughout the year to determine how the conditions they experience influence life-history and demography.
 </p>
 

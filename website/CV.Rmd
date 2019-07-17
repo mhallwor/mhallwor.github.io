@@ -16,7 +16,7 @@ permalink: /website/CV
 # Michael T. Hallworth, Ph.D.
 ### _CURRICULUM VITAE_
 </center>
-<hr "100%">
+<hr width="100%">
 
 ### **Appointments**
 
@@ -30,7 +30,6 @@ permalink: /website/CV
 </center>
 
 ### **Education**
-
 
 **_Ph.D._**, Environmental Science and Public Policy, 2014.
 George Mason University, Fairfax, VA.    
@@ -47,7 +46,7 @@ Plymouth State University, Plymouth, NH.
 Minor: Chemistry     
 
 <center>
-<hr "75%">
+<hr width="75%">
 </center>
 
 ### **Publications**
@@ -103,7 +102,7 @@ Minor: Chemistry
 </ol>
 
 <center>
-<hr "75%">
+<hr width="75%">
 </center>
 
 <a href="#TOP">Back to top</a>
@@ -115,7 +114,7 @@ Minor: Chemistry
 **Hallworth, M**. 2007. The breeding ecology of the Canada warbler in central New Hampshire. Thesis. Plymouth State University, Plymouth, NH. Advisor: Leonard R. Reitsma
 
 <center>
-<hr "75%">
+<hr width="75%">
 </center>
 
 ### **Software**
@@ -125,18 +124,18 @@ Minor: Chemistry
 <a href="#TOP">Back to top</a>
 
 <a href="https://www.researchgate.net/profile/Michael_Hallworth" target="_blank">
-  <img style="float: left; width: 100px; height: 100px; margin-right: 1%; margin-bottom: 0.5em;" src="assets/images/RG.png">
+  <img style="float: left; width: 100px; height: 100px; margin-right: 1%; margin-bottom: 0.5em;" src="../assets/images/RG.png">
 </a>
 <a href="https://scholar.google.com/citations?user=LdRgZDoAAAAJ&hl=en" target="_blank">
-  <img style="float: left; width: 100px; height: 100px; margin-right: 1%; margin-bottom: 0.5em;" src="assets/images/google-scholar-logo.png">
+  <img style="float: left; width: 100px; height: 100px; margin-right: 1%; margin-bottom: 0.5em;" src="../assets/images/google-scholar-logo.png">
 </a>
 <a href="https://github.com/MTHallworth" target="_blank">
-  <img style="float: left; width: 100px; height: 100px; margin-right: 1%; margin-bottom: 0.5em;" src="assets/images/github.png">
+  <img style="float: left; width: 100px; height: 100px; margin-right: 1%; margin-bottom: 0.5em;" src="../assets/images/github.png">
 </a>
 <a href="https://twitter.com/MTHallworth" target="_blank">
-  <img style="float: left; width: 100px; height: 100px; margin-right: 1%; margin-bottom: 0.5em;" src="assets/images/twitter-icon.png">
+  <img style="float: left; width: 100px; height: 100px; margin-right: 1%; margin-bottom: 0.5em;" src="../assets/images/twitter-icon.png">
 </a>
 <a href="https://orcid.org/0000-0002-6385-3815" target="_blank">
-  <img style="float: left; width: 100px; height: 100px; margin-right: 1%; margin-bottom: 0.5em;" src="assets/images/orcid.png">
+  <img style="float: left; width: 100px; height: 100px; margin-right: 1%; margin-bottom: 0.5em;" src="../assets/images/orcid.png">
 </a>
 <p style="clear: both;">
