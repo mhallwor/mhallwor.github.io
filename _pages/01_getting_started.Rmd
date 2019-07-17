@@ -4,7 +4,6 @@ classes: wide
 header:
   caption: 'Photo credit: **M. T. Hallworth**'
   image: assets/images/lookingUp.jpg
-output: pdf_document
 layout: single
 permalink: /_pages/getting_started
 sidebar:
