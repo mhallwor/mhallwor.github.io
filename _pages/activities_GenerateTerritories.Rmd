@@ -67,6 +67,10 @@ If installing these packages for the first time consider adding <code>dependenci
 If you work with marked populations or have telemetry-like data you may be interested in constructing territories with either a minimum convex polygon or using kernel density estimation. This activity will illustrate how to go from GPS coordinates of locations for individuals to a territories using both minimum convex polygons and kernel density estimates.
 
 We'll use location data from a marked population of Ovenbirds breeding at Hubbard Brook Experimental Forest in New Hampshire. The data used in this activity are real data collected in 2012 - we may encounter some hic-cups along the way - we'll sort them out as/if we encouter them. 
+```{r echo = FALSE, message = FALSE, warning = FALSE}
+if(!("ks" %in% installed.packages())){install.packages("ks")}
+```
+
 ```{r warning = FALSE, error = FALSE, message = FALSE}
 library(raster)
 library(sp)
