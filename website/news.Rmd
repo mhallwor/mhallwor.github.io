@@ -6,6 +6,13 @@ header:
   exerpt: 'News'
 layout: single
 permalink: /website/news
+sidebar:
+  - title: "Title"
+    image: http://placehold.it/350x250
+    image_alt: "image"
+    text: "Some text here."
+  - title: "Another Title"
+    text: "More text here."
 ---
 `r paste0("Last updated: ",strptime(file.mtime("news.Rmd"),format = "%Y-%m-%d"))`
 
@@ -26,6 +33,7 @@ Media coverage:<br>
 <a href="https://www.washingtonpost.com/science/2018/12/21/theres-huge-hidden-migration-america-dragonflies/?noredirect=on&utm_term=.a50553f19b15" target="_blank">The Washington Post</a><br>
 <a href="https://www.sciencenews.org/article/green-darner-dragonflies-migrate-bit-monarch-butterflies" target="_blank">ScienceNews</a><br>
 <a href="https://www.smithsonianmag.com/smart-news/dragonfly-undertakes-epic-multi-generational-migration-each-year-180971190/" target="blank">Smithsonain.com</a><br>
+<a href="https://phys.org/news/2018-12-1000s-miles-scientists-mystery-dragonfly.html" target="_blank">Phys.org</a><br>
 <a href="https://www.atlasobscura.com/articles/do-dragonflies-migrate" target="_blank">Atlas Obscura</a><br>
 <a href="https://www.mnn.com/earth-matters/animals/blogs/it-takes-this-dragonfly-three-generations-to-complete-annual-migration" target="_blank">MNN Earth Matters</a><br>
 <a href="https://news.theceomagazine.com/news/scientists-have-discovered-green-darner-dragonflies-take-three-generations-to-complete-migration/" target="_blank">CEO magazine</a><br>
