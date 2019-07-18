@@ -1,5 +1,4 @@
 ---
-title: "CURRICULUM VITAE"
 classes: wide
 header:
   caption: 'Photo credit: **M. T. Hallworth**'
@@ -32,17 +31,17 @@ author_profile: true
 
 <h2><b>Education</b></h2>
 
-<p style="text-indent: -2em; margin-left: 2em">**_Ph.D._**, Environmental Science and Public Policy, 2014.
+<p style="text-indent: -2em; margin-left: 2em"><b>Ph.D.</b>, Environmental Science and Public Policy, 2014.
 George Mason University, Fairfax, VA.</p>    
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Advisors: Dr. Peter P. Marra & Dr. Larry Rockwood
 
-<p style="text-indent: -2em; margin-left: 2em">**_M.S._**, Biology, 2007.
+<p style="text-indent: -2em; margin-left: 2em"><b>M.S.</b>, Biology, 2007.
 Plymouth State University, Plymouth, NH.</p>     
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Advisor: Dr. Leonard Reitsma
 
-<p style="text-indent: -2em; margin-left: 2em">**_B.S._**, Biology, 2004.
+<p style="text-indent: -2em; margin-left: 2em"><b>B.S.</b>, Biology, 2004.
 Plymouth State University, Plymouth, NH.</p>
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Minor: Chemistry     
@@ -52,7 +51,7 @@ Plymouth State University, Plymouth, NH.</p>
 <ol reversed>
 <li><p style="text-indent: -2em; margin-left: 2em">Odom, K. J., E. M. Shank, <b>M. T. Hallworth</b>, O. A. Diaz-Marrero and K. E. Omland. <i>in press</i>. Females and males maintain similar sized, stable territories between the breeding and non-breeding seasons in a tropical oriole (<i>Icterus icterus</i>). <b>Wilson Journal of Ornithology</b>.</p></li><br> 
 
-<li><p style="text-indent: -2em; margin-left: 2em">Brlik, V., J. Kolecek, M. Burgess, S. Hahn, M. Krist, J. Ouwehand, E. L. Weiser, P. Adamik, J. A. Alves, D. Arlt, S. Barisic, D. Becker, E. J. Belda, V. Beran, C. Both, S. P. Bravo, M. Briedis, B. Chutny, D. Cikovic, N. W. Cooper, J. S. Costa, V. R. Cueto, T. Emmenegger, K. Fraser, O. Gilg, M. Guerrero, <b>M. T. Hallworth</b>, C. Hewson, D. Humple, F. Jiguet, J. Johnson, T. Kelly, D. Kishkinev, M. Leconte, T. Lislevand, S. Lisovski, C. Lopez, K. MacFarland, P. P. Marra, S. M. Matsuoka, P. Matyjasiak, C. M. Meier, B.n Metzger, J. S. Monros, R. Neumann, A. Newman, R. Norris, T. Part, V. Pavel, N. Perlut, M. Piha, J. Reneerkens, C. Rimmer, A. Roberto-Charron, C. Scandolara, N. Sokolova, M. Takenaka, D. Tolkmitt, H. van Oosten, A. Wellbrock, H. Wheeler, J. van der Winden, K. Witte, B. Woodworth, P. Prochazka. 2019. Weak effects of geolocators on small birds: a meta-analysis controlled for phylogeny and publication bias. <b>Journal of Animal Ecology</b>. 0 0:1-14. https://doi.org/10.1111/1365-2656.12962</p><div data-badge-type="donut" data-doi="10.1111/1365-2656.12962" class="altmetric-embed"></div></a></li><br>
+<li><p style="text-indent: -2em; margin-left: 2em">Brlik, V., J. Kolecek, M. Burgess, S. Hahn, M. Krist, J. Ouwehand, E. L. Weiser, P. Adamik, J. A. Alves, D. Arlt, S. Barisic, D. Becker, E. J. Belda, V. Beran, C. Both, S. P. Bravo, M. Briedis, B. Chutny, D. Cikovic, N. W. Cooper, J. S. Costa, V. R. Cueto, T. Emmenegger, K. Fraser, O. Gilg, M. Guerrero, <b>M. T. Hallworth</b>, C. Hewson, D. Humple, F. Jiguet, J. Johnson, T. Kelly, D. Kishkinev, M. Leconte, T. Lislevand, S. Lisovski, C. Lopez, K. MacFarland, P. P. Marra, S. M. Matsuoka, P. Matyjasiak, C. M. Meier, B.n Metzger, J. S. Monros, R. Neumann, A. Newman, R. Norris, T. Part, V. Pavel, N. Perlut, M. Piha, J. Reneerkens, C. Rimmer, A. Roberto-Charron, C. Scandolara, N. Sokolova, M. Takenaka, D. Tolkmitt, H. van Oosten, A. Wellbrock, H. Wheeler, J. van der Winden, K. Witte, B. Woodworth, P. Prochazka. 2019. Weak effects of geolocators on small birds: a meta-analysis controlled for phylogeny and publication bias. <b>Journal of Animal Ecology</b>. 0 0:1-14. https://doi.org/10.1111/1365-2656.12962</p><div data-badge-type="donut" data-doi="10.1111/1365-2656.12962" class="altmetric-embed"></div></li><br>
 
 <li><p style="text-indent: -2em; margin-left: 2em">Van Tatenhove, A., E. Filiberti, N. L. Rodenhouse, T. S. Sillett, and <b>M. T. Hallworth</b>. 2019. Migratory songbird and rodent distribution shifts correspond with spring temperatures in northern temperate forests. <b>Forests</b> https://doi.org/10.3390/f10020084 </p><div data-badge-type="donut" data-doi="10.3390/f10020084" class="altmetric-embed"></div></li><br>
 
