@@ -9,7 +9,7 @@ permalink: /website/CV
 ---
 <script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
 
-`r paste0("Last updated: ",file.mtime("CV.Rmd"))`
+`r paste0("Last updated: ",strptime(file.mtime("CV.Rmd"),format = "%Y-%m-%d"))`
 
 <a name="TOP"></a>
 

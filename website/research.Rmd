@@ -7,6 +7,8 @@ header:
 layout: single
 permalink: /website/research
 ---
+`r paste0("Last updated: ",strptime(file.mtime("research.Rmd"),format = "%Y-%m-%d"))`
+
 <div style="text-align:center">
 <h1> Currently under construction </h1>
 </div>
