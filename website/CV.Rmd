@@ -2,7 +2,7 @@
 classes: wide
 header:
   caption: 'Photo credit: **M. T. Hallworth**'
-  image: assets/images/lookingUp.jpg
+  image: assets/images/beaverpond.jpg
   exerpt: 'CURRICULUM VITAE'
 layout: single
 permalink: /website/CV
