@@ -9,3 +9,14 @@
 	box-shadow: .2em .2em .1em #ccc;
 	border-radius: 1em;
 }
+
+.container{
+    border: 1px solid #ccc;
+    text-align: center;
+}
+.category{
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+}

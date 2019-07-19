@@ -1,12 +1,12 @@
 ---
+author_profile: yes
 classes: wide
 header:
   caption: 'Photo credit: **M. T. Hallworth**'
+  exerpt: CURRICULUM VITAE
   image: assets/images/beaverpond.JPG
-  exerpt: 'CURRICULUM VITAE'
 layout: single
 permalink: /website/CV
-author_profile: true
 ---
 <script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
 
@@ -45,6 +45,28 @@ Plymouth State University, Plymouth, NH.</p>
 Plymouth State University, Plymouth, NH.</p>
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Minor: Chemistry     
+
+<h2><b>Teaching</b></h2>
+Ecological Responses to Climate Change (ECO 691E)  - University of Massachusetts Amherst - Fall 2019<br>
+Get spatial! Using R as GIS - 2018, 2019<br>
+Modelling Occupancy and Abundance - Guest lecture - University of Delaware - 2016<br>
+Light-level geolocation using open source tools - workshop co-instructor - 2015<br>
+Spatial Patterns in Richness and Abundance - Guest lecture - University of Maryland, Baltimore County - 2015<br>
+Entomology & Wildlife Ecology R Lunch - University of Delaware - 2015<br>
+Modeling Occupancy and Abundance - lecture - Smithsonian Conservation Biology Institute - 2015v
+Modeling Occupancy and Abundance - lab - Smithsonian Conservation Biology Institute - 2015<br>
+Spatial Analyses in R - Guest lecture - University of Maryland, Baltimore County - 2015<br>
+R markdown - Guest lecture - University of Maryland, Baltimore County - 2015<br>
+New Technologies in the study of migration - lecture - Smithsonian Conservation Biology Institute - 2014, 2015<br>
+Geolocator Analysis - lab - Smithsonian Conservation Biology Institute - 2014,2015<br>
+Geolocator Analysis - lab - University of Maryland, Baltimore County - 2014<br>
+Principles in Ecology and Evolution - lab (BIOL 308) - George Mason University - 2012-2013<br>
+Ecology - lab (BIOL 307) - George Mason University - 2009-2011<br>
+Human Anatomy and Physiology - lab (BIOL 124) - George Mason University - 2008<br>
+Tropical Ecology - co-taught course in Puerto Rico - Plymouth State University - 2008<br>
+Introduction to Biology -lecture (BIOL 1010) - Plymouth State University - 2007<br>
+Field Ecology for High School Teachers - co-instructor - New England Institute for Landscape Ecology - 2005,2006<br>
+
 
 <h2><b>Publications</b></h2>
 
