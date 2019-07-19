@@ -1,0 +1,21 @@
+---
+---
+
+@import "{{ site.theme }}";
+#objectives{
+	background-color: #d4eff7;
+	padding:1.3em;
+	font-size:.9em;
+	box-shadow: .2em .2em .1em #ccc;
+	border-radius: 1em;
+}
+
+.container {
+  text-align: center;
+}
+
+.category {
+  display: inline-block;
+  margin: 1em 1em 1em 1em;
+  padding: 1em;
+}

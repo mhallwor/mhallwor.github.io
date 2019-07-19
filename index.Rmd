@@ -1,0 +1,50 @@
+---
+classes: wide
+header:
+  caption: 'Photo credit: **M. T. Hallworth**'
+  overlay_image: assets/images/lookingUp.jpg
+layout: single
+author_profile: true
+---
+
+<i>Research interests: movement ecology, migratory connectivity, population dynamics, migration, and seasonal interactions</i>
+
+<p align="justify" style="font-size: 12pt">
+In my research I integrate field observations, sophisticated tracking technology, advanced statistical modeling and isotope ecology to address components of the following question: <i>how does movement and behavior shape individuals, populations and communities?</i> Identifying how different phases of the annual cycle interact to shape individual-, population- and community dynamics, is needed to understand how they respond to global change. Revealing the mechanisms underlying wildlife responses to a changing environment requires identifying when and where in the annual cycle populations are limited and where they face the greatest threats.  I use multi-faceted approaches to identify where migratory individuals and populations are throughout the year to determine how the conditions they experience influence life-history and demography.
+</p>
+
+<hr style="display: block; border-width: 3px">
+
+
+<table style="width: 95%; border: none" align="center">
+<tr>
+<td><b>Michael T. Hallworth, Ph.D.</b></td>
+<td>Ph.D. Envtl Sci. & Public Policy, George Mason University</td>
+</tr>
+<tr>
+<td><i>Postdoctoral Fellow</i></td>
+<td>M.S. Biology, Plymouth State University</td>
+</tr>
+<tr>
+<td>Northeast Climate Adaptation Science Center</td>
+<td>B.S. Biology, Plymouth State University</td>
+</tr>
+</table>
+
+<hr style="display: block; border-width: 3px">
+
+
+<h2 align="center"><strong>Take a step into the field:</strong></h2>
+<p style="text-align: center">Below are a few videos describing some of my recently published research</p><br>
+<p style="float: left; font-size: 9pt; text-align: center; width: 50%;  margin-left: 1% margin-right: 1%; margin-bottom: 0.5em">
+ <iframe width="95%" height="95%"
+src="https://www.youtube.com/embed/wG85QKxkwWM">
+</iframe></p>
+<p style="float: left; font-size: 9pt; text-align: center; width: 50%; margin-left: 1% margin-right: 1%; margin-bottom: 0.5em">
+ <iframe width="95%" height="95%"
+src="https://www.youtube.com/embed/Qf6leduWgRM">
+</iframe></p>
+<p style="clear: both;">
+<br>
+
+

@@ -1,0 +1,56 @@
+---
+title: "Strong winds have blown you off course"
+header:
+  caption: 'Photo credit: **M. T. Hallworth**'
+  image: assets/images/lookingUp.jpg
+last_modified_at: 2018-04-04T11:00:19-4:00
+layout: single
+permalink: /404
+sidebar:
+  nav: SpatialWorkshop
+  title: Get Spatial! Using R as GIS
+classes: wide
+---
+
+<img src="../assets/images/wind404.gif" style="width:10in; align:center"> 
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, eval = FALSE, echo = FALSE}
+v <- raster::stack("C:/Users/HallworthM/Desktop/vwnd.sig995.2017.nc")
+u <- raster::stack("C:/Users/HallworthM/Desktop/uwnd.sig995.2017.nc")
+
+data(wrld_simpl, package = "maptools")
+
+oldExtent <- raster::extent(v)
+oldExtent[1]<-((oldExtent[1]+180)/360)-180
+oldExtent[2]<-((oldExtent[2]+180)/360)+180
+v <- raster::setExtent(v,ext=oldExtent)
+u <- raster::setExtent(u,ext=oldExtent)
+raster::crs(u)<-raster::crs(v)<-sp::CRS("+init=epsg:4326")
+d <- seq(1,1460,4)
+library(animation)
+## Make GIF to show how it changes by month
+#library(animation)
+ani.options(convert="C:\\Program Files\\ImageMagick-6.9.7-Q16-HDRI\\convert.exe",nmax=410,interval=0.1)
+cols<-colorRampPalette(c("NA","gray","yellow","red"))
+saveGIF({
+for(i in d){
+par(mar=c(0,0,0,0))
+raster::plot(wrld_simpl,col = "gray88",border = "white")
+raster::plot(sqrt(v[[i]]^2+u[[i]]^2),alpha = 0.3,add = TRUE,legend = FALSE,breaks =c(seq(0,25,1),100),col=cols(26))
+}
+}, movie.name="C:/Users/hallworthm/Google_Drive/mhallwor.github.io/assets/images/wind404.gif")
+```
+
+```{r eval = FALSE, echo = FALSE}
+library(rasterVis)
+z <- sqrt(u[[1]]^2 + v[[1]]^2)
+phi <- raster::overlay(x=u[[1]],y=v[[1]],fun=function(x,y){atan2(-x, y)})
+r2 <- brick(z,phi)
+rasterVis::vectorplot(r2*10, isField = "dXY", region=TRUE, narrows=10000,at = 0:100,par.settings = rasterTheme(region = rev(sp::bpy.colors(20))),col = "gray88",length = 0.0001,lwd.arrows=0.01)+layer(sp.polygons(wrld_simpl))
+plot(wrld_simpl,add = TRUE)
+```

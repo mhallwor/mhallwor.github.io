@@ -1,0 +1,295 @@
+---
+title: "R basics"
+authors: "Michael T. Hallworth"
+contributors: "Clark S. Rushing & Matt Boone"
+layout: single
+classes: wide
+permalink: /_pages/R_basics
+header:
+  caption: 'Photo credit: **M. T. Hallworth**'
+  image: assets/images/lookingUp.jpg
+sidebar:
+  title: "Get Spatial! Using R as GIS"
+  nav: "SpatialWorkshop"
+---
+<a name="TOP"></a>
+```{r echo = FALSE}
+knitr::opts_chunk$set(fig.width=10)
+```
+{% include toc title="In This Activity" %}
+
+# Getting started in R
+
+## Obtaining R packages 
+
+Packages are a suite of functions that are packaged together. There are a few places where packages are stored. [CRAN]("https://cran.r-project.org/web/packages/index.html") is the primary place where packages are held. [GitHub]("https://github.com/") is another place where packages / code is stored and can be accessed in R. Other online repositories such as [Bioconductor]("https://www.bioconductor.org/packages/release/bioc/") also exist. 
+
+Here is one way to get a package.
+```{r eval = FALSE}
+install.packages(pkgs = c("devtools"), dependencies = TRUE)
+```
+
+In order to get packages from Github you also need the `devtools` package.
+```{r eval = FALSE}
+devtools::install_github("Username/repository")
+```
+
+## Loading packages
+In order to use the functions within packages you first need to load the library into the working environment. Note that functions are loaded into the working environment in the order you load them into R. Sometimes packages use the same name for functions that do very different things. If for example package A has a function called 'toLetter' and package B also has a function called 'toLetter' the order in which you load the packages into R will determine which 'toLetter' function is called first. 
+
+```{r, warning = FALSE, message = FALSE}
+library(raster)
+```
+When sharing code with other people it's good etiquette to place the library where the function comes from before the function call. This reduces the likelihood that functions are masked by other packages. Placing the package before the function ensures the correct function is used. The syntax below means "use the shapefile function found in the raster package" to read in the shapefile found at "path/to/shapefile"
+
+```{r eval = FALSE}
+raster::shapefile("path/to/shapefile")
+```
+
+<a href="#TOP">back to top</a>
+
+## Reading in data
+There are several ways to read data into R. Perhaps the most commonly used is the `read.csv` function which is a special function within the `read.table` function. 
+```{r eval = FALSE}
+# comma-separated
+objname <- read.csv("path/to/file", sep = ",")
+
+#tab-separated
+objname <- read.table("path/to/file", sep = "\t") 
+```
+
+
+# Introduction to R
+
+### Basics 
+
+[R]("https://www.r-project.org/") is a language and a suite of software for programming, data analysis and graphics.
+
+**R** is used interchangeably to refer to be the program and the programming language
+
+### R Studio
+
+[RStudio](https://www.rstudio.com/") is a graphical user interface where users interact with R. It's a great way to use and learn R programming language. There are many benefits of using RStudio, too many to list here but here are a few. First, RStudio allows users to see and explore variables that are loaded within the working environment. Second, searching for help files is very easy. Third, all aspects of R (scripts, console, plots, & github terminal) are easily accessible and visible. 
+
+<a href="#TOP">back to top</a>
+
+## Data Classes in R
+
+R has 5 main data types but there are many that are available. Data classes tell R what objects are in the environment and set the operations that are availble for that object. The main data types are:    
+1) **Numeric**    
+2) **Integer**    
+3) **Character**    
+4) **Factor**    
+5) **Logical**
+
+Let's dive into each of the above data classes and see what they look like in R. In the next few sections you'll see some examples of the different data classes. We'll be using the `str` function which shows the structure of an object in R. 
+
+### Numeric
+Let's see what happens when we add numbers into R. 
+```{r}
+1
+1.1
+0.314
+```
+
+Let's have a closer look at the structure (`str`) of a numeric variable in R.
+```{r}
+str(1)
+```
+
+Below we define an object in R. We'll provide the object with a name (in this case 'x') and a value (0.314).
+```{r}
+x <- 0.314
+```
+
+We can then print the object to the console and see what it contains. We can do that a few ways. First, we can just type the object name and then run the code or we can use the `print` function.
+```{r}
+x
+print(x)
+```
+Let's double check that the object `x` is numeric. 
+```{r}
+str(x)
+```
+
+### Integers   
+Integers are also numeric but integers are whole numbers with no decimal. 
+```{r}
+y <- 5
+str(y)
+y <- as.integer(5)
+str(y)
+```
+
+### Character    
+Character data classes are letters - they have no numeric value associated with them. The "" or '' notation tells R that you are assigning something to a character and not calling an object. *note - you can assign numbers to class character*
+
+```{r}
+str('Radar')
+```
+
+What would happen if you forget to use the '' or "" when assigning a character? 
+
+```{r eval = FALSE}
+str(Radar)
+```
+
+### Factor
+Factors are character strings that have some sort of order. For example, days of the week (Sunday, Monday, Tues, etc.). In this case, the characters represent objects with an inherent value. 
+
+```{r}
+days_of_week <- factor(c("Sunday","Monday","Tuesday","Wednesday",
+                         "Thursday","Friday","Saturday"))
+
+str(days_of_week)
+
+levels(days_of_week)
+```
+
+Notice that the levels aren't how we specified them. What is the default order in R? 
+
+If we want the factor levels to be in the order we specified we can use the following code. We can explicitly tell R what the levels are and the order of the levels. 
+
+```{r}
+days_of_week <- factor(c("Sunday","Monday","Tuesday","Wednesday",
+                         "Thursday","Friday","Saturday"),
+                       levels = c("Sunday","Monday","Tuesday","Wednesday",
+                         "Thursday","Friday","Saturday"))
+
+levels(days_of_week)
+```
+
+### Logical 
+Logical is TRUE or FALSE. There are only two possible states, yes or no, on or off. R understands a few different ways to specify a logical. They can be represented in three ways, T or F for True and False, TRUE or FALSE and 1 or 0. 
+```{r}
+is.logical(TRUE)
+is.logical(T)
+as.logical(c(1,0,1,0,0))
+```
+
+<a href="#TOP">back to top</a>
+
+## Data Types
+R has four main data types. These are structural types that data can be stored in. They are defined by if they take more than class type and the dimensions of the data.
+
+### Vectors
+Vectors are one dimensional data sets where the only dimension is length. They can only consist of a single data class (Numeric,Character,Logical,etc). Vectors are created using the <code>c()</code> syntax.
+
+```{r}
+c(1,2,3,4,5)
+
+c("Ovenbird","American Redstart","Black-throated Blue Warbler")
+```
+
+If data class types are mixed within a vector, R attempts to coherse the data into a class that all elements have in common. For example, if we combine a numeric element with two character elements R will convert the numeric element into a character. 
+```{r}
+c("Ovenbird",1,2,"American Redstart")
+
+str(c("Ovenbird",1,2,"American Redstart"))
+```
+
+### Matrix / array
+Matrices are two dimensional containers where all data have the same data type. The dimensions are rows and columns. Array's are multi-dimensional matrices where all data are the same data type. The dimensions of an array can take many forms but at the very least they have rows and columns. In fact, matrices are a special form of an array - array with only two dimensions.
+
+```{r}
+mat <- matrix(1:100, nrow = 10, ncol = 10, byrow = TRUE)
+str(mat)
+mat
+```
+
+This is a good place to stop and talk a little bit about R syntax. In matrices and arrays we can refer to positions within the matrix/array by using square brackets **[row,column]**. The left position within the square brackets refers to the row and the right refers to the column. **data[row,column]**
+
+Let's pull out the value within the second row and first column
+```{r}
+mat[2,1]
+```
+
+You can get all values within a row by leaving the column position empty and vise versa.
+```{r}
+# Let's get all the values in the 10th row
+mat[10,]
+
+# all the values in 10th column
+mat[,10]  
+```
+
+### Array 
+Arrays are multi-dimensional matrices. All data needs to be of the same <code>data.class</code>. Think of arrays as stacked matrices.
+
+```{r}
+# dim = c(rows,columns,dimension)
+array.data <- array(1:100, dim = c(5,2,2)) 
+
+str(array.data)
+array.data
+```
+
+You can pull out the elements within a multi-dimensional array using the **[row,column,dimension]** syntax. 
+```{r}
+# get all columns from 3rd row, 2nd dimension
+array.data[3,,2] 
+```
+
+### Data.frames
+Data.frames have two dimensions where each column has the same data class but columns can differ in their data type. Therefore, data.frames can contain more than one type of data. 
+
+In the below example we combine a character, an integer and a numeric into a single data container called a data.frame. 
+
+```{r}
+xx <- data.frame(id = c("a","b","c","d","e"),
+                 vals = 1:5,
+                 values = 1.1:5.1)
+str(xx)
+```
+
+Note - naming of columns within a data.frame can become a little unwieldy if you're not careful. By default the columns are named by the input. 
+
+In the example below we're not as diligent as we were in the example above. You can see how this can get pretty ugly fast.
+```{r}
+xy <- data.frame(seq(1,100,by = 1),
+                 rep(2,100),
+                 log(seq(1,100,by = 1)))
+str(xy)
+```
+
+We can supply names afer the data.frame is created. 
+```{r}
+colnames(xy)<-c("class","test","values")
+str(xy)
+```
+
+This becomes important for a few reasons. First, readability and second because we can access data using the column names. To extract data from a data.frame using column names we can use the **\$** operator. **data.frame\$variable**. Below we extract the variable we called 'values' above. 
+
+```{r}
+# first 5 values
+xy$values[1:5] 
+```
+You can also use the **[row,column]** syntax as well to extract data from a data.frame
+```{r}
+# first 5 values of 3rd column
+xy[1:5,3] 
+```
+### Lists
+Lists are containers for other data types. Lists can contain any data.type and can be any dimension. You can name lists in the same way as column names in data.frames. You can think of lists as a storage container - sort of like a tackle box or jewlery box for you data. Each element of a list can be a different size / type of data. For example, you can store data.frames, arrays, vectors and spatial data in single list. Lists can be complicated at first and getting the exact element of a list you want can take some practice. However, once you get the hang of lists you can do a lot of powerful things with them because they are so flexible. 
+
+```{r}
+list.data <- list(id = 1:5,
+                  names = c("Dr. Seuss","Cat in the hat"),
+                  DataFrame = data.frame(starttimes = rnorm(10),
+                                         endtimes = runif(10,20,30)))
+```
+```{r}
+str(list.data)
+list.data
+```
+Accessing data stored within lists can be a little tricky.    
+Here is an example of how to extract the 5th element of starttime in the DataFrame object in our list.data object. 
+```{r}
+list.data[[3]][5,1]
+list.data[[3]]$starttime[5]
+list.data$DataFrame$starttime[5]
+```
+
+<a href="#TOP">back to top</a>
+
+<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/R_basics.R" target="_blank" class="btn btn--info">Download R script</a> `r paste0("Last modified: ",file.mtime("../Rscripts/R_basics.R"))`

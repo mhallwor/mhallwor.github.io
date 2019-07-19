@@ -1,0 +1,75 @@
+# main links
+main:
+  - title: "C.V."
+    url: /website/CV
+  - title: "Research"
+    url: /website/research
+  - title: "Mentorship"
+    url: /website/mentorship
+  - title: "News"
+    url: /website/news
+  - title: "Get Spatial! Using R as GIS"
+    url: /_pages/welcome
+SpatialWorkshop:
+  - title: "Get Spatial! Using R as GIS"
+    children:
+      - title: "Welcome to Get Spatial!"
+        url: /_pages/welcome
+      - title: "System setup"
+        url: /_pages/getting_started
+      - title: "Schedule"
+        url: /_pages/breakdown_AOS19AK
+  - title: "R resources"
+    children:
+      - title: "R syntax"
+        url: /_pages/R_basics
+      - title: "The tidyverse"
+        url: /_pages/tidyverse_basics
+  - title: "Spatial data"
+    children:
+      - title: "Where to get spatial data"	
+        url: /_pages/whereToGetData
+  - title: "The basics"
+    children:
+      - title: "Points"
+        url: /_pages/basics_SpatialPoints
+      - title: "Polygons"
+        url: /_pages/basics_SpatialPolygons
+      - title: "Lines"
+        url: /_pages/basics_SpatialLines
+      - title: "Rasters"
+        url: /_pages/basics_Rasters
+      - title: "Spatial data & the tidyverse"
+        url: /_pages/Tidyverse_intro
+  - title: "Projecting data"
+    children:
+      - title: "Projecting data"
+        url: /_pages/projections
+  - title: "Spatial Predicates"
+    children:
+      - title: "Spatial Predicates"
+        url: /_pages/spatial_predicates
+      - title: "Spatial Predicates (tidyverse)"
+        url: /_pages/BBS_tidyverse
+  - title: "Making Maps"
+    children:
+      - title: "Making Maps"
+        url: /_pages/MakingMaps
+  - title: "Moving beyond the basics"
+    children:
+      - title: "Extracting Raster Values"
+        url: /_pages/activities_ExtractingRasterValues
+      - title: "Advanced Rasters"
+        url: /_pages/advanced_Rasters
+      - title: "Raster Calculations"
+        url: /404
+  - title: "Activities"
+    children:
+      - title: "Point Counts"
+        url: /_pages/activities_PointCount
+      - title: "Making territories"
+        url: /_pages/activities_GenerateTerritories
+      - title: "Isotope assignments"
+        url: /_pages/activities_StableIsotopes
+      - title: "Interpolation"
+        url: /_pages/interpolation

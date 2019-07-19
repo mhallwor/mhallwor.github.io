@@ -1,0 +1,102 @@
+---
+title: "System installation"
+classes: wide
+header:
+  caption: 'Photo credit: **M. T. Hallworth**'
+  image: assets/images/lookingUp.jpg
+layout: single
+permalink: /_pages/getting_started
+sidebar:
+  nav: SpatialWorkshop
+  title: Get Spatial! Using R as GIS
+authors: Michael T. Hallworth & Clark S. Rushing
+---
+<a name="TOP"></a>
+{% include toc title="In This Activity" %}
+
+```{r echo = FALSE}
+knitr::opts_chunk$set(fig.width=10)
+```
+
+Welcome to Get Spatial! Before working through the set of activities it's best to have a recent version of R and RStudio. 
+
+For reference, these activities were written using `r sessionInfo()[[1]]$version.string` on a Windows machine (`r sessionInfo()[[2]]`)
+
+<div style="background-color:rgba(0, 0, 0, 0.0470588); border-radius: 25px; text-align:center; vertical-align: middle; padding:3px 0; width: 600px; margin: auto; box-shadow: 4px 5px gray;">
+<h2>Update R and RStudio</h2>
+You can install or update to the latest version of <a href="https://cloud.r-project.org/"><code>R</code>here</a> and <a href="https://www.rstudio.com/products/rstudio/download/">RStudio here</a>
+</div>
+<br>
+<br>
+<a name="install.packages"></a>
+
+## Install required packages 
+Before starting, run the following code to get all the packages we use in the activities / tutorials. 
+```{r echo = FALSE, comment = "",warning = FALSE}
+#packagesNeeded <- readLines("../DEPENDS.txt")
+#pkgs <- paste0(packagesNeeded,collapse = ",")
+#pkgs <- gsub(x = pkgs, pattern = ",", replacement = '","')
+#cat("install.packages(c(",'"',"devtools",'","',pkgs,'"',"), dependencies = TRUE)",sep="")
+```
+
+```{r, eval = FALSE}
+install.packages(c("devtools","animation","dismo",
+                   "gdalUtils","geosphere","ggplot2",
+                   "gstat","ks","leaflet","lwgeom",
+                   "maptools","mapview","raster",
+                   "rasterVis","rgdal","rgeos","sf",
+                   "sp","spatstat","tidyverse","velox"), dependencies = TRUE)
+
+if(any(!(pkgs %in% installed.packages()))){
+  install.packages(pkgs[!(pkgs %in% installed.packages())],
+                   dependencies = TRUE)}
+```
+
+```{r,echo = FALSE, message = FALSE,warning = FALSE,results='hide'}
+pkgs <- c("devtools","animation","dismo",
+          "gdalUtils","geosphere","ggplot2",
+          "gstat","ks","leaflet","lwgeom",
+          "maptools","mapview","raster",
+          "rasterVis","rgdal","rgeos","sf",
+          "sp","spatstat","tidyverse","velox")
+
+if(any(!(pkgs %in% installed.packages()))){install.packages(pkgs[!(pkgs %in% installed.packages())], dependencies = TRUE)}
+```
+
+We also need some newer versions of packages that are only available on GitHub. Once you run the above code and/or have the <code>devtools</code> package you can get the required functions by running the following:
+```{r eval = FALSE}
+devtools::install_github("tidyverse/rlang", build_vignettes = TRUE)
+devtools::install_github("tidyverse/ggplot2")
+```
+
+<a href="#TOP">Back to top</a>
+
+## On Mac 
+Download [GDAL](https://trac.osgeo.org/gdal/wiki/DownloadingGdalBinaries) and install the .dmg file. 
+
+Download the `rgdal` package from CRAN [found here](https://cran.r-project.org/web/packages/rgdal/index.html).
+
+Place the downloaded rgdal_1.2-16.tgz in your Desktop folder
+
+Run `install.packages("~/Desktop/rgdal_1.2-16.tgz", repos=NULL)`
+
+Install `raster` and `sp` by running: `install.packages(c("sp","raster"),dependencies = TRUE)`
+<br>
+<hr>
+
+<a href="#TOP">Back to top</a>
+
+## Correct installation
+```{r,warning = FALSE}
+library(raster)
+library(sp)
+library(rgeos)
+library(rgdal)
+```
+
+Running Windows and interested in MODIS data? You will need <strong>OSGeo4W</strong> ([available for download here](https://trac.osgeo.org/osgeo4w/)) because it comes with a HDF4 driver.
+
+
+*Setup instructions are based on a very helpful [post by Nick Eubank](http://www.nickeubank.com/wp-content/uploads/2015/10/RGIS1_SpatialDataTypes_part0_setup.html)*
+
+<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/getting_started.R" target="_blank" class="btn btn--info">Download R script</a> `r paste0("Last modified: ",file.mtime("../Rscripts/getting_started.R"))`
