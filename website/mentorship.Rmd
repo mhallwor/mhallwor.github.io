@@ -15,12 +15,10 @@ permalink: /website/mentorship
 <img src="../assets/images/c_burns.jpg" style="width: 100%"><h3><b>Christian A. Burns</b></h3>
 Plymouth State University<br>
 external committee member<br>
-Thesis: Breeding productivity and migratory connectivity in Canada Warblers (<i>Cardellina canadensis</i>) in central New Hampshire
+<p style="font-size: 9pt">Thesis: Breeding productivity and migratory connectivity in Canada Warblers (<i>Cardellina canadensis</i>) in central New Hampshire</p>
 </p>
 <p style="clear: both;">
 <br>
-
-<hr width="65%" style="display: block; border-width: 3px" align="center">
 
 <div style="text-align: center">
 <h1><u>Undergraduate Students & Independent Projects</u> </h1>

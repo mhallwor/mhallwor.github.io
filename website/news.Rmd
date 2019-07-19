@@ -7,9 +7,6 @@ header:
 layout: single
 permalink: /website/news
 sidebar:
-  - title: "Migratory Connectivity of Prothonotary Warbler"
-    image: assets/images/prow_CA.jpg
-    text: "Tonra et al. 2019, Condor: Ornithological Applications"
   - title: "Dragonfly migration"
     image: assets/images/dragon_infographic.jpg
     text: "Hallworth et al. 2018, Biology Letters"

@@ -31,23 +31,23 @@ permalink: /website/CV
 
 <h2><b>Education</b></h2>
 
-<p style="text-indent: -2em; margin-left: 2em"><b>Ph.D.</b>, Environmental Science and Public Policy, 2014.
+<p style="text-indent: -2em; margin-left: 2em; font-size: 12pt"><b>Ph.D.</b>, Environmental Science and Public Policy, 2014.
 George Mason University, Fairfax, VA.</p>    
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Advisors: Dr. Peter P. Marra & Dr. Larry Rockwood
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <p style="font-size: 12pt">Advisors: Dr. Peter P. Marra & Dr. Larry Rockwood</p>
 
-<p style="text-indent: -2em; margin-left: 2em"><b>M.S.</b>, Biology, 2007.
+<p style="text-indent: -2em; margin-left: 2em; font-size: 12pt"><b>M.S.</b>, Biology, 2007.
 Plymouth State University, Plymouth, NH.</p>     
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Advisor: Dr. Leonard Reitsma
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p style="font-size: 12pt">Advisor: Dr. Leonard Reitsma</p>
 
-<p style="text-indent: -2em; margin-left: 2em"><b>B.S.</b>, Biology, 2004.
+<p style="text-indent: -2em; margin-left: 2em; font-size: 12pt">"><b>B.S.</b>, Biology, 2004.
 Plymouth State University, Plymouth, NH.</p>
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Minor: Chemistry     
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p style="font-size: 12pt">Minor: Chemistry</p>    
 
 <h2><b>Teaching</b></h2>
-<ul style="font-size: 10pt">
+<ul style="font-size: 12pt">
 <li>Ecological Responses to Climate Change (ECO 691E)  - University of Massachusetts Amherst - Fall 2019</li>
 <li>Get spatial! Using R as GIS - 2018, 2019</li>
 <li>Modelling Occupancy and Abundance - Guest lecture - University of Delaware - 2016</li>
@@ -72,7 +72,7 @@ Plymouth State University, Plymouth, NH.</p>
 
 <h2><b>Publications</b></h2>
 
-<ol reversed style="font-size: 10pt">
+<ol reversed style="font-size: 12pt">
 <li><p style="text-indent: -2em; margin-left: 2em">Odom, K. J., E. M. Shank, <b>M. T. Hallworth</b>, O. A. Diaz-Marrero and K. E. Omland. <i>in press</i>. Females and males maintain similar sized, stable territories between the breeding and non-breeding seasons in a tropical oriole (<i>Icterus icterus</i>). <b>Wilson Journal of Ornithology</b>.</p></li><br> 
 
 <li><p style="text-indent: -2em; margin-left: 2em">Brlik, V., J. Kolecek, M. Burgess, S. Hahn, M. Krist, J. Ouwehand, E. L. Weiser, P. Adamik, J. A. Alves, D. Arlt, S. Barisic, D. Becker, E. J. Belda, V. Beran, C. Both, S. P. Bravo, M. Briedis, B. Chutny, D. Cikovic, N. W. Cooper, J. S. Costa, V. R. Cueto, T. Emmenegger, K. Fraser, O. Gilg, M. Guerrero, <b>M. T. Hallworth</b>, C. Hewson, D. Humple, F. Jiguet, J. Johnson, T. Kelly, D. Kishkinev, M. Leconte, T. Lislevand, S. Lisovski, C. Lopez, K. MacFarland, P. P. Marra, S. M. Matsuoka, P. Matyjasiak, C. M. Meier, B.n Metzger, J. S. Monros, R. Neumann, A. Newman, R. Norris, T. Part, V. Pavel, N. Perlut, M. Piha, J. Reneerkens, C. Rimmer, A. Roberto-Charron, C. Scandolara, N. Sokolova, M. Takenaka, D. Tolkmitt, H. van Oosten, A. Wellbrock, H. Wheeler, J. van der Winden, K. Witte, B. Woodworth, P. Prochazka. 2019. Weak effects of geolocators on small birds: a meta-analysis controlled for phylogeny and publication bias. <b>Journal of Animal Ecology</b>. 0 0:1-14. https://doi.org/10.1111/1365-2656.12962</p><div data-badge-type="donut" data-doi="10.1111/1365-2656.12962" class="altmetric-embed"></div></li><br>
@@ -130,9 +130,9 @@ Plymouth State University, Plymouth, NH.</p>
 
 ### **Thesis & Dissertation** 
 
-<p style="text-indent: -2em; margin-left: 2em"><b>Hallworth, M. T.</b> 2014. The influence of migratory connectivity and seasonal interactions on individual- and population-level dynamics of a long distance migratory bird. Dissertation. George Mason University, Fairfax, VA. Advisors: Peter P. Marra and Larry L. Rockwood</p>
+<p style="text-indent: -2em; margin-left: 2em; font-size: 12pt"><b>Hallworth, M. T.</b> 2014. The influence of migratory connectivity and seasonal interactions on individual- and population-level dynamics of a long distance migratory bird. Dissertation. George Mason University, Fairfax, VA. Advisors: Peter P. Marra and Larry L. Rockwood</p>
 
-<p style="text-indent: -2em; margin-left: 2em"><b>Hallworth, M</b>. 2007. The breeding ecology of the Canada warbler in central New Hampshire. Thesis. Plymouth State University, Plymouth, NH. Advisor: Leonard R. Reitsma</p>
+<p style="text-indent: -2em; margin-left: 2em; font-size: 12pt"><b>Hallworth, M</b>. 2007. The breeding ecology of the Canada warbler in central New Hampshire. Thesis. Plymouth State University, Plymouth, NH. Advisor: Leonard R. Reitsma</p>
 
 <div style="text-align:center">
 <hr width="75%">
@@ -140,6 +140,6 @@ Plymouth State University, Plymouth, NH.</p>
 
 ### **Software**
 
-<p style="text-indent: -2em; margin-left: 2em">Hostetler, J., <b>M. T. Hallworth</b> and C. S. Rushing. 2018. MigConnectivity: Estimate Strength of Migratory Connectivity for Migratory Animals. R package version 0.2.5. https://github.com/SMBC-NZP/MigConnectivity v0.2.5 (Version v0.2.5). Zenodo. http://doi.org/10.5281/zenodo.1162943</p>
+<p style="text-indent: -2em; margin-left: 2em; font-size: 12pt">Hostetler, J., <b>M. T. Hallworth</b> and C. S. Rushing. 2018. MigConnectivity: Estimate Strength of Migratory Connectivity for Migratory Animals. R package version 0.2.5. https://github.com/SMBC-NZP/MigConnectivity v0.2.5 (Version v0.2.5). Zenodo. http://doi.org/10.5281/zenodo.1162943</p>
 
 <a href="#TOP">Back to top</a>
