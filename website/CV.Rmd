@@ -47,30 +47,32 @@ Plymouth State University, Plymouth, NH.</p>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Minor: Chemistry     
 
 <h2><b>Teaching</b></h2>
-Ecological Responses to Climate Change (ECO 691E)  - University of Massachusetts Amherst - Fall 2019<br>
-Get spatial! Using R as GIS - 2018, 2019<br>
-Modelling Occupancy and Abundance - Guest lecture - University of Delaware - 2016<br>
-Light-level geolocation using open source tools - workshop co-instructor - 2015<br>
-Spatial Patterns in Richness and Abundance - Guest lecture - University of Maryland, Baltimore County - 2015<br>
-Entomology & Wildlife Ecology R Lunch - University of Delaware - 2015<br>
-Modeling Occupancy and Abundance - lecture - Smithsonian Conservation Biology Institute - 2015v
-Modeling Occupancy and Abundance - lab - Smithsonian Conservation Biology Institute - 2015<br>
-Spatial Analyses in R - Guest lecture - University of Maryland, Baltimore County - 2015<br>
-R markdown - Guest lecture - University of Maryland, Baltimore County - 2015<br>
-New Technologies in the study of migration - lecture - Smithsonian Conservation Biology Institute - 2014, 2015<br>
-Geolocator Analysis - lab - Smithsonian Conservation Biology Institute - 2014,2015<br>
-Geolocator Analysis - lab - University of Maryland, Baltimore County - 2014<br>
-Principles in Ecology and Evolution - lab (BIOL 308) - George Mason University - 2012-2013<br>
-Ecology - lab (BIOL 307) - George Mason University - 2009-2011<br>
-Human Anatomy and Physiology - lab (BIOL 124) - George Mason University - 2008<br>
-Tropical Ecology - co-taught course in Puerto Rico - Plymouth State University - 2008<br>
-Introduction to Biology -lecture (BIOL 1010) - Plymouth State University - 2007<br>
-Field Ecology for High School Teachers - co-instructor - New England Institute for Landscape Ecology - 2005,2006<br>
+<ul style="font-size: 10pt">
+<li>Ecological Responses to Climate Change (ECO 691E)  - University of Massachusetts Amherst - Fall 2019</li>
+<li>Get spatial! Using R as GIS - 2018, 2019</li>
+<li>Modelling Occupancy and Abundance - Guest lecture - University of Delaware - 2016</li>
+<li>Light-level geolocation using open source tools - workshop co-instructor - 2015</li>
+<li>Spatial Patterns in Richness and Abundance - Guest lecture - University of Maryland, Baltimore County - 2015</li>
+<li>Entomology & Wildlife Ecology R Lunch - University of Delaware - 2015</li>
+<li>Modeling Occupancy and Abundance - lecture - Smithsonian Conservation Biology Institute - 2015</li>
+<li>Modeling Occupancy and Abundance - lab - Smithsonian Conservation Biology Institute - 2015</li>
+<li>Spatial Analyses in R - Guest lecture - University of Maryland, Baltimore County - 2015</li>
+<li>R markdown - Guest lecture - University of Maryland, Baltimore County - 2015</li>
+<li>New Technologies in the study of migration - lecture - Smithsonian Conservation Biology Institute - 2014, 2015</li>
+<li>Geolocator Analysis - lab - Smithsonian Conservation Biology Institute - 2014,2015</li>
+<li>Geolocator Analysis - lab - University of Maryland, Baltimore County - 2014</li>
+<li>Principles in Ecology and Evolution - lab (BIOL 308) - George Mason University - 2012-2013</li>
+<li>Ecology - lab (BIOL 307) - George Mason University - 2009-2011</li>
+<li>Human Anatomy and Physiology - lab (BIOL 124) - George Mason University - 2008</li>
+<li>Tropical Ecology - co-taught course in Puerto Rico - Plymouth State University - 2008</li>
+<li>Introduction to Biology -lecture (BIOL 1010) - Plymouth State University - 2007</li>
+<li>Field Ecology for High School Teachers - co-instructor - New England Institute for Landscape Ecology - 2005,2006</li>
+</ul>
 
 
 <h2><b>Publications</b></h2>
 
-<ol reversed>
+<ol reversed style="font-size: 10pt">
 <li><p style="text-indent: -2em; margin-left: 2em">Odom, K. J., E. M. Shank, <b>M. T. Hallworth</b>, O. A. Diaz-Marrero and K. E. Omland. <i>in press</i>. Females and males maintain similar sized, stable territories between the breeding and non-breeding seasons in a tropical oriole (<i>Icterus icterus</i>). <b>Wilson Journal of Ornithology</b>.</p></li><br> 
 
 <li><p style="text-indent: -2em; margin-left: 2em">Brlik, V., J. Kolecek, M. Burgess, S. Hahn, M. Krist, J. Ouwehand, E. L. Weiser, P. Adamik, J. A. Alves, D. Arlt, S. Barisic, D. Becker, E. J. Belda, V. Beran, C. Both, S. P. Bravo, M. Briedis, B. Chutny, D. Cikovic, N. W. Cooper, J. S. Costa, V. R. Cueto, T. Emmenegger, K. Fraser, O. Gilg, M. Guerrero, <b>M. T. Hallworth</b>, C. Hewson, D. Humple, F. Jiguet, J. Johnson, T. Kelly, D. Kishkinev, M. Leconte, T. Lislevand, S. Lisovski, C. Lopez, K. MacFarland, P. P. Marra, S. M. Matsuoka, P. Matyjasiak, C. M. Meier, B.n Metzger, J. S. Monros, R. Neumann, A. Newman, R. Norris, T. Part, V. Pavel, N. Perlut, M. Piha, J. Reneerkens, C. Rimmer, A. Roberto-Charron, C. Scandolara, N. Sokolova, M. Takenaka, D. Tolkmitt, H. van Oosten, A. Wellbrock, H. Wheeler, J. van der Winden, K. Witte, B. Woodworth, P. Prochazka. 2019. Weak effects of geolocators on small birds: a meta-analysis controlled for phylogeny and publication bias. <b>Journal of Animal Ecology</b>. 0 0:1-14. https://doi.org/10.1111/1365-2656.12962</p><div data-badge-type="donut" data-doi="10.1111/1365-2656.12962" class="altmetric-embed"></div></li><br>
@@ -141,20 +143,3 @@ Field Ecology for High School Teachers - co-instructor - New England Institute f
 <p style="text-indent: -2em; margin-left: 2em">Hostetler, J., <b>M. T. Hallworth</b> and C. S. Rushing. 2018. MigConnectivity: Estimate Strength of Migratory Connectivity for Migratory Animals. R package version 0.2.5. https://github.com/SMBC-NZP/MigConnectivity v0.2.5 (Version v0.2.5). Zenodo. http://doi.org/10.5281/zenodo.1162943</p>
 
 <a href="#TOP">Back to top</a>
-
-<a href="https://www.researchgate.net/profile/Michael_Hallworth" target="_blank">
-  <img style="float: left; width: 100px; height: 100px; margin-right: 1%; margin-bottom: 0.5em;" src="../assets/images/RG.png">
-</a>
-<a href="https://scholar.google.com/citations?user=LdRgZDoAAAAJ&hl=en" target="_blank">
-  <img style="float: left; width: 100px; height: 100px; margin-right: 1%; margin-bottom: 0.5em;" src="../assets/images/google-scholar-logo.png">
-</a>
-<a href="https://github.com/MTHallworth" target="_blank">
-  <img style="float: left; width: 100px; height: 100px; margin-right: 1%; margin-bottom: 0.5em;" src="../assets/images/github.png">
-</a>
-<a href="https://twitter.com/MTHallworth" target="_blank">
-  <img style="float: left; width: 100px; height: 100px; margin-right: 1%; margin-bottom: 0.5em;" src="../assets/images/twitter-icon.png">
-</a>
-<a href="https://orcid.org/0000-0002-6385-3815" target="_blank">
-  <img style="float: left; width: 100px; height: 100px; margin-right: 1%; margin-bottom: 0.5em;" src="../assets/images/orcid.png">
-</a>
-<p style="clear: both;">

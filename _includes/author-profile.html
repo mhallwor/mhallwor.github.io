@@ -89,10 +89,10 @@
         </li>
       {% endif %}
 
-      {% if author.google_plus %}
+      {% if author.googlescholar %}
         <li>
-          <a href="https://plus.google.com/{{ author.google_plus }}" itemprop="sameAs">
-            <i class="fab fa-fw fa-google-plus-square" aria-hidden="true"></i> Google+
+          <a href="{{ author.googlescholar}}" itemprop="sameAs">
+            <i class="ai ai-google-scholar-square ai-3x"></i> Google Scholar
           </a>
         </li>
       {% endif %}
@@ -105,18 +105,18 @@
         </li>
       {% endif %}
 
-      {% if author.xing %}
+      {% if author.researchgate %}
         <li>
-          <a href="https://www.xing.com/profile/{{ author.xing }}" itemprop="sameAs">
-            <i class="fab fa-fw fa-xing-square" aria-hidden="true"></i> XING
+          <a href="{{ author.researchgate }}" itemprop="sameAs">
+            <i class="fab fa-fw fa-researchgate" aria-hidden="true"></i> ResearchGate
           </a>
         </li>
       {% endif %}
 
-      {% if author.instagram %}
+      {% if author.orcid %}
         <li>
-          <a href="https://instagram.com/{{ author.instagram }}" itemprop="sameAs">
-            <i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram
+          <a href="{{ author.orcid }}" itemprop="sameAs">
+            <i class="ai ai-orcid-square ai-3x" aria-hidden="true"></i> Orcid
           </a>
         </li>
       {% endif %}

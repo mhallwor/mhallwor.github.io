@@ -84,36 +84,18 @@ analytics:
 
 # Site Author
 author:
-  name             : "Michael T. Hallworth, Ph.D."
+  name             : "Michael T. Hallworth"
   avatar           : "/assets/images/avatar.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "Postdoctoral fellow"
   location         : "Amherst, Massachusetts"
   email            : "mhallworth@gmail.com"
   uri              :
   home             : # null (default), "absolute or relative url to link to author home"
-  bitbucket        :
-  codepen          :
-  dribbble         :
-  flickr           :
-  facebook         :
-  foursquare       :
+  googlescholar    : "https://scholar.google.com/citations?user=LdRgZDoAAAAJ&hl=en"
+  researchgate     : "https://www.researchgate.net/profile/Michael_Hallworth"
   github           : "MTHallworth"
-  gitlab           :
-  google_plus      :
-  keybase          :
-  instagram        :
-  lastfm           :
-  linkedin         : # "john-doe-12345678" (the last part of your profile url, e.g. https://www.linkedin.com/in/john-doe-12345678)
-  pinterest        :
-  soundcloud       :
-  stackoverflow    : # "123456/username" (the last part of your profile url, e.g. https://stackoverflow.com/users/123456/username)
-  steam            : # "steamId" (the last part of your profile url, e.g. https://steamcommunity.com/id/steamId/)
-  tumblr           : 
+  orcid            : "https://orcid.org/0000-0002-6385-3815"
   twitter          : "@MTHallworth"
-  vine             :
-  weibo            :
-  xing             :
-  youtube          : # "https://youtube.com/c/MichaelRoseDesign"
 
 
 # Reading Files
