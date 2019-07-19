@@ -31,20 +31,14 @@ permalink: /website/CV
 
 <h2><b>Education</b></h2>
 
-<p style="text-indent: -2em; margin-left: 2em; font-size: 12pt"><b>Ph.D.</b>, Environmental Science and Public Policy, 2014.
-George Mason University, Fairfax, VA.</p>    
+<p style="text-indent: -2em; margin-left: 3em; font-size: 12pt"><b>Ph.D.</b>, Environmental Science and Public Policy, 2014.
+George Mason University, Fairfax, VA.<br>Advisors: Dr. Peter P. Marra & Dr. Larry Rockwood</p>
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <p style="font-size: 12pt">Advisors: Dr. Peter P. Marra & Dr. Larry Rockwood</p>
+<p style="text-indent: -2em; margin-left: 3em; font-size: 12pt"><b>M.S.</b>, Biology, 2007.
+Plymouth State University, Plymouth, NH.<br>Advisor: Dr. Leonard Reitsma</p>
 
-<p style="text-indent: -2em; margin-left: 2em; font-size: 12pt"><b>M.S.</b>, Biology, 2007.
-Plymouth State University, Plymouth, NH.</p>     
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p style="font-size: 12pt">Advisor: Dr. Leonard Reitsma</p>
-
-<p style="text-indent: -2em; margin-left: 2em; font-size: 12pt">"><b>B.S.</b>, Biology, 2004.
-Plymouth State University, Plymouth, NH.</p>
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p style="font-size: 12pt">Minor: Chemistry</p>    
+<p style="text-indent: -2em; margin-left: 3em; font-size: 12pt"><b>B.S.</b>, Biology, 2004.
+Plymouth State University, Plymouth, NH.<br>Minor: Chemistry</p>    
 
 <h2><b>Teaching</b></h2>
 <ul style="font-size: 12pt">
@@ -69,6 +63,26 @@ Plymouth State University, Plymouth, NH.</p>
 <li>Field Ecology for High School Teachers - co-instructor - New England Institute for Landscape Ecology - 2005,2006</li>
 </ul>
 
+<h2><b>Awards / Grants</b></h2>
+<ul style="font-size: 12pt">
+<li>Smithsonian Institution's Competitive Grants Program, 2018 - Sillett, T. S. & M. T. Hallworth - <b>$55,744</b></li>
+<li>Smithsonian Institution's Competitive Grants Program, 2017 - Sillett, T. S., T. B. Ryder & M. T. Hallworth - <b>$54,000</b></li>
+<li>Postdoctoral Travel Award - AOS:SCO 2017 Joint Meeting, 2017 - M. T. Hallworth - <b>$320</b></li>
+<li>Envtl. Science and Public Policy's best PhD dissertation award, 2014/15- George Mason University - M. T. Hallworth - <b>$100</b></li>
+<li>Dissertation Completion Grant- Spring, 2014 - George Mason University- M. T. Hallworth - <b>$8,000</b></li>
+<li>Travel Award - AOU:COS:SCO 2014 Joint Meeting, 2014 - M. T. Hallworth - <b>$330</b></li>
+<li>Smithsonian Institution's Competitive Grants Program, 2012 - Marra, P. P. & M. T. Hallworth - <b>$33,821</b></li>
+<li>Max and Vera Britton Environmental Science Award, The Trustees of the Cosmos Club Foundation, 2012</li>
+<li>Cosmos Scholar, 2012, M. T. Hallworth - <b>$2,500</b></li>
+<li>Alexander Wetmore Research Award, American Ornithological Union, 2012 - M. T. Hallworth - <b>$2,500</b></li>
+<li>Visiting Student Fellow, Smithsonian Institution, 2010 - <b>$5,000</b></li>
+<li>Smithsonian Endowment Bond 2010 - Marra, P.P. and M. T. Hallworth - <b>$49,860</b></li>
+<li>Golden Key International Honour Society, 2009</li>
+<li>Graduate teaching assistantship - George Mason University, 2008-2013</li>
+<li>Who's Who Among College Students Award, 2008</li>
+<li>Who's Who Among College Students Award, 2003</li>
+<li>U.S. Army Reserve National Scholar/Athlete Award, 2001</li>
+</ul>
 
 <h2><b>Publications</b></h2>
 
