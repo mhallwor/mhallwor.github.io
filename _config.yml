@@ -247,7 +247,27 @@ compress_html:
   ignore:
     envs: development
 
-
+# Site Footer
+footer:
+  links:
+    - label: "Twitter"
+      icon: "/assets/images/twitter-icon.png"
+      url: "https://twitter.com/MTHallworth"
+    - label: "ResearchGate"
+      icon: "/assets/images/RG.png"
+      url: "https://www.researchgate.net/profile/Michael_Hallworth"
+    - label: "Google Scholar"
+      icon: "/assets/images/google-scholar-logo.png"
+      url: "https://scholar.google.com/citations?user=LdRgZDoAAAAJ&hl=en"
+    - label: "Orcid"
+      icon: "/assets/images/orcid.png"
+      url: "https://orcid.org/0000-0002-6385-3815"
+    - label: "GitHub"
+      icon: "/assets/images/github.png"
+      url: "https://github.com/MTHallworth"
+    - label: "Movebank"
+      icon: "/assets/images/movebank.png"
+      url: "https://www.movebank.org/node/26968"
 # Defaults
 defaults:
   # _pages
