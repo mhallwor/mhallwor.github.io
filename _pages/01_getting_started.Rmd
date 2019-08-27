@@ -53,6 +53,8 @@ if(any(!(pkgs %in% installed.packages()))){
 ```
 
 ```{r,echo = FALSE, message = FALSE,warning = FALSE,results='hide'}
+options(Ncpus = 6)
+
 pkgs <- c("devtools","animation","dismo",
           "gdalUtils","geosphere","ggplot2",
           "gstat","ks","leaflet","lwgeom",

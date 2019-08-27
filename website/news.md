@@ -18,7 +18,7 @@ Last updated: 2019-08-27
 <hr width="75%">
 </div>
 <p style="float: left; font-size: 12pt; text-align: left; width: 95%; margin-right: 1%; margin-bottom: 0.5em">
-<img src="../assets/images/burns_successful_ms.JPG" style="float: left; padding: 1%; border: 1%; height: 200px; width: 150px">
+<img src="../assets/images/burns_successful_ms.JPG" style="float: left; padding: 1%; border: 1%; height: 200px; width: 200px">
 Christian Burns successfully defended his Master's research! Congratulations Christian. <br>
 </p>
 <p style="clear: both;">

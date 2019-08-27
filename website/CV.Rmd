@@ -65,6 +65,7 @@ Plymouth State University, Plymouth, NH.<br>Minor: Chemistry</p>
 
 <h2><b>Awards / Grants</b></h2>
 <ul style="font-size: 12pt">
+<li>International Research Partnership Award from Wings Across the Americas, 2019 - Migratory Dragonfly Partnership </li>
 <li>Smithsonian Institution's Competitive Grants Program, 2018 - Sillett, T. S. & M. T. Hallworth - <b>$55,744</b></li>
 <li>Smithsonian Institution's Competitive Grants Program, 2017 - Sillett, T. S., T. B. Ryder & M. T. Hallworth - <b>$54,000</b></li>
 <li>Postdoctoral Travel Award - AOS:SCO 2017 Joint Meeting, 2017 - M. T. Hallworth - <b>$320</b></li>

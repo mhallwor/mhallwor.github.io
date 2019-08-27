@@ -518,8 +518,8 @@ str(list.data)
 ##  $ id       : int [1:5] 1 2 3 4 5
 ##  $ names    : chr [1:2] "Dr. Seuss" "Cat in the hat"
 ##  $ DataFrame:'data.frame':	10 obs. of  2 variables:
-##   ..$ starttimes: num [1:10] 0.701 -0.405 0.468 0.631 1.546 ...
-##   ..$ endtimes  : num [1:10] 28.6 21.8 25 28.4 21.4 ...
+##   ..$ starttimes: num [1:10] -0.9878 0.0498 0.5516 0.0621 0.9517 ...
+##   ..$ endtimes  : num [1:10] 27 28.8 23.7 21.8 21.4 ...
 ```
 
 ```r
@@ -535,16 +535,16 @@ list.data
 ## 
 ## $DataFrame
 ##     starttimes endtimes
-## 1   0.70078527 28.59311
-## 2  -0.40503251 21.82164
-## 3   0.46781734 25.04091
-## 4   0.63142622 28.36957
-## 5   1.54630342 21.37107
-## 6  -0.05542582 22.43550
-## 7   1.61517274 21.19606
-## 8   0.17773533 28.93746
-## 9   0.45883702 21.20689
-## 10 -0.97748949 28.03695
+## 1  -0.98777222 27.02743
+## 2   0.04980902 28.81846
+## 3   0.55161714 23.74105
+## 4   0.06209839 21.78212
+## 5   0.95172143 21.41323
+## 6  -1.43025767 21.69773
+## 7   0.86125362 29.43284
+## 8  -0.06410306 24.11398
+## 9  -1.29161825 25.57130
+## 10  0.56665262 22.35991
 ```
 Accessing data stored within lists can be a little tricky.    
 Here is an example of how to extract the 5th element of starttime in the DataFrame object in our list.data object. 
@@ -554,7 +554,7 @@ list.data[[3]][5,1]
 ```
 
 ```
-## [1] 1.546303
+## [1] 0.9517214
 ```
 
 ```r
@@ -562,7 +562,7 @@ list.data[[3]]$starttime[5]
 ```
 
 ```
-## [1] 1.546303
+## [1] 0.9517214
 ```
 
 ```r
@@ -570,9 +570,9 @@ list.data$DataFrame$starttime[5]
 ```
 
 ```
-## [1] 1.546303
+## [1] 0.9517214
 ```
 
 <a href="#TOP">back to top</a>
 
-<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/R_basics.R" target="_blank" class="btn btn--info">Download R script</a> Last modified: 2019-08-27 18:39:34
+<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/R_basics.R" target="_blank" class="btn btn--info">Download R script</a> Last modified: 2019-08-27 19:38:47

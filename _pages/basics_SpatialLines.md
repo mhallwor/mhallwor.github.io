@@ -53,7 +53,7 @@ If installing these packages for the first time consider adding <code>dependenci
         
 <br>
 
-<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/basics_SpatialLines.R" target="_blank" class="btn btn--info">Download R script</a> Last modified: 2019-08-27 18:39:34
+<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/basics_SpatialLines.R" target="_blank" class="btn btn--info">Download R script</a> Last modified: 2019-08-27 19:38:47
 
 <hr>
 
@@ -81,12 +81,12 @@ ID <- paste0("line_",1:100)
 
 ```
 ##    x_coords y_coords     ID
-## 1 -80.38805 28.33820 line_1
-## 2 -91.30347 40.13502 line_2
-## 3 -84.45609 42.16049 line_3
-## 4 -93.68828 40.71511 line_4
-## 5 -91.24778 25.62121 line_5
-## 6 -95.54362 36.21967 line_6
+## 1 -83.25046 43.60050 line_1
+## 2 -86.37244 32.14158 line_2
+## 3 -86.98578 29.37401 line_3
+## 4 -88.23336 40.35074 line_4
+## 5 -81.21751 37.12966 line_5
+## 6 -98.56419 28.10259 line_6
 ```
 
 Now that we have the endpoints, we need to create a <code>Line</code> object then convert that to a <code>Lines</code> object and give them an ID then we can finally convert them to <code>SpatialLines</code>. Here, we'll use the first two points for our first line.
@@ -116,7 +116,7 @@ sp_line <- as(points,"SpatialLines")
 ```
 ## class       : SpatialLines 
 ## features    : 1 
-## extent      : -99.9909, -80.1404, 25.08247, 44.21701  (xmin, xmax, ymin, ymax)
+## extent      : -99.87923, -80.19829, 25.17402, 44.80825  (xmin, xmax, ymin, ymax)
 ## crs         : NA
 ```
 
@@ -141,7 +141,7 @@ rgeos::gLength(sp_line)
 ```
 
 ```
-## [1] 1178.647
+## [1] 1109.808
 ```
 
 Another option is to return the great circle distance. The following code calculates the great circle distance along a line and returns the distance in meters. 
@@ -152,7 +152,7 @@ geosphere::lengthLine(sp_line)
 ```
 
 ```
-## [1] 119333334
+## [1] 113137171
 ```
 
 <div style="background-color: #ffffe6; border-radius: 25px; text-align:center; vertical-align: middle; padding: 3px 0; margin: auto; width:600px; box-shadow: 4px 5px #f2f2f2;"> 
