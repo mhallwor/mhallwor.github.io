@@ -85,8 +85,8 @@ branches:
   only: develop
   
 script:
-  - Rscript -e 'servr:::knit_maybe(input = c(".", "_pages","website"), output = c(".","_pages","website"), "build.R", "jekyll")'
-#  - Rscript -e 'servr:::knit_maybe(input = c("."), output = c("."), "build.R", "jekyll")' 
+#  - Rscript -e 'servr:::knit_maybe(input = c(".", "_pages","website"), output = c(".","_pages","website"), "build.R", "jekyll")'
+  - Rscript -e 'servr:::knit_maybe(input = c("."), output = c("."), "build.R", "jekyll")' 
 deploy:
   provider: pages
   edge:
