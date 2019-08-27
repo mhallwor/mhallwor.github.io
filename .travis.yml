@@ -50,7 +50,7 @@ before_install:
   - mkdir $HOME/.R && echo -e 'CXX_STD = CXX14\n\nVER=\nCCACHE=ccache\nCC=$(CCACHE) gcc$(VER) -std=gnu99\nCXX=$(CCACHE) g++$(VER)\nC11=$(CCACHE) g++$(VER)\nC14=$(CCACHE) g++$(VER)\nFC=$(CCACHE) gfortran$(VER)\nF77=$(CCACHE) gfortran$(VER)' > $HOME/.R/Makevars
   
 r_github_packages:
- - brendan-r/brocks
+# - brendan-r/brocks
  - tidyverse/rlang
  - tidyverse/ggplot2
  - yihui/tinytex
@@ -85,13 +85,14 @@ branches:
   only: develop
   
 script:
-  - Rscript -e 'servr:::knit_maybe(input = c(".", "_pages","website"), output = c(".","_pages","website"), "build.R", "jekyll")'
-  
+#  - Rscript -e 'servr:::knit_maybe(input = c(".", "_pages","website"), output = c(".","_pages","website"), "build.R", "jekyll")'
+  - Rscript -e 'servr:::knit_maybe(input = c("."), output = c("."), "build.R", "jekyll")' 
 deploy:
   provider: pages
   edge:
     branch: v1.10.11
   skip_cleanup: true
+  keep_history: true
   github_token: $GITHUB_PATH
   on:
     branch: develop

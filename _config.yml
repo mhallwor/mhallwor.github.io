@@ -241,7 +241,7 @@ footer:
     - label: "Google Scholar"
       icon: "/assets/images/google-scholar-logo.png"
       url: "https://scholar.google.com/citations?user=LdRgZDoAAAAJ&hl=en"
-    - label: "Orcid"
+    - label: "ORCID"
       icon: "/assets/images/orcid.png"
       url: "https://orcid.org/0000-0002-6385-3815"
     - label: "GitHub"
