@@ -1,0 +1,33 @@
+---
+title: "Welcome to Get Spatial!"
+header:
+  caption: 'Photo credit: **M. T. Hallworth**'
+  image: assets/images/lookingUp.jpg
+layout: single
+permalink: /_pages/morning_welcome
+classes: wide
+---
+
+
+<br>
+
+<font size="6"><u><b>Grab a seat & set up your work station</b></u></font> 
+<br>
+<font size="6"><u><b>Grab a Post-It</b></u></font>          
+ <font size="5">You'll use the Post-It to signal when help is needed to either de-bugging code or troubleshoot error messages. The Post-It note will serve the same function as raising your hand but will allow you to continue to work through the exercise without falling behind.</font>
+<br>     
+<font size="6"><u><b>Get Spatial! on Amazon</b></u></font>    
+ <font size="5">We set up a virtual machine that has all the required packages and spatial data required to complete the workshop. Unfortunately, we don't have time to help everyone get their machines all set up during the workshop - instead we set up a machine that everyone can use during the workshop. <b>Instructions for how to use the virtual machine are up front</b> - <i>please take the information even if you don't think you'll use it</i></font> 
+<br>
+<font size="6"><u><b>Workshop materials</b></u></font>
+<br>
+<font size="5">All workshop materials can be found at:</font>     
+<font size="6">mhallwor.github.io/_pages/welcome</font>
+<br>
+<font size="6"><u><b>Download Spatial Layers</b></u></font>
+<br>     
+<font size="6"><u><b>Set up working directory for workshop</b></u></font>
+<br>
+
+
+
