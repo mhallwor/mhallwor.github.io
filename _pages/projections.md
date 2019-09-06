@@ -56,7 +56,7 @@ If installing these packages for the first time consider adding <code>dependenci
 <br>
 <hr> 
 
-<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/master/Rscripts/projections.R" target="_blank" class="btn btn--info">Download R script</a> Last modified: 2019-09-06 15:53:35
+<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/master/Rscripts/projections.R" target="_blank" class="btn btn--info">Download R script</a> Last modified: 2019-09-06 17:16:21
 
 # Projections
 The reason we need projections is so that we can map a three dimensional surface - like the earth in two dimensional space. Unfortunately, not all properties of the 3D surface are maintained when plotting in 2D space. Attributes of the 3D surface such as area, distance, shape and direction are distorted when creating a 2D map. Projections define the way we distort the 3D surface in order to render it in 2D. The projection is the mathmatical equation used to 'flatten' the world. Every time we create a map we distort the true surface in some fashion. Different projections preserve different aspects of the 3D properties. Therefore, knowing which projections to use is important when doing spatial analyses. For example, if you're looking to create a map that looks 'correct' a conformal projection might be used as these types of projections preserve shape. If you're looking to make accurate distance measurements on a surface projections in the equidistant class are appropriate. Take a look at this <a href = "http://projections.mgis.psu.edu/" target="_blank">interactive map</a> that shows different projections - be sure to turn on the distortion ellipse so you can see how distortion changes. 

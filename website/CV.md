@@ -29,7 +29,6 @@ Last updated: 2019-09-06
 **2014-2015** _Postdoctoral research associate_ - University of Maryland, Baltimore County, Baltimore, MD.						                    Geography & Environmental Systems
 
 <br>
-<div style="content:""; display: table; clear: both">
  
   <div style="float: left; width: 60%">
   
@@ -57,10 +56,9 @@ Plymouth State University, Plymouth, NH.<br>Minor: Chemistry</p>
      <b>total citations</b> = 336 <br>
 
 Over <b>$305,000</b> in competitive grants <br>
-<b>Best Dissertation Award, 2014-2015</b></p>
+<b>Best Dissertation Award</b>, 2014-2015</p>
 <br>
   </div>
-</div>
 
 <br>
 <br>
