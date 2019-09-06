@@ -28,7 +28,8 @@ Last updated: 2019-09-06
                                                                                
 **2014-2015** _Postdoctoral research associate_ - University of Maryland, Baltimore County, Baltimore, MD.						                    Geography & Environmental Systems
 
- <div style="content:""; display: table; clear: both">
+<br>
+<div style="content:""; display: table; clear: both">
  
   <div style="float: left; width: 60%">
   

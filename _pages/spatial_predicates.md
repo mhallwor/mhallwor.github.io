@@ -57,7 +57,7 @@ If installing these packages for the first time consider adding <code>dependenci
         
 <br>
 
-<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/spatial_predicates.R" target="_blank" class="btn btn--info">Download R script</a> Last modified: 2019-09-06 15:11:12
+<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/spatial_predicates.R" target="_blank" class="btn btn--info">Download R script</a> Last modified: 2019-09-06 15:53:35
 
 <hr> 
 
@@ -200,7 +200,7 @@ Sys.time()-a
 ```
 
 ```
-## Time difference of 6.166784 secs
+## Time difference of 6.272354 secs
 ```
 
 ```r
@@ -212,7 +212,7 @@ Sys.time()-a
 ```
 
 ```
-## Time difference of 7.684755 secs
+## Time difference of 7.815156 secs
 ```
 
 ![plot of chunk unnamed-chunk-12](/figure/pages/spatial_predicates/unnamed-chunk-12-1.png)
