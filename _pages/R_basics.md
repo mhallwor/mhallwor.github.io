@@ -518,8 +518,8 @@ str(list.data)
 ##  $ id       : int [1:5] 1 2 3 4 5
 ##  $ names    : chr [1:2] "Dr. Seuss" "Cat in the hat"
 ##  $ DataFrame:'data.frame':	10 obs. of  2 variables:
-##   ..$ starttimes: num [1:10] -0.9878 0.0498 0.5516 0.0621 0.9517 ...
-##   ..$ endtimes  : num [1:10] 27 28.8 23.7 21.8 21.4 ...
+##   ..$ starttimes: num [1:10] -0.848 -2.694 -0.294 -0.533 -1.393 ...
+##   ..$ endtimes  : num [1:10] 27.7 25.9 26.3 28.4 28.3 ...
 ```
 
 ```r
@@ -534,17 +534,17 @@ list.data
 ## [1] "Dr. Seuss"      "Cat in the hat"
 ## 
 ## $DataFrame
-##     starttimes endtimes
-## 1  -0.98777222 27.02743
-## 2   0.04980902 28.81846
-## 3   0.55161714 23.74105
-## 4   0.06209839 21.78212
-## 5   0.95172143 21.41323
-## 6  -1.43025767 21.69773
-## 7   0.86125362 29.43284
-## 8  -0.06410306 24.11398
-## 9  -1.29161825 25.57130
-## 10  0.56665262 22.35991
+##    starttimes endtimes
+## 1  -0.8480566 27.70237
+## 2  -2.6936647 25.90761
+## 3  -0.2942636 26.25646
+## 4  -0.5327080 28.35952
+## 5  -1.3930423 28.29071
+## 6  -0.5289242 20.68907
+## 7  -0.2054674 29.64226
+## 8   1.2449536 28.70912
+## 9  -2.3816743 22.98064
+## 10  0.4738619 28.36725
 ```
 Accessing data stored within lists can be a little tricky.    
 Here is an example of how to extract the 5th element of starttime in the DataFrame object in our list.data object. 
@@ -554,7 +554,7 @@ list.data[[3]][5,1]
 ```
 
 ```
-## [1] 0.9517214
+## [1] -1.393042
 ```
 
 ```r
@@ -562,7 +562,7 @@ list.data[[3]]$starttime[5]
 ```
 
 ```
-## [1] 0.9517214
+## [1] -1.393042
 ```
 
 ```r
@@ -570,9 +570,9 @@ list.data$DataFrame$starttime[5]
 ```
 
 ```
-## [1] 0.9517214
+## [1] -1.393042
 ```
 
 <a href="#TOP">back to top</a>
 
-<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/R_basics.R" target="_blank" class="btn btn--info">Download R script</a> Last modified: 2019-08-27 19:38:47
+<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/R_basics.R" target="_blank" class="btn btn--info">Download R script</a> Last modified: 2019-09-06 14:31:19

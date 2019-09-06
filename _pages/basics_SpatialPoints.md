@@ -51,7 +51,7 @@ If installing these packages for the first time consider adding <code>dependenci
         
 <br>
 
-<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/basics_SpatialPoints.R" target="_blank" class="btn btn--info">Download R script</a> Last modified: 2019-08-27 19:38:47
+<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/basics_SpatialPoints.R" target="_blank" class="btn btn--info">Download R script</a> Last modified: 2019-09-06 14:31:19
 
 <hr>
 
@@ -85,12 +85,12 @@ head(cbind(x_coords,y_coords))
 
 ```
 ##       x_coords y_coords
-## [1,] -81.15579 41.23522
-## [2,] -85.04803 43.49327
-## [3,] -98.81904 35.28933
-## [4,] -82.41287 29.23043
-## [5,] -88.76437 40.62436
-## [6,] -88.72855 35.78699
+## [1,] -86.97697 28.18773
+## [2,] -82.86484 34.03369
+## [3,] -89.43749 38.66370
+## [4,] -90.74652 29.84924
+## [5,] -97.77447 35.58599
+## [6,] -92.55079 26.32580
 ```
 
 Now that we have generated random coordinates we can make those data spatially explicit. We'll use the `SpatialPoints` function in the `sp` package to do that. Before we use the function let's see what arguments we need to pass to `SpatialPoints`.
@@ -124,11 +124,11 @@ str(firstPoints)
 
 ```
 ## Formal class 'SpatialPoints' [package "sp"] with 3 slots
-##   ..@ coords     : num [1:100, 1:2] -81.2 -85 -98.8 -82.4 -88.8 ...
+##   ..@ coords     : num [1:100, 1:2] -87 -82.9 -89.4 -90.7 -97.8 ...
 ##   .. ..- attr(*, "dimnames")=List of 2
 ##   .. .. ..$ : NULL
 ##   .. .. ..$ : chr [1:2] "x_coords" "y_coords"
-##   ..@ bbox       : num [1:2, 1:2] -99.7 25.3 -80 45
+##   ..@ bbox       : num [1:2, 1:2] -99.8 25.1 -80.1 44.7
 ##   .. ..- attr(*, "dimnames")=List of 2
 ##   .. .. ..$ : chr [1:2] "x_coords" "y_coords"
 ##   .. .. ..$ : chr [1:2] "min" "max"
@@ -166,7 +166,7 @@ euclidDist <- sp::spDists(firstPoints,longlat = FALSE)
 ```
 
 ```
-##  num [1:100, 1:100] 0 4.5 18.64 12.07 7.63 ...
+##  num [1:100, 1:100] 0 7.15 10.76 4.12 13.09 ...
 ```
 
 Another option is to calculate the GreatCircle distance. 
@@ -178,7 +178,7 @@ gcDist <- sp::spDists(firstPoints,longlat = TRUE)
 
 
 ```
-##  num [1:100, 1:100] 0 407 1677 1337 644 ...
+##  num [1:100, 1:100] 0 757 1184 411 1309 ...
 ```
 
 ![plot of chunk unnamed-chunk-5](/figure/pages/basics_SpatialPoints/unnamed-chunk-5-1.png)

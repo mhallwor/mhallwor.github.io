@@ -10,7 +10,7 @@ permalink: /website/CV
 ---
 <script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
 
-Last updated: 2019-08-27
+Last updated: 2019-09-06
 
 <a name="TOP"></a>
 
@@ -28,10 +28,10 @@ Last updated: 2019-08-27
                                                                                
 **2014-2015** _Postdoctoral research associate_ - University of Maryland, Baltimore County, Baltimore, MD.						                    Geography & Environmental Systems
 
-
-<h2><b>Education</b></h2>
-
-<p style="text-indent: -2em; margin-left: 3em; font-size: 12pt"><b>Ph.D.</b>, Environmental Science and Public Policy, 2014.
+ <div style="content:""; display: table; clear: both;">
+  <div style="float: left; width: 60%;">
+  <h2><b>Education</b></h2>
+  <p style="text-indent: -2em; margin-left: 3em; font-size: 12pt"><b>Ph.D.</b>, Environmental Science and Public Policy, 2014.
 George Mason University, Fairfax, VA.<br>Advisors: Dr. Peter P. Marra & Dr. Larry Rockwood</p>
 
 <p style="text-indent: -2em; margin-left: 3em; font-size: 12pt"><b>M.S.</b>, Biology, 2007.
@@ -39,7 +39,26 @@ Plymouth State University, Plymouth, NH.<br>Advisor: Dr. Leonard Reitsma</p>
 
 <p style="text-indent: -2em; margin-left: 3em; font-size: 12pt"><b>B.S.</b>, Biology, 2004.
 Plymouth State University, Plymouth, NH.<br>Minor: Chemistry</p>    
+  </div>
+  <div style="float: left; width: 40%; background-color: #f0f0f5;
+              border: 2px solid black; border-radius: 8px;
+              text-align: center;
+              box-shadow: 5px 5px #888888;
+              font-size: 12pt">
+  <br>
+  <h3><b>Career Highlights</b></h3>
+<p><b>24</b> peer-reviewed publications<br>
+     <b>h-index</b> = 10 <br>
+     <b>i10-index</b> = 10 <br>
+     <b>total citations</b> = 336 <br>
 
+Over $305,000 in competitive grants <br>
+<b>Best Dissertation Award, 2014-2015</b></p>
+<br>
+  </div>
+</div>
+<br>
+<br>
 <h2><b>Teaching</b></h2>
 <ul style="font-size: 12pt">
 <li>Ecological Responses to Climate Change (ECO 691E)  - University of Massachusetts Amherst - Fall 2019</li>
@@ -83,6 +102,13 @@ Plymouth State University, Plymouth, NH.<br>Minor: Chemistry</p>
 <li>Who's Who Among College Students Award, 2008</li>
 <li>Who's Who Among College Students Award, 2003</li>
 <li>U.S. Army Reserve National Scholar/Athlete Award, 2001</li>
+</ul>
+
+<h2><b>Professional Service</b></h2>
+<ul style="font-size: 12pt">
+<li>ECo's Workplace Climate, Diversity, Inclusion, and Equity Committee, Chair. University of Massachusetts Amherst</li>
+<li>Early Career Professional Committee, American Ornithological Society</li>
+<li>Reviewer for: <i>National Science Foundation (Division of Environmental Biology), The Wilson Journal of Ornithology, Auk: Ornithological Advances, Condor: Ornithological Applications, Journal of Forest Ecology and Management, Journal of Field Ornithology, Journal of Avian Biology, Proceedings of the California Channel Islands Symposium, Behavioral Ecology, European Journal of Wildlife Research, Avian Conservation and Ecology, Ecological Monographs, Oecologia, Animal Migration, Molecular Ecology, Journal of Caribbean Ornithology, Ibis, Froniters in the Ecology and Evolution</i></li>
 </ul>
 
 <h2><b>Publications</b></h2>
