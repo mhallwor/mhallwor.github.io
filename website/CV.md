@@ -29,9 +29,8 @@ Last updated: 2019-09-06
 **2014-2015** _Postdoctoral research associate_ - University of Maryland, Baltimore County, Baltimore, MD.						                    Geography & Environmental Systems
 
 <br>
- 
-  <div style="float: left; width: 60%">
-  
+<div style="display: table; width: 100%; clear: both">
+<div style="float: left; width: 60%">
   <h2><b>Education</b></h2>
   <p style="text-indent: -2em; margin-left: 3em; font-size: 12pt"><b>Ph.D.</b>, Environmental Science and Public Policy, 2014.
 George Mason University, Fairfax, VA.<br>Advisors: Dr. Peter P. Marra & Dr. Larry Rockwood</p>
@@ -43,12 +42,11 @@ Plymouth State University, Plymouth, NH.<br>Advisor: Dr. Leonard Reitsma</p>
 Plymouth State University, Plymouth, NH.<br>Minor: Chemistry</p>    
   </div>
   
-  <div style="float: left; width: 40%; background-color: #f0f0f5;
+<div style="float: left; width: 40%; background-color: #f0f0f5;
               border: 2px solid black; border-radius: 8px;
               text-align: center;
               box-shadow: 5px 5px #888888;
               font-size: 12pt">
-  <br>
   <h2><b>Career Highlights</b></h2>
 <p><b>24</b> peer-reviewed publications<br>
      <b>h-index</b> = 10 <br>
@@ -57,8 +55,8 @@ Plymouth State University, Plymouth, NH.<br>Minor: Chemistry</p>
 
 Over <b>$305,000</b> in competitive grants <br>
 <b>Best Dissertation Award</b>, 2014-2015</p>
-<br>
-  </div>
+</div>
+</div>
 
 <br>
 <br>

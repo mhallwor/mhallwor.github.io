@@ -53,7 +53,7 @@ If installing these packages for the first time consider adding <code>dependenci
         
 <br>
 
-<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/basics_SpatialLines.R" target="_blank" class="btn btn--info">Download R script</a> Last modified: 2019-09-06 17:16:21
+<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/basics_SpatialLines.R" target="_blank" class="btn btn--info">Download R script</a> Last modified: 2019-09-06 18:49:22
 
 <hr>
 
@@ -81,12 +81,12 @@ ID <- paste0("line_",1:100)
 
 ```
 ##    x_coords y_coords     ID
-## 1 -94.34031 29.75704 line_1
-## 2 -89.93553 28.08729 line_2
-## 3 -85.94197 36.25755 line_3
-## 4 -82.07746 34.19026 line_4
-## 5 -85.23374 41.18741 line_5
-## 6 -92.80367 41.70876 line_6
+## 1 -97.62565 37.62132 line_1
+## 2 -80.02266 42.46848 line_2
+## 3 -86.41110 41.55089 line_3
+## 4 -83.78169 39.67623 line_4
+## 5 -90.30912 34.40001 line_5
+## 6 -91.27978 36.79996 line_6
 ```
 
 Now that we have the endpoints, we need to create a <code>Line</code> object then convert that to a <code>Lines</code> object and give them an ID then we can finally convert them to <code>SpatialLines</code>. Here, we'll use the first two points for our first line.
@@ -116,7 +116,7 @@ sp_line <- as(points,"SpatialLines")
 ```
 ## class       : SpatialLines 
 ## features    : 1 
-## extent      : -99.92255, -80.00981, 25.30927, 44.9734  (xmin, xmax, ymin, ymax)
+## extent      : -99.77334, -80.02266, 25.00572, 44.88346  (xmin, xmax, ymin, ymax)
 ## crs         : NA
 ```
 
@@ -141,7 +141,7 @@ rgeos::gLength(sp_line)
 ```
 
 ```
-## [1] 1008.786
+## [1] 1040.025
 ```
 
 Another option is to return the great circle distance. The following code calculates the great circle distance along a line and returns the distance in meters. 
@@ -152,7 +152,7 @@ geosphere::lengthLine(sp_line)
 ```
 
 ```
-## [1] 101577656
+## [1] 104684037
 ```
 
 <div style="background-color: #ffffe6; border-radius: 25px; text-align:center; vertical-align: middle; padding: 3px 0; margin: auto; width:600px; box-shadow: 4px 5px #f2f2f2;"> 

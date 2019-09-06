@@ -64,7 +64,7 @@ If installing these packages for the first time consider adding <code>dependenci
 </div>
         
 <br>
-<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/activities_ExtractRasterValues.R" target="_blank" class="btn btn--info">Download R script</a> Last modified: 2019-09-06 17:16:21
+<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/activities_ExtractRasterValues.R" target="_blank" class="btn btn--info">Download R script</a> Last modified: 2019-09-06 18:49:22
 <hr>
 
 
@@ -278,7 +278,7 @@ Sys.time()-a
 ```
 
 ```
-## Time difference of 2.450117 mins
+## Time difference of 2.390497 mins
 ```
 
 ```r
@@ -291,7 +291,7 @@ Sys.time() - b
 ```
 
 ```
-## Time difference of 21.70207 secs
+## Time difference of 25.51182 secs
 ```
  
 <div style="background-color: #ffffe6; border-radius: 25px; text-align:center; vertical-align: middle; padding: 3px 0; margin: auto; width:600px; box-shadow: 4px 5px #f2f2f2;"> 

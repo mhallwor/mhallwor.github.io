@@ -518,8 +518,8 @@ str(list.data)
 ##  $ id       : int [1:5] 1 2 3 4 5
 ##  $ names    : chr [1:2] "Dr. Seuss" "Cat in the hat"
 ##  $ DataFrame:'data.frame':	10 obs. of  2 variables:
-##   ..$ starttimes: num [1:10] -0.373 1.091 0.935 -1.294 -0.34 ...
-##   ..$ endtimes  : num [1:10] 26.7 24.6 22.1 23 29.7 ...
+##   ..$ starttimes: num [1:10] -2.369 0.331 1.19 0.076 0.07 ...
+##   ..$ endtimes  : num [1:10] 20.7 20.2 27.8 28.1 20.2 ...
 ```
 
 ```r
@@ -534,17 +534,17 @@ list.data
 ## [1] "Dr. Seuss"      "Cat in the hat"
 ## 
 ## $DataFrame
-##    starttimes endtimes
-## 1  -0.3729960 26.67917
-## 2   1.0909415 24.56870
-## 3   0.9349029 22.07960
-## 4  -1.2937402 22.95577
-## 5  -0.3399110 29.67247
-## 6   0.9968007 21.22484
-## 7   0.7887841 27.35752
-## 8  -1.7785085 24.23557
-## 9   0.1831431 27.14514
-## 10 -0.1461799 23.53201
+##     starttimes endtimes
+## 1  -2.36945683 20.66022
+## 2   0.33065552 20.20097
+## 3   1.19047559 27.78713
+## 4   0.07601010 28.11513
+## 5   0.07000428 20.18921
+## 6  -0.53598089 25.55918
+## 7   0.52672368 20.18900
+## 8   0.60610423 28.26350
+## 9  -0.01512991 24.61420
+## 10 -0.93893253 27.66609
 ```
 Accessing data stored within lists can be a little tricky.    
 Here is an example of how to extract the 5th element of starttime in the DataFrame object in our list.data object. 
@@ -554,7 +554,7 @@ list.data[[3]][5,1]
 ```
 
 ```
-## [1] -0.339911
+## [1] 0.07000428
 ```
 
 ```r
@@ -562,7 +562,7 @@ list.data[[3]]$starttime[5]
 ```
 
 ```
-## [1] -0.339911
+## [1] 0.07000428
 ```
 
 ```r
@@ -570,9 +570,9 @@ list.data$DataFrame$starttime[5]
 ```
 
 ```
-## [1] -0.339911
+## [1] 0.07000428
 ```
 
 <a href="#TOP">back to top</a>
 
-<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/R_basics.R" target="_blank" class="btn btn--info">Download R script</a> Last modified: 2019-09-06 17:16:21
+<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/R_basics.R" target="_blank" class="btn btn--info">Download R script</a> Last modified: 2019-09-06 18:49:22
