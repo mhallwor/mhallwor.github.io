@@ -10,7 +10,7 @@ permalink: /website/CV
 ---
 <script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
 
-`r paste0("Last updated: ",strptime(file.mtime("CV.Rmd"),format = "%Y-%m-%d"))`
+<i class="fa fa-pencil-square-o" aria-hidden="true"></i><p style="font-size: 9pt">`r paste0("Last updated: ",strptime(file.mtime("CV.Rmd"),format = "%Y-%m-%d"))`<p>
 
 <a name="TOP"></a>
 
@@ -28,7 +28,6 @@ permalink: /website/CV
                                                                                
 **2014-2015** _Postdoctoral research associate_ - University of Maryland, Baltimore County, Baltimore, MD.						                    Geography & Environmental Systems
 
-<br>
 <div style="display: table; width: 100%; clear: both">
 <div style="float: left; width: 60%">
   <h2><b>Education</b></h2>
@@ -58,8 +57,6 @@ Over <b>$305,000</b> in competitive grants <br>
 </div>
 </div>
 
-<br>
-<br>
 <h2><b>Teaching</b></h2>
 <ul style="font-size: 12pt">
 <li>Ecological Responses to Climate Change (ECO 691E)  - University of Massachusetts Amherst - Fall 2019</li>
@@ -109,7 +106,7 @@ Over <b>$305,000</b> in competitive grants <br>
 <ul style="font-size: 12pt">
 <li>ECo's Workplace Climate, Diversity, Inclusion, and Equity Committee, Chair. University of Massachusetts Amherst</li>
 <li>Early Career Professional Committee, American Ornithological Society</li>
-<li>Reviewer for: <i>National Science Foundation (Division of Environmental Biology), The Wilson Journal of Ornithology, Auk: Ornithological Advances, Condor: Ornithological Applications, Journal of Forest Ecology and Management, Journal of Field Ornithology, Journal of Avian Biology, Proceedings of the California Channel Islands Symposium, Behavioral Ecology, European Journal of Wildlife Research, Avian Conservation and Ecology, Ecological Monographs, Oecologia, Animal Migration, Molecular Ecology, Journal of Caribbean Ornithology, Ibis, Froniters in the Ecology and Evolution</i></li>
+<li>Reviewer for: <i>National Science Foundation (Division of Environmental Biology), The Wilson Journal of Ornithology, Auk: Ornithological Advances, Condor: Ornithological Applications, Journal of Forest Ecology and Management, Journal of Field Ornithology, Journal of Avian Biology, Proceedings of the California Channel Islands Symposium, Behavioral Ecology, European Journal of Wildlife Research, Avian Conservation and Ecology, Ecological Monographs, Oecologia, Animal Migration, Molecular Ecology, Journal of Caribbean Ornithology, Ibis, Froniters in the Ecology and Evolution, Journal of Ornithology</i></li>
 </ul>
 
 <h2><b>Publications</b></h2>
@@ -117,7 +114,11 @@ Over <b>$305,000</b> in competitive grants <br>
 <ol reversed style="font-size: 12pt">
 <li><p style="text-indent: -2em; margin-left: 2em">Odom, K. J., E. M. Shank, <b>M. T. Hallworth</b>, O. A. Diaz-Marrero and K. E. Omland. <i>in press</i>. Females and males maintain similar sized, stable territories between the breeding and non-breeding seasons in a tropical oriole (<i>Icterus icterus</i>). <b>Wilson Journal of Ornithology</b>.</p></li><br> 
 
-<li><p style="text-indent: -2em; margin-left: 2em">Brlik, V., J. Kolecek, M. Burgess, S. Hahn, M. Krist, J. Ouwehand, E. L. Weiser, P. Adamik, J. A. Alves, D. Arlt, S. Barisic, D. Becker, E. J. Belda, V. Beran, C. Both, S. P. Bravo, M. Briedis, B. Chutny, D. Cikovic, N. W. Cooper, J. S. Costa, V. R. Cueto, T. Emmenegger, K. Fraser, O. Gilg, M. Guerrero, <b>M. T. Hallworth</b>, C. Hewson, D. Humple, F. Jiguet, J. Johnson, T. Kelly, D. Kishkinev, M. Leconte, T. Lislevand, S. Lisovski, C. Lopez, K. MacFarland, P. P. Marra, S. M. Matsuoka, P. Matyjasiak, C. M. Meier, B.n Metzger, J. S. Monros, R. Neumann, A. Newman, R. Norris, T. Part, V. Pavel, N. Perlut, M. Piha, J. Reneerkens, C. Rimmer, A. Roberto-Charron, C. Scandolara, N. Sokolova, M. Takenaka, D. Tolkmitt, H. van Oosten, A. Wellbrock, H. Wheeler, J. van der Winden, K. Witte, B. Woodworth, P. Prochazka. 2019. Weak effects of geolocators on small birds: a meta-analysis controlled for phylogeny and publication bias. <b>Journal of Animal Ecology</b>. 0 0:1-14. https://doi.org/10.1111/1365-2656.12962</p><div data-badge-type="donut" data-doi="10.1111/1365-2656.12962" class="altmetric-embed"></div></li><br>
+<li>
+<p style="text-indent: -2em; margin-left: 2em">
+Brlik, V., J. Kolecek, M. Burgess, S. Hahn, M. Krist, J. Ouwehand, E. L. Weiser, P. Adamik, J. A. Alves, D. Arlt, S. Barisic, D. Becker, E. J. Belda, V. Beran, C. Both, S. P. Bravo, M. Briedis, B. Chutny, D. Cikovic, N. W. Cooper, J. S. Costa, V. R. Cueto, T. Emmenegger, K. Fraser, O. Gilg, M. Guerrero, <b>M. T. Hallworth</b>, C. Hewson, D. Humple, F. Jiguet, J. Johnson, T. Kelly, D. Kishkinev, M. Leconte, T. Lislevand, S. Lisovski, C. Lopez, K. MacFarland, P. P. Marra, S. M. Matsuoka, P. Matyjasiak, C. M. Meier, B.n Metzger, J. S. Monros, R. Neumann, A. Newman, R. Norris, T. Part, V. Pavel, N. Perlut, M. Piha, J. Reneerkens, C. Rimmer, A. Roberto-Charron, C. Scandolara, N. Sokolova, M. Takenaka, D. Tolkmitt, H. van Oosten, A. Wellbrock, H. Wheeler, J. van der Winden, K. Witte, B. Woodworth, P. Prochazka. 2019. Weak effects of geolocators on small birds: a meta-analysis controlled for phylogeny and publication bias. <b>Journal of Animal Ecology</b>. 0 0:1-14. https://doi.org/10.1111/1365-2656.12962<div data-badge-popover="right" data-badge-type="2" data-doi="10.1111/1365-2656.12962" class="altmetric-embed"></p> 
+<a href="https://github.com/MTHallworth/Manuscripts/raw/master/Brlik_et_al_2019_Journal_of_Animal_Ecology.pdf"><i class="far fa-file-pdf"></i></a>
+</li><br>
 
 <li><p style="text-indent: -2em; margin-left: 2em">Van Tatenhove, A., E. Filiberti, N. L. Rodenhouse, T. S. Sillett, and <b>M. T. Hallworth</b>. 2019. Migratory songbird and rodent distribution shifts correspond with spring temperatures in northern temperate forests. <b>Forests</b> https://doi.org/10.3390/f10020084 </p><div data-badge-type="donut" data-doi="10.3390/f10020084" class="altmetric-embed"></div></li><br>
 
