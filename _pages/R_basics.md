@@ -518,8 +518,8 @@ str(list.data)
 ##  $ id       : int [1:5] 1 2 3 4 5
 ##  $ names    : chr [1:2] "Dr. Seuss" "Cat in the hat"
 ##  $ DataFrame:'data.frame':	10 obs. of  2 variables:
-##   ..$ starttimes: num [1:10] 0.00263 0.41654 1.71995 -1.59649 0.46153 ...
-##   ..$ endtimes  : num [1:10] 20.4 20.4 26.7 27.1 24.4 ...
+##   ..$ starttimes: num [1:10] -1.136 0.982 -0.792 -0.328 1.71 ...
+##   ..$ endtimes  : num [1:10] 27.2 25.3 22.2 28.3 23.4 ...
 ```
 
 ```r
@@ -534,17 +534,17 @@ list.data
 ## [1] "Dr. Seuss"      "Cat in the hat"
 ## 
 ## $DataFrame
-##      starttimes endtimes
-## 1   0.002632066 20.42479
-## 2   0.416538206 20.43365
-## 3   1.719950678 26.70764
-## 4  -1.596489813 27.14383
-## 5   0.461533165 24.35444
-## 6  -1.261825760 21.73970
-## 7  -0.426144587 29.61890
-## 8   1.875531807 25.89857
-## 9  -0.040971821 29.85659
-## 10  0.596576131 29.28772
+##     starttimes endtimes
+## 1  -1.13641891 27.15934
+## 2   0.98208075 25.27281
+## 3  -0.79237326 22.22250
+## 4  -0.32801845 28.27742
+## 5   1.71030388 23.40933
+## 6   2.02505720 29.02246
+## 7   0.00266605 23.67033
+## 8   0.29999465 26.07038
+## 9  -0.96584180 27.70870
+## 10 -1.05030825 24.82813
 ```
 Accessing data stored within lists can be a little tricky.    
 Here is an example of how to extract the 5th element of starttime in the DataFrame object in our list.data object. 
@@ -554,7 +554,7 @@ list.data[[3]][5,1]
 ```
 
 ```
-## [1] 0.4615332
+## [1] 1.710304
 ```
 
 ```r
@@ -562,7 +562,7 @@ list.data[[3]]$starttime[5]
 ```
 
 ```
-## [1] 0.4615332
+## [1] 1.710304
 ```
 
 ```r
@@ -570,9 +570,9 @@ list.data$DataFrame$starttime[5]
 ```
 
 ```
-## [1] 0.4615332
+## [1] 1.710304
 ```
 
 <a href="#TOP">back to top</a>
 
-<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/R_basics.R" target="_blank" class="btn btn--info">Download R script</a> Last modified: 2019-09-19 01:26:40
+<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/R_basics.R" target="_blank" class="btn btn--info">Download R script</a> Last modified: 2019-09-20 18:26:28

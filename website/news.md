@@ -11,7 +11,7 @@ sidebar:
     image: assets/images/dragon_infographic.jpg
     text: "Hallworth et al. 2018, Biology Letters"
 ---
-Last updated: 2019-09-19
+Last updated: 2019-09-20
 
 <div style="text-align:center">
 <h1> 2019 </h1>

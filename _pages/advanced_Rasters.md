@@ -394,7 +394,7 @@ You may notice that some values are -Inf or Inf. We'll ignore that for now becau
 ## resolution : 231.6564, 231.6564  (x, y)
 ## extent     : -11119505, -10007555, 3335852, 4447802  (xmin, xmax, ymin, ymax)
 ## crs        : +proj=sinu +lon_0=0 +x_0=0 +y_0=0 +a=6371007.181 +b=6371007.181 +units=m +no_defs 
-## source     : /tmp/Rtmp7B8keE/raster/r_tmp_2019-09-19_013842_4504_49016.grd 
+## source     : /tmp/RtmptVl0SY/raster/r_tmp_2019-09-20_183439_20212_70933.grd 
 ## names      : layer 
 ## values     : -201, 201  (min, max)
 ```
@@ -428,7 +428,7 @@ Sys.time()-a
 ```
 
 ```
-## Time difference of 33.53555 secs
+## Time difference of 27.56513 secs
 ```
 NDVI values should range in the values between -1 and 1. Let's make sure that's the case by setting the upper and lower values manually.
 
@@ -460,7 +460,7 @@ diff_ndvi <- NDVI_2017-NDVI_2000
 ## resolution : 231.6564, 231.6564  (x, y)
 ## extent     : -11119505, -8895604, 3335852, 4447802  (xmin, xmax, ymin, ymax)
 ## crs        : +proj=sinu +lon_0=0 +x_0=0 +y_0=0 +a=6371007.181 +b=6371007.181 +units=m +no_defs 
-## source     : /tmp/Rtmp7B8keE/raster/r_tmp_2019-09-19_014138_4504_36304.grd 
+## source     : /tmp/RtmptVl0SY/raster/r_tmp_2019-09-20_183705_20212_39253.grd 
 ## names      : layer 
 ## values     : -2, 2  (min, max)
 ```
@@ -542,4 +542,4 @@ plotRGB(ndvi_brick)
 <a href="#TOP">Back to top</a>
 
 
-<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/advanced_Rasters.R" target="_blank" class="btn btn--info">Download R script</a> Last modified: 2019-09-19 01:26:40
+<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/advanced_Rasters.R" target="_blank" class="btn btn--info">Download R script</a> Last modified: 2019-09-20 18:26:28

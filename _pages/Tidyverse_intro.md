@@ -37,7 +37,7 @@ If installing these packages for the first time consider adding <code>dependenci
 <br>
 This activity will integrate spatial data with the tidyverse. See <a href = "{{ site.baseurl }}/_pages/tidyverse_basics" target="_blank">introduction to the tidyverse</a> for more information on the tidyverse.
 
-<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/Tidyverse_intro.R" target="_blank" class="btn btn--info">Download R script</a> Last modified: 2019-09-19 01:26:40
+<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/Tidyverse_intro.R" target="_blank" class="btn btn--info">Download R script</a> Last modified: 2019-09-20 18:26:28
 
 ## The tidyverse and spatial data
 

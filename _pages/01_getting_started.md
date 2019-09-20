@@ -114,4 +114,4 @@ Running Windows and interested in MODIS data? You will need <strong>OSGeo4W</str
 
 *Setup instructions are based on a very helpful [post by Nick Eubank](http://www.nickeubank.com/wp-content/uploads/2015/10/RGIS1_SpatialDataTypes_part0_setup.html)*
 
-<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/getting_started.R" target="_blank" class="btn btn--info">Download R script</a> Last modified: 2019-09-19 01:26:40
+<a href="https://raw.githubusercontent.com/mhallwor/mhallwor.github.io/develop/Rscripts/getting_started.R" target="_blank" class="btn btn--info">Download R script</a> Last modified: 2019-09-20 18:26:28
